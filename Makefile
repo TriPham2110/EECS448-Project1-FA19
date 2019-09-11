@@ -41,7 +41,7 @@ CXX := g++
 # quicker than using sed, Vi, or C-M-%. The shell command expands to flags that
 # GTK+ requires to compile.
 GENFLAGS := -std=c++11 -Wall -g
-CFLAGS := -$(GENFLAGS)
+CFLAGS := -$(GENFLAGS) $(shell pkg-config --libs gtk+-3.0)
 LDFLAGS := $(GENFLAGS) -c -I ./$(INCDIR)
 # The $@ refers to the target. There's no reason to write it twice.
 # Recursively expands to target name of any rule that uses the variable.
