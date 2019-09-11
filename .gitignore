@@ -1,5 +1,8 @@
 # -*- mode: gitignore; -*-
 
+# macOS Directory Layout Files
+*.DS_Store
+
 # Object Files
 *.o
 
