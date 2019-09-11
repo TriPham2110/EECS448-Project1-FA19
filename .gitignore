@@ -1,0 +1,12 @@
+# -*- mode: gitignore; -*-
+
+# Object Files
+*.o
+
+# Emacs autosave files
+*~
+\#*\#
+
+# Org and Flycheck files
+*.org
+flycheck*.elc
