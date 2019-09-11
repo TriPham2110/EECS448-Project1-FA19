@@ -1,0 +1,46 @@
+-we will use gdk
+
+--Roles--
+  Window
+    Zach
+    Victoria
+  Board
+    Finn
+    Sindhu
+    
+  Ship/Player
+    Anjali
+  
+Stucture
+  Window (class)
+  --Methods--
+    placeShip()
+    
+  Board (board class)
+    --Methods--
+      saveShip()    // save the location of the ship when placing
+      updateBoard() // update the board when something changes
+      checkShip()   // is there a ship at this location
+      hit()         // a ship is hit
+      miss()        // the shot missed
+      sunk()        // a ship is sunk
+      end()         // end routine
+      
+    grid of buttons
+    display both your board and opponent's board
+    
+  display hits and misses (pegs class)
+    
+  Ships (ship class)
+    --variables--
+      size
+      orientation
+      location
+    --Methods--
+      
+    how to place ships
+    
+  Player (player class)
+    --Methods--
+      attack() // attacks a position on the board
+      
