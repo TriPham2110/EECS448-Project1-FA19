@@ -40,8 +40,9 @@ CXX := g++
 # You probably don't want to change these all by hand. Changing this is even
 # quicker than using sed, Vi, or C-M-%. The shell command expands to flags that
 # GTK+ requires to compile.
-CFLAGS := -std=c++11 -Wall -g
-LDFLAGS := $(CFLAGS) -c
+GENFLAGS := -std=c++11 -Wall -g
+CFLAGS := -$(GENFLAGS)
+LDFLAGS := $(GENFLAGS) -c -I ./$(INCDIR)
 # The $@ refers to the target. There's no reason to write it twice.
 # Recursively expands to target name of any rule that uses the variable.
 EXPORT = -o $@
