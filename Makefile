@@ -37,16 +37,24 @@ MFLAGS := --leak-check=full --show-leak-kinds=all --track-origins=yes
 # CXX is typically an environment variable, but just in case it happens to be
 # clang, we'll enforce g++
 CXX := g++
+
 # You probably don't want to change these all by hand. Changing this is even
 # quicker than using sed, Vi, or C-M-%. The shell command expands to flags that
 # GTK+ requires to compile.
-GENFLAGS := -std=c++11 -Wall -g
-CFLAGS := -$(GENFLAGS) $(shell pkg-config --libs gtk+-3.0)
-LDFLAGS := $(GENFLAGS) -c -I ./$(INCDIR)
+# -g -- Generate debugging information
+# -c -- Do not run the linker
+# -o -- Name the output whatever comes after
+# -W... -- Makes the compiler complain if you go too far off-standard
+GENFLAGS := -std=c++11 -Wall -Wextra -Wpedantic -Wconversion
+CXXFLAGS := -$(GENFLAGS) -g $(shell pkg-config gtkmm-3.0 --cflags) -c
+LDFLAGS := $(GENFLAGS) $(shell pkg-config gtkmm-3.0 --libs)
+
 # The $@ refers to the target. There's no reason to write it twice.
+# $< refers to the first thing after the colon
+# $^ refers to everything after the colon
 # Recursively expands to target name of any rule that uses the variable.
 EXPORT = -o $@
-DEPENDENCIES := $(OBJDIR)/main.o
+DEPENDENCIES = $(OBJDIR)/main.o
 
 # --- Phonies ---
 # Phonies essentially declare a target as being unrelated to actual files in
@@ -57,7 +65,7 @@ DEPENDENCIES := $(OBJDIR)/main.o
 # --- Compilation Options ---
 # By convention 'all' compiles the entire program.
 all: $(DEPENDENCIES)
-	$(CXX) $(CFLAGS) $(DEPENDENCIES) -o $(FILENAME)
+	$(CXX) $(DEPENDENCIES) $(LDFLAGS) -o $(FILENAME)
 
 # install: all
 # By definition this should place the executable in a standard location, either
@@ -65,8 +73,7 @@ all: $(DEPENDENCIES)
 
 # --- Source Files ---
 $(OBJDIR)/main.o: $(SRCDIR)/main.cpp
-	$(CXX) $(LDFLAGS) $(SRCDIR)/main.cpp $(EXPORT)
-
+	$(CXX) $(CXXFLAGS) $(SRCDIR)/main.cpp $(EXPORT)
 
 # --- Housekeeping ---
 # Clear out all the cobwebs and recompile everything.
