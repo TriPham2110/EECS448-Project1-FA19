@@ -29,6 +29,15 @@ class BattleWindow : public Gtk::Window {
 		 */
 		virtual ~BattleWindow();
 
+	private:
+
+		/**
+		 * @pre
+		 * @post
+		 * @brief
+		 */
+		void prettify_window_manager();
+
 };
 
 #endif // BATTLE_WINDOW_H_
