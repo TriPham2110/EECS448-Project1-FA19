@@ -25,9 +25,9 @@
 FILENAME := BattleShip
 
 # --- Include Dirs ---
-SRCDIR := src
-INCDIR := inc
-OBJDIR := obj
+SRCDIR := ./src
+INCDIR := ./inc
+OBJDIR := ./obj
 
 # --- Debugging ---
 MT := valgrind
@@ -44,18 +44,20 @@ CXX := g++
 # -g -- Generate debugging information
 # -c -- Do not run the linker
 # -o -- Name the output whatever comes after
-# -W... -- Makes the compiler complain if you go too far off-standard
-GENFLAGS := -std=c++11 -Wall -Wextra -Wpedantic -Wconversion
-CXXFLAGS := -$(GENFLAGS) -g $(shell pkg-config gtkmm-3.0 --cflags) -c
-LDFLAGS := $(GENFLAGS) $(shell pkg-config gtkmm-3.0 --libs)
+# -W -- Makes the compiler complain if you go too far off-standard
+GENFLAGS = -std=c++11 -Wall -Wextra -Wpedantic -Wconversion -I$(INCDIR)
+GTKCXXFLAGS = $(shell pkg-config gtkmm-3.0 --cflags)
+GTKLDFLAGS = $(shell pkg-config gtkmm-3.0 --libs)
+CXXFLAGS = $(GENFLAGS) $(GTKCXXFLAGS) -g -c
+LDFLAGS = $(GENFLAGS) $(GTKLDFLAGS) -g
 
 # The $@ refers to the target. There's no reason to write it twice.
 # $< refers to the first thing after the colon
 # $^ refers to everything after the colon
 # Recursively expands to target name of any rule that uses the variable.
 EXPORT = -o $@
-DEPENDENCIES = $(OBJDIR)/main.o
 
+DEPENDENCIES = $(OBJDIR)/main.o $(OBJDIR)/executive.o
 # --- Phonies ---
 # Phonies essentially declare a target as being unrelated to actual files in
 # the project directory, and allow you to make files with the same name as
@@ -73,7 +75,10 @@ all: $(DEPENDENCIES)
 
 # --- Source Files ---
 $(OBJDIR)/main.o: $(SRCDIR)/main.cpp
-	$(CXX) $(CXXFLAGS) $(SRCDIR)/main.cpp $(EXPORT)
+	$(CXX) $(CXXFLAGS) $< $(EXPORT)
+
+$(OBJDIR)/executive.o: $(SRCDIR)/executive.cpp
+	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
 # --- Housekeeping ---
 # Clear out all the cobwebs and recompile everything.
