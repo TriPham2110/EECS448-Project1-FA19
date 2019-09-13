@@ -29,6 +29,18 @@ class BattleWindow : public Gtk::Window {
 		 */
 		virtual ~BattleWindow();
 
+	protected:
+
+		// Signal Handlers
+		/**
+		 * @pre
+		 * @post
+		 * @brief
+		 */
+		static void on_start_button_clicked();
+
+		// Member Widgets
+		Gtk::Button start_menu_button;
 	private:
 
 		/**
@@ -38,6 +50,12 @@ class BattleWindow : public Gtk::Window {
 		 */
 		void prettify_window_manager();
 
+		/**
+		 * @pre
+		 * @post
+		 * @brief
+		 */
+		void add_menu_button_decorations();
 };
 
 #endif // BATTLE_WINDOW_H_

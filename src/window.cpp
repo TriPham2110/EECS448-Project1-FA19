@@ -11,8 +11,10 @@
 
 
 BattleWindow::BattleWindow()
+	: start_menu_button("Start")
 {
 	this->prettify_window_manager();
+	this->add_menu_button_decorationss();
 }
 
 BattleWindow::~BattleWindow() {
@@ -20,6 +22,9 @@ BattleWindow::~BattleWindow() {
 }
 
 void BattleWindow::on_start_button_clicked() {
+	std::cout << "Game Started." << std::endl;
+}
+
 	/*
 	 * You may or may not see this granular comment style as gratiutious but I
 	 * invite you to read the source code to any GNU utility whatsoever without
@@ -32,3 +37,5 @@ void BattleWindow::on_start_button_clicked() {
 	// Width of border in Window Manager
 	this->set_border_width(10);
 }
+
+void BattleWindow::add_menu_button_decorations();
