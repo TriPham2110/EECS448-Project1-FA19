@@ -2,7 +2,7 @@
 /**
  * @file   window.h
  * @date   06 September 2019
- * @brief
+ * @brief  TODO: Brief description
  */
 
 #ifndef BATTLE_WINDOW_H
@@ -15,14 +15,14 @@ class BattleWindow : public Gtk::Window {
 
 	public:
 
-		/**
+		/** TODO: Add documentation
 		 * @pre
 		 * @post
 		 * @brief
 		 */
 		BattleWindow();
 
-		/**
+		/** TODO: Add documentation
 		 * @pre
 		 * @post
 		 * @brief
@@ -32,21 +32,21 @@ class BattleWindow : public Gtk::Window {
 	protected:
 
 		// Signal Handlers
-		/**
+		/** TODO: Add documentation
 		 * @pre
 		 * @post
 		 * @brief
 		 */
 		void on_start_button_clicked();
 
-		/**
+		/** TODO: Add documentation
 		 * @pre
 		 * @post
 		 * @brief
 		 */
 		void on_pause_button_clicked();
 
-		/**
+		/** TODO: Add documentation
 		 * @pre
 		 * @post
 		 * @brief
@@ -61,28 +61,28 @@ class BattleWindow : public Gtk::Window {
 
 	private:
 
-		/**
+		/** TODO: Add documentation
 		 * @pre
 		 * @post
 		 * @brief
 		 */
 		void prettify_window_manager();
 
-		/**
+		/** TODO: Add documentation
 		 * @pre
 		 * @post
 		 * @brief
 		 */
 		void add_start_menu_button_decoration();
 
-		/**
+		/** TODO: Add documentation
 		 * @pre
 		 * @post
 		 * @brief
 		 */
 		void add_pause_menu_button_decoration();
 
-		/**
+		/** TODO: Add documentation
 		 * @pre
 		 * @post
 		 * @brief

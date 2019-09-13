@@ -18,9 +18,33 @@ class BattleWindow;
 class Executive {
 
 	public:
+
+		/** TODO: Add documentation
+		 * @pre
+		 * @post
+		 * @brief
+		 */
 		Executive();
+
+		/** TODO: Add documentation
+		 * @pre
+		 * @post
+		 * @brief
+		 */
 		Executive(int argc, char* argv[]);
+
+		/** TODO: Add documentation
+		 * @pre
+		 * @post
+		 * @brief
+		 */
 		~Executive();
+
+		/** TODO: Add documentation
+		 * @pre
+		 * @post
+		 * @brief
+		 */
 		int run();
 
 	private:
