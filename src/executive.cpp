@@ -8,7 +8,8 @@
 
 #include "executive.h"
 
-int Executive::Executive() {
+
+Executive::Executive() {
 
 }
 
