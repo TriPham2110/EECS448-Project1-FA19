@@ -11,6 +11,9 @@
 #include <glibmm/refptr.h>
 #include <gtkmm/application.h>
 
+// Forward Declarations
+class BattleWindow;
+
 // Executive
 class Executive {
 
@@ -21,6 +24,8 @@ class Executive {
 		int run();
 
 	private:
+		Glib::RefPtr<Gtk::Application> app;
+		BattleWindow* main_window;
 
 };
 #endif // EXECUTIVE_H_

@@ -57,7 +57,7 @@ LDFLAGS = $(GENFLAGS) $(GTKLDFLAGS) -g
 # Recursively expands to target name of any rule that uses the variable.
 EXPORT = -o $@
 
-DEPENDENCIES = $(OBJDIR)/main.o $(OBJDIR)/executive.o
+DEPENDENCIES = $(OBJDIR)/main.o $(OBJDIR)/executive.o $(OBJDIR)/window.o
 # --- Phonies ---
 # Phonies essentially declare a target as being unrelated to actual files in
 # the project directory, and allow you to make files with the same name as
@@ -80,6 +80,8 @@ $(OBJDIR)/main.o: $(SRCDIR)/main.cpp
 $(OBJDIR)/executive.o: $(SRCDIR)/executive.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
+$(OBJDIR)/window.o: $(SRCDIR)/window.cpp
+	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 # --- Housekeeping ---
 # Clear out all the cobwebs and recompile everything.
 rebuild: clean all

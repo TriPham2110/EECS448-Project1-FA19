@@ -7,6 +7,8 @@
 */
 
 #include "executive.h"
+#include "window.h"
+
 
 
 Executive::Executive() {
@@ -14,7 +16,7 @@ Executive::Executive() {
 }
 
 Executive::Executive(int argc, char* argv[]) {
-
+	app = Gtk::Application::create(argc, argv, "eecs448.fa19.project1.tghet");
 }
 
 Executive::~Executive() {
@@ -22,5 +24,6 @@ Executive::~Executive() {
 }
 
 int Executive::run() {
-	return 0;
+	main_window = new BattleWindow;
+	return app->run(*main_window);
 }
