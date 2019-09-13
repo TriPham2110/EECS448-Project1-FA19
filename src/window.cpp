@@ -26,18 +26,6 @@ BattleWindow::~BattleWindow() {
 
 }
 
-void BattleWindow::on_start_button_clicked() {
-	std::cout << "Game Started." << std::endl;
-}
-
-void BattleWindow::on_pause_button_clicked() {
-	std::cout << "Game Paused." << std::endl;
-}
-
-void BattleWindow::on_exit_button_clicked() {
-
-}
-
 
 void BattleWindow::prettify_window_manager() {
 	/*
@@ -51,22 +39,4 @@ void BattleWindow::prettify_window_manager() {
 	this->set_default_size(800,600);
 	// Width of border in Window Manager
 	this->set_border_width(10);
-}
-
-void BattleWindow::add_start_menu_button_decoration() {
-	start_menu_button.signal_clicked().connect(sigc::mem_fun(*this, &BattleWindow::on_start_button_clicked));
-	add(start_menu_button);
-	start_menu_button.show();
-}
-
-void BattleWindow::add_pause_menu_button_decoration() {
-	pause_menu_button.signal_clicked().connect(sigc::mem_fun(*this, &BattleWindow::on_pause_button_clicked));
-	add(pause_menu_button);
-	pause_menu_button.show();
-}
-
-void BattleWindow::add_exit_menu_button_decoration() {
-	exit_menu_button.signal_clicked().connect(sigc::mem_fun(*this, &BattleWindow::on_exit_button_clicked));
-	add(exit_menu_button);
-	exit_menu_button.show();
 }

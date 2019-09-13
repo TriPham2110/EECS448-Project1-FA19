@@ -11,6 +11,9 @@
 #include <gtkmm/window.h>
 #include <gtkmm/button.h>
 
+// Forward Declaration of Game Field & Menu Container
+class UserInterface;
+
 class BattleWindow : public Gtk::Window {
 
 	public:
@@ -28,36 +31,6 @@ class BattleWindow : public Gtk::Window {
 		 * @brief
 		 */
 		virtual ~BattleWindow();
-
-	protected:
-
-		// Signal Handlers
-		/** TODO: Add documentation
-		 * @pre
-		 * @post
-		 * @brief
-		 */
-		void on_start_button_clicked();
-
-		/** TODO: Add documentation
-		 * @pre
-		 * @post
-		 * @brief
-		 */
-		void on_pause_button_clicked();
-
-		/** TODO: Add documentation
-		 * @pre
-		 * @post
-		 * @brief
-		 */
-		void on_exit_button_clicked();
-
-
-		// Member Widgets
-		Gtk::Button start_menu_button;
-		Gtk::Button pause_menu_button;
-		Gtk::Button exit_menu_button;
 
 	private:
 

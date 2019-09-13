@@ -38,6 +38,15 @@ MFLAGS := --leak-check=full --show-leak-kinds=all --track-origins=yes
 # clang, we'll enforce g++
 CXX := g++
 
+# --- Compiliing: Detect System Type & Automatically Append Paths ---
+SYSTYPE := ($shell uname -s)
+ifeq ($(SYSTYPE),Darwin)
+	export PKG_CONFIG_PATH := "/usr/local/opt/libffi/lib/pkgconfig:$PKG_CONFIG_PATH"
+endif
+#ifeq ($(SYSTYPE),Linux)
+#endif
+
+# --- Compiling: Set Compiler Flags
 # You probably don't want to change these all by hand. Changing this is even
 # quicker than using sed, Vi, or C-M-%. The shell command expands to flags that
 # GTK+ requires to compile.
@@ -82,6 +91,7 @@ $(OBJDIR)/executive.o: $(SRCDIR)/executive.cpp
 
 $(OBJDIR)/window.o: $(SRCDIR)/window.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
+
 # --- Housekeeping ---
 # Clear out all the cobwebs and recompile everything.
 rebuild: clean all
