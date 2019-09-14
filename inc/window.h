@@ -41,27 +41,7 @@ class BattleWindow : public Gtk::Window {
 		 */
 		void prettify_window_manager();
 
-		/** TODO: Add documentation
-		 * @pre
-		 * @post
-		 * @brief
-		 */
-		void add_start_menu_button_decoration();
-
-		/** TODO: Add documentation
-		 * @pre
-		 * @post
-		 * @brief
-		 */
-		void add_pause_menu_button_decoration();
-
-		/** TODO: Add documentation
-		 * @pre
-		 * @post
-		 * @brief
-		 */
-		void add_exit_menu_button_decoration();
-
+		UserInterface* user_interface;
 };
 
 #endif // BATTLE_WINDOW_H_

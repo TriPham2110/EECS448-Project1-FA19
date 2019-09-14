@@ -15,11 +15,9 @@ BattleWindow::BattleWindow()
 	  pause_menu_button("Pause"),
 	  exit_menu_button("Exit")
 {
-
 	this->prettify_window_manager();
-	this->add_start_menu_button_decoration();
-	this->add_pause_menu_button_decoration();
-	this->add_exit_menu_button_decoration();
+
+	user_interface = new UserInterface;
 }
 
 BattleWindow::~BattleWindow() {

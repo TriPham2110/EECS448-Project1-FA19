@@ -16,6 +16,7 @@ Executive::Executive() {
 }
 
 Executive::Executive(int argc, char* argv[]) {
+	// Future teams will need to change this application ID to suit them.
 	app = Gtk::Application::create(argc, argv, "eecs448.fa19.project1.tghet");
 }
 
