@@ -31,7 +31,7 @@ OBJDIR := ./obj
 
 # --- Debugging ---
 MT := valgrind
-MFLAGS := --leak-check=full --show-leak-kinds=all --track-origins=yes
+MFLAGS := --leak-check=full --show-leak-kinds=all --leak-resolution=high --track-origins=yes --log-file=vgdump
 
 # --- Compiling ---
 # CXX is typically an environment variable, but just in case it happens to be
@@ -66,7 +66,10 @@ LDFLAGS = $(GENFLAGS) $(GTKLDFLAGS) -g
 # Recursively expands to target name of any rule that uses the variable.
 EXPORT = -o $@
 
-DEPENDENCIES = $(OBJDIR)/main.o $(OBJDIR)/executive.o $(OBJDIR)/window.o
+DEPENDENCIES = $(OBJDIR)/main.o $(OBJDIR)/executive.o\
+               $(OBJDIR)/window.o $(OBJDIR)/gui.o\
+               $(OBJDIR)/mainmenu.o
+
 # --- Phonies ---
 # Phonies essentially declare a target as being unrelated to actual files in
 # the project directory, and allow you to make files with the same name as
@@ -90,6 +93,12 @@ $(OBJDIR)/executive.o: $(SRCDIR)/executive.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
 $(OBJDIR)/window.o: $(SRCDIR)/window.cpp
+	$(CXX) $(CXXFLAGS) $< $(EXPORT)
+
+$(OBJDIR)/gui.o: $(SRCDIR)/gui.cpp
+	$(CXX) $(CXXFLAGS) $< $(EXPORT)
+
+$(OBJDIR)/mainmenu.o: $(SRCDIR)/mainmenu.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
 # --- Housekeeping ---
