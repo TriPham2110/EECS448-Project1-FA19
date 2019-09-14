@@ -7,16 +7,13 @@
 
 #include <iostream>
 
+#include "gui.h"
 #include "window.h"
 
 
 BattleWindow::BattleWindow()
-	: start_menu_button("Start"),
-	  pause_menu_button("Pause"),
-	  exit_menu_button("Exit")
 {
 	this->prettify_window_manager();
-
 	user_interface = new UserInterface;
 }
 
