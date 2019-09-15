@@ -10,7 +10,9 @@
 #include "mainmenu.h"
 
 MainMenu::MainMenu() {
-
+	this->add_start_menu_button_decoration();
+	this->add_pause_menu_button_decoration();
+	this->add_exit_menu_button_decoration();
 }
 
 MainMenu::~MainMenu() {
