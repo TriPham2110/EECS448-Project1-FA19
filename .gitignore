@@ -13,10 +13,9 @@ BattleShip
 # Object Files
 *.o
 
-# Emacs autosave files
+# Emacs Pollution
 *~
 \#*\#
-
-# Org and Flycheck files
 *.org
 flycheck*.elc
+*.projectile
