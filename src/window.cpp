@@ -13,7 +13,7 @@
 
 BattleWindow::BattleWindow()
 {
-	this->prettify_window_manager();
+	prettify_window_manager();
 	bootstrap_user_interface();
 }
 
