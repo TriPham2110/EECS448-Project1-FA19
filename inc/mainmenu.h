@@ -14,6 +14,11 @@
 class MainMenu : public Gtk::Box {
 
 	public:
+
+		MainMenu();
+
+		~MainMenu();
+
 	protected:
 
 		// Signal Handlers
