@@ -30,8 +30,18 @@ INCDIR := ./inc
 OBJDIR := ./obj
 
 # --- Debugging ---
+# This is here but my recommendation is not to run it. There is a lot of lazy
+# memory hacking in GTK that causes Valgrind to go a little crazy. There was
+# an effort to make a list of things Valgrind should ignore and not report
+# since they are GTK's fault and not yours, but it was not updated for GTK as
+# far as we can tell. You will know when your program has no memory errors when
+# using it does not cause it to crash.
 MT := valgrind
-MFLAGS := --leak-check=full --show-leak-kinds=all --leak-resolution=high --track-origins=yes --log-file=vgdump
+MFLAGS := --leak-check=full \
+          --show-leak-kinds=all \
+          --leak-resolution=high \
+          --track-origins=yes \
+          --log-file=vgdump
 
 # --- Compiling ---
 # CXX is typically an environment variable, but just in case it happens to be
