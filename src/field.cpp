@@ -5,6 +5,10 @@
 * @brief
 */
 
-PlayingField::PlayingField();
+PlayingField::PlayingField() {
 
-PlayingField::~PlayingField();
+}
+
+PlayingField::~PlayingField() {
+
+}
