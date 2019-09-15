@@ -7,7 +7,9 @@
 
 #include "field.h"
 
-PlayingField::PlayingField() {
+PlayingField::PlayingField()
+	: Gtk::Box(Gtk::ORIENTATION_HORIZONTAL)
+{
 
 }
 
