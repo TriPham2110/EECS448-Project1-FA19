@@ -59,6 +59,9 @@ SYSTYPE := $(shell uname -s)
 # -c -- Do not run the linker
 # -o -- Name the output whatever comes after
 # -W -- Makes the compiler complain if you go too far off-standard
+# -I$(INCDIR) -- Makes the compiler search /inc for headers -- this is good
+#                because errors become informative instead of being hidden
+#                behind a series of recursive includes.
 GENFLAGS = -std=c++11 -Wall -Wextra -Wpedantic -Wconversion -I$(INCDIR)
 GTKCXXFLAGS = $(shell pkg-config gtkmm-3.0 --cflags)
 GTKLDFLAGS = $(shell pkg-config gtkmm-3.0 --libs)
@@ -94,10 +97,11 @@ endif
 	$(CXX) $(DEPENDENCIES) $(LDFLAGS) -o $(FILENAME)
 
 # install: all
-# By definition this should place the executable in a standard location, either
+# By convention this should place the executable in a standard location, either
 # in /usr/bin or /usr/local/bin
 
 # --- Source Files ---
+# TODO: Reduce this to one automatic line.
 $(OBJDIR)/main.o: $(SRCDIR)/main.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
