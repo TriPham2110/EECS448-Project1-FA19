@@ -18,11 +18,6 @@ class UserInterface : public Gtk::Box {
 
 	public:
 
-		/** TODO: Add documentation
-		 * @pre
-		 * @post
-		 * @brief
-		 */
 		UserInterface();
 
 		/** TODO: Add documentation
@@ -30,8 +25,11 @@ class UserInterface : public Gtk::Box {
 		 * @post
 		 * @brief
 		 */
-		~UserInterface();
+		virtual ~UserInterface();
 
+	protected:
+		PlayingField* playing_field;
+		MainMenu* main_menu;
 
 	private:
 
@@ -48,10 +46,6 @@ class UserInterface : public Gtk::Box {
 		 * @brief
 		 */
 		void bootstrap_main_menu();
-
-		PlayingField* the_field;
-
-		MainMenu* main_menu;
 
 };
 
