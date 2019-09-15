@@ -14,13 +14,12 @@
 BattleWindow::BattleWindow()
 {
 	this->prettify_window_manager();
-	user_interface = new UserInterface;
+	bootstrap_user_interface();
 }
 
 BattleWindow::~BattleWindow() {
-
+	delete user_interface;
 }
-
 
 void BattleWindow::prettify_window_manager() {
 	/*
@@ -34,4 +33,9 @@ void BattleWindow::prettify_window_manager() {
 	this->set_default_size(800,600);
 	// Width of border in Window Manager
 	this->set_border_width(10);
+}
+
+void BattleWindow::bootstrap_user_interface() {
+	this->user_interface = new UserInterface;
+	this->add(*user_interface);
 }
