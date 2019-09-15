@@ -13,7 +13,8 @@
 UserInterface::UserInterface()
 	: Gtk::Box(Gtk::ORIENTATION_VERTICAL)
 {
-	this->bootstrap_main_menu();
+	bootstrap_playing_field();
+	bootstrap_main_menu();
 }
 
 UserInterface::~UserInterface() {
@@ -22,10 +23,13 @@ UserInterface::~UserInterface() {
 }
 
 void UserInterface::bootstrap_playing_field() {
-	//the_field = new PlayingField();
+	this->playing_field = new PlayingField();
+	this->add(*playing_field);
+	playing_field->show();
 }
 
 void UserInterface::bootstrap_main_menu() {
-	this->main_menu = new MainMenu;
+	this->main_menu = new MainMenu();
 	this->add(*main_menu);
+	main_menu->show();
 }
