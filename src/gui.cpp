@@ -1,6 +1,5 @@
 // -*- C++ -*-
 /**
-* @author Zach Pearson
 * @file   gui.cpp
 * @date   14 September 2019
 * @brief

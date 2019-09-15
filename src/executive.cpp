@@ -1,6 +1,5 @@
 // -*- C++ -*-
 /**
-* @author Zach Pearson
 * @file   executive.cpp
 * @date   11 September 2019
 * @brief
