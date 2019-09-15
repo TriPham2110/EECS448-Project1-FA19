@@ -48,13 +48,8 @@ MFLAGS := --leak-check=full \
 # clang, we'll enforce g++
 CXX := g++
 
-# --- Compiliing: Detect System Type & Automatically Append Paths ---
-SYSTYPE := ($shell uname -s)
-ifeq ($(SYSTYPE),Darwin)
-	export PKG_CONFIG_PATH := "/usr/local/opt/libffi/lib/pkgconfig:$PKG_CONFIG_PATH"
-endif
-#ifeq ($(SYSTYPE),Linux)
-#endif
+# --- Compiliing: Detect System Type to Automatically Append Paths Later ---
+SYSTYPE := $(shell uname -s)
 
 # --- Compiling: Set Compiler Flags
 # You probably don't want to change these all by hand. Changing this is even
@@ -89,6 +84,13 @@ DEPENDENCIES = $(OBJDIR)/main.o $(OBJDIR)/executive.o\
 # --- Compilation Options ---
 # By convention 'all' compiles the entire program.
 all: $(DEPENDENCIES)
+# Set up MacOS Environment
+ifeq ($(SYSTYPE),Darwin)
+	export PKG_CONFIG_PATH := "/usr/local/opt/libffi/lib/pkgconfig:$PKG_CONFIG_PATH"
+endif
+# Set up Linux Environment
+#ifeq ($(SYSTYPE),Linux)
+#endif
 	$(CXX) $(DEPENDENCIES) $(LDFLAGS) -o $(FILENAME)
 
 # install: all
