@@ -9,9 +9,8 @@
 #define BATTLE_WINDOW_H
 
 #include <gtkmm/window.h>
-#include <gtkmm/button.h>
 
-// Forward Declaration of Game Field & Menu Container
+// Forward Declarations
 class UserInterface;
 
 class BattleWindow : public Gtk::Window {
@@ -32,6 +31,9 @@ class BattleWindow : public Gtk::Window {
 		 */
 		virtual ~BattleWindow();
 
+	protected:
+		UserInterface* user_interface;
+
 	private:
 
 		/** TODO: Add documentation
@@ -41,7 +43,13 @@ class BattleWindow : public Gtk::Window {
 		 */
 		void prettify_window_manager();
 
-		UserInterface* user_interface;
+		/** TODO: Add documentation
+		 * @pre
+		 * @post
+		 * @brief
+		 */
+		void bootstrap_user_interface();
+
 };
 
 #endif // BATTLE_WINDOW_H_
