@@ -6,6 +6,7 @@
 * @brief
 */
 
+#include "field.h"
 #include "gui.h"
 
 UserInterface::UserInterface() {
@@ -18,7 +19,7 @@ UserInterface::~UserInterface() {
 }
 
 void UserInterface::bootstrap_playing_field() {
-	the_field = new PlayingField();
+	//the_field = new PlayingField();
 }
 
 void UserInterface::bootstrap_main_menu() {
