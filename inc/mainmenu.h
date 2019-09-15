@@ -17,7 +17,7 @@ class MainMenu : public Gtk::Box {
 
 		MainMenu();
 
-		~MainMenu();
+		virtual ~MainMenu();
 
 	protected:
 
