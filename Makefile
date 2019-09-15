@@ -76,7 +76,7 @@ EXPORT = -o $@
 
 DEPENDENCIES = $(OBJDIR)/main.o $(OBJDIR)/executive.o\
                $(OBJDIR)/window.o $(OBJDIR)/gui.o\
-               $(OBJDIR)/mainmenu.o
+               $(OBJDIR)/mainmenu.o $(OBJDIR)/field.o
 
 # --- Phonies ---
 # Phonies essentially declare a target as being unrelated to actual files in
@@ -115,6 +115,9 @@ $(OBJDIR)/gui.o: $(SRCDIR)/gui.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
 $(OBJDIR)/mainmenu.o: $(SRCDIR)/mainmenu.cpp
+	$(CXX) $(CXXFLAGS) $< $(EXPORT)
+
+$(OBJDIR)/field.o: $(SRCDIR)/field.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
 # --- Housekeeping ---
