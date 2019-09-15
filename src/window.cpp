@@ -38,4 +38,5 @@ void BattleWindow::prettify_window_manager() {
 void BattleWindow::bootstrap_user_interface() {
 	this->user_interface = new UserInterface;
 	this->add(*user_interface);
+	user_interface->show();
 }
