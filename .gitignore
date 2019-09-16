@@ -1,12 +1,21 @@
 # -*- mode: gitignore; -*-
 
+# macOS Directory Layout Files & other strange things
+*.DS_Store
+*.dSYM
+
+# Valgrind Dumps
+*vgdump
+
+# The Program Name
+BattleShip
+
 # Object Files
 *.o
 
-# Emacs autosave files
+# Emacs Pollution
 *~
 \#*\#
-
-# Org and Flycheck files
 *.org
 flycheck*.elc
+*.projectile
