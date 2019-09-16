@@ -7,12 +7,18 @@
 
 #include "field.h"
 
-PlayingField::PlayingField()
-	: Gtk::Box(Gtk::ORIENTATION_HORIZONTAL)
+PlayingField::PlayingField(std::string label)
+	: Gtk::Table(),
+	  playing_field_button(label)
 {
-
+	add_playfield_button();
 }
 
 PlayingField::~PlayingField() {
 
+}
+
+void PlayingField::add_playfield_button() {
+	this->add(playing_field_button);
+	playing_field_button.show();
 }

@@ -8,9 +8,12 @@
 #ifndef FIELD_H
 #define FIELD_H
 
-#include <gtkmm/box.h>
+#include <string>
 
-class PlayingField : public Gtk::Box {
+#include <gtkmm/table.h>
+#include <gtkmm/button.h>
+
+class PlayingField : public Gtk::Table {
 
 	public:
 
@@ -19,7 +22,7 @@ class PlayingField : public Gtk::Box {
 		 * @post
 		 * @brief
 		 */
-		PlayingField();
+		PlayingField(std::string label);
 
 		/** TODO: Add documentation
 		 * @pre
@@ -29,9 +32,9 @@ class PlayingField : public Gtk::Box {
 		virtual ~PlayingField();
 
 	protected:
-
+		Gtk::Button playing_field_button;
 	private:
-
+		void add_playfield_button();
 };
 
 #endif // FIELD_H_
