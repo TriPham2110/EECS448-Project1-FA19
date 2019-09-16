@@ -10,6 +10,8 @@
 
 #include <gtkmm/box.h>
 #include <gtkmm/button.h>
+#include <gtkmm/comboboxtext.h>
+#include <gtkmm/messagedialog.h>
 
 class MainMenu : public Gtk::Box {
 
@@ -43,8 +45,10 @@ class MainMenu : public Gtk::Box {
 		 */
 		void on_exit_button_clicked();
 
+		void on_num_ships_dropdown_choice();
 
 		// Member Widgets
+		Gtk::ComboBoxText num_ships_dropdown;
 		Gtk::Button start_menu_button;
 		Gtk::Button pause_menu_button;
 		Gtk::Button exit_menu_button;
@@ -53,6 +57,7 @@ class MainMenu : public Gtk::Box {
 		void add_start_menu_button_decoration();
 		void add_pause_menu_button_decoration();
 		void add_exit_menu_button_decoration();
-
+		void add_num_ships_dropdown_decoration();
+		int confirm_new_game_popup();
 };
 #endif // GUI_H_
