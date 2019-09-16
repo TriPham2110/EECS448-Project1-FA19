@@ -47,13 +47,15 @@ class Executive {
 		 */
 		int run();
 
-		static Executive* GODHAND();
+		static Executive* get_executive_object();
 
 		int game_in_progress();
 
 		void set_game_state(int state);
 
 		void quit();
+
+		BattleWindow* get_main_window();
 
 	private:
 
