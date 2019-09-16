@@ -11,7 +11,7 @@
 #include <gtkmm/box.h>
 
 // Forward Declaration of Submodules
-class PlayingField;
+class FieldContainer;
 class MainMenu;
 
 class UserInterface : public Gtk::Box {
@@ -31,7 +31,7 @@ class UserInterface : public Gtk::Box {
 		static MainMenu* get_main_menu();
 
 	protected:
-		PlayingField* playing_field;
+		FieldContainer* field_container;
 		MainMenu* main_menu;
 
 	private:
@@ -41,7 +41,7 @@ class UserInterface : public Gtk::Box {
 		 * @post
 		 * @brief
 		 */
-		void bootstrap_playing_field();
+		void bootstrap_field_container();
 
 		/** TODO: Add documentation
 		 * @pre
