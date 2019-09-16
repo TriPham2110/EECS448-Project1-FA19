@@ -35,8 +35,13 @@ void BattleWindow::prettify_window_manager() {
 	this->set_border_width(10);
 }
 
-void BattleWindow::bootstrap_user_interface() {
+void BattleWindow::bootstrapp_user_interface() {
 	this->user_interface = new UserInterface;
 	this->add(*user_interface);
 	user_interface->show();
+}
+
+UserInterface* BattleWindow::get_user_interface() {
+	static UserInterface user_interface;
+	return &user_interface;
 }
