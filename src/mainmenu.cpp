@@ -30,7 +30,7 @@ MainMenu::~MainMenu() {
 }
 
 void MainMenu::on_start_button_clicked() {
-	if(Executive::GODHAND()->game_in_progress()) {
+	if(Executive::get_executive_object()->game_in_progress()) {
 		std::cout << "User requests new game... are they sure?" << std::endl;
 		switch(confirm_new_game_popup()) {
 			case(Gtk::RESPONSE_OK): {
