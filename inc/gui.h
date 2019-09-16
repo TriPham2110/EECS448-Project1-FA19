@@ -27,6 +27,9 @@ class UserInterface : public Gtk::Box {
 		 */
 		virtual ~UserInterface();
 
+		static FieldContainer* get_field_container();
+		static MainMenu* get_main_menu();
+
 	protected:
 		PlayingField* playing_field;
 		MainMenu* main_menu;
