@@ -49,7 +49,7 @@ void MainMenu::on_start_button_clicked() {
 		}
 	} else {
 		std::cout << "Game Started." << std::endl;
-		Executive::GODHAND()->set_game_state(1);
+		Executive::get_executive_object()->set_game_state(1);
 	}
 }
 
