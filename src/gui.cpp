@@ -23,13 +23,14 @@ UserInterface::~UserInterface() {
 
 void UserInterface::bootstrap_field_container() {
 	this->field_container = new FieldContainer();
-	this->add(*field_container);
+	// widget expand fill padding=0
+	this->pack_start(*field_container,true,true);
 	field_container->show();
 }
 
 void UserInterface::bootstrap_main_menu() {
 	this->main_menu = new MainMenu();
-	this->add(*main_menu);
+	this->pack_start(*main_menu,false,false);
 	main_menu->show();
 }
 
