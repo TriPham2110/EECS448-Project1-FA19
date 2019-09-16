@@ -32,7 +32,8 @@ class FieldContainer : public Gtk::Box {
 		virtual ~FieldContainer();
 
 	protected:
-
+		void add_the_players_area();
+		void add_the_status_area();
 	private:
 		PlayingField* player_field;
 		PlayingField* status_field;
