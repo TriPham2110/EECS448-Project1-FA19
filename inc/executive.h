@@ -47,9 +47,20 @@ class Executive {
 		 */
 		int run();
 
+		static Executive* GODHAND();
+
+		int game_in_progress();
+
+		void set_game_state(int state);
+
+		void quit();
+
 	private:
+
 		Glib::RefPtr<Gtk::Application> app;
 		BattleWindow* main_window;
+		int gameState = 0;
 
 };
+
 #endif // EXECUTIVE_H_

@@ -20,10 +20,26 @@ Executive::Executive(int argc, char* argv[]) {
 }
 
 Executive::~Executive() {
+Executive* Executive::GODHAND() {
+	static Executive exec;
+	return &exec;
+}
 
 }
 
 int Executive::run() {
 	main_window = new BattleWindow;
 	return app->run(*main_window);
+}
+
+int Executive::game_in_progress() {
+	return gameState;
+}
+
+void Executive::set_game_state(int state) {
+	Executive::gameState = state;
+}
+
+void Executive::quit() {
+	this->app->quit();
 }
