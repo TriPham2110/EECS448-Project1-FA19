@@ -32,3 +32,14 @@ void UserInterface::bootstrap_main_menu() {
 	this->add(*main_menu);
 	main_menu->show();
 }
+
+FieldContainer* UserInterface::get_field_container() {
+	static FieldContainer field_container;
+	return &field_container;
+}
+
+
+MainMenu* UserInterface::get_main_menu() {
+	static MainMenu main_menu;
+	return &main_menu;
+}
