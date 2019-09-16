@@ -20,11 +20,11 @@ Executive::Executive(int argc, char* argv[]) {
 }
 
 Executive::~Executive() {
+}
+
 Executive* Executive::GODHAND() {
 	static Executive exec;
 	return &exec;
-}
-
 }
 
 int Executive::run() {
