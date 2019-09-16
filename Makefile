@@ -87,19 +87,21 @@ DEPENDENCIES = $(OBJDIR)/main.o $(OBJDIR)/executive.o\
 
 # --- Compilation Options ---
 # By convention 'all' compiles the entire program.
-all: $(DEPENDENCIES)
-# Set up MacOS Environment
-ifeq ($(SYSTYPE),Darwin)
-	export PKG_CONFIG_PATH := "/usr/local/opt/libffi/lib/pkgconfig:$PKG_CONFIG_PATH"
-endif
-# Set up Linux Environment
-#ifeq ($(SYSTYPE),Linux)
-#endif
+all: pre-build $(DEPENDENCIES)
 	$(CXX) $(DEPENDENCIES) $(LDFLAGS) -o $(FILENAME)
 
 # install: all
 # By convention this should place the executable in a standard location, either
 # in /usr/bin or /usr/local/bin
+pre-build:
+# Set up MacOS Environment
+ifeq ($(SYSTYPE),Darwin)
+	MAC_LIBFFI=/usr/local/opt/libffi/lib/pkgconfig/
+	PKG_CONFIG_PATH=${MAC_LIBFFI}:${PKG_CONFIG_PATH}
+endif
+# Set up Linux Environment
+#ifeq ($(SYSTYPE),Linux)
+#endif
 
 # --- Source Files ---
 # TODO: Reduce this to one automatic line.
