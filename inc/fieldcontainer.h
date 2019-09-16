@@ -10,6 +10,9 @@
 
 #include <gtkmm/box.h>
 
+// Forward Declarations
+class PlayingField;
+
 class FieldContainer : public Gtk::Box {
 
 	public:
@@ -31,7 +34,8 @@ class FieldContainer : public Gtk::Box {
 	protected:
 
 	private:
-
+		PlayingField* player_field;
+		PlayingField* status_field;
 };
 
 #endif // FIELD_CONTAINER_H_
