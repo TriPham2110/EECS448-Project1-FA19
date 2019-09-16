@@ -31,6 +31,8 @@ class BattleWindow : public Gtk::Window {
 		 */
 		virtual ~BattleWindow();
 
+		static UserInterface* get_user_interface();
+
 	protected:
 		UserInterface* user_interface;
 
