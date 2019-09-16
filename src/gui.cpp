@@ -5,26 +5,26 @@
 * @brief
 */
 
-#include "field.h"
+#include "fieldcontainer.h"
 #include "mainmenu.h"
 #include "gui.h"
 
 UserInterface::UserInterface()
 	: Gtk::Box(Gtk::ORIENTATION_VERTICAL)
 {
-	bootstrap_playing_field();
+	bootstrap_field_container();
 	bootstrap_main_menu();
 }
 
 UserInterface::~UserInterface() {
-	delete playing_field;
+	delete field_container;
 	delete main_menu;
 }
 
-void UserInterface::bootstrap_playing_field() {
-	this->playing_field = new PlayingField();
-	this->add(*playing_field);
-	playing_field->show();
+void UserInterface::bootstrap_field_container() {
+	this->field_container = new FieldContainer();
+	this->add(*field_container);
+	field_container->show();
 }
 
 void UserInterface::bootstrap_main_menu() {
