@@ -1,9 +1,17 @@
 #include "changingplayerwindow.h"
 
-ChangingPLayerWindow::ChangingPLayerWindow() {
+ChangingPlayerWindow::ChangingPlayerWindow() 
+	: Gtk::Table(),
+	  ready_button("Ready")
+{
 
 }
 
-ChangingPLayerWindow::~ChangingPLayerWindow() {
+ChangingPlayerWindow::~ChangingPlayerWindow() {
 
+}
+
+void ChangingPlayerWindow::show() {
+	this->add(ready_button);
+	ready_button.show();
 }

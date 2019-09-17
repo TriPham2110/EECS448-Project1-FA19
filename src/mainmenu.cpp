@@ -9,6 +9,7 @@
 
 #include "executive.h"
 #include "mainmenu.h"
+#include "changingplayerwindow.h"
 
 MainMenu::MainMenu()
 	: num_ships_dropdown("Choose Ships"),
@@ -67,6 +68,9 @@ void MainMenu::on_continue_button_clicked() {
 
 	std::cout << "Change players" << std::endl;
 	//This will later call the changing players window
+	ChangingPlayerWindow* changing_player_window = new ChangingPlayerWindow();
+	changing_player_window->show();
+	
 }
 
 void MainMenu::add_start_menu_button_decoration() {
