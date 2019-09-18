@@ -3,7 +3,7 @@
 #define BOARD_H
 #include <string>
 #include "Ship.h"
-#include "Cell.h"
+#include "cell.h"
 class Board {
 
 	const rowSize = 8;
