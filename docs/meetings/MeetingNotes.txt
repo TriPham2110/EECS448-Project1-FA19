@@ -1,3 +1,15 @@
+2019-09-15
+Leep2 Meeting
+Discussed more classes
+Outcomes: add cell class and make board a grid of cell objects
+=================================================
+2019-09-11
+Scrum Meeting
+Discussed organization and interaction of classes
+=================================================
+2019-09-11
+Lab Meeting
+
 -we will use GTK
 
 --Roles--
@@ -43,4 +55,13 @@ Stucture
   Player (player class)
     --Methods--
       attack() // attacks a position on the board
-      
+=================================================
+2019-09-09
+Scrum Meeting
+Discussed packages
+Outcomes: check out gtk or sigil for gui
+=================================================
+2019-09-06
+First Meeting
+Discussed languages and packages
+Decisions: use C++
