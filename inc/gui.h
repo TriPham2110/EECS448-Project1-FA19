@@ -13,6 +13,7 @@
 // Forward Declaration of Submodules
 class FieldContainer;
 class MainMenu;
+class ChangingPlayerWindow;
 
 class UserInterface : public Gtk::Box {
 
@@ -29,10 +30,12 @@ class UserInterface : public Gtk::Box {
 
 		static FieldContainer* get_field_container();
 		static MainMenu* get_main_menu();
+		static ChangingPlayerWindow* get_changing_player_window();
 
 	protected:
 		FieldContainer* field_container;
 		MainMenu* main_menu;
+		ChangingPlayerWindow* changing_player_window;
 
 	private:
 
@@ -49,6 +52,13 @@ class UserInterface : public Gtk::Box {
 		 * @brief
 		 */
 		void bootstrap_main_menu();
+
+		/** TODO: Add documentation
+		 * @pre
+		 * @post
+		 * @brief
+		 */
+		void bootstrap_changing_player_window();
 
 };
 

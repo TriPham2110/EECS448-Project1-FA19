@@ -45,6 +45,13 @@ class MainMenu : public Gtk::Box {
 		 */
 		void on_exit_button_clicked();
 
+		/** TODO: Add documentation
+		 * @pre
+		 * @post
+		 * @brief
+		 */
+		void on_continue_button_clicked();
+
 		void on_num_ships_dropdown_choice();
 
 		// Member Widgets
@@ -52,11 +59,13 @@ class MainMenu : public Gtk::Box {
 		Gtk::Button start_menu_button;
 		Gtk::Button pause_menu_button;
 		Gtk::Button exit_menu_button;
+		Gtk::Button continue_menu_button;
 
 	private:
 		void add_start_menu_button_decoration();
 		void add_pause_menu_button_decoration();
 		void add_exit_menu_button_decoration();
+		void add_continue_menu_button_decoration();
 		void add_num_ships_dropdown_decoration();
 		int confirm_new_game_popup();
 };

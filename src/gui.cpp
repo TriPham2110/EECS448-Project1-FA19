@@ -7,18 +7,22 @@
 
 #include "fieldcontainer.h"
 #include "mainmenu.h"
+#include "changingplayerwindow.h"
 #include "gui.h"
+
 
 UserInterface::UserInterface()
 	: Gtk::Box(Gtk::ORIENTATION_VERTICAL)
 {
 	bootstrap_field_container();
 	bootstrap_main_menu();
+	bootstrap_changing_player_window();
 }
 
 UserInterface::~UserInterface() {
 	delete field_container;
 	delete main_menu;
+	delete changing_player_window;
 }
 
 void UserInterface::bootstrap_field_container() {
@@ -34,6 +38,14 @@ void UserInterface::bootstrap_main_menu() {
 	main_menu->show();
 }
 
+
+void UserInterface::bootstrap_changing_player_window() {
+	this->changing_player_window = new ChangingPlayerWindow();
+	this->pack_start(*changing_player_window,true,true);
+	changing_player_window->show();
+}
+
+
 FieldContainer* UserInterface::get_field_container() {
 	static FieldContainer field_container;
 	return &field_container;
@@ -43,4 +55,9 @@ FieldContainer* UserInterface::get_field_container() {
 MainMenu* UserInterface::get_main_menu() {
 	static MainMenu main_menu;
 	return &main_menu;
+}
+
+ChangingPlayerWindow* UserInterface::get_changing_player_window() {
+	static ChangingPlayerWindow changing_player_window;
+	return &changing_player_window;
 }
