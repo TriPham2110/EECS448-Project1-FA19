@@ -1,14 +1,21 @@
 #include<iostream>
 #include<string>
-#include "Board.h"
-
+#include "board.h"
+#include "cell.h"
 Board::Board()
 {
 
 }
+
+
+
 void Board::setShip(int row,int col)
 {
 
+}
+void Board::hit(int row, in col)
+{
+    cells[row, col].hit();
 }
 bool Board::isHit()
 {
