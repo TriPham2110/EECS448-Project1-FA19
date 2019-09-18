@@ -38,3 +38,11 @@ void Cell::putShip(){
 void Cell::hit(){
 	beenHit = true;
 }
+/**
+ * @pre 
+ * @post
+ * @brief   accessor for containsShip
+ */
+bool Cell::hasShip(){
+        return containsShip();
+}

@@ -26,6 +26,13 @@ class Cell {
 		 */
 
 		void hit();
+                
+		/**TODO: Add documentation
+		 * @pre
+		 * @post
+		 * @brief
+		 */
+                bool hasShip();
 
 
 	private:
