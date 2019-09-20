@@ -34,6 +34,13 @@ class Cell {
 		 */
                 bool hasShip();
 
+		/**TODO: Add documentation
+		 * @pre
+		 * @post
+		 * @brief
+		 */
+                bool hasBeenHit();
+
 
 	private:
 		int row;
