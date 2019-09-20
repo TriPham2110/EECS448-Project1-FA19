@@ -8,6 +8,7 @@ class Board {
 
 	const rowSize = 8;
 	const colSize = 8;
+
 	public:
     Board();
     void setShip(int row,int col);
@@ -39,10 +40,9 @@ class Board {
      */
     bool miss();
 		~Board();
+
 	private:
 		cell m_board[rowSize][colSize];
-
-
 };
 
 #endif //board.h
