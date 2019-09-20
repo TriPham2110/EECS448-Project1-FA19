@@ -65,12 +65,34 @@ void MainMenu::on_exit_button_clicked() {
 }
 
 void MainMenu::on_continue_button_clicked() {
-
-	std::cout << "Change players" << std::endl;
-	//This will later call the changing players window
-	ChangingPlayerWindow* changing_player_window = new ChangingPlayerWindow();
-	changing_player_window->show();
-	
+	if(Executive::get_executive_object()->game_in_progress()) {
+		std::cout << "Showing change player popup..." << std::endl;
+		switch(confirm_switch_players_popup()) {
+			case(Gtk::RESPONSE_OK): {
+				if(Executive::get_executive_object()->which_player_is_up() == 0) {
+					std::cout << "Changing players (1 to 2)" << std::endl;
+					Executive::get_executive_object()->set_which_player(1);
+				} else {
+					std::cout << "Changing players (2 to 1)" << std::endl;
+					Executive::get_executive_object()->set_which_player(0);
+				}
+				//This will later call the changing players window
+				ChangingPlayerWindow* changing_player_window = new ChangingPlayerWindow();
+				changing_player_window->show();
+				break;
+			}
+			case(Gtk::RESPONSE_CANCEL): {
+				std::cout << "User chose to continue; nevermind..." << std::endl;
+				break;
+			}
+			default: {
+				std::cout << "Wait a minute! How did you trigger this?" << std::endl;
+				break;
+			}
+		}
+	} else {
+		std::cout << "No game in progress: nothing to do." << std::endl;
+	}
 }
 
 void MainMenu::add_start_menu_button_decoration() {
@@ -111,5 +133,11 @@ void MainMenu::add_num_ships_dropdown_decoration() {
 int MainMenu::confirm_new_game_popup() {
 	Gtk::MessageDialog dialog("Restart Game?",false,Gtk::MESSAGE_QUESTION,Gtk::BUTTONS_OK_CANCEL,false);
 	dialog.set_secondary_text("'Yes' to discard game and start anew; 'No' to continue.");
+	return dialog.run();
+}
+
+int MainMenu::confirm_switch_players_popup() {
+	Gtk::MessageDialog dialog("End turn and switch players?",false,Gtk::MESSAGE_QUESTION,Gtk::BUTTONS_OK_CANCEL,false);
+	dialog.set_secondary_text("'Yes' to switch; 'No' to continue.");
 	return dialog.run();
 }
