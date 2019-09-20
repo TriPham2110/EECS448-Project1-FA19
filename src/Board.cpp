@@ -4,7 +4,7 @@
 #include "cell.h"
 Board::Board()
 {
-
+    Board cells = new Board[8][8];
 }
 
 
