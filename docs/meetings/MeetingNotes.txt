@@ -1,7 +1,24 @@
+2019-09-20
+Leep2 Meeting
+Discussed deleting the ship class and how classes are related
+Outcomes: UPDATE
+=================================================
+2019-09-18
+Scrum Meeting
+Last in-class scrum meeting
+=================================================
+2019-09-18
+Lab meeting
+Outcomes: Adding more things to github and talking about the funcitonalities of classes
+=================================================
 2019-09-15
 Leep2 Meeting
 Discussed more classes
 Outcomes: add cell class and make board a grid of cell objects
+=================================================
+2019-09-13
+Scrum Meeting
+Scrum meeting in class, talked about meeting on Sunday
 =================================================
 2019-09-11
 Scrum Meeting
