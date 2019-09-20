@@ -6,7 +6,7 @@ Board::Board()
 {
 
 }
-void Board::setShip(int row,int col)
+void setShip(int row,int col,Ship dir,int size);
 {
 
 }
