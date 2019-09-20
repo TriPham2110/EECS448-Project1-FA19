@@ -46,3 +46,12 @@ void Cell::hit(){
 bool Cell::hasShip(){
         return containsShip();
 }
+
+/**
+ * @pre 
+ * @post
+ * @brief   accessor for beenHit
+ */
+bool Cell::hasBeenHit(){
+	return beenHit;
+}
