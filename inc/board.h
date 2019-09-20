@@ -10,12 +10,14 @@ class Board {
 	const colSize = 8;
 	public:
     Board();
-    void setShip(int row,int col);
+    void setShip(int row,int col,Ship dir, int size);
     bool isHit();
     bool isSunk();
     bool miss();
 		~Board();
 	private:
+		int m_row;
+		int m_col;
 		cell m_board[rowSize][colSize];
 
 
