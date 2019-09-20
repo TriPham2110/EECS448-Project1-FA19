@@ -11,8 +11,32 @@ class Board {
 	public:
     Board();
     void setShip(int row,int col);
+    /**
+     * @pre
+     * @post
+     * @brief
+     */
+    void hit(int row, int col);
+
+    /**
+     * @pre
+     * @post
+     * @brief
+     */
     bool isHit();
+
+    /**
+     * @pre
+     * @post
+     * @brief
+     */
     bool isSunk();
+
+    /**
+     * @pre
+     * @post
+     * @brief
+     */
     bool miss();
 		~Board();
 	private:
