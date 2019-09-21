@@ -10,10 +10,11 @@
 
 #include <string>
 
-#include <gtkmm/table.h>
+#include <gtkmm/box.h>
 #include <gtkmm/button.h>
+#include <board.h>
 
-class PlayingField : public Gtk::Table {
+class PlayingField : public Gtk::Box {
 
 	public:
 
@@ -32,9 +33,11 @@ class PlayingField : public Gtk::Table {
 		virtual ~PlayingField();
 
 	protected:
-		Gtk::Button playing_field_button;
+		//Gtk::Button playing_field_button;
 	private:
 		void add_playfield_button();
+		void add_board():
+		Board* the_board;
 };
 
 #endif // FIELD_H_
