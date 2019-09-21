@@ -20,7 +20,7 @@ class PlayingField : public Gtk::Table {
 		/**
 		 * @brief Playboard constructor.
 		 */
-		PlayingField(std::string label);
+		PlayingField();
 
 		/**
 		 * @brief Playboard destructor.

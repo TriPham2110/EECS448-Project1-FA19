@@ -7,9 +7,9 @@
 
 #include "field.h"
 
-PlayingField::PlayingField(std::string label)
+PlayingField::PlayingField()
 	: Gtk::Table(),
-	  playing_field_button(label)
+	  playing_field_button()
 {
 	add_playfield_button();
 }
