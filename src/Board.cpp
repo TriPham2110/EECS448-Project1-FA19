@@ -4,6 +4,19 @@
 #include "cell.h"
 Board::Board()
 {
+<<<<<<< HEAD
+  for(int i = 0; i < 8; i++)
+  {
+        for(int j = 0; j< 8; j++)
+        {
+          m_board[i][j];
+        }
+  }
+}
+
+void Board::setShip(int row,int col)
+{
+=======
   m_board = new cell **[8];
   for(int i =0;i<8;i++)
   {
@@ -47,6 +60,7 @@ void Board::setShip(int row_num,int col_num)
       m_board[row_num][--col_num] -> putShip();
     }
   }
+>>>>>>> 9007446e11575c6c4d4d6550b4f4a409add262b1
 
   else if ((dir == 'r')&&((col_num + (m_size - 1))<8))
   {
@@ -61,7 +75,7 @@ void Board::setShip(int row_num,int col_num)
     std::cout<<"\nShip is too big to place using the given orientation and position. Try Again!";
   }
 }
-void Board::hit(int row, in col)
+void Board::hit(int row, int col)
 {
     cells[row, col].hit();
 }

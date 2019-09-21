@@ -2,7 +2,7 @@
 /**
 * @file   field.h
 * @date   13 September 2019
-* @brief  Container for the playing field.
+* @brief  Container for the boards the user monitors/interacts with.
 */
 
 #ifndef FIELD_H
@@ -18,23 +18,29 @@ class PlayingField : public Gtk::Box {
 
 	public:
 
-		/** TODO: Add documentation
-		 * @pre
-		 * @post
-		 * @brief
+		/**
+		 * @brief Playboard constructor.
 		 */
-		PlayingField(std::string label);
+		PlayingField();
 
-		/** TODO: Add documentation
-		 * @pre
-		 * @post
-		 * @brief
+		/**
+		 * @brief Playboard destructor.
 		 */
 		virtual ~PlayingField();
 
 	protected:
+<<<<<<< HEAD
 		//Gtk::Button playing_field_button;
+=======
+		Gtk::Button playing_field_button;
+
+>>>>>>> 7c04f6d39f876ed6c44ce844715a53d79c591d99
 	private:
+
+		/**
+		 * @brief Syntactic sugar that allows us to add buttons to the field
+		 *        without polluting the constructor.
+		 */
 		void add_playfield_button();
 		void add_board():
 		Board* the_board;

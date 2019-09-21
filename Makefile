@@ -99,6 +99,9 @@ ifeq ($(SYSTYPE),Darwin)
 	MAC_LIBFFI=/usr/local/opt/libffi/lib/pkgconfig/
 	PKG_CONFIG_PATH=${MAC_LIBFFI}:${PKG_CONFIG_PATH}
 endif
+# The first time we compile, make the directory. The second time, force true
+# so build doesn't fail.
+	mkdir obj || true
 # Set up Linux Environment
 #ifeq ($(SYSTYPE),Linux)
 #endif
