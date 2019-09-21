@@ -47,4 +47,5 @@ bool Board::miss()
 Board::~Board()
 {
   //
+    delete cells;
 }
