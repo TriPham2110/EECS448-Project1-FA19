@@ -53,6 +53,10 @@ class Executive {
 
 		void set_game_state(int state);
 
+		int which_player_is_up();
+
+		void set_which_player(int player);
+
 		void quit();
 
 		BattleWindow* get_main_window();
@@ -62,6 +66,7 @@ class Executive {
 		Glib::RefPtr<Gtk::Application> app;
 		BattleWindow* main_window;
 		int gameState = 0;
+		int whichPlayer = 0;
 
 };
 

@@ -2,7 +2,6 @@
 #ifndef BOARD_H
 #define BOARD_H
 #include <string>
-#include "Ship.h"
 #include "cell.h"
 class Board {
 
@@ -10,7 +9,7 @@ class Board {
 	const colSize = 8;
 	public:
     Board();
-    void setShip(int row,int col,Ship dir, int size);
+    void setShip(int row,int col);
     bool isHit();
     bool isSunk();
     bool miss();
