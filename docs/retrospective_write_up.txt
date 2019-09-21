@@ -54,10 +54,11 @@ ________________________________________________________________________________
 
 Description on how work was split between teammates:
 
-
-
-
-
+Anjali: Worked on Board class methods involving ship
+Sindhu: Worked on Board class
+Finn: Worked on Board and cell classes,kept track of meetings
+Zach: GTK involving things, GUI, and Doxigen
+Victoria: Meetings planning and worked on GUI
 
 ___________________________________________________________________________________________
 Challenges and how they were overcome or dealt with:
