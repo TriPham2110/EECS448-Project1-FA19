@@ -17,7 +17,7 @@ class Cell {
 		 * @post
 		 * @brief
 		 */
-		void putShip(Ship ship);
+		void putShip();
 		
 		/**TODO: Add documentation
 		 * @pre
