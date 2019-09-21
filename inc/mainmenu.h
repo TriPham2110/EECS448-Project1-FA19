@@ -64,7 +64,16 @@ class MainMenu : public Gtk::Box {
 		 * @brief Singal handler for what should happen when the end turn button
 		 *        is clicked.
 		 */
-		void on_continue_button_clicked();
+		void on_start_turn_button_clicked();
+
+		/**
+		 * @pre   Main menu must be created.
+		 * @post  If player confirms, hand control to other player; reflect
+		 *        change in executive object.
+		 * @brief Singal handler for what should happen when the end turn button
+		 *        is clicked.
+		 */
+		void on_end_turn_button_clicked();
 
 		/**
 		 * @pre   Main menu must be created.
@@ -80,7 +89,8 @@ class MainMenu : public Gtk::Box {
 		Gtk::Button start_menu_button;
 		Gtk::Button pause_menu_button;
 		Gtk::Button exit_menu_button;
-		Gtk::Button continue_menu_button;
+		Gtk::Button end_turn_menu_button;
+		Gtk::Button start_turn_menu_button;
 
 	private:
 
@@ -106,7 +116,13 @@ class MainMenu : public Gtk::Box {
 		 * @brief Syntactic sugar that lets us avoid polluting other functions
 		 *        with calls that do not have anything to do with their intent.
 		 */
-		void add_continue_menu_button_decoration();
+		void add_start_turn_menu_button_decoration();
+
+		/**
+		 * @brief Syntactic sugar that lets us avoid polluting other functions
+		 *        with calls that do not have anything to do with their intent.
+		 */
+		void add_end_turn_menu_button_decoration();
 
 		/**
 		 * @brief Syntactic sugar that lets us avoid polluting other functions
