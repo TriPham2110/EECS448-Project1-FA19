@@ -2,7 +2,6 @@
 #ifndef BOARD_H
 #define BOARD_H
 #include <string>
-#include "Ship.h"
 #include "cell.h"
 class Board {
 
@@ -40,7 +39,7 @@ class Board {
     bool miss();
 		~Board();
 	private:
-		cell m_board[rowSize][colSize];
+		cell ***m_board = nullptr;//[rowSize][colSize];
 
 
 };
