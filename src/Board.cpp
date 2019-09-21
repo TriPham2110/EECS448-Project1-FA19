@@ -4,19 +4,7 @@
 #include "cell.h"
 Board::Board()
 {
-<<<<<<< HEAD
-  for(int i = 0; i < 8; i++)
-  {
-        for(int j = 0; j< 8; j++)
-        {
-          m_board[i][j];
-        }
-  }
-}
 
-void Board::setShip(int row,int col)
-{
-=======
   m_board = new cell **[8];
   for(int i =0;i<8;i++)
   {
