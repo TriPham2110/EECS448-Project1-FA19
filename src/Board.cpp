@@ -4,10 +4,6 @@
 #include "cell.h"
 Board::Board()
 {
-<<<<<<< HEAD
-    m_board = new cell **[8];
-    for(int i =0;i<8;i++)
-=======
 
   m_board = new cell **[8];
   for(int i =0;i<8;i++)
@@ -17,7 +13,6 @@ Board::Board()
   for(int j = 0; j<8;j++)
   {
     for(int k =0;k<8;k++)
->>>>>>> 4ad276cd905252b5077f66c197048496ee68907d
     {
       m_board[i] = new cell*[8];
     }
@@ -84,7 +79,7 @@ bool Board::isHit()
 }
 bool Board::isSunk()
 {
-
+  
 }
 bool Board::miss()
 {
