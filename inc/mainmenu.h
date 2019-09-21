@@ -142,5 +142,7 @@ class MainMenu : public Gtk::Box {
 		 */
 		int confirm_switch_players_popup();
 
+		int confirm_exit_popup();
+
 };
 #endif // GUI_H_

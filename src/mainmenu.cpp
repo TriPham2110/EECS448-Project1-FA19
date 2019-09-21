@@ -201,3 +201,9 @@ int MainMenu::confirm_switch_players_popup() {
 	dialog.set_secondary_text("'Ok' to switch; 'Cancel' to continue.");
 	return dialog.run();
 }
+
+int MainMenu::confirm_exit_popup() {
+	Gtk::MessageDialog dialog("Are you sure you want to exit?",false,Gtk::MESSAGE_QUESTION,Gtk::BUTTONS_OK_CANCEL,false);
+	dialog.set_secondary_text("'Yes' to EXIT; 'No' to CONTINUE.");
+	return dialog.run();
+}

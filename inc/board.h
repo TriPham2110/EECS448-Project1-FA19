@@ -1,46 +1,38 @@
+// -*- C++ -*-
+/**
+ * @file board.cpp
+ * @date 20 September 2019
+ * @brief
+ */
 
 #ifndef BOARD_H
 #define BOARD_H
+
 #include <string>
 #include "cell.h"
-class Board {
 
-	const rowSize = 8;
-	const colSize = 8;
+#define ROWS 8
+#define COLS 8
+
+#include <gtkmm/grid.h>
+
+class Board : public Gtk::Grid {
+
 	public:
+
     Board();
     void setShip(int row,int col);
-    /**
-     * @pre
-     * @post
-     * @brief
-     */
-    void hit(int row, int col);
-
-    /**
-     * @pre
-     * @post
-     * @brief
-     */
     bool isHit();
-
-    /**
-     * @pre
-     * @post
-     * @brief
-     */
     bool isSunk();
-
-    /**
-     * @pre
-     * @post
-     * @brief
-     */
     bool miss();
 		~Board();
-	private:
-		cell ***m_board = nullptr;//[rowSize][colSize];
 
+	private:
+		int m_row;
+		int m_col;
+
+		Cell m_board[ROWS][COLS];
+		Cell ***m_board_ptr = nullptr;//[rowSize][colSize];
 
 };
 
