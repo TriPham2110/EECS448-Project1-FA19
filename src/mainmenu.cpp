@@ -21,11 +21,12 @@ MainMenu::MainMenu()
 	// Makes every button in the menu the same size
 	this->set_homogeneous(true);
 	// Adds buttons to the menu
+	this->add_continue_menu_button_decoration();
 	this->add_start_menu_button_decoration();
 	this->add_num_ships_dropdown_decoration();
 	this->add_pause_menu_button_decoration();
 	this->add_exit_menu_button_decoration();
-	this->add_continue_menu_button_decoration();
+
 }
 
 MainMenu::~MainMenu() {
@@ -33,12 +34,25 @@ MainMenu::~MainMenu() {
 }
 
 void MainMenu::on_start_button_clicked() {
-	if(Executive::get_executive_object()->game_in_progress()) {
+	if(Executive::get_executive_object()->get_game_in_progress_state()) {
 		std::cout << "User requests new game... are they sure?" << std::endl;
 		switch(confirm_new_game_popup()) {
 			case(Gtk::RESPONSE_OK): {
 				std::cout << "User chose to start new game. Asking other user..." << std::endl;
-				// if_other_user_agrees
+				switch(confirm_new_game_popup()) {
+					case(Gtk::RESPONSE_OK): {
+						std::cout << "Other player agreed to restart. Congratulations!" << std::endl;
+						break;
+					}
+					case(Gtk::RESPONSE_CANCEL): {
+						std::cout << "Other player declined to restart. Sorry, $PLAYER." << std::endl;
+						break;
+					}
+					default: {
+						std::cout << "No seriously, how are you triggering these?" << std::endl;
+						break;
+					}
+				}
 				break;
 			}
 			case(Gtk::RESPONSE_CANCEL): {
@@ -52,12 +66,22 @@ void MainMenu::on_start_button_clicked() {
 		}
 	} else {
 		std::cout << "Game Started." << std::endl;
-		Executive::get_executive_object()->set_game_state(1);
+		Executive::get_executive_object()->set_game_in_progress_state(1);
 	}
 }
 
 void MainMenu::on_pause_button_clicked() {
-	std::cout << "Game Paused." << std::endl;
+	if(Executive::get_executive_object()->get_game_in_progress_state()) {
+		if(Executive::get_executive_object()->get_game_paused_state() == 0) {
+			Executive::get_executive_object()->set_game_paused_state(1);
+			std::cout << "Game paused." << std::endl;
+		} else {
+			Executive::get_executive_object()->set_game_paused_state(0);
+			std::cout << "Game unpaused." << std::endl;
+		}
+	} else {
+		std::cout << "No game to pause." << std::endl;
+	}
 }
 
 void MainMenu::on_exit_button_clicked() {
@@ -65,7 +89,7 @@ void MainMenu::on_exit_button_clicked() {
 }
 
 void MainMenu::on_continue_button_clicked() {
-	if(Executive::get_executive_object()->game_in_progress()) {
+	if(Executive::get_executive_object()->get_game_in_progress_state()) {
 		std::cout << "Showing change player popup..." << std::endl;
 		switch(confirm_switch_players_popup()) {
 			case(Gtk::RESPONSE_OK): {
