@@ -40,29 +40,6 @@ void Board::setShip(int row_num,int col_num)
     }
   }
 
-<<<<<<< HEAD
-void Board::setShip(head[int, int], int len, int ort)
-{
-    // horizontal
-    if(ort == 0)
-    {
-        for (i = head[0], i <= head[0] + len, ++i)
-        {
-            cells[i,head[1]].putShip();
-        }
-    }
-    else
-    { 
-        for (j = head[1], j <= head[1] + len, ++j)
-        {
-            cells[head[0],j].putShip();
-        }
-    }
-||||||| merged common ancestors
-void Board::setShip(int row,int col)
-{
-
-=======
   else if ((dir == 'l')&&((col_num - (m_size - 1))>=0))
   {
     m_board[row_num][col_num] -> putShip(); //Something that cell class should have. The size of the ship it is holding and the fact that is has a ship
@@ -71,7 +48,6 @@ void Board::setShip(int row,int col)
       m_board[row_num][--col_num] -> putShip();
     }
   }
->>>>>>> 9007446e11575c6c4d4d6550b4f4a409add262b1
 
   else if ((dir == 'r')&&((col_num + (m_size - 1))<8))
   {
@@ -85,7 +61,6 @@ void Board::setShip(int row,int col)
   {
     std::cout<<"\nShip is too big to place using the given orientation and position. Try Again!";
   }
->>>>>>> devel
 }
 void Board::hit(int row, int col)
 {
