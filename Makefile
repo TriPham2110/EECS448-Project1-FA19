@@ -99,6 +99,7 @@ ifeq ($(SYSTYPE),Darwin)
 	MAC_LIBFFI=/usr/local/opt/libffi/lib/pkgconfig/
 	PKG_CONFIG_PATH=${MAC_LIBFFI}:${PKG_CONFIG_PATH}
 endif
+	mkdir obj
 # Set up Linux Environment
 #ifeq ($(SYSTYPE),Linux)
 #endif
