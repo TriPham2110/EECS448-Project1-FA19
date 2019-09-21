@@ -8,6 +8,8 @@
 #include <iostream>
 
 #include "executive.h"
+#include "fieldcontainer.h"
+#include "field.h"
 #include "mainmenu.h"
 #include "changingplayerwindow.h"
 
@@ -77,9 +79,14 @@ void MainMenu::on_pause_button_clicked() {
 	if(Executive::get_executive_object()->get_game_in_progress_state()) {
 		if(Executive::get_executive_object()->get_game_paused_state() == 0) {
 			Executive::get_executive_object()->set_game_paused_state(1);
+			FieldContainer::get_field_container_object()->hide_moves_field();
+			FieldContainer::get_field_container_object()->hide_status_field();
+
 			std::cout << "Game paused." << std::endl;
 		} else {
 			Executive::get_executive_object()->set_game_paused_state(0);
+			FieldContainer::get_field_container_object()->hide_moves_field();
+			FieldContainer::get_field_container_object()->hide_status_field();
 			std::cout << "Game unpaused." << std::endl;
 		}
 	} else {
@@ -88,16 +95,18 @@ void MainMenu::on_pause_button_clicked() {
 }
 
 void MainMenu::on_exit_button_clicked() {
-	std::cout << "Exiting game..." << std::endl;
+	std::cout << "Exiting game... (segfault incoming)" << std::endl;
+	Executive::get_executive_object()->quit();
 }
 
 void MainMenu::on_start_turn_button_clicked() {
 	// reveal the board and take input again
 	if(Executive::get_executive_object()->get_game_in_progress_state()) {
-		if(Executive::get_executive_object()->is_a_turn_active()) {
-			std::cout << "Turn already in progress.";
+		if(Executive::get_executive_object()->is_a_turn_active() == 1) {
+			std::cout << "Turn already in progress." << std::endl;
 		} else {
 			Executive::get_executive_object()->set_turn_active(1);
+			std::cout << "Starting turn." << std::endl;
 			// TODO UNHIDE BOARD HERE
 		}
 	} else {
