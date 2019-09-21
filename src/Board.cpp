@@ -5,7 +5,7 @@
 #include "cell.h"
 Board::Board()
 {
-    Board cells = new Board[8][8];
+    Board m_board = new Board[8][8];
 }
 
 
@@ -47,5 +47,5 @@ bool Board::miss()
 Board::~Board()
 {
   //
-    delete cells;
+    delete m_board;
 }
