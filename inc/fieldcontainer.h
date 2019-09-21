@@ -12,7 +12,7 @@
 #include <gtkmm/separator.h>
 
 // Forward Declarations
-class PlayingField;
+class Board;
 
 class FieldContainer : public Gtk::Box {
 
@@ -24,26 +24,10 @@ class FieldContainer : public Gtk::Box {
 		FieldContainer();
 
 		/**
-		 * @brief Returns FieldContainer singleton that can be used to change game state parameters.
-		 */
-		static FieldContainer* get_field_container_object();
-
-		/**
 		 * @brief Playing field container destructor.
 		 */
 		virtual ~FieldContainer();
 
-		/**
-		 * @brief
-		 */
-		PlayingField* get_moves_field();
-		PlayingField* get_status_field();
-		/**
-		 * @brief Hide or show the field
-		 */
-		void set_field_visibility(PlayingField* field, int visibility);
-		void hide_status_field();
-		void hide_moves_field();
 	protected:
 
 		/**
@@ -51,7 +35,7 @@ class FieldContainer : public Gtk::Box {
 		 *        field to the game screen without polluting the constructor with
 		 *        calls.
 		 */
-		void add_the_moves_area();
+		void add_the_players_area();
 
 		/**
 		 * @brief Syntactic sugar that lets us add a vertical bar to separate the
@@ -68,9 +52,10 @@ class FieldContainer : public Gtk::Box {
 		void add_the_status_area();
 
 	private:
-		PlayingField* moves_field;
+
+		Board* player_field;
 		Gtk::Separator vertical_separator;
-		PlayingField* status_field;
+		Board* status_field;
 
 };
 
