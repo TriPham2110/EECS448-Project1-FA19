@@ -70,21 +70,33 @@ class Executive {
 
 		/**
 		 * @brief Setter for variable that tracks whether game is paused. (0 - play, 1 - paused)
-		 * @param[in] state Set the variable that tracks whether game is paused. Expects 0 (no) or 1 (yes)
+		 * @param state Set the variable that tracks whether game is paused. Expects 0 (no) or 1 (yes)
 		 */
 		void set_game_paused_state(int state);
 
 		/**
 		 * @brief Polls executive object to see which player's turn it is.
-		 * @return int (0 or 1) indicating player
+		 * @return int values: (0 or 1) indicating player
 		 */
 		int which_player_is_up();
 
 		/**
 		 * @brief Set the variable that tracks which player is currently making a move.
-		 * @param[in] player 0 (player 1) or 1 (player 2)
+		 * @param player values: 0 (player 1) or 1 (player 2)
 		 */
 		void set_which_player(int player);
+
+		/**
+		 * @brief Polls executive object to see whether the turn is active.
+		 * @return int (0 or 1) indicating state
+		 */
+		int is_a_turn_active();
+
+		/**
+		 * @brief Set the variable that tracks which player is currently making a move.
+		 * @param active values: 0 (inactive) 1 (active)
+		 */
+		void set_turn_active(int active);
 
 		/**
 		 * @brief Called from MainMenu::on_exit_button_clicked() -- forces program exit (no memory is freed).
@@ -104,6 +116,7 @@ class Executive {
 		int gameInProgressState = 0;
 		int whichPlayer = 0;
 		int gamePausedState = 0;
+		int turnActive = 0;
 
 };
 

@@ -54,6 +54,14 @@ void Executive::set_game_paused_state(int state) {
 	Executive::gamePausedState = state;
 }
 
+int Executive::is_a_turn_active() {
+	return turnActive;
+}
+
+void Executive::set_turn_active(int active) {
+	Executive::turnActive = active;
+}
+
 void Executive::quit() {
 	this->app->quit();
 }
