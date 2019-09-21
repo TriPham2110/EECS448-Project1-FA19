@@ -12,7 +12,7 @@
 #include <gtkmm/separator.h>
 
 // Forward Declarations
-class PlayingField;
+class Board;
 
 class FieldContainer : public Gtk::Box {
 
@@ -52,9 +52,11 @@ class FieldContainer : public Gtk::Box {
 		void add_the_status_area();
 
 	private:
-		PlayingField* player_field;
+
+		Board* player_field;
 		Gtk::Separator vertical_separator;
-		PlayingField* status_field;
+		Board* status_field;
+
 };
 
 #endif // FIELD_CONTAINER_H_

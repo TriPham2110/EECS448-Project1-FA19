@@ -141,10 +141,8 @@ class MainMenu : public Gtk::Box {
 		 *        with calls that do not have anything to do with their intent.
 		 */
 		int confirm_switch_players_popup();
-<<<<<<< HEAD
-		int confirm_exit_popup();
-=======
 
->>>>>>> 7c04f6d39f876ed6c44ce844715a53d79c591d99
+		int confirm_exit_popup();
+
 };
 #endif // GUI_H_
