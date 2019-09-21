@@ -17,7 +17,10 @@ class Board {
 	private:
 		int m_row;
 		int m_col;
+<<<<<<< HEAD
+=======
 		cell m_board[rowSize][colSize];
+>>>>>>> 4ad276cd905252b5077f66c197048496ee68907d
 		cell ***m_board = nullptr;//[rowSize][colSize];
 
 

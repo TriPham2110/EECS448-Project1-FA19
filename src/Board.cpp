@@ -4,6 +4,10 @@
 #include "cell.h"
 Board::Board()
 {
+<<<<<<< HEAD
+    m_board = new cell **[8];
+    for(int i =0;i<8;i++)
+=======
 
   m_board = new cell **[8];
   for(int i =0;i<8;i++)
@@ -13,11 +17,19 @@ Board::Board()
   for(int j = 0; j<8;j++)
   {
     for(int k =0;k<8;k++)
+>>>>>>> 4ad276cd905252b5077f66c197048496ee68907d
     {
-      m_board[j][k] = new cell();
+      m_board[i] = new cell*[8];
     }
-  }
+    for(int j = 0; j<8;j++)
+    {
+      for(int k =0;k<8;k++)
+      {
+        m_board[j][k] = new cell();
+      }
+    }
 }
+
 
 void Board::setShip(int row_num,int col_num)
 {
@@ -48,7 +60,6 @@ void Board::setShip(int row_num,int col_num)
       m_board[row_num][--col_num] -> putShip();
     }
   }
->>>>>>> 9007446e11575c6c4d4d6550b4f4a409add262b1
 
   else if ((dir == 'r')&&((col_num + (m_size - 1))<8))
   {
