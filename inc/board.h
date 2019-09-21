@@ -15,13 +15,10 @@ class Board {
     bool miss();
 		~Board();
 	private:
-<<<<<<< HEAD
 		int m_row;
 		int m_col;
 		cell m_board[rowSize][colSize];
-=======
 		cell ***m_board = nullptr;//[rowSize][colSize];
->>>>>>> 9007446e11575c6c4d4d6550b4f4a409add262b1
 
 
 };
