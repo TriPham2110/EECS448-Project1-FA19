@@ -23,6 +23,7 @@ FieldContainer::~FieldContainer() {
 
 void FieldContainer::add_the_players_area() {
 	this->player_field = new PlayingField();
+	// widget, bool expand, bool fill, int margin
 	this->pack_start(*player_field,true,true);
 	player_field->show();
 }
