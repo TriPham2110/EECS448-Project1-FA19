@@ -49,9 +49,13 @@ class Executive {
 
 		static Executive* get_executive_object();
 
-		int game_in_progress();
+		int get_game_in_progress_state();
 
-		void set_game_state(int state);
+		void set_game_in_progress_state(int state);
+
+		int get_game_paused_state();
+
+		void set_game_paused_state(int state);
 
 		int which_player_is_up();
 
@@ -65,9 +69,9 @@ class Executive {
 
 		Glib::RefPtr<Gtk::Application> app;
 		BattleWindow* main_window;
-		int gameState = 0;
+		int gameInProgressState = 0;
 		int whichPlayer = 0;
-
+		int gamePausedState = 0;
 };
 
 #endif // EXECUTIVE_H_

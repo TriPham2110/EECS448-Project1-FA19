@@ -38,12 +38,20 @@ void Executive::set_which_player(int player) {
 	Executive::whichPlayer = player;
 }
 
-int Executive::game_in_progress() {
-	return gameState;
+int Executive::get_game_in_progress_state() {
+	return gameInProgressState;
 }
 
-void Executive::set_game_state(int state) {
-	Executive::gameState = state;
+void Executive::set_game_in_progress_state(int state) {
+	Executive::gameInProgressState = state;
+}
+
+int Executive::get_game_paused_state() {
+	return gamePausedState;
+}
+
+void Executive::set_game_paused_state(int state) {
+	Executive::gamePausedState = state;
 }
 
 void Executive::quit() {
