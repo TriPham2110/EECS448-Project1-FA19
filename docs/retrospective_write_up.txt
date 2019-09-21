@@ -1,0 +1,81 @@
+Retrospective Write-up
+
+___________________________________________________________________________________________
+Meetings
+
+=================================================
+2019-09-20
+Team members: all
+Location: Leep2
+Discussed deleting the ship class and how classes are related
+Outcomes: UPDATE
+=================================================
+2019-09-18
+Team members: all
+Location: in class
+Discussed meeting plans
+=================================================
+2019-09-18
+Team members: all
+Location: Spahr library
+Discussed adding more things to github and talking about the funcitonalities of classes
+=================================================
+2019-09-15
+Team members: all
+Location: Leep2
+Discussed add cell class and make board a grid of cell objects
+=================================================
+2019-09-13
+Team members: all
+Location: in class
+Scrum meeting in class, talked about meeting on Sunday
+=================================================
+2019-09-11
+Team members: all
+Location: in class
+Discussed organization and interaction of classes
+=================================================
+2019-09-11
+Team members: all
+Location: Spahr library
+Discussed classes and methods. Assigned people to work on different classes
+=================================================
+2019-09-09
+Team members: all
+Location: in class
+Scrum meeting in class, talked about check out gtk or sigil for gui
+=================================================
+2019-09-06
+Team members: all
+Location: in class
+Discussed languages and packages and decided to use C++
+=================================================
+___________________________________________________________________________________________
+
+Description on how work was split between teammates:
+
+
+
+
+
+
+___________________________________________________________________________________________
+Challenges and how they were overcome or dealt with:
+
+
+
+
+___________________________________________________________________________________________
+Any features that did not make the demo version:
+
+
+
+
+
+___________________________________________________________________________________________
+Retrospective on what the team would have done different 
+
+
+
+
+

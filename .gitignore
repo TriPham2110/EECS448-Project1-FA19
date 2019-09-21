@@ -13,6 +13,10 @@ BattleShip
 # Object Files
 *.o
 
+# Vi pollution
+.#*
+*.swp
+
 # Emacs Pollution
 *~
 \#*\#
