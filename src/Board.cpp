@@ -19,7 +19,7 @@ Board::Board()
   }
 }
 
-void Board::setShip(int row_num,int col_num)
+void Board::setShip(int row_num,int col_num, int m_size, str dir)
 {
   if ((dir == 'u')&&((row_num - (m_size - 1))>=0))
   {
