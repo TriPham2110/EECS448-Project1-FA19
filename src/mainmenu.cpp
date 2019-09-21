@@ -159,12 +159,12 @@ void MainMenu::add_num_ships_dropdown_decoration() {
 
 int MainMenu::confirm_new_game_popup() {
 	Gtk::MessageDialog dialog("Restart Game?",false,Gtk::MESSAGE_QUESTION,Gtk::BUTTONS_OK_CANCEL,false);
-	dialog.set_secondary_text("'Yes' to discard game and start anew; 'No' to continue.");
+	dialog.set_secondary_text("'Ok' to discard game and start anew; 'Cancel' to continue.");
 	return dialog.run();
 }
 
 int MainMenu::confirm_switch_players_popup() {
 	Gtk::MessageDialog dialog("End turn and switch players?",false,Gtk::MESSAGE_QUESTION,Gtk::BUTTONS_OK_CANCEL,false);
-	dialog.set_secondary_text("'Yes' to switch; 'No' to continue.");
+	dialog.set_secondary_text("'Ok' to switch; 'Cancel' to continue.");
 	return dialog.run();
 }
