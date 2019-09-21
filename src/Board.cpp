@@ -5,10 +5,6 @@
 #include "cell.h"
 Board::Board()
 {
-}
-
-void Board::setShip(int row,int col)
-{
   m_board = new cell **[8];
   for(int i =0;i<8;i++)
   {
