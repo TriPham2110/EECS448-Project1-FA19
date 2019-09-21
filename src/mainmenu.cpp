@@ -88,7 +88,18 @@ void MainMenu::on_pause_button_clicked() {
 }
 
 void MainMenu::on_exit_button_clicked() {
-	std::cout << "Exiting game..." << std::endl;
+	switch(confirm_exit_popup()) {
+		case(Gtk::RESPONSE_OK): {
+			std::cout << "Exiting game..." << std::endl;
+			Executive::get_executive_object()->quit();
+			break;
+		}
+		case(Gtk::RESPONSE_CANCEL): {
+			std::cout << "Cancelling..." << std::endl;
+			break;
+		}
+		default: break;
+	}
 }
 
 void MainMenu::on_start_turn_button_clicked() {
