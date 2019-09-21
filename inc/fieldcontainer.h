@@ -9,6 +9,7 @@
 #define FIELD_CONTAINER_H
 
 #include <gtkmm/box.h>
+#include <gtkmm/separator.h>
 
 // Forward Declarations
 class PlayingField;
@@ -37,6 +38,13 @@ class FieldContainer : public Gtk::Box {
 		void add_the_players_area();
 
 		/**
+		 * @brief Syntactic sugar that lets us add a vertical bar to separate the
+		 *        fields to the game screen without polluting the constructor with
+		 *        calls.
+		 */
+		void add_the_vertical_separator();
+
+		/**
 		 * @brief Syntactic sugar that lets us add the player's status field
 		 *        field to the game screen without polluting the constructor with
 		 *        calls.
@@ -44,8 +52,8 @@ class FieldContainer : public Gtk::Box {
 		void add_the_status_area();
 
 	private:
-
 		PlayingField* player_field;
+		Gtk::Separator vertical_separator;
 		PlayingField* status_field;
 };
 
