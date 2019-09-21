@@ -12,7 +12,7 @@
 #include "changingplayerwindow.h"
 
 MainMenu::MainMenu()
-	: num_ships_dropdown("Choose Ships"),
+	: num_ships_dropdown(true), //t: show as dropdown f: show as button
 	  start_menu_button("Start"),
 	  pause_menu_button("Pause"),
 	  exit_menu_button("Exit"),
@@ -42,6 +42,7 @@ void MainMenu::on_start_button_clicked() {
 				switch(confirm_new_game_popup()) {
 					case(Gtk::RESPONSE_OK): {
 						std::cout << "Other player agreed to restart. Congratulations!" << std::endl;
+						// Start a new game with parameter given by dropdown
 						break;
 					}
 					case(Gtk::RESPONSE_CANCEL): {
@@ -66,6 +67,7 @@ void MainMenu::on_start_button_clicked() {
 		}
 	} else {
 		std::cout << "Game Started." << std::endl;
+		// Start a new game with parameter given by dropdown
 		Executive::get_executive_object()->set_game_in_progress_state(1);
 	}
 }
@@ -145,11 +147,12 @@ void MainMenu::add_continue_menu_button_decoration() {
 }
 
 void MainMenu::add_num_ships_dropdown_decoration() {
-	num_ships_dropdown.append("1 Ship");
-	num_ships_dropdown.append("2 Ships");
-	num_ships_dropdown.append("3 Ships");
-	num_ships_dropdown.append("4 Ships");
-	num_ships_dropdown.append("5 Ships");
+	num_ships_dropdown.append("0", "Choose a Ship");
+	num_ships_dropdown.append("1", "1 Ship");
+	num_ships_dropdown.append("2", "2 Ships");
+	num_ships_dropdown.append("3", "3 Ships");
+	num_ships_dropdown.append("4", "4 Ships");
+	num_ships_dropdown.append("5", "5 Ships");
 	this->add(num_ships_dropdown);
 	num_ships_dropdown.show();
 }

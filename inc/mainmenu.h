@@ -52,6 +52,11 @@ class MainMenu : public Gtk::Box {
 		 */
 		void on_continue_button_clicked();
 
+		/** TODO: Add documentation
+		 * @@pre
+		 * @post
+		 * @brief
+		 */
 		void on_num_ships_dropdown_choice();
 
 		// Member Widgets
@@ -69,5 +74,6 @@ class MainMenu : public Gtk::Box {
 		void add_num_ships_dropdown_decoration();
 		int confirm_new_game_popup();
 		int confirm_switch_players_popup();
+
 };
 #endif // GUI_H_
