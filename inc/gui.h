@@ -11,7 +11,7 @@
 #include <gtkmm/box.h>
 
 // Forward Declaration of Submodules
-class FieldContainer;
+class Player;
 class MainMenu;
 class ChangingPlayerWindow;
 
@@ -34,10 +34,16 @@ class UserInterface : public Gtk::Box {
 		virtual ~UserInterface();
 
 		/**
-		 * @brief Returns a pointer to the field container.
-		 * @return FieldContainer* pointer to container that holds play/view fields.
+		 * @brief Returns a pointer to the container for player one's boards.
+		 * @return Player* pointer to container that holds play/view fields.
 		 */
-		static FieldContainer* get_field_container();
+		static Player* get_player_one();
+
+		/**
+		 * @brief Returns a pointer to the container for player two's boards.
+		 * @return Player* pointer to container that holds play/view fields.
+		 */
+		static Player* get_player_two();
 
 		/**
 		 * @brief Returns a pointer to the main menu.
@@ -51,7 +57,8 @@ class UserInterface : public Gtk::Box {
 		static ChangingPlayerWindow* get_changing_player_window();
 
 	protected:
-		FieldContainer* field_container;
+		Player* player_one;
+		Player* player_two;
 		MainMenu* main_menu;
 		ChangingPlayerWindow* changing_player_window;
 
@@ -65,7 +72,7 @@ class UserInterface : public Gtk::Box {
 		 *          constructor with a bunch of unreadable calls. It is
 		 *          generally a good idea to abstract intent.
 		 */
-		void bootstrap_field_container();
+		void bootstrap_player_ones_container();
 
 		/**
 		 * @brief Sets up the container that holds all the main menu buttons.

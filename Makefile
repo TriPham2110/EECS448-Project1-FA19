@@ -77,7 +77,7 @@ EXPORT = -o $@
 DEPENDENCIES = $(OBJDIR)/main.o $(OBJDIR)/executive.o\
                $(OBJDIR)/window.o $(OBJDIR)/gui.o\
                $(OBJDIR)/mainmenu.o $(OBJDIR)/board.o\
-               $(OBJDIR)/fieldcontainer.o $(OBJDIR)/changingplayerwindow.o\
+               $(OBJDIR)/player.o $(OBJDIR)/changingplayerwindow.o\
                $(OBJDIR)/cell.o
 
 # --- Phonies ---
@@ -124,7 +124,7 @@ $(OBJDIR)/gui.o: $(SRCDIR)/gui.cpp
 $(OBJDIR)/mainmenu.o: $(SRCDIR)/mainmenu.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
-$(OBJDIR)/fieldcontainer.o: $(SRCDIR)/fieldcontainer.cpp
+$(OBJDIR)/player.o: $(SRCDIR)/player.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
 $(OBJDIR)/board.o: $(SRCDIR)/board.cpp

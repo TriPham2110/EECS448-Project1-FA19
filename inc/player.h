@@ -1,12 +1,12 @@
 // -*- C++ -*-
 /**
-* @file   field.h
+* @file   player.h
 * @date   13 September 2019
 * @brief  Container for the playing field.
 */
 
-#ifndef FIELD_CONTAINER_H
-#define FIELD_CONTAINER_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include <gtkmm/box.h>
 #include <gtkmm/separator.h>
@@ -14,19 +14,19 @@
 // Forward Declarations
 class Board;
 
-class FieldContainer : public Gtk::Box {
+class Player : public Gtk::Box {
 
 	public:
 
 		/**
 		 * @brief Playing field container constructor.
 		 */
-		FieldContainer();
+		Player();
 
 		/**
 		 * @brief Playing field container destructor.
 		 */
-		virtual ~FieldContainer();
+		virtual ~Player();
 
 	protected:
 
@@ -59,4 +59,4 @@ class FieldContainer : public Gtk::Box {
 
 };
 
-#endif // FIELD_CONTAINER_H_
+#endif // PLAYER_H_
