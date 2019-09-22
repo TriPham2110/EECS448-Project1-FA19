@@ -14,10 +14,13 @@
 // Forward Declarations
 class Cell;
 
-#include <gtkmm/grid.h>
-#include <gtkmm/button.h>
+#include <string>
 
-class Board : public Gtk::Grid {
+//#include <gtkmm/grid.h>
+#include <gtkmm/table.h>
+//#include <gtkmm/button.h>
+
+class Board : public Gtk::Table {
 
 	public:
 
@@ -34,12 +37,12 @@ class Board : public Gtk::Grid {
 		/** TODO: Add documentation
 		 * @brief Place a ship in the specified cell
 		 */
-		void setShip(int row,int col);
+		void setShip(int row_num,int col_num, int size, char direction);
 
 		/** TODO: Add documentation
 		 * @brief Return whether or not the shot hit 
 		 */
-		bool isHit();
+		bool isHit(int row, int col);
 
 		/** TODO: Add documentation
 		 * @brief Return whether or not a ship was sunk
@@ -51,9 +54,14 @@ class Board : public Gtk::Grid {
 		 */
 		void hit(int row, int col);
 
+		/**
+		 * @brief set label
+		 */
+		void setLabel(std::string label);
+
 	protected:
 		Cell **m_board;
-		Gtk::Button playing_field_button;
+		//Gtk::Button playing_field_button;
 
 	private:
 

@@ -52,19 +52,5 @@ void Cell::hit(){
  */
 
 bool Cell::hasShip(){
-        return containsShip();
-/**
- * @pre 
- * @post
- * @brief   accessor for containsShip
- */
-bool Cell::hasShip(){
-        return containsShip();
-}
-
-/**
- * @brief accessor for beenHit
- */
-bool Cell::hasBeenHit(){
-	return beenHit;
+        return (containsShip ? true : false);
 }
