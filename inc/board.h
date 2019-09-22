@@ -34,12 +34,12 @@ class Board : public Gtk::Grid {
 		/** TODO: Add documentation
 		 * @brief
 		 */
-		void setShip(int row,int col);
+		void setShip(int row_num,int col_num, int size, char direction);
 
 		/** TODO: Add documentation
 		 * @brief
 		 */
-		bool isHit();
+		bool isHit(int row, int col);
 
 		/** TODO: Add documentation
 		 * @brief

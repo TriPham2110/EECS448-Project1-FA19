@@ -8,8 +8,10 @@
 #ifndef CELL_H
 #define CELL_H
 
+#include <gtkmm/button.h>
+
 //Forward Declarations
-class Cell {
+class Cell : public Gtk::Button{
 
 	public:
 
