@@ -12,39 +12,51 @@
 class Cell {
 
 	public:
-		/**TODO: Add documentation
+
+		/**
+		 * @brief Generic constructor
+		 */
+		Cell();
+
+		/**
+		 * @brief Constructor with positional arguments.
+		 */
+		Cell(int row, int col);
+
+		/** TODO: Add documentation
+		 * @brief
+		 */
+		virtual ~Cell();
+
+		/** TODO: Add documentation
 		 * @pre
 		 * @post
 		 * @brief
 		 */
 		void putShip();
-		
-		/**TODO: Add documentation
+
+		/** TODO: Add documentation
 		 * @pre
 		 * @post
 		 * @brief
 		 */
 
+		/** TODO: Add documentation
+		 * @brief
+		 */
 		void hit();
-                
-		/**TODO: Add documentation
-		 * @pre
-		 * @post
-		 * @brief
-		 */
-                bool hasShip();
 
-		/**TODO: Add documentation
+		/** TODO: Add documentation
 		 * @pre
 		 * @post
 		 * @brief
 		 */
-                bool hasBeenHit();
+		bool hasShip();
 
 
 	private:
-		int row;
-		int col;
+		int m_row;
+		int m_col;
 		bool containsShip;
 		bool beenHit;
 
