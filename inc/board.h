@@ -14,10 +14,11 @@
 // Forward Declarations
 class Cell;
 
-#include <gtkmm/grid.h>
-#include <gtkmm/button.h>
+#include <string>
 
-class Board : public Gtk::Grid {
+#include <gtkmm/table.h>
+
+class Board : public Gtk::Table {
 
 	public:
 
@@ -61,9 +62,13 @@ class Board : public Gtk::Grid {
 		  */
 		void hit(int row, int col);
 
+		/** TODO: Add documentation
+		 * @brief
+		 */
+		void setLabel(std::string label);
+
 	protected:
 		Cell **m_board;
-		Gtk::Button playing_field_button;
 
 	private:
 
