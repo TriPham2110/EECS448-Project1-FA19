@@ -48,7 +48,7 @@ void UserInterface::bootstrap_main_menu() {
 }
 
 void UserInterface::toggle_player_ones_board(int state) {
-	std::cout << "Here (1)" << std::endl;
+	std::cout << "Toggling Player 1's board..." << std::endl;
 	if(state == 1) {
 		this->player_one->show();
 	} else {
@@ -57,7 +57,7 @@ void UserInterface::toggle_player_ones_board(int state) {
 }
 
 void UserInterface::toggle_player_twos_board(int state) {
-	std::cout << "Here (2)" << std::endl;
+	std::cout << "Toggling Player 2's board..." << std::endl;
 	if(state) {
 		player_one->show();
 	} else {
