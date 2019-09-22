@@ -76,7 +76,7 @@ EXPORT = -o $@
 
 DEPENDENCIES = $(OBJDIR)/main.o $(OBJDIR)/executive.o\
                $(OBJDIR)/window.o $(OBJDIR)/gui.o\
-               $(OBJDIR)/mainmenu.o $(OBJDIR)/field.o\
+               $(OBJDIR)/mainmenu.o $(OBJDIR)/board.o\
                $(OBJDIR)/fieldcontainer.o $(OBJDIR)/changingplayerwindow.o\
                $(OBJDIR)/cell.o
 
@@ -127,7 +127,7 @@ $(OBJDIR)/mainmenu.o: $(SRCDIR)/mainmenu.cpp
 $(OBJDIR)/fieldcontainer.o: $(SRCDIR)/fieldcontainer.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
-$(OBJDIR)/field.o: $(SRCDIR)/field.cpp
+$(OBJDIR)/board.o: $(SRCDIR)/board.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
 $(OBJDIR)/changingplayerwindow.o: $(SRCDIR)/changingplayerwindow.cpp

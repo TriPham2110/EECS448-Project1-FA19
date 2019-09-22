@@ -106,7 +106,7 @@ void MainMenu::on_start_turn_button_clicked() {
 	// reveal the board and take input again
 	if(Executive::get_executive_object()->get_game_in_progress_state()) {
 		if(Executive::get_executive_object()->is_a_turn_active()) {
-			std::cout << "Turn already in progress.";
+			std::cout << "Turn already in progress." << std::endl;
 		} else {
 			Executive::get_executive_object()->set_turn_active(1);
 			// TODO UNHIDE BOARD HERE

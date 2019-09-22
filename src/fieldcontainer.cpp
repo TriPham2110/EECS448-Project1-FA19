@@ -6,7 +6,7 @@
 */
 
 #include "fieldcontainer.h"
-#include "field.h"
+#include "board.h"
 
 FieldContainer::FieldContainer()
 	: Gtk::Box(Gtk::ORIENTATION_HORIZONTAL)
