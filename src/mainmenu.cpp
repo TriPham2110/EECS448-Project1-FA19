@@ -88,14 +88,25 @@ void MainMenu::on_pause_button_clicked() {
 }
 
 void MainMenu::on_exit_button_clicked() {
-	std::cout << "Exiting game..." << std::endl;
+	switch(confirm_exit_popup()) {
+		case(Gtk::RESPONSE_OK): {
+			std::cout << "Exiting game..." << std::endl;
+			Executive::get_executive_object()->quit();
+			break;
+		}
+		case(Gtk::RESPONSE_CANCEL): {
+			std::cout << "Cancelling..." << std::endl;
+			break;
+		}
+		default: break;
+	}
 }
 
 void MainMenu::on_start_turn_button_clicked() {
 	// reveal the board and take input again
 	if(Executive::get_executive_object()->get_game_in_progress_state()) {
 		if(Executive::get_executive_object()->is_a_turn_active()) {
-			std::cout << "Turn already in progress.";
+			std::cout << "Turn already in progress." << std::endl;
 		} else {
 			Executive::get_executive_object()->set_turn_active(1);
 			// TODO UNHIDE BOARD HERE
@@ -190,5 +201,11 @@ int MainMenu::confirm_new_game_popup() {
 int MainMenu::confirm_switch_players_popup() {
 	Gtk::MessageDialog dialog("End turn and switch players?",false,Gtk::MESSAGE_QUESTION,Gtk::BUTTONS_OK_CANCEL,false);
 	dialog.set_secondary_text("'Ok' to switch; 'Cancel' to continue.");
+	return dialog.run();
+}
+
+int MainMenu::confirm_exit_popup() {
+	Gtk::MessageDialog dialog("Are you sure you want to exit?",false,Gtk::MESSAGE_QUESTION,Gtk::BUTTONS_OK_CANCEL,false);
+	dialog.set_secondary_text("'Yes' to EXIT; 'No' to CONTINUE.");
 	return dialog.run();
 }

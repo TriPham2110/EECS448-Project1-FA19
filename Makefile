@@ -76,8 +76,9 @@ EXPORT = -o $@
 
 DEPENDENCIES = $(OBJDIR)/main.o $(OBJDIR)/executive.o\
                $(OBJDIR)/window.o $(OBJDIR)/gui.o\
-               $(OBJDIR)/mainmenu.o $(OBJDIR)/field.o\
-               $(OBJDIR)/fieldcontainer.o $(OBJDIR)/changingplayerwindow.o
+               $(OBJDIR)/mainmenu.o $(OBJDIR)/board.o\
+               $(OBJDIR)/player.o $(OBJDIR)/changingplayerwindow.o\
+               $(OBJDIR)/cell.o
 
 # --- Phonies ---
 # Phonies essentially declare a target as being unrelated to actual files in
@@ -123,13 +124,16 @@ $(OBJDIR)/gui.o: $(SRCDIR)/gui.cpp
 $(OBJDIR)/mainmenu.o: $(SRCDIR)/mainmenu.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
-$(OBJDIR)/fieldcontainer.o: $(SRCDIR)/fieldcontainer.cpp
+$(OBJDIR)/player.o: $(SRCDIR)/player.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
-$(OBJDIR)/field.o: $(SRCDIR)/field.cpp
+$(OBJDIR)/board.o: $(SRCDIR)/board.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
 $(OBJDIR)/changingplayerwindow.o: $(SRCDIR)/changingplayerwindow.cpp
+	$(CXX) $(CXXFLAGS) $< $(EXPORT)
+
+$(OBJDIR)/cell.o: $(SRCDIR)/cell.cpp
 	$(CXX) $(CXXFLAGS) $< $(EXPORT)
 
 # --- Housekeeping ---
