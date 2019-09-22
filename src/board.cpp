@@ -57,6 +57,10 @@ void Board::setShip(int row_num,int col_num, int size, char direction)
 		for(int i = 1;i<size;i++)
 		{
 			m_board[row_num][++col_num].putShip();
+			m_board[row_num][row_num].set_label("X");
+			//shipHits++;
+			//shipLength++;
+
 		}
 	}
 
@@ -66,6 +70,8 @@ void Board::setShip(int row_num,int col_num, int size, char direction)
 		for(int i = 1;i<size;i++)
 		{
 			m_board[++row_num][col_num].putShip();
+			//shipHits++;
+			//shipLength++;
 		}
 	}
 	else
@@ -91,7 +97,8 @@ bool Board::isHit(int row, int col) {
 		return false;
 }
 
-bool Board::isSunk() {
+bool Board::isSunk(int row, int col)
+{
 
 }
 

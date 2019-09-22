@@ -45,7 +45,7 @@ class Board : public Gtk::Table {
 		/** TODO: Add documentation
 		 * @brief
 		 */
-		bool isSunk();
+		bool isSunk(int row, int col);
 
 		/** TODO: Add documentation
 		 * @brief
@@ -74,6 +74,8 @@ class Board : public Gtk::Table {
 
 		int m_row;
 		int m_col;
+		int shipHits;
+		int shipLength;
 
 		/**
 		 * @brief Syntactic sugar that allows us to add buttons to the field
