@@ -1,12 +1,13 @@
 // -*- C++ -*-
 /**
-* @file   board.cpp
+* @file   field.cpp
 * @date   13 September 2019
-* @brief  Provides a gameboard
+* @brief
 */
 
 #include <iostream>
 
+#include "field.h"
 #include "board.h"
 #include "cell.h"
 
