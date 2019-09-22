@@ -98,7 +98,7 @@ void Board::hit(int row, int col) {
 }
 
 bool Board::isHit(int row, int col) {
-        //return whethor or not the attack hit a ship or missed
+        //return whether or not the attack hit a ship or missed
 	if(m_board[row][col].hasShip())
 		{
 			return true;
