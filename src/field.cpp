@@ -5,29 +5,74 @@
 * @brief
 */
 
+#include <iostream>
+
 #include "field.h"
-#include <gtkmm/table.h>
+#include "board.h"
+#include "cell.h"
 
-PlayingField::PlayingField()
-	: Gtk::Table(),
-	  playing_field_button()
+Board::Board()
+	: Gtk::Grid()
 {
-	add_playfield_button();
-	this->set_homogeneous(true);
-	//add_board();
+	bootstrap_board();
 }
 
-PlayingField::~PlayingField() {
+Board::~Board() {
+	delete m_board;
+}
+
+void Board::bootstrap_board() {
+	this->m_board = new Cell*[8];
+}
+
+void Board::setShip(int row_num,int col_num) {
+	// if ((dir == 'u')&&((row_num - (m_size - 1))>=0)) {
+	// 	m_board[row_num][col_num] -> putShip(); //Something that cell class should have. The size of the ship it is holding and the fact that is has a ship
+	// 	for(int i = 1;i<=m_size;i++) {
+	// 		m_board[--row_num][col_num] -> putShip();
+	// 	}
+	// }
+	// else if ((dir == 'd')&&((row_num + (m_size - 1))<8)) {
+	// 	//m_board.setShip(row_num,col_num);
+	// 	m_board[row_num][col_num] -> putShip(); //Something that cell class should have. The size of the ship it is holding and the fact that is has a ship
+	// 	for(int i = 1;i<=m_size;i++) {
+	// 		m_board[++row_num][col_num] -> putShip();
+	// 	}
+	// }
+	// else if ((dir == 'l')&&((col_num - (m_size - 1))>=0)) {
+	// 	m_board[row_num][col_num] -> putShip(); //Something that cell class should have. The size of the ship it is holding and the fact that is has a ship
+	// 	for(int i = 1;i<=m_size;i++) {
+	// 		m_board[row_num][--col_num] -> putShip();
+	// 	}
+	// }
+	// else if ((dir == 'r')&&((col_num + (m_size - 1))<8)) {
+	// 	m_board[row_num][col_num] -> putShip(); //Something that cell class should have. The size of the ship it is holding and the fact that is has a ship
+	// 	for(int i = 1;i<=m_size;i++) {
+	// 		m_board[row_num][--col_num] -> putShip();
+	// 	}
+	// }
+	// else {
+	// 	std::cout<<"\nShip is too big to place using the given orientation and position. Try Again!";
+	// }
+}
+
+void Board::hit(int row, int col) {
+	if(m_board == nullptr) {
+		// do nothing
+	}
+	else {
+		m_board[row,col]->hit();
+	}
+}
+
+bool Board::isHit() {
 
 }
 
-void PlayingField::add_playfield_button() {
-	this->add(playing_field_button);
-	playing_field_button.show();
+bool Board::isSunk() {
+
 }
 
-void PlayingField::add_board() {
-	//this->the_board = new Board();
-	//this->pack_start(*the_board,true,true);
-	//the_board->show();
+bool Board::miss() {
+
 }

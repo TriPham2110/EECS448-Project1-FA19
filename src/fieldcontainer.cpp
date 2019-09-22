@@ -22,7 +22,7 @@ FieldContainer::~FieldContainer() {
 
 
 void FieldContainer::add_the_players_area() {
-	this->player_field = new PlayingField();
+	this->player_field = new Board();
 	// widget, bool expand, bool fill, int margin
 	this->pack_start(*player_field,true,true);
 	player_field->show();
@@ -34,7 +34,7 @@ void FieldContainer::add_the_vertical_separator() {
 }
 
 void FieldContainer::add_the_status_area() {
-	this->status_field = new PlayingField();
+	this->status_field = new Board();
 	this->pack_end(*status_field,true,true);
 	status_field->show();
 }
