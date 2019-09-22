@@ -8,7 +8,8 @@
 #include "cell.h"
 
 Cell::Cell(){
-
+	containsShip = false;
+	beenHit = false;
 }
 
 Cell::Cell(int row, int col) {
