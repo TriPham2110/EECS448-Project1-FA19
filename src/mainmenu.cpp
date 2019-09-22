@@ -39,8 +39,7 @@ MainMenu::~MainMenu() {
 
 void MainMenu::on_start_button_clicked() {
 	if(Executive::get_executive_object()->get_turn_count() == 0) {
-		//Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_ones_board(1);
-		Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_twos_board(1);
+		Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_ones_board(1);
 	}
 	if(Executive::get_executive_object()->get_game_in_progress_state()) {
 		std::cout << "User requests new game... are they sure?" << std::endl;
@@ -110,13 +109,33 @@ void MainMenu::on_exit_button_clicked() {
 }
 
 void MainMenu::on_start_turn_button_clicked() {
+
+
+
+
+
+
 	std::cout << "Turn: " << Executive::get_executive_object()->get_turn_count() << std::endl;
+
 	if(Executive::get_executive_object()->get_game_in_progress_state()) {
 		if(Executive::get_executive_object()->is_a_turn_active()) {
 			std::cout << "Turn already in progress." << std::endl;
 		} else {
+			int current_player = Executive::get_executive_object()->which_player_is_up();
+			switch(current_player) {
+				default: break;
+				case 0: {
+					std::cout << "Starting Player 1's turn..." << std::endl;
+					Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_ones_board(1);
+					break;
+				}
+				case 1: {
+					std::cout << "Starting Player 2's turn..." << std::endl;
+					Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_twos_board(1);
+					break;
+				}
+			}
 			Executive::get_executive_object()->set_turn_active(1);
-			//UserInterface::get_user_interface()->toggle_the_board(1);
 		}
 	} else {
 		std::cout << "No game in progress; cannot start turn." << std::endl;
@@ -132,12 +151,13 @@ void MainMenu::on_end_turn_button_clicked() {
 		switch(current_player) {
 			default: break;
 			case 0: {
-				std::cout << "Player 1 is up" << std::endl;
-				//UserInterface::get_user_interface()->toggle_player_ones_board(0);
+				std::cout << "Player 1 is up. Hiding their board." << std::endl;
+				Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_ones_board(0);
 				break;
 			}
 			case 1: {
-				//UserInterface::get_user_interface()->toggle_player_twos_board(0);
+				std::cout << "Player 2 is up. Hiding their board." << std::endl;
+				Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_twos_board(0);
 				break;
 			}
 		}
@@ -146,11 +166,9 @@ void MainMenu::on_end_turn_button_clicked() {
 				if(Executive::get_executive_object()->which_player_is_up() == 0) {
 					std::cout << "Changing players (1 to 2)" << std::endl;
 					Executive::get_executive_object()->set_which_player(1);
-					//UserInterface::get_user_interface()->toggle_player_twos_board(1);
 				} else {
 					std::cout << "Changing players (2 to 1)" << std::endl;
 					Executive::get_executive_object()->set_which_player(0);
-					//UserInterface::get_user_interface()->toggle_player_ones_board(1);
 				}
 				Executive::get_executive_object()->set_turn_active(0);
 				break;
@@ -159,11 +177,13 @@ void MainMenu::on_end_turn_button_clicked() {
 				switch(current_player) {
 					default: break;
 					case 0: {
-						//UserInterface::get_user_interface()->toggle_player_ones_board(1);
+						std::cout << "Oh nevermind. Putting Player 1's board back.";
+						Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_ones_board(1);
 						break;
 					}
 					case 1: {
-						//UserInterface::get_user_interface()->toggle_player_twos_board(1);
+						std::cout << "Oh nevermind. Putting Player 2's board back.";
+						Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_twos_board(1);
 						break;
 					}
 				}
