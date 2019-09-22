@@ -22,6 +22,11 @@ Cell::~Cell() {
 
 }
 
+void Cell::set_location(int row, int col) {
+	m_row = row;
+	m_col = col;
+}
+
 void Cell::putShip(){
 	containsShip = true;
 }

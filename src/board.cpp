@@ -1,31 +1,51 @@
 // -*- C++ -*-
 /**
-* @file   field.cpp
+* @file   board.cpp
 * @date   13 September 2019
-* @brief
+* @brief  Provides a gameboard
 */
 
 #include <iostream>
 
-#include "field.h"
 #include "board.h"
 #include "cell.h"
 
 Board::Board()
-	: Gtk::Grid()
+	: Gtk::Table(10,10,false)
 {
 	bootstrap_board();
 }
 
 Board::~Board() {
+	for(int i = 0; i < 9; i++) {
+		delete m_board[i];
+	}
 	delete m_board;
 }
 
 void Board::bootstrap_board() {
-	this->m_board = new Cell*[8];
-	for(int i = 0;i<8;i++)
-	{
-		m_board[i] = new Cell[8];
+	this->m_board = new Cell*[9];
+	for(int i = 0; i < 9; i++) {
+		m_board[i] = new Cell[9];
+	}
+	for(int i = 0; i < 9; i++) {
+		for(int j = 0; j < 9; j++) {
+			m_board[i][j].set_location(i, j);
+			this->attach(m_board[i][j], j, j+1, i, i+1);
+			m_board[i][j].show();
+		}
+	}
+	for(int i = 1; i < 9; i++) {
+		// Trying to do this the clever way by casting int to char inside to_string
+		// inside the set_label call did not work and just labelled them with letters.
+		// TRUST ME, I hate this code as much as you do right now.
+		char the_label = (char)64+i;
+		std::string label_the;
+		label_the += the_label;
+		m_board[0][i].set_label(label_the);
+	}
+	for(int i = 1; i < 9; i++) {
+		m_board[i][0].set_label(std::to_string(i));
 	}
 }
 
@@ -77,4 +97,12 @@ bool Board::isSunk() {
 
 bool Board::miss() {
 
+}
+
+void Board::setLabel(std::string label) {
+	try {
+		m_board[0][0].set_label(label);
+	} catch (std::exception& e) {
+		std::cout << "Cannot set label of unallocated board." << std::endl;
+	}
 }
