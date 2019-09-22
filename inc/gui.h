@@ -73,6 +73,15 @@ class UserInterface : public Gtk::Box {
 		 *          generally a good idea to abstract intent.
 		 */
 		void bootstrap_player_ones_container();
+		/**
+		 * @brief Sets up the container that houses play/view fields.
+		 * @details This is more syntactic sugar that lets us construct the
+		 *          container that houses the playboards and then add it to
+		 *          this container class without having to pollute the
+		 *          constructor with a bunch of unreadable calls. It is
+		 *          generally a good idea to abstract intent.
+		 */
+		void bootstrap_player_twos_container();
 
 		/**
 		 * @brief Sets up the container that holds all the main menu buttons.

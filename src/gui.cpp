@@ -15,12 +15,14 @@ UserInterface::UserInterface()
 	: Gtk::Box(Gtk::ORIENTATION_VERTICAL)
 {
 	bootstrap_player_ones_container();
+	bootstrap_player_twos_container();
 	bootstrap_main_menu();
 	bootstrap_changing_player_window();
 }
 
 UserInterface::~UserInterface() {
 	delete player_one;
+	delete player_two;
 	delete main_menu;
 	delete changing_player_window;
 }
@@ -30,6 +32,12 @@ void UserInterface::bootstrap_player_ones_container() {
 	// widget expand fill padding=0
 	this->pack_start(*player_one,true,true);
 	player_one->show();
+}
+
+void UserInterface::bootstrap_player_twos_container() {
+	this->player_two = new Player();
+	// widget expand fill padding=0
+	this->pack_start(*player_two,true,true);
 }
 
 void UserInterface::bootstrap_main_menu() {
