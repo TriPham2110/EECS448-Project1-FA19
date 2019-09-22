@@ -20,31 +20,12 @@ class Executive {
 	public:
 
 		/**
-		 * @post Executive object is created.
-		 * @brief Executive constructor.
-		 */
-		Executive();
-
-		/**
-		 * @post Executive object is created.
-		 * @param argc The count of command-line arguments passed in.
-		 * @param argv The vector of command-line arguments passed in.
-		 * @brief Alternative constructor.
-		 */
-		Executive(int argc, char* argv[]);
-
-		/**
-		 * @brief Executive destructor.
-		 */
-		~Executive();
-
-		/**
 		 * @pre Successful creation of executive object.
 		 * @return Program exit code.
 		 * @post Program exits and reports exit code to operating system.
 		 * @brief Main program thread.
 		 */
-		int run();
+		int run(int argc, char* argv[]);
 
 		/**
 		 * @brief Returns executive singleton that can be used to change game state parameters.
@@ -109,14 +90,32 @@ class Executive {
 		 */
 		BattleWindow* get_main_window();
 
+		/**
+		 *
+		 *
+		 */
+		int get_turn_count();
+
+		/**
+		 *
+		 *
+		 */
+		void increment_turn_count();
+
 	private:
 
+		Executive();
+		Executive(const Executive &);
+		~Executive();
+		Executive& operator=(const Executive&);
+		static Executive* m_executive_instance;
 		Glib::RefPtr<Gtk::Application> app;
 		BattleWindow* main_window;
 		int gameInProgressState = 0;
 		int whichPlayer = 0;
 		int gamePausedState = 0;
 		int turnActive = 0;
+		int turnCount = 0;
 
 };
 

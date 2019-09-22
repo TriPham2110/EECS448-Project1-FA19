@@ -8,14 +8,10 @@
 #include "executive.h"
 #include "window.h"
 
+Executive* Executive::m_executive_instance = nullptr;
+
 Executive::Executive() {
 
-}
-
-Executive::Executive(int argc, char* argv[]) {
-	// Future teams will need to change this application ID to suit them.
-	app = Gtk::Application::create(argc, argv, "eecs448.fa19.project1.tghet");
-	main_window = new BattleWindow;
 }
 
 Executive::~Executive() {
@@ -26,7 +22,9 @@ Executive* Executive::get_executive_object() {
 	return &exec;
 }
 
-int Executive::run() {
+int Executive::run(int argc, char* argv[]) {
+	app = Gtk::Application::create(argc, argv, "eecs448.fa19.project1.tghet");
+	main_window = new BattleWindow;
 	return app->run(*main_window);
 }
 
@@ -68,4 +66,12 @@ void Executive::quit() {
 
 BattleWindow* Executive::get_main_window() {
 	return main_window;
+}
+
+int Executive::get_turn_count() {
+	return turnCount;
+}
+
+void Executive::increment_turn_count() {
+	turnCount++;
 }

@@ -8,6 +8,5 @@
 #include "executive.h"
 
 int main(int argc, char* argv[]) {
-	Executive exec(argc, argv);
-	exec.run();
+	Executive::get_executive_object()->run(argc, argv);
 }

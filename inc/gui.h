@@ -13,7 +13,6 @@
 // Forward Declaration of Submodules
 class Player;
 class MainMenu;
-class ChangingPlayerWindow;
 
 class UserInterface : public Gtk::Box {
 
@@ -33,34 +32,14 @@ class UserInterface : public Gtk::Box {
 		 */
 		virtual ~UserInterface();
 
-		/**
-		 * @brief Returns a pointer to the container for player one's boards.
-		 * @return Player* pointer to container that holds play/view fields.
-		 */
-		static Player* get_player_one();
+		void toggle_player_ones_board(int state);
 
-		/**
-		 * @brief Returns a pointer to the container for player two's boards.
-		 * @return Player* pointer to container that holds play/view fields.
-		 */
-		static Player* get_player_two();
-
-		/**
-		 * @brief Returns a pointer to the main menu.
-		 * @return MainMenu* pointer to main menu container.
-		 */
-		static MainMenu* get_main_menu();
-
-		/**
-		 * @brief TODO What is this
-		 */
-		static ChangingPlayerWindow* get_changing_player_window();
+		void toggle_player_twos_board(int state);
 
 	protected:
 		Player* player_one;
 		Player* player_two;
 		MainMenu* main_menu;
-		ChangingPlayerWindow* changing_player_window;
 
 	private:
 
@@ -73,6 +52,7 @@ class UserInterface : public Gtk::Box {
 		 *          generally a good idea to abstract intent.
 		 */
 		void bootstrap_player_ones_container();
+
 		/**
 		 * @brief Sets up the container that houses play/view fields.
 		 * @details This is more syntactic sugar that lets us construct the
@@ -92,11 +72,7 @@ class UserInterface : public Gtk::Box {
 		 */
 		void bootstrap_main_menu();
 
-		/**
-		 * @brief TODO What is this
-		 * @details TODO What is this
-		 */
-		void bootstrap_changing_player_window();
+		int board_visible = 0;
 
 };
 
