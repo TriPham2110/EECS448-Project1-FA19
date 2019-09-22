@@ -54,11 +54,6 @@ class Board : public Gtk::Grid {
 		/** TODO: Add documentation
 		 * @brief
 		 */
-		 void putShip();
-
-		 /** TODO: Add documentation
-		  * @brief
-		  */
 		void hit(int row, int col);
 
 	protected:
