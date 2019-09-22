@@ -5,23 +5,31 @@
  * @brief  cell class
  */
 
-#include cell.h
+#include "cell.h"
 
-Cell::Cell()
-{
+Cell::Cell(){
 
 }
 
-Cell::Cell(int row, int col)
-{
+Cell::Cell(int row, int col) {
 	m_row = row;
 	m_col = col;
 	containsShip = false;
 	beenHit = false;
 }
+
+Cell::~Cell() {
+
+}
+
+void Cell::set_location(int row, int col) {
+	m_row = row;
+	m_col = col;
+}
+
 /**
- * @pre containsShip = false
- * @post containsShip = true
+ * @pre   containsShip = false
+ * @post  containsShip = true
  * @brief lets the cell know that 
  *         a ship has been placed on it
  */
@@ -30,16 +38,25 @@ void Cell::putShip(){
 }
 
 /**
- * @pre beenHit = false
- * @post beenHit = true
+ * @pre   beenHit = false
+ * @post  beenHit = true
  * @brief lets cell know that it has
  *         been hit
  */
 void Cell::hit(){
 	beenHit = true;
 }
+
 /**
  * @brief accessor for containsShip
+ */
+
+bool Cell::hasShip(){
+        return containsShip();
+/**
+ * @pre 
+ * @post
+ * @brief   accessor for containsShip
  */
 bool Cell::hasShip(){
         return containsShip();

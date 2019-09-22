@@ -8,11 +8,12 @@
 #ifndef CELL_H
 #define CELL_H
 
+#include <gtkmm/button.h>
+
 //Forward Declarations
-class Cell {
+class Cell : public Gtk::Button {
 
 	public:
-
 		/**
 		 * @brief Generic constructor
 		 */
@@ -47,6 +48,7 @@ class Cell {
 		 */
 		bool hasShip();
 
+		void set_location(int row, int col);
 
 	private:
 		int m_row;
