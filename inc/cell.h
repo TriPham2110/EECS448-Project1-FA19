@@ -24,32 +24,26 @@ class Cell {
 		Cell(int row, int col);
 
 		/** TODO: Add documentation
-		 * @brief
+		 * @brief Destructor
 		 */
 		virtual ~Cell();
 
 		/** TODO: Add documentation
-		 * @pre
-		 * @post
-		 * @brief
+		 * @pre containsShip = false
+		 * @post containsShip = true
+		 * @brief Places a ship in this cell
 		 */
 		void putShip();
 
 		/** TODO: Add documentation
-		 * @pre
-		 * @post
-		 * @brief
-		 */
-
-		/** TODO: Add documentation
-		 * @brief
+		 * @pre beenHit = false
+		 * @post beenHit = true
+		 * @brief Hit this cell
 		 */
 		void hit();
 
 		/** TODO: Add documentation
-		 * @pre
-		 * @post
-		 * @brief
+		 * @brief Accessor for containsShip variable
 		 */
 		bool hasShip();
 
