@@ -47,11 +47,6 @@ class Board : public Gtk::Grid {
 		bool isSunk();
 
 		/** TODO: Add documentation
-		 * @brief Return whether or not the shot missed
-		 */
-		bool miss();
-
-		/** TODO: Add documentation
 		 * @brief Attack a cell
 		 */
 		void hit(int row, int col);

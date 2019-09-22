@@ -110,10 +110,6 @@ bool Board::isSunk() {
 
 }
 
-bool Board::miss() {
-
-}
-
 void Board::setLabel(std::string label) {
 	try {
 		m_board[0][0].set_label(label);
