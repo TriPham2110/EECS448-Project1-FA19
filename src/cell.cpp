@@ -20,8 +20,8 @@ Cell::Cell(int row, int col)
 	beenHit = false;
 }
 /**
- * @pre   containsShip = false
- * @post  containsShip = true
+ * @pre containsShip = false
+ * @post containsShip = true
  * @brief lets the cell know that 
  *         a ship has been placed on it
  */
@@ -30,8 +30,8 @@ void Cell::putShip(){
 }
 
 /**
- * @pre   beenHit = false
- * @post  beenHit = true
+ * @pre beenHit = false
+ * @post beenHit = true
  * @brief lets cell know that it has
  *         been hit
  */
@@ -39,18 +39,14 @@ void Cell::hit(){
 	beenHit = true;
 }
 /**
- * @pre 
- * @post
- * @brief   accessor for containsShip
+ * @brief accessor for containsShip
  */
 bool Cell::hasShip(){
         return containsShip();
 }
 
 /**
- * @pre 
- * @post
- * @brief   accessor for beenHit
+ * @brief accessor for beenHit
  */
 bool Cell::hasBeenHit(){
 	return beenHit;
