@@ -62,7 +62,7 @@ void Board::setShip(int row_num,int col_num, int size, char direction)
         // place a horizontal ship
 	{
                 
-                // call putShip() for each cell in the the ship occupies
+                // call putShip() for each cell in that the ship occupies
 		m_board[row_num][col_num].putShip();
 		for(int i = 1;i<size;i++)
 		{
@@ -74,7 +74,7 @@ void Board::setShip(int row_num,int col_num, int size, char direction)
         // place a vertiacal ship
 	{
                  
-                // call putShip() for each cell in the the ship occupies
+                // call putShip() for each cell in that the ship occupies
 		m_board[row_num][col_num].putShip();
 		for(int i = 1;i<size;i++)
 		{
