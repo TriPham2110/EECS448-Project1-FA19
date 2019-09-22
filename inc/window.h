@@ -33,7 +33,7 @@ class BattleWindow : public Gtk::Window {
 		 * @brief Returns a pointer to the user interface container.
 		 * @return UserInterface* A pointer to the container that houses the main menu and playing fields.
 		 */
-		static UserInterface* get_user_interface();
+		UserInterface* get_user_interface();
 
 	protected:
 		UserInterface* user_interface;
