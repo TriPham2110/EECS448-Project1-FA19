@@ -29,7 +29,7 @@ void FieldContainer::add_the_players_area() {
 }
 
 void FieldContainer::add_the_vertical_separator() {
-	this->pack_start(vertical_separator,false,true);
+	this->pack_start(vertical_separator,false,true, 10);
 	vertical_separator.show();
 }
 
