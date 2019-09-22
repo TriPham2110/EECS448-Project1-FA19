@@ -37,22 +37,22 @@ class Board : public Gtk::Grid {
 		void setShip(int row,int col);
 
 		/** TODO: Add documentation
-		 * @brief 
+		 * @brief Return whether or not the shot hit 
 		 */
 		bool isHit();
 
 		/** TODO: Add documentation
-		 * @brief Accessor for 
+		 * @brief Return whether or not a ship was sunk
 		 */
 		bool isSunk();
 
 		/** TODO: Add documentation
-		 * @brief 
+		 * @brief Return whether or not the shot missed
 		 */
 		bool miss();
 
 		/** TODO: Add documentation
-		 * @brief
+		 * @brief Attack a cell
 		 */
 		void hit(int row, int col);
 
