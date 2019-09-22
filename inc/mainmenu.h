@@ -12,7 +12,7 @@
 #include <gtkmm/box.h>
 #include <gtkmm/button.h>
 #include <gtkmm/comboboxtext.h>
-#include <gtkmm/messagedialog.h>
+
 
 class MainMenu : public Gtk::Box {
 

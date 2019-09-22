@@ -5,9 +5,11 @@
 * @brief
 */
 
+#include <iostream>
+
 #include "player.h"
 #include "mainmenu.h"
-#include "changingplayerwindow.h"
+#include "executive.h"
 #include "gui.h"
 
 
@@ -17,27 +19,26 @@ UserInterface::UserInterface()
 	bootstrap_player_ones_container();
 	bootstrap_player_twos_container();
 	bootstrap_main_menu();
-	bootstrap_changing_player_window();
 }
 
 UserInterface::~UserInterface() {
 	delete player_one;
 	delete player_two;
 	delete main_menu;
-	delete changing_player_window;
 }
 
 void UserInterface::bootstrap_player_ones_container() {
 	this->player_one = new Player();
 	// widget expand fill padding=0
 	this->pack_start(*player_one,true,true);
-	player_one->show();
+	//player_one->show();
 }
 
 void UserInterface::bootstrap_player_twos_container() {
 	this->player_two = new Player();
 	// widget expand fill padding=0
 	this->pack_start(*player_two,true,true);
+	//player_two->show();
 }
 
 void UserInterface::bootstrap_main_menu() {
@@ -46,31 +47,20 @@ void UserInterface::bootstrap_main_menu() {
 	main_menu->show();
 }
 
-
-void UserInterface::bootstrap_changing_player_window() {
-	this->changing_player_window = new ChangingPlayerWindow();
-	this->pack_start(*changing_player_window,true,true);
-	changing_player_window->show();
+void UserInterface::toggle_player_ones_board(int state) {
+	std::cout << "Here (1)" << std::endl;
+	if(state == 1) {
+		this->player_one->show();
+	} else {
+		this->player_one->hide();
+	}
 }
 
-
-Player* UserInterface::get_player_one() {
-	static Player player_one;
-	return &player_one;
-}
-
-Player* UserInterface::get_player_two() {
-	static Player player_two;
-	return &player_two;
-}
-
-
-MainMenu* UserInterface::get_main_menu() {
-	static MainMenu main_menu;
-	return &main_menu;
-}
-
-ChangingPlayerWindow* UserInterface::get_changing_player_window() {
-	static ChangingPlayerWindow changing_player_window;
-	return &changing_player_window;
+void UserInterface::toggle_player_twos_board(int state) {
+	std::cout << "Here (2)" << std::endl;
+	if(state) {
+		player_one->show();
+	} else {
+		player_one->hide();
+	}
 }
