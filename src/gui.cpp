@@ -29,7 +29,7 @@ UserInterface::~UserInterface() {
 
 void UserInterface::bootstrap_player_ones_container() {
 	this->player_one = new Player();
-	// widget expand fill padding=0
+	// widget expand fill padding = 0
 	this->pack_start(*player_one,true,true);
 	//player_one->show();
 }
@@ -38,7 +38,6 @@ void UserInterface::bootstrap_player_twos_container() {
 	this->player_two = new Player();
 	// widget expand fill padding=0
 	this->pack_start(*player_two,true,true);
-	//player_two->show();
 }
 
 void UserInterface::bootstrap_main_menu() {

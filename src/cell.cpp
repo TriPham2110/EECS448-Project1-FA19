@@ -7,8 +7,9 @@
 
 #include "cell.h"
 
-Cell::Cell(){
-
+Cell::Cell() {
+	containsShip = false;
+	beenHit = false;
 }
 
 Cell::Cell(int row, int col) {
@@ -27,7 +28,7 @@ void Cell::set_location(int row, int col) {
 	m_col = col;
 }
 
-void Cell::putShip(){
+void Cell::putShip() {
 	containsShip = true;
 }
 

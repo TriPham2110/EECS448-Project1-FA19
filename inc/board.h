@@ -16,6 +16,7 @@ class Cell;
 
 #include <string>
 
+
 #include <gtkmm/table.h>
 
 class Board : public Gtk::Table {
@@ -33,17 +34,17 @@ class Board : public Gtk::Table {
 		virtual ~Board();
 
 		/** TODO: Add documentation
-		 * @brief
+		 * @brief Place a ship in the specified cell
 		 */
 		void setShip(int row_num,int col_num, int size, char direction);
 
 		/** TODO: Add documentation
-		 * @brief
+		 * @brief Return whether or not the shot hit
 		 */
 		bool isHit(int row, int col);
 
 		/** TODO: Add documentation
-		 * @brief
+		 * @brief Return whether or not a ship was sunk
 		 */
 		bool isSunk();
 
@@ -57,13 +58,13 @@ class Board : public Gtk::Table {
 		 */
 		 void putShip();
 
-		 /** TODO: Add documentation
-		  * @brief
-		  */
+		/**
+		 * @brief Attack a cell
+		 */
 		void hit(int row, int col);
 
-		/** TODO: Add documentation
-		 * @brief
+		/**
+		 * @brief set label
 		 */
 		void setLabel(std::string label);
 
