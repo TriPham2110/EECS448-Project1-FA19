@@ -103,7 +103,7 @@ void Board::setShip(Ship* ship) {
 		}
 	}
 	else {
-		std::cout<<"\nShip is too big to place using the given orientation and position. Try Again!\n";
+		std::cout << "Ship is too big to place using the given orientation and position. Try Again!"; << std::endl;
 	}
 }
 
