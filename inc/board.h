@@ -68,8 +68,11 @@ class Board : public Gtk::Table {
 
 		void setShip(Ship* ship);
 
+		//void on_button_clicked()
+
 	protected:
 		Cell **m_board;
+		void on_button_clicked(int i, int j);
 
 	private:
 
