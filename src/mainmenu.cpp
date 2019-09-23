@@ -31,6 +31,8 @@ MainMenu::MainMenu()
 	this->add_num_ships_dropdown_decoration();
 	this->add_pause_menu_button_decoration();
 	this->add_exit_menu_button_decoration();
+	// Set the active item to "Choose a Ship"
+	this->num_ships_dropdown.set_active_id("0");
 }
 
 MainMenu::~MainMenu() {
@@ -102,7 +104,8 @@ void MainMenu::on_start_button_clicked() {
 		}
 	} else {
 		std::cout << "Game Started." << std::endl;
-		// TODO Start a new game with parameter given by dropdown
+		Executive::get_executive_object()->set_ship_count(MainMenu::get_result_from_ship_dropdown());
+		std::cout << "Using " << MainMenu::get_result_from_ship_dropdown() << " ships." << std::endl;
 		Executive::get_executive_object()->set_game_in_progress_state(1);
 	}
 }
@@ -166,8 +169,6 @@ void MainMenu::on_start_turn_button_clicked() {
 void MainMenu::on_end_turn_button_clicked() {
 	if(Executive::get_executive_object()->get_game_in_progress_state()) {
 		std::cout << "Showing change player popup..." << std::endl;
-		// TODO HIDE THE FIELDS FROM BOTH PLAYERS HERE
-		// THEN ASK WHETHER TO SWITCH:
 		int current_player = Executive::get_executive_object()->which_player_is_up();
 		switch(current_player) {
 			default: break;
@@ -279,4 +280,30 @@ int MainMenu::confirm_exit_popup() {
 	Gtk::MessageDialog dialog("Are you sure you want to exit?",false,Gtk::MESSAGE_QUESTION,Gtk::BUTTONS_OK_CANCEL,false);
 	dialog.set_secondary_text("'Yes' to EXIT; 'No' to CONTINUE.");
 	return dialog.run();
+}
+
+int MainMenu::get_result_from_ship_dropdown() {
+	switch(std::stoi(num_ships_dropdown.get_active_id())) {
+		default: break;
+		case '0': {
+			return 1;
+		}
+		case '1': {
+			return 1;
+		}
+		case '2': {
+			return 2;
+		}
+		case '3': {
+			return 3;
+		}
+		case '4': {
+			return 4;
+		}
+		case '5': {
+			return 5;
+		}
+	}
+	// Shut the compiler up; also just in case.
+	return 1;
 }
