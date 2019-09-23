@@ -115,6 +115,26 @@ class Executive {
 		 */
 		int get_ship_count();
 
+		/**
+		 * @brief Set target row for next move.
+		 */
+		void set_clicked_row(int row);
+
+		/**
+		 * @brief Get target row on next move.
+		 */
+		int get_clicked_row();
+
+		/**
+		 * @brief Set target col for next move.
+		 */
+		void set_clicked_col(int col);
+
+		/**
+		 * @brief Get target col on next move.
+		 */
+		int get_clicked_col();
+
 	private:
 
 		Executive();
@@ -130,6 +150,8 @@ class Executive {
 		int turnActive = 0;
 		int turnCount = 0;
 		int shipCount = 0;
+		int clicked_row = 0;
+		int clicked_col = 0;
 
 };
 

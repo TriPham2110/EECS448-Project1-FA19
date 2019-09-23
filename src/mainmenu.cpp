@@ -105,6 +105,7 @@ void MainMenu::on_start_button_clicked() {
 	} else {
 		std::cout << "Game Started." << std::endl;
 		Executive::get_executive_object()->set_ship_count(MainMenu::get_result_from_ship_dropdown());
+		std::cout << "Using " << MainMenu::get_result_from_ship_dropdown() << " ships." << std::endl;
 		Executive::get_executive_object()->set_game_in_progress_state(1);
 	}
 }
@@ -168,8 +169,6 @@ void MainMenu::on_start_turn_button_clicked() {
 void MainMenu::on_end_turn_button_clicked() {
 	if(Executive::get_executive_object()->get_game_in_progress_state()) {
 		std::cout << "Showing change player popup..." << std::endl;
-		// TODO HIDE THE FIELDS FROM BOTH PLAYERS HERE
-		// THEN ASK WHETHER TO SWITCH:
 		int current_player = Executive::get_executive_object()->which_player_is_up();
 		switch(current_player) {
 			default: break;
@@ -284,8 +283,7 @@ int MainMenu::confirm_exit_popup() {
 }
 
 int MainMenu::get_result_from_ship_dropdown() {
-	std::cout << "Using " << std::stoi(num_ships_dropdown.get_active_id()) << " ships." << std::endl;
-		switch(std::stoi(num_ships_dropdown.get_active_id())) {
+	switch(std::stoi(num_ships_dropdown.get_active_id())) {
 		default: break;
 		case '0': {
 			return 1;
@@ -306,4 +304,6 @@ int MainMenu::get_result_from_ship_dropdown() {
 			return 5;
 		}
 	}
+	// Shut the compiler up; also just in case.
+	return 1;
 }

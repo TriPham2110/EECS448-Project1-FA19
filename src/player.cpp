@@ -26,6 +26,7 @@ void Player::add_the_players_area() {
 	// widget, bool expand, bool fill, int margin
 	this->pack_start(*player_field,true,true);
 	player_field->setLabel("Moves");
+	player_field->makePlayable();
 	player_field->show();
 }
 
