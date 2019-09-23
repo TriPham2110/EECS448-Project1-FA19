@@ -54,6 +54,17 @@ void Board::bootstrap_board() {
 	for(int i = 1; i < 9; i++) {
 		m_board[i][0].set_label(std::to_string(i));
 	}
+	for(int m=1;m<9;m++)
+	{
+		for(int n = 1;n<9;n++)
+		{
+			//m_board[m][n].signal_clicked().connect(sigc::mem_fun(*this, &Board::on_button_clicked),m);
+			m_board[m][n].signal_clicked().connect(sigc::bind<int>(sigc::mem_fun(*this, &Board::on_button_clicked), m,n));
+		}
+	}
+	//m_board[1][1].signal_clicked().connect(sigc::mem_fun(*this, &Board::on_button_clicked));
+	//this->add(start_menu_button);
+	//start_menu_button.show();
 }
 
 void Board::makeShips(int num_ships){
@@ -131,4 +142,9 @@ void Board::setLabel(std::string label) {
 	} catch (std::exception& e) {
 		std::cout << "Cannot set label of unallocated board." << std::endl;
 	}
+}
+
+void Board::on_button_clicked(int i, int j)
+{
+	m_board[i][j].set_label("HIT");
 }
