@@ -37,7 +37,7 @@ class Cell : public Gtk::Button {
 		 */
 		void putShip();
 
-		/** TODO: Add documentation
+		/**
 		 * @brief
 		 * @pre beenHit = false
 		 * @post beenHit = true
@@ -45,13 +45,15 @@ class Cell : public Gtk::Button {
 		 */
 		void hit();
 
-		/** TODO: Add documentation
+		/**
 		 * @pre
 		 * @post
 		 * @brief Accessor for containsShip variable
 		 */
 		bool hasShip();
-
+		/**
+		 * @brief saves the location for a cell
+		 */
 		void set_location(int row, int col);
 
 	private:
