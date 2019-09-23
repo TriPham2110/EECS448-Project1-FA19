@@ -79,3 +79,11 @@ void Executive::increment_turn_count() {
 void Executive::set_turn_counter(int count) {
 	turnCount = count;
 }
+
+void Executive::set_ship_count(int count) {
+	shipCount = count;
+}
+
+int Executive::get_ship_count() {
+	return shipCount;
+}
