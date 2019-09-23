@@ -32,7 +32,9 @@ class UserInterface : public Gtk::Box {
 		 */
 		virtual ~UserInterface();
 
-
+		/**
+		 * @brief Shows or hides player one's status and hit boards when necessary.
+		 */
 		void toggle_player_ones_board(int state);
 
 		/**
@@ -47,6 +49,9 @@ class UserInterface : public Gtk::Box {
 		 */
 		static Player* get_player_two();
 
+		/**
+		 * @brief Shows or hides player two's status and hit boards when necessary.
+		 */
 		void toggle_player_twos_board(int state);
 
 	protected:

@@ -9,6 +9,7 @@
 
 #include "board.h"
 #include "cell.h"
+#include "ship.h"
 
 Board::Board()
 	: Gtk::Table(10,10,false)
@@ -17,11 +18,11 @@ Board::Board()
 }
 
 Board::~Board() {
-	//delete each row of cells
+	//Delete each row of cells
 	for(int i = 0; i < 9; i++) {
 		delete m_board[i];
 	}
-	//delete board
+	//Delete board
 	delete m_board;
 }
 
@@ -55,30 +56,42 @@ void Board::bootstrap_board() {
 	}
 }
 
-void Board::setShip(int row_num,int col_num, int size, char direction)
-{
-	//horizontal ship
-	if((direction == 'h')&&((col_num + (size - 1))<8))
-	{
-		//Calls putShip() for each cell in the ship
-		m_board[row_num][col_num].putShip();
-		for(int i = 1;i<size;i++)
-		{
-			m_board[row_num][++col_num].putShip();
+void Board::makeShips(int num_ships){
+	initial_num_ships = num_ships;
+	current_num_live_ships = num_ships;
+	m_ships = new Ship[num_ships];
+
+	// for(int i = 0; i < num_ships; ++i){
+	// 	// make new ship of size i+1
+	// 	m_ships[i] = new Ship(i+1);
+	// }
+}
+
+void Board::setShip(Ship* ship) {
+	int row_num = ship->get_row();
+	int col_num = ship->get_col();
+	int size = ship->get_size();
+	char direction = ship->get_direction();
+	Ship* ptrShip = ship;
+
+	// place a horizontal ship
+	if((direction == 'h')&&((col_num + (size - 1))<8)) {
+		// call putShip() for each cell in that the ship occupies
+		m_board[row_num][col_num].putShip(ptrShip);
+		for(int i = 1;i<size;i++) {
+			m_board[row_num][++col_num].putShip(ptrShip);
 		}
 	}
-	//if ship is vertical
-	else if ((direction == 'v')&&((row_num + (size - 1))<8))
-	{
-		//Calls putShip() for each cell in the ship
-		m_board[row_num][col_num].putShip();
-		for(int i = 1;i<size;i++)
-		{
-			m_board[++row_num][col_num].putShip();
+	// place a vertiacal ship
+	else if ((direction == 'v')&&((row_num + (size - 1))<8)) {
+
+		// call putShip() for each cell in that the ship occupies
+		m_board[row_num][col_num].putShip(ptrShip);
+		for(int i = 1;i<size;i++) {
+			m_board[++row_num][col_num].putShip(ptrShip);
 		}
 	}
-	else
-	{
+	else {
 		std::cout<<"\nShip is too big to place using the given orientation and position. Try Again!\n";
 	}
 }
@@ -89,7 +102,14 @@ void Board::hit(int row, int col) {
 		// do nothing
 	}
 	else {
-		m_board[row][col].hit();
+		// call hit() on the cell
+		bool hit_outcome = m_board[row][col].hit();
+		if (hit_outcome == 0){
+			current_num_live_ships -= 1;
+			if(current_num_live_ships == 0){
+				//CURRENT PLAYER WINS GAME
+			}
+		}
 	}
 }
 //Returns true or false, whether or not the ship is hit or not.
@@ -98,7 +118,7 @@ bool Board::isHit(int row, int col) {
 		{
 			return true;
 		}
-		return false;
+	return false;
 }
 
 bool Board::isSunk( int row, int col) {

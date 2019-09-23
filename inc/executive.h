@@ -91,32 +91,27 @@ class Executive {
 		BattleWindow* get_main_window();
 
 		/**
-		 *
-		 *
+		 * @brief Returns the current turn counter.
 		 */
 		int get_turn_count();
 
 		/**
-		 *
-		 *
+		 * @brief Increments turn count by one at the end of each turn.
 		 */
 		void increment_turn_count();
 
 		/**
-		 *
-		 *
+		 * @brief Used to set the turn counter back to zero at the end of the game or when it restarts.
 		 */
 		void set_turn_counter(int count);
 
 		/**
-		 *
-		 *
+		 * @brief Stores the number of ships the players want to play with.
 		 */
 		void set_ship_count(int count);
 
 		/**
-		 *
-		 *
+		 * @brief Accessor for shipCount.
 		 */
 		int get_ship_count();
 

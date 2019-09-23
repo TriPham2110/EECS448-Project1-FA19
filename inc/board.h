@@ -1,4 +1,4 @@
-// -*- C++ -*-
+// -*- C++ i-*-
 /**
 * @file   field.h
 * @date   13 September 2019
@@ -13,6 +13,7 @@
 
 // Forward Declarations
 class Cell;
+class Ship;
 
 #include <string>
 
@@ -35,7 +36,7 @@ class Board : public Gtk::Table {
 		 * @brief  Places a ship in the specified cell based on orientation
 		 * @param Takes in the row number, col number, size of the ship, and the direction and sets it on the cell
 		 */
-		void setShip(int row_num,int col_num, int size, char direction);
+		void setShip(Ship ship);
 
 		/**
 		 * @param Checks the row and column
@@ -53,7 +54,7 @@ class Board : public Gtk::Table {
 		/**
 		 * @param Checks the row and column
 		 * @post Returns true if board is not empty
-		 * @brief Checks if the board is empty or not, if not returns true.. 
+		 * @brief Checks if the board is empty or not, if not returns true..
 		 */
 
 		void hit(int row, int col);
@@ -65,6 +66,8 @@ class Board : public Gtk::Table {
 
 		void setLabel(std::string label);
 
+		void setShip(Ship* ship);
+
 	protected:
 		Cell **m_board;
 
@@ -74,6 +77,9 @@ class Board : public Gtk::Table {
 		int m_col;
 		int shipHits;
 		int shipLength;
+		int initial_num_ships;
+		int current_num_live_ships;
+		Ship *m_ships;
 
 		/**
 		 * @brief Syntactic sugar that allows us to add buttons to the field
@@ -85,6 +91,12 @@ class Board : public Gtk::Table {
 		 * @brief Arranges correct amount of rows/cols
 		 */
 		void bootstrap_board();
+
+		/**
+		 * @brief make ships
+		 * @param int the number of ships to be made
+		 */
+		void makeShips(int num_ships);
 
 };
 
