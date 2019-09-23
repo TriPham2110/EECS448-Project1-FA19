@@ -31,6 +31,8 @@ MainMenu::MainMenu()
 	this->add_num_ships_dropdown_decoration();
 	this->add_pause_menu_button_decoration();
 	this->add_exit_menu_button_decoration();
+	// Set the active item to "Choose a Ship"
+	this->num_ships_dropdown.set_active_id("0");
 }
 
 MainMenu::~MainMenu() {
@@ -102,7 +104,7 @@ void MainMenu::on_start_button_clicked() {
 		}
 	} else {
 		std::cout << "Game Started." << std::endl;
-		// TODO Start a new game with parameter given by dropdown
+		Executive::get_executive_object()->set_ship_count(MainMenu::get_result_from_ship_dropdown());
 		Executive::get_executive_object()->set_game_in_progress_state(1);
 	}
 }
@@ -279,4 +281,29 @@ int MainMenu::confirm_exit_popup() {
 	Gtk::MessageDialog dialog("Are you sure you want to exit?",false,Gtk::MESSAGE_QUESTION,Gtk::BUTTONS_OK_CANCEL,false);
 	dialog.set_secondary_text("'Yes' to EXIT; 'No' to CONTINUE.");
 	return dialog.run();
+}
+
+int MainMenu::get_result_from_ship_dropdown() {
+	std::cout << "Using " << std::stoi(num_ships_dropdown.get_active_id()) << " ships." << std::endl;
+		switch(std::stoi(num_ships_dropdown.get_active_id())) {
+		default: break;
+		case '0': {
+			return 1;
+		}
+		case '1': {
+			return 1;
+		}
+		case '2': {
+			return 2;
+		}
+		case '3': {
+			return 3;
+		}
+		case '4': {
+			return 4;
+		}
+		case '5': {
+			return 5;
+		}
+	}
 }
