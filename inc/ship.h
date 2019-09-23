@@ -20,12 +20,17 @@ class Ship
 		/**
 		 * @brief Ship constructor
 		 */
-		Ship(int row, int col, int size, char direction);
+		Ship(int size);
 		
 		/**
 		 * @brief Ship destructor
 		 */
 		virtual ~Ship();
+
+		/**
+		 * @brief Update ship with its location and orientation
+		 */
+		void updateShip(int row, int col, char direction);
 
 		/**
 		 * @brief accessor for m_direction
