@@ -28,6 +28,17 @@ class Player : public Gtk::Box {
 		 */
 		virtual ~Player();
 
+		/**
+		 *
+		 */
+		Board* get_player_field();
+
+		/**
+		 *
+		 */
+		Board* get_status_field();
+
+
 	protected:
 
 		/**

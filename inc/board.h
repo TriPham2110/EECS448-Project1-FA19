@@ -70,6 +70,10 @@ class Board : public Gtk::Table {
 
 		void makePlayable();
 
+		void scan_for_a_hit();
+
+		void set_hit_label_if_hit(int row, int col);
+
 	protected:
 		Cell **m_board;
 		void on_button_clicked(int i, int j);

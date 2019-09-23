@@ -41,3 +41,11 @@ void Player::add_the_status_area() {
 	status_field->setLabel("Status");
 	status_field->show();
 }
+
+Board* Player::get_status_field() {
+	return status_field;
+}
+
+Board* Player::get_player_field() {
+	return player_field;
+}

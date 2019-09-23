@@ -10,6 +10,8 @@
 #include <gtkmm/messagedialog.h>
 
 #include "executive.h"
+#include "player.h"
+#include "board.h"
 #include "gui.h"
 #include "window.h"
 #include "mainmenu.h"
@@ -189,10 +191,12 @@ void MainMenu::on_end_turn_button_clicked() {
 					std::cout << "Changing players (1 to 2)" << std::endl;
 					Executive::get_executive_object()->set_which_player(1);
 					Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_twos_board(1);
+					Executive::get_executive_object()->get_main_window()->get_user_interface()->get_player_two()->get_status_field()->scan_for_a_hit();
 				} else {
 					std::cout << "Changing players (2 to 1)" << std::endl;
 					Executive::get_executive_object()->set_which_player(0);
 					Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_ones_board(1);
+					Executive::get_executive_object()->get_main_window()->get_user_interface()->get_player_one()->get_status_field()->scan_for_a_hit();
 				}
 				Executive::get_executive_object()->set_turn_active(0);
 				break;

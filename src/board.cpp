@@ -156,3 +156,14 @@ void Board::on_button_clicked(int i, int j) {
 	Executive::get_executive_object()->set_clicked_row(i);
 	Executive::get_executive_object()->set_clicked_row(j);
 }
+
+void Board::scan_for_a_hit() {
+	// We only need to check one of them to be honest.
+	if(Executive::get_executive_object()->Executive::get_clicked_row() != 0) {
+		set_hit_label_if_hit(Executive::get_executive_object()->get_clicked_row(),Executive::get_executive_object()->get_clicked_col());
+	}
+}
+
+void Board::set_hit_label_if_hit(int row, int col) {
+	m_board[row][col].set_label("H");
+}

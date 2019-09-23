@@ -41,13 +41,13 @@ class UserInterface : public Gtk::Box {
 		 * @brief Returns a pointer to the container for player one's boards.
 		 * @return Player* pointer to container that holds play/view fields.
 		 */
-		static Player* get_player_one();
+		Player* get_player_one();
 
 		/**
 		 * @brief Returns a pointer to the container for player two's boards.
 		 * @return Player* pointer to container that holds play/view fields.
 		 */
-		static Player* get_player_two();
+		Player* get_player_two();
 
 		/**
 		 * @brief Shows or hides player two's status and hit boards when necessary.

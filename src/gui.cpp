@@ -63,3 +63,11 @@ void UserInterface::toggle_player_twos_board(int state) {
 		player_one->hide();
 	}
 }
+
+Player* UserInterface::get_player_one() {
+	return player_one;
+}
+
+Player* UserInterface::get_player_two() {
+	return player_two;
+}
