@@ -55,21 +55,41 @@ void Board::bootstrap_board() {
 	}
 }
 
-void Board::setShip(int row_num,int col_num, int size, char direction) {
-	// place a horizontal ship
-	if((direction == 'h') && ((col_num + (size - 1)) < 8)) {
-		// call putShip() for each cell in that the ship occupies
-		m_board[row_num][col_num].putShip(nullptr);
-		for(int i = 1; i < size; i++) {
-			m_board[row_num][++col_num].putShip(nullptr);
+void Board::makeShips(int num_ships){
+
+}
+
+void Board::setShip(Ship ship)
+{
+        row_num = ship.get_row();
+        col_num = ship.get_col();
+	size = ship.get_size();
+	direction = ship.get_direction();
+
+	ptrShip = &ship;
+
+	if((direction == 'h')&&((col_num + (size - 1))<8))
+        // place a horizontal ship
+	{
+
+                // call putShip() for each cell in that the ship occupies
+		m_board[row_num][col_num].putShip(ptrShip);
+		for(int i = 1;i<size;i++)
+		{
+			m_board[row_num][++col_num].putShip(ptrShip);
 		}
 	}
-	// place a vertiacal ship
-	else if ((direction == 'v')&&((row_num + (size - 1))<8)) {
-		// call putShip() for each cell in that the ship occupies
-		m_board[row_num][col_num].putShip(nullptr);
-		for(int i = 1; i < size; i++) {
-			m_board[++row_num][col_num].putShip(nullptr);
+
+	else if ((direction == 'v')&&((row_num + (size - 1))<8))
+        // place a vertiacal ship
+	{
+
+                // call putShip() for each cell in that the ship occupies
+		m_board[row_num][col_num].putShip(ptrShip);
+		for(int i = 1;i<size;i++)
+		{
+			m_board[++row_num][col_num].putShip(ptrShip);
+>>>>>>> finn
 		}
 	}
 	else {

@@ -12,18 +12,22 @@ Ship::Ship()
 
 }
 
-Ship::Ship(int row, int col, int size, char direction)
+Ship::Ship(int size)
 {
-	m_direction = direction;
 	m_size = size;
-	m_row = row;
-	m_col = col;
 	m_hits = 0;
 }
 
 Ship::~Ship()
 {
 
+}
+
+void Ship::updateShip(int row, int col, char direction){
+
+	m_direction = direction;
+	m_row = row;
+	m_col = col;
 }
 
 char Ship::get_direction(){
