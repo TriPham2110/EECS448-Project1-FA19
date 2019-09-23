@@ -36,7 +36,7 @@ class Board : public Gtk::Table {
 		 * @brief  Places a ship in the specified cell based on orientation
 		 * @param Takes in the row number, col number, size of the ship, and the direction and sets it on the cell
 		 */
-		void setShip(int row_num,int col_num, int size, char direction);
+		void setShip(Ship ship);
 
 		/**
 		 * @param Checks the row and column
@@ -79,6 +79,9 @@ class Board : public Gtk::Table {
 		int m_col;
 		int shipHits;
 		int shipLength;
+		int initial_num_ships;
+		int current_num_live_ships = 0;
+		Ship *m_ships;
 
 		/**
 		 * @brief Syntactic sugar that allows us to add buttons to the field
@@ -90,6 +93,12 @@ class Board : public Gtk::Table {
 		 * @brief Arranges correct amount of rows/cols
 		 */
 		void bootstrap_board();
+
+		/**
+		 * @brief make ships
+		 * @param int the number of ships to be made
+		 */
+		void makeShips(int num_ships);
 
 };
 

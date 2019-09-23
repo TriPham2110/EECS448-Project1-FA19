@@ -56,8 +56,15 @@ void Board::bootstrap_board() {
 	}
 }
 
-void Board::makeShips(int num_ships) {
+void Board::makeShips(int num_ships){
+	initial_num_ships = num_ships;
+	current_num_live_ships = num_ships;
+	m_ships = new Ship[num_ships];
 
+	for (i = 0; i < num_ships; ++i){
+		// make new ship of size i+1
+		ships[i] = new Ship(i+1);
+	}
 }
 
 void Board::setShip(Ship* ship) {
@@ -95,7 +102,14 @@ void Board::hit(int row, int col) {
 		// do nothing
 	}
 	else {
-		m_board[row][col].hit();
+		// call hit() on the cell
+		hit_outcome = m_board[row][col].hit();
+		if (hit_outcome == 0){
+			current_num_live_ships -= 1;
+			if(current_num_live_ships == 0){
+				//CURRENT PLAYER WINS GAME
+			}
+		}
 	}
 }
 //Returns true or false, whether or not the ship is hit or not.
