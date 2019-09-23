@@ -86,9 +86,10 @@ Solution: We schdeuled and agreed on times beforehand.
 ___________________________________________________________________________________________
 Any features that did not make the demo version:
 
-Placing ship object graphically.
+Placing ship object.
 Fire when ship is hit.
 Other GUI additions.
+Checking whether ship was hit or miss.
 
 ___________________________________________________________________________________________
 Retrospective on what the team would have done different:
