@@ -67,6 +67,8 @@ class Board : public Gtk::Table {
 
 		int m_row;
 		int m_col;
+		int initial_num_ships;
+		int current_num_live_ships = 0;
 		Ship *m_ships;
 
 		/**
