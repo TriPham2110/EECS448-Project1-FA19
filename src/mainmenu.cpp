@@ -105,6 +105,7 @@ void MainMenu::on_start_button_clicked() {
 	} else {
 		std::cout << "Game Started." << std::endl;
 		Executive::get_executive_object()->set_ship_count(MainMenu::get_result_from_ship_dropdown());
+		std::cout << "Using " << MainMenu::get_result_from_ship_dropdown() << " ships." << std::endl;
 		Executive::get_executive_object()->set_game_in_progress_state(1);
 	}
 }
@@ -284,7 +285,6 @@ int MainMenu::confirm_exit_popup() {
 }
 
 int MainMenu::get_result_from_ship_dropdown() {
-	std::cout << "Using " << std::stoi(num_ships_dropdown.get_active_id()) << " ships." << std::endl;
 		switch(std::stoi(num_ships_dropdown.get_active_id())) {
 		default: break;
 		case '0': {
