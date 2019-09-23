@@ -87,3 +87,19 @@ void Executive::set_ship_count(int count) {
 int Executive::get_ship_count() {
 	return shipCount;
 }
+
+void Executive::set_clicked_row(int row) {
+	clicked_row = row;
+}
+
+int Executive::get_clicked_row() {
+	return clicked_row;
+}
+
+void Executive::set_clicked_col(int col) {
+	clicked_col = col;
+}
+
+int Executive::get_clicked_col() {
+	return clicked_col;
+}

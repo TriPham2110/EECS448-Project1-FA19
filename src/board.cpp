@@ -7,6 +7,7 @@
 
 #include <iostream>
 
+#include "executive.h"
 #include "board.h"
 #include "cell.h"
 #include "ship.h"
@@ -56,7 +57,15 @@ void Board::bootstrap_board() {
 	}
 }
 
-void Board::makeShips(int num_ships){
+void Board::makePlayable() {
+	for(int m=1;m<9;m++) {
+		for(int n = 1;n<9;n++) {
+			m_board[m][n].signal_clicked().connect(sigc::bind<int>(sigc::mem_fun(*this, &Board::on_button_clicked), m,n));
+		}
+	}
+}
+
+void Board::makeShips(int num_ships) {
 	initial_num_ships = num_ships;
 	current_num_live_ships = num_ships;
 	m_ships = new Ship[num_ships];
@@ -92,7 +101,7 @@ void Board::setShip(Ship* ship) {
 		}
 	}
 	else {
-		std::cout<<"\nShip is too big to place using the given orientation and position. Try Again!\n";
+		std::cout << "Ship is too big to place using the given orientation and position. Try Again!" << std::endl;
 	}
 }
 
@@ -131,4 +140,19 @@ void Board::setLabel(std::string label) {
 	} catch (std::exception& e) {
 		std::cout << "Cannot set label of unallocated board." << std::endl;
 	}
+}
+
+void Board::on_button_clicked(int i, int j) {
+	for(int k = 1; k < 9; k++) {
+		for(int m = 1; m < 9; m++) {
+			if(m_board[k][m].get_label() == "HIT") {
+				m_board[k][m].set_label("");
+				Executive::get_executive_object()->set_clicked_row(0);
+				Executive::get_executive_object()->set_clicked_row(0);
+			}
+		}
+	}
+	m_board[i][j].set_label("HIT");
+	Executive::get_executive_object()->set_clicked_row(i);
+	Executive::get_executive_object()->set_clicked_row(j);
 }

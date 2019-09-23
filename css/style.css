@@ -1,0 +1,23 @@
+.button_unknown{
+        /*light grey*/
+	background-color : #D1D1E0;
+}
+.button_unhit_ship{
+	/*grey*/
+	background-color : #575766;
+}
+
+.button_hit_ship{
+	/*red*/
+	background-color : #DB0B00; 
+}
+
+.button_sunk_ship{
+	/*fire.png*/
+	background-color : #F24D0C;
+}
+
+.button_water{
+        /*light blue*/
+	background-color : #182DFF;
+}

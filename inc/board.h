@@ -68,8 +68,11 @@ class Board : public Gtk::Table {
 
 		void setShip(Ship* ship);
 
+		void makePlayable();
+
 	protected:
 		Cell **m_board;
+		void on_button_clicked(int i, int j);
 
 	private:
 
@@ -79,6 +82,7 @@ class Board : public Gtk::Table {
 		int shipLength;
 		int initial_num_ships;
 		int current_num_live_ships;
+		bool playable;
 		Ship *m_ships;
 
 		/**
