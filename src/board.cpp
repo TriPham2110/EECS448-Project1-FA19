@@ -102,7 +102,7 @@ void Board::hit(int row, int col) {
 		// do nothing
 	}
 	else {
-		bool hit_outcome = m_board[row][col].hit();
+		int hit_outcome = m_board[row][col].hit();
 		if (hit_outcome == 0){
 			current_num_live_ships -= 1;
 			if(current_num_live_ships == 0){
