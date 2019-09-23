@@ -54,20 +54,17 @@ void Board::bootstrap_board() {
 	for(int i = 1; i < 9; i++) {
 		m_board[i][0].set_label(std::to_string(i));
 	}
-	for(int m=1;m<9;m++)
-	{
-		for(int n = 1;n<9;n++)
-		{
-			//m_board[m][n].signal_clicked().connect(sigc::mem_fun(*this, &Board::on_button_clicked),m);
+}
+
+void Board::makePlayable() {
+	for(int m=1;m<9;m++) {
+		for(int n = 1;n<9;n++) {
 			m_board[m][n].signal_clicked().connect(sigc::bind<int>(sigc::mem_fun(*this, &Board::on_button_clicked), m,n));
 		}
 	}
-	//m_board[1][1].signal_clicked().connect(sigc::mem_fun(*this, &Board::on_button_clicked));
-	//this->add(start_menu_button);
-	//start_menu_button.show();
 }
 
-void Board::makeShips(int num_ships){
+void Board::makeShips(int num_ships) {
 	initial_num_ships = num_ships;
 	current_num_live_ships = num_ships;
 	m_ships = new Ship[num_ships];
@@ -103,7 +100,7 @@ void Board::setShip(Ship* ship) {
 		}
 	}
 	else {
-		std::cout << "Ship is too big to place using the given orientation and position. Try Again!"; << std::endl;
+		std::cout << "Ship is too big to place using the given orientation and position. Try Again!" << std::endl;
 	}
 }
 
