@@ -1,4 +1,4 @@
-// -*- C++ -*-
+// -*- C++ i-*-
 /**
 * @file   field.h
 * @date   13 September 2019
@@ -13,60 +13,70 @@
 
 // Forward Declarations
 class Cell;
+class Ship;
 
 #include <string>
 
-//#include <gtkmm/grid.h>
 #include <gtkmm/table.h>
-//#include <gtkmm/button.h>
 
 class Board : public Gtk::Table {
 
 	public:
-
-		/** TODO: Add documentation
+		/**
 		 * @brief Board constructor.
 		 */
 		Board();
 
-		/** TODO: Add documentation
+		/**
 		 * @brief Board destructor.
 		 */
 		virtual ~Board();
 
-		/** TODO: Add documentation
-		 * @brief Place a ship in the specified cell
+		/**
+		 * @brief  Places a ship in the specified cell based on orientation
+		 * @param Takes in the row number, col number, size of the ship, and the direction and sets it on the cell
 		 */
 		void setShip(Ship ship);
 
-		/** TODO: Add documentation
-		 * @brief Return whether or not the shot hit 
+		/**
+		 * @param Checks the row and column
+		 * @post Returns true or false based on if a cell has been hit.
+		 * @brief Checks to see if a cell has been hit and returns true if it has.
 		 */
+
 		bool isHit(int row, int col);
 
 		/** TODO: Add documentation
-		 * @brief Return whether or not a ship was sunk
+		 * @brief
 		 */
-		bool isSunk();
+		bool isSunk(int row, int col);
 
-		/** TODO: Add documentation
-		 * @brief Attack a cell
+		/**
+		 * @param Checks the row and column
+		 * @post Returns true if board is not empty
+		 * @brief Checks if the board is empty or not, if not returns true..
 		 */
+
 		void hit(int row, int col);
 
 		/**
-		 * @brief set label
+		 * @pre Board is set up
+		 * @brief Sets labels for the board, for the rows and columns
 		 */
+
 		void setLabel(std::string label);
+
+		void setShip(Ship* ship);
 
 	protected:
 		Cell **m_board;
-		//Gtk::Button playing_field_button;
 
 	private:
 
 		int m_row;
 		int m_col;
+		int shipHits;
+		int shipLength;
 		int initial_num_ships;
 		int current_num_live_ships;
 		Ship *m_ships;

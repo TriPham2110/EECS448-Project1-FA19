@@ -18,10 +18,15 @@ class Ship
 		Ship();
 
 		/**
-		 * @brief Ship constructor
+		 * @brief Constructor for location, size, and direction.
+		 */
+		Ship(int row, int col, int size, char direction);
+
+		/**
+		 * @brief Constructor with size only.
 		 */
 		Ship(int size);
-		
+
 		/**
 		 * @brief Ship destructor
 		 */
@@ -37,12 +42,18 @@ class Ship
 		 * @return char direction
 		 */
 		char get_direction();
-				
+
 		/**
 		 * @brief accessor for col
 		 * @return int col
 		 */
 		int get_col();
+
+		/**
+		 *
+		 *
+		 */
+		void set_size(int size);
 
 		/**
 		 * @brief accessor for m_row

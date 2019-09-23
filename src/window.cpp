@@ -42,6 +42,5 @@ void BattleWindow::bootstrap_user_interface() {
 }
 
 UserInterface* BattleWindow::get_user_interface() {
-	static UserInterface user_interface;
-	return &user_interface;
+	return user_interface;
 }

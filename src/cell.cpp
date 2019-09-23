@@ -6,8 +6,9 @@
  */
 
 #include "cell.h"
+#include "ship.h"
 
-Cell::Cell(){
+Cell::Cell() {
 	containsShip = false;
 	beenHit = false;
 	Ship *m_ship_ptr = nullptr;
@@ -30,28 +31,14 @@ void Cell::set_location(int row, int col) {
 	m_col = col;
 }
 
-/**
- * @pre   containsShip = false
- * @post  containsShip = true
- * @brief lets the cell know that 
- *         a ship has been placed on it
- */
 void Cell::putShip(Ship *ship_ptr){
 	containsShip = true;
 	m_ship_ptr = ship_ptr;
 }
 
-/**
- * @pre   beenHit = false
- * @post  beenHit = true
- * @brief lets cell know that it has
- *         been hit
- * @return number of hits left on the ship
- *         9 if there is no ship in this cell
- */
 int Cell::hit(){
 	beenHit = true;
-	if(m_containsShip){
+	if(containsShip){
 		return m_ship_ptr->hit();
 	}
 	else{
@@ -59,10 +46,6 @@ int Cell::hit(){
 	}
 }
 
-/**
- * @brief accessor for containsShip
- */
-
-bool Cell::hasShip(){
-        return (containsShip ? true : false);
+bool Cell::hasShip() {
+	return (containsShip ? true : false);
 }

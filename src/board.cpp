@@ -9,6 +9,7 @@
 
 #include "board.h"
 #include "cell.h"
+#include "ship.h"
 
 Board::Board()
 	: Gtk::Table(10,10,false)
@@ -17,22 +18,22 @@ Board::Board()
 }
 
 Board::~Board() {
-        // delete each row of cells
+	//Delete each row of cells
 	for(int i = 0; i < 9; i++) {
 		delete m_board[i];
 	}
-        // delete the board
+	//Delete board
 	delete m_board;
 }
 
 void Board::bootstrap_board() {
-        // create board rows of cells
+	//Board row cells is created
 	this->m_board = new Cell*[9];
-        //create boad columns of cells
+	//Board column of cells in created
 	for(int i = 0; i < 9; i++) {
 		m_board[i] = new Cell[9];
 	}
-        // set the location of each cell and show it
+	//Sets the location of each cell and creates buttons
 	for(int i = 0; i < 9; i++) {
 		for(int j = 0; j < 9; j++) {
 			m_board[i][j].set_location(i, j);
@@ -49,7 +50,7 @@ void Board::bootstrap_board() {
 		label_the += the_label;
 		m_board[0][i].set_label(label_the);
 	}
-        // label the rows with numbers 1 to 9
+	//Label created for rows on the board
 	for(int i = 1; i < 9; i++) {
 		m_board[i][0].set_label(std::to_string(i));
 	}
@@ -66,51 +67,43 @@ void Board::makeShips(int num_ships){
 	}
 }
 
-void Board::setShip(Ship ship)
-{
-        row_num = ship.get_row();
-        col_num = ship.get_col();
-	size = ship.get_size();
-	direction = ship.get_direction();
+void Board::setShip(Ship* ship) {
+	int row_num = ship->get_row();
+	int col_num = ship->get_col();
+	int size = ship->get_size();
+	char direction = ship->get_direction();
+	Ship* ptrShip = ship;
 
-	ptrShip = &ship;
-
-	if((direction == 'h')&&((col_num + (size - 1))<8))
-        // place a horizontal ship
-	{
-                
-                // call putShip() for each cell in that the ship occupies
+	// place a horizontal ship
+	if((direction == 'h')&&((col_num + (size - 1))<8)) {
+		// call putShip() for each cell in that the ship occupies
 		m_board[row_num][col_num].putShip(ptrShip);
-		for(int i = 1;i<size;i++)
-		{
+		for(int i = 1;i<size;i++) {
 			m_board[row_num][++col_num].putShip(ptrShip);
 		}
 	}
+	// place a vertiacal ship
+	else if ((direction == 'v')&&((row_num + (size - 1))<8)) {
 
-	else if ((direction == 'v')&&((row_num + (size - 1))<8))
-        // place a vertiacal ship
-	{
-                 
-                // call putShip() for each cell in that the ship occupies
+		// call putShip() for each cell in that the ship occupies
 		m_board[row_num][col_num].putShip(ptrShip);
-		for(int i = 1;i<size;i++)
-		{
+		for(int i = 1;i<size;i++) {
 			m_board[++row_num][col_num].putShip(ptrShip);
 		}
 	}
-	else
-	{
+	else {
 		std::cout<<"\nShip is too big to place using the given orientation and position. Try Again!\n";
 	}
 }
 
+//Checks if board is empty else becomes true
 void Board::hit(int row, int col) {
 	if(m_board == nullptr) {
 		// do nothing
 	}
 	else {
                 // call hit() on the cell
-int hit_outcome = m_board[row][col].hit();
+                int hit_outcome = m_board[row][col].hit();
 		if (hit_outcome == 0){
 			current_num_live_ships -= 1;
 			if(current_num_live_ships == 0){
@@ -119,20 +112,20 @@ int hit_outcome = m_board[row][col].hit();
 		}
 	}
 }
-
+//Returns true or false, whether or not the ship is hit or not.
 bool Board::isHit(int row, int col) {
-        //return whether or not the attack hit a ship or missed
 	if(m_board[row][col].hasShip())
 		{
 			return true;
 		}
-		return false;
+	return false;
 }
 
-bool Board::isSunk() {
+bool Board::isSunk( int row, int col) {
 
 }
 
+//Label is created for columns on the board
 void Board::setLabel(std::string label) {
 	try {
 		m_board[0][0].set_label(label);
