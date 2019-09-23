@@ -21,50 +21,48 @@ class Cell;
 class Board : public Gtk::Table {
 
 	public:
-
-		/** TODO: Add documentation
+		/**
 		 * @brief Board constructor.
 		 */
 		Board();
 
-		/** TODO: Add documentation
+		/**
 		 * @brief Board destructor.
 		 */
 		virtual ~Board();
 
-		/** TODO: Add documentation
-		 * @brief
+		/**
+		 * @brief  Places a ship in the specified cell based on orientation
+		 * @param Takes in the row number, col number, size of the ship, and the direction and sets it on the cell
 		 */
 		void setShip(int row_num,int col_num, int size, char direction);
 
-		/** TODO: Add documentation
-		 * @brief
+		/**
+		 * @param Checks the row and column
+		 * @post Returns true or false based on if a cell has been hit.
+		 * @brief Checks to see if a cell has been hit and returns true if it has.
 		 */
+
 		bool isHit(int row, int col);
 
 		/** TODO: Add documentation
 		 * @brief
 		 */
-		bool isSunk();
+		bool isSunk(int row, int col);
 
-		/** TODO: Add documentation
-		 * @brief
+		/**
+		 * @param Checks the row and column
+		 * @post Returns true if board is not empty
+		 * @brief Checks if the board is empty or not, if not returns true.. 
 		 */
-		bool miss();
 
-		/** TODO: Add documentation
-		 * @brief
-		 */
-		 void putShip();
-
-		 /** TODO: Add documentation
-		  * @brief
-		  */
 		void hit(int row, int col);
 
-		/** TODO: Add documentation
-		 * @brief
+		/**
+		 * @pre Board is set up
+		 * @brief Sets labels for the board, for the rows and columns
 		 */
+
 		void setLabel(std::string label);
 
 	protected:
@@ -74,6 +72,8 @@ class Board : public Gtk::Table {
 
 		int m_row;
 		int m_col;
+		int shipHits;
+		int shipLength;
 
 		/**
 		 * @brief Syntactic sugar that allows us to add buttons to the field

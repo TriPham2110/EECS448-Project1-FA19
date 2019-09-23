@@ -2,13 +2,21 @@ Retrospective Write-up
 
 ___________________________________________________________________________________________
 Meetings
-
+=================================================
+2019-09-22
+Team members: all
+Location: Leep2
+Discussed worked on board buttons and retrospective write-up
+=================================================
+2019-09-21
+Team members: all except Zach
+Location: Leep2
+Discussed worked on documentation and classes
 =================================================
 2019-09-20
 Team members: all
 Location: Leep2
 Discussed deleting the ship class and how classes are related
-Outcomes: UPDATE
 =================================================
 2019-09-18
 Team members: all
@@ -63,8 +71,17 @@ Victoria: Meetings planning and worked on GUI
 ___________________________________________________________________________________________
 Challenges and how they were overcome or dealt with:
 
+Problem: People did not know how to use GTK.
+Solution: We went to documentation.
 
+Problem:Were not sure about things to do.
+Solution:Talked about things but late.
 
+Problem: Getting used to git.
+Solution: Practiced.
+
+Problem:Coordinating meeting times for 5 people.
+Solution: We schdeuled and agreed on times beforehand.
 
 ___________________________________________________________________________________________
 Any features that did not make the demo version:
@@ -74,8 +91,13 @@ Any features that did not make the demo version:
 
 
 ___________________________________________________________________________________________
-Retrospective on what the team would have done different 
+Retrospective on what the team would have done different:
 
+Read documentation earlier, before using it.
+Talk more about what each person will do at the start of meetings.
+Start workig earlier.
+Set up Slack or Discord.
+Get more comfortable with working environment.
 
 
 
