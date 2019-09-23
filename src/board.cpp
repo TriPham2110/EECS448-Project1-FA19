@@ -17,11 +17,11 @@ Board::Board()
 }
 
 Board::~Board() {
-	//delete each row of cells
+	//Delete each row of cells
 	for(int i = 0; i < 9; i++) {
 		delete m_board[i];
 	}
-	//delete board
+	//Delete board
 	delete m_board;
 }
 
@@ -55,8 +55,7 @@ void Board::bootstrap_board() {
 	}
 }
 
-void Board::setShip(int row_num,int col_num, int size, char direction)
-{
+void Board::setShip(int row_num,int col_num, int size, char direction) {
 	// place a horizontal ship
 	if((direction == 'h') && ((col_num + (size - 1)) < 8)) {
 		// call putShip() for each cell in that the ship occupies

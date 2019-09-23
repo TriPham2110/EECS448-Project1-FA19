@@ -54,7 +54,9 @@ class Cell : public Gtk::Button {
 		 * @brief Accessor for containsShip variable
 		 */
 		bool hasShip();
-
+		/**
+		 * @brief saves the location for a cell
+		 */
 		void set_location(int row, int col);
 
 	private:
