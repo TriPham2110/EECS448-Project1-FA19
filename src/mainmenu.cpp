@@ -283,27 +283,9 @@ int MainMenu::confirm_exit_popup() {
 }
 
 int MainMenu::get_result_from_ship_dropdown() {
-	switch(std::stoi(num_ships_dropdown.get_active_id())) {
-		default: break;
-		case '0': {
-			return 1;
-		}
-		case '1': {
-			return 1;
-		}
-		case '2': {
-			return 2;
-		}
-		case '3': {
-			return 3;
-		}
-		case '4': {
-			return 4;
-		}
-		case '5': {
-			return 5;
-		}
+	int num_ships_to_play = std::stoi(num_ships_dropdown.get_active_id());
+	if(num_ships_to_play == 0) {
+		return 1;
 	}
-	// Shut the compiler up; also just in case.
-	return 1;
+	return num_ships_to_play;
 }
