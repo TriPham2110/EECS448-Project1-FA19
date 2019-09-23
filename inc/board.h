@@ -66,8 +66,6 @@ class Board : public Gtk::Table {
 
 		void setLabel(std::string label);
 
-		void makeShips(int num_ships);
-
 		void setShip(Ship* ship);
 
 	protected:

@@ -61,10 +61,10 @@ void Board::makeShips(int num_ships){
 	current_num_live_ships = num_ships;
 	m_ships = new Ship[num_ships];
 
-	for (i = 0; i < num_ships; ++i){
-		// make new ship of size i+1
-		ships[i] = new Ship(i+1);
-	}
+	// for(int i = 0; i < num_ships; ++i){
+	// 	// make new ship of size i+1
+	// 	m_ships[i] = new Ship(i+1);
+	// }
 }
 
 void Board::setShip(Ship* ship) {
@@ -103,7 +103,7 @@ void Board::hit(int row, int col) {
 	}
 	else {
 		// call hit() on the cell
-		hit_outcome = m_board[row][col].hit();
+		bool hit_outcome = m_board[row][col].hit();
 		if (hit_outcome == 0){
 			current_num_live_ships -= 1;
 			if(current_num_live_ships == 0){
