@@ -50,6 +50,12 @@ class Ship
 		int get_col();
 
 		/**
+		 *
+		 *
+		 */
+		void set_size(int size);
+
+		/**
 		 * @brief accessor for m_row
 		 * @return int row
 		 */

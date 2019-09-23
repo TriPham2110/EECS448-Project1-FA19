@@ -42,12 +42,16 @@ int Ship::get_row(){
 	return m_row;
 }
 
+void Ship::set_size(int size) {
+	m_size = size;
+}
+
 int Ship::get_size(){
 	return m_size;
 }
 
 bool Ship::get_sunk(){
-	return (sunk ? true : false);
+	return (sunk ? true : false);i
 }
 
 int Ship::hit(){
