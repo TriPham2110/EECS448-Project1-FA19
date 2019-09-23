@@ -18,10 +18,13 @@ class Ship
 		Ship();
 
 		/**
-		 * @brief Ship constructor
+		 * @brief Constructor for location, size, and direction.
 		 */
 		Ship(int row, int col, int size, char direction);
 
+		/**
+		 * @brief Constructor with size only.
+		 */
 		Ship(int size);
 
 		/**

@@ -31,7 +31,7 @@ void Ship::updateShip(int row, int col, char direction){
 }
 
 char Ship::get_direction(){
-	return m_direction();
+	return m_direction;
 }
 
 int Ship::get_col(){
@@ -51,13 +51,13 @@ bool Ship::get_sunk(){
 }
 
 int Ship::hit(){
-	if (m_sunk){
+	if (sunk){
 		return 0;
 	}
 	else{
 		m_hits += 1;
 		if (m_hits == m_size){
-			m_sunk = true;
+			sunk = true;
 		}
 		return (m_size - m_hits);
 	}

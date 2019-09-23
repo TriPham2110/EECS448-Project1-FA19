@@ -9,6 +9,7 @@
 
 #include "board.h"
 #include "cell.h"
+#include "ship.h"
 
 Board::Board()
 	: Gtk::Table(10,10,false)
@@ -55,41 +56,32 @@ void Board::bootstrap_board() {
 	}
 }
 
-void Board::makeShips(int num_ships){
+void Board::makeShips(int num_ships) {
 
 }
 
-void Board::setShip(Ship ship)
-{
-        row_num = ship.get_row();
-        col_num = ship.get_col();
-	size = ship.get_size();
-	direction = ship.get_direction();
+void Board::setShip(Ship* ship) {
+	int row_num = ship->get_row();
+	int col_num = ship->get_col();
+	int size = ship->get_size();
+	char direction = ship->get_direction();
+	Ship* ptrShip = ship;
 
-	ptrShip = &ship;
-
-	if((direction == 'h')&&((col_num + (size - 1))<8))
-        // place a horizontal ship
-	{
-
-                // call putShip() for each cell in that the ship occupies
+	// place a horizontal ship
+	if((direction == 'h')&&((col_num + (size - 1))<8)) {
+		// call putShip() for each cell in that the ship occupies
 		m_board[row_num][col_num].putShip(ptrShip);
-		for(int i = 1;i<size;i++)
-		{
+		for(int i = 1;i<size;i++) {
 			m_board[row_num][++col_num].putShip(ptrShip);
 		}
 	}
+	// place a vertiacal ship
+	else if ((direction == 'v')&&((row_num + (size - 1))<8)) {
 
-	else if ((direction == 'v')&&((row_num + (size - 1))<8))
-        // place a vertiacal ship
-	{
-
-                // call putShip() for each cell in that the ship occupies
+		// call putShip() for each cell in that the ship occupies
 		m_board[row_num][col_num].putShip(ptrShip);
-		for(int i = 1;i<size;i++)
-		{
+		for(int i = 1;i<size;i++) {
 			m_board[++row_num][col_num].putShip(ptrShip);
->>>>>>> finn
 		}
 	}
 	else {

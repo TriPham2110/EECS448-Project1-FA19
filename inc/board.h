@@ -1,4 +1,4 @@
-// -*- C++ -*-
+// -*- C++ i-*-
 /**
 * @file   field.h
 * @date   13 September 2019
@@ -13,6 +13,7 @@
 
 // Forward Declarations
 class Cell;
+class Ship;
 
 #include <string>
 
@@ -53,7 +54,7 @@ class Board : public Gtk::Table {
 		/**
 		 * @param Checks the row and column
 		 * @post Returns true if board is not empty
-		 * @brief Checks if the board is empty or not, if not returns true.. 
+		 * @brief Checks if the board is empty or not, if not returns true..
 		 */
 
 		void hit(int row, int col);
@@ -64,6 +65,10 @@ class Board : public Gtk::Table {
 		 */
 
 		void setLabel(std::string label);
+
+		void makeShips(int num_ships);
+
+		void setShip(Ship* ship);
 
 	protected:
 		Cell **m_board;
