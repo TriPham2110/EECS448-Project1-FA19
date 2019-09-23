@@ -102,6 +102,11 @@ class Executive {
 		 */
 		void increment_turn_count();
 
+		/**
+		 *
+		 *
+		 */
+		void set_turn_counter(int count);
 	private:
 
 		Executive();

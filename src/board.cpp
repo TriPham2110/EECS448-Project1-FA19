@@ -49,27 +49,20 @@ void Board::bootstrap_board() {
 	}
 }
 
-void Board::setShip(int row_num,int col_num, int size, char direction)
-{
-	if((direction == 'h')&&((col_num + (size - 1))<8))
-	{
+void Board::setShip(int row_num,int col_num, int size, char direction) {
+	if((direction == 'h')&&((col_num + (size - 1))<8)) {
 		m_board[row_num][col_num].putShip();
-		for(int i = 1;i<size;i++)
-		{
+		for(int i = 1;i<size;i++) {
 			m_board[row_num][++col_num].putShip();
 		}
 	}
-
-	else if ((direction == 'v')&&((row_num + (size - 1))<8))
-	{
+	else if ((direction == 'v')&&((row_num + (size - 1))<8)) {
 		m_board[row_num][col_num].putShip();
-		for(int i = 1;i<size;i++)
-		{
+		for(int i = 1;i<size;i++) {
 			m_board[++row_num][col_num].putShip();
 		}
 	}
-	else
-	{
+	else {
 		std::cout<<"\nShip is too big to place using the given orientation and position. Try Again!\n";
 	}
 }
@@ -84,11 +77,10 @@ void Board::hit(int row, int col) {
 }
 
 bool Board::isHit(int row, int col) {
-	if(m_board[row][col].hasShip())
-		{
-			return true;
-		}
-		return false;
+	if(m_board[row][col].hasShip()) {
+		return true;
+	}
+	return false;
 }
 
 bool Board::isSunk( int row, int col) {
