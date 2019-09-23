@@ -107,6 +107,19 @@ class Executive {
 		 *
 		 */
 		void set_turn_counter(int count);
+
+		/**
+		 *
+		 *
+		 */
+		void set_ship_count(int count);
+
+		/**
+		 *
+		 *
+		 */
+		int get_ship_count();
+
 	private:
 
 		Executive();
@@ -121,6 +134,7 @@ class Executive {
 		int gamePausedState = 0;
 		int turnActive = 0;
 		int turnCount = 0;
+		int shipCount = 0;
 
 };
 

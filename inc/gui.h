@@ -32,7 +32,20 @@ class UserInterface : public Gtk::Box {
 		 */
 		virtual ~UserInterface();
 
+
 		void toggle_player_ones_board(int state);
+
+		/**
+		 * @brief Returns a pointer to the container for player one's boards.
+		 * @return Player* pointer to container that holds play/view fields.
+		 */
+		static Player* get_player_one();
+
+		/**
+		 * @brief Returns a pointer to the container for player two's boards.
+		 * @return Player* pointer to container that holds play/view fields.
+		 */
+		static Player* get_player_two();
 
 		void toggle_player_twos_board(int state);
 
