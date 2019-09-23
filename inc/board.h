@@ -79,6 +79,12 @@ class Board : public Gtk::Table {
 		 */
 		void bootstrap_board();
 
+		/**
+		 * @brief make ships
+		 * @param int the number of ships to be made
+		 */
+		void makeShips(int num_ships);
+
 };
 
 #endif // BOARD_H_
