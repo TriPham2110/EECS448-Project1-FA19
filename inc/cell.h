@@ -11,6 +11,8 @@
 #include <gtkmm/button.h>
 
 //Forward Declarations
+class Ship;
+
 class Cell : public Gtk::Button {
 
 	public:
@@ -58,6 +60,6 @@ class Cell : public Gtk::Button {
 		int m_col;
 		bool containsShip;
 		bool beenHit;
-
+		Ship* m_ship_ptr;
 };
 #endif

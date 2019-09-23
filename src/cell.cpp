@@ -6,6 +6,7 @@
  */
 
 #include "cell.h"
+#include "ship.h"
 
 Cell::Cell(){
 	containsShip = false;
@@ -33,7 +34,7 @@ void Cell::set_location(int row, int col) {
 /**
  * @pre   containsShip = false
  * @post  containsShip = true
- * @brief lets the cell know that 
+ * @brief lets the cell know that
  *         a ship has been placed on it
  */
 void Cell::putShip(Ship *ship_ptr){
@@ -51,7 +52,7 @@ void Cell::putShip(Ship *ship_ptr){
  */
 int Cell::hit(){
 	beenHit = true;
-	if(m_containsShip){
+	if(containsShip){
 		return m_ship_ptr->hit();
 	}
 	else{

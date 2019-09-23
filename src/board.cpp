@@ -57,32 +57,24 @@ void Board::bootstrap_board() {
 
 void Board::setShip(int row_num,int col_num, int size, char direction)
 {
-        
-	if((direction == 'h')&&((col_num + (size - 1))<8))
-        // place a horizontal ship
-	{
-                
-                // call putShip() for each cell in that the ship occupies
-		m_board[row_num][col_num].putShip();
-		for(int i = 1;i<size;i++)
-		{
-			m_board[row_num][++col_num].putShip();
-		}
-	}
 
-	else if ((direction == 'v')&&((row_num + (size - 1))<8))
-        // place a vertiacal ship
-	{
-                 
-                // call putShip() for each cell in that the ship occupies
-		m_board[row_num][col_num].putShip();
-		for(int i = 1;i<size;i++)
-		{
-			m_board[++row_num][col_num].putShip();
+	// place a horizontal ship
+	if((direction == 'h') && ((col_num + (size - 1)) < 8)) {
+		// call putShip() for each cell in that the ship occupies
+		m_board[row_num][col_num].putShip(nullptr);
+		for(int i = 1; i < size; i++) {
+			m_board[row_num][++col_num].putShip(nullptr);
 		}
 	}
-	else
-	{
+	// place a vertiacal ship
+	else if ((direction == 'v')&&((row_num + (size - 1))<8)) {
+		// call putShip() for each cell in that the ship occupies
+		m_board[row_num][col_num].putShip(nullptr);
+		for(int i = 1; i < size; i++) {
+			m_board[++row_num][col_num].putShip(nullptr);
+		}
+	}
+	else {
 		std::cout<<"\nShip is too big to place using the given orientation and position. Try Again!\n";
 	}
 }
@@ -92,18 +84,18 @@ void Board::hit(int row, int col) {
 		// do nothing
 	}
 	else {
-                // call hit() on the cell
+		// call hit() on the cell
 		m_board[row][col].hit();
 	}
 }
 
 bool Board::isHit(int row, int col) {
-        //return whether or not the attack hit a ship or missed
+	//return whether or not the attack hit a ship or missed
 	if(m_board[row][col].hasShip())
 		{
 			return true;
 		}
-		return false;
+	return false;
 }
 
 bool Board::isSunk() {
