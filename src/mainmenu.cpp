@@ -260,7 +260,7 @@ void MainMenu::add_end_turn_menu_button_decoration() {
 }
 
 void MainMenu::add_num_ships_dropdown_decoration() {
-	num_ships_dropdown.append("0", "Choose a Ship");
+	num_ships_dropdown.append("0", "Choose number of ships");
 	num_ships_dropdown.append("1", "1 Ship");
 	num_ships_dropdown.append("2", "2 Ships");
 	num_ships_dropdown.append("3", "3 Ships");
