@@ -56,7 +56,11 @@ void Board::bootstrap_board() {
 }
 
 void Board::makeShips(int num_ships){
-	
+	m_ships = new Ship[num_ships];
+	for (i = 0; i < num_ships; ++i){
+		// make new ship of size i
+		ships[i] = new Ship(i+1);
+	}
 }
 
 void Board::setShip(Ship ship)
@@ -103,7 +107,7 @@ void Board::hit(int row, int col) {
 	}
 	else {
                 // call hit() on the cell
-		m_board[row][col].hit();
+	        hit_outcome = m_board[row][col].hit();
 	}
 }
 

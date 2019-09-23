@@ -37,7 +37,7 @@ class Board : public Gtk::Table {
 		/** TODO: Add documentation
 		 * @brief Place a ship in the specified cell
 		 */
-		void setShip(int row_num,int col_num, int size, char direction);
+		void setShip(Ship ship);
 
 		/** TODO: Add documentation
 		 * @brief Return whether or not the shot hit 
@@ -67,6 +67,7 @@ class Board : public Gtk::Table {
 
 		int m_row;
 		int m_col;
+		Ship *m_ships;
 
 		/**
 		 * @brief Syntactic sugar that allows us to add buttons to the field
