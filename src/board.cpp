@@ -55,9 +55,15 @@ void Board::bootstrap_board() {
 	}
 }
 
-void Board::setShip(int row_num,int col_num, int size, char direction)
+void Board::setShip(Ship ship)
 {
-        
+        row_num = ship.get_row();
+        col_num = ship.get_col();
+	size = ship.get_size();
+	direction = ship.get_direction();
+
+	ptrShip = &ship;
+
 	if((direction == 'h')&&((col_num + (size - 1))<8))
         // place a horizontal ship
 	{
