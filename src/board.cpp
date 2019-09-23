@@ -7,6 +7,7 @@
 
 #include <iostream>
 
+#include "executive.h"
 #include "board.h"
 #include "cell.h"
 #include "ship.h"
@@ -142,9 +143,16 @@ void Board::setLabel(std::string label) {
 }
 
 void Board::on_button_clicked(int i, int j) {
-	if(m_board[i][j].get_label() == "HIT") {
-		m_board[i][j].set_label("");
-	} else {
-		m_board[i][j].set_label("HIT");
+	for(int k = 1; k < 9; k++) {
+		for(int m = 1; m < 9; m++) {
+			if(m_board[k][m].get_label() == "HIT") {
+				m_board[k][m].set_label("");
+				Executive::get_executive_object()->set_clicked_row(0);
+				Executive::get_executive_object()->set_clicked_row(0);
+			}
+		}
 	}
+	m_board[i][j].set_label("HIT");
+	Executive::get_executive_object()->set_clicked_row(i);
+	Executive::get_executive_object()->set_clicked_row(j);
 }
