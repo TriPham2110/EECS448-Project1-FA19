@@ -77,6 +77,7 @@ class Board : public Gtk::Table {
 
 		void set_hit_label_if_hit(int row, int col);
 
+		void clear_labels();
 	protected:
 		Cell **m_board;
 
