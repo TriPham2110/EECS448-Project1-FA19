@@ -82,7 +82,7 @@ class MainMenu : public Gtk::Box {
 		 * @brief Singal handler for what should happen when the player chooses
 		 *        some number of ships to play with.
 		 */
-		void on_num_ships_dropdown_choice();
+		int get_result_from_ship_dropdown();
 
 		// Member Widgets
 		Gtk::ComboBoxText num_ships_dropdown;
@@ -142,6 +142,10 @@ class MainMenu : public Gtk::Box {
 		 */
 		int confirm_switch_players_popup();
 
+		/**
+		 * @brief Syntactic sugar that lets us avoid polluting other functions
+		 *        with calls that do not have anything to do with their intent.
+		 */
 		int confirm_exit_popup();
 
 };
