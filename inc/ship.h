@@ -8,7 +8,7 @@ class Ship
 		int m_size;
 		int m_row;
 		int m_col;
-		int hits = 0;
+		int m_hits = 0;
 		bool sunk = false;
 
 	public:
@@ -56,6 +56,13 @@ class Ship
 		 * @return bool sunk
 		 */
 		bool get_sunk();
+
+		/**
+		 * @post hits counter is increased by 1
+		 * @brief hit the ship
+		 * @return number of hits left (m_size - hits)
+		 */
+		int hit();
 
 };
 #endif

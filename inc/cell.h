@@ -34,14 +34,17 @@ class Cell : public Gtk::Button {
 		 * @post containsShip = true
 		 * @brief Places a ship in this cell
 		 */
-		void putShip();
+		void putShip(Ship *ptr);
 
 		/** TODO: Add documentation
 		 * @pre beenHit = false
 		 * @post beenHit = true
 		 * @brief Hit this cell
+		 * @return number of hits left on the ship
+		 *         9 if there is no ship in this cell
+		 *         (i.e. hit is a miss)
 		 */
-		void hit();
+		int hit();
 
 		/** TODO: Add documentation
 		 * @brief Accessor for containsShip variable
