@@ -55,23 +55,23 @@ void Board::bootstrap_board() {
 	}
 }
 
-void Board::setShip(int row_num,int col_num, int size, char direction) {
-	if((direction == 'h')&&((col_num + (size - 1))<8)) {
-        // place a horizontal ship
+void Board::setShip(int row_num,int col_num, int size, char direction)
+{
+
+	// place a horizontal ship
+	if((direction == 'h') && ((col_num + (size - 1)) < 8)) {
 		// call putShip() for each cell in that the ship occupies
-		m_board[row_num][col_num].putShip();
-		for(int i = 1;i<size;i++)
-		{
-			m_board[row_num][++col_num].putShip();
+		m_board[row_num][col_num].putShip(nullptr);
+		for(int i = 1; i < size; i++) {
+			m_board[row_num][++col_num].putShip(nullptr);
 		}
 	}
+	// place a vertiacal ship
 	else if ((direction == 'v')&&((row_num + (size - 1))<8)) {
-        // place a vertiacal ship
 		// call putShip() for each cell in that the ship occupies
-		m_board[row_num][col_num].putShip();
-		for(int i = 1;i<size;i++)
-		{
-			m_board[++row_num][col_num].putShip();
+		m_board[row_num][col_num].putShip(nullptr);
+		for(int i = 1; i < size; i++) {
+			m_board[++row_num][col_num].putShip(nullptr);
 		}
 	}
 	else {
@@ -95,7 +95,7 @@ bool Board::isHit(int row, int col) {
 		{
 			return true;
 		}
-		return false;
+	return false;
 }
 
 bool Board::isSunk() {

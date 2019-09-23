@@ -11,6 +11,8 @@
 #include <gtkmm/button.h>
 
 //Forward Declarations
+class Ship;
+
 class Cell : public Gtk::Button {
 
 	public:
@@ -35,15 +37,18 @@ class Cell : public Gtk::Button {
 		 * @post containsShip = true
 		 * @brief Places a ship in this cell
 		 */
-		void putShip();
+		void putShip(Ship *ptr);
 
 		/** TODO: Add documentation
 		 * @brief
 		 * @pre beenHit = false
 		 * @post beenHit = true
 		 * @brief Hit this cell
+		 * @return number of hits left on the ship
+		 *         9 if there is no ship in this cell
+		 *         (i.e. hit is a miss)
 		 */
-		void hit();
+		int hit();
 
 		/** TODO: Add documentation
 		 * @pre
@@ -59,6 +64,6 @@ class Cell : public Gtk::Button {
 		int m_col;
 		bool containsShip;
 		bool beenHit;
-
+		Ship* m_ship_ptr;
 };
 #endif

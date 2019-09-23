@@ -18,6 +18,7 @@ Ship::Ship(int row, int col, int size, char direction)
 	m_size = size;
 	m_row = row;
 	m_col = col;
+	m_hits = 0;
 }
 
 Ship::~Ship()
@@ -43,4 +44,17 @@ int Ship::get_size(){
 
 bool Ship::get_sunk(){
 	return (sunk ? true : false);
+}
+
+int Ship::hit(){
+	if (m_sunk){
+		return 0;
+	}
+	else{
+		m_hits += 1;
+		if (m_hits == m_size){
+			m_sunk = true;
+		}
+		return (m_size - m_hits);
+	}
 }
