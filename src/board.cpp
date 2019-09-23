@@ -61,8 +61,8 @@ void Board::makeShips(int num_ships){
 	m_ships = new Ship[num_ships];
 
 	for (int i = 0; i < num_ships; ++i){
-		// make new ship of size i+1
-		m_ships[i] = new Ship(i+1);
+		// set size of ship to i+1
+		m_ships[i].set_size(i+1);
 	}
 }
 
