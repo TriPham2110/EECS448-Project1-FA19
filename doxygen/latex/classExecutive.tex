@@ -1,0 +1,201 @@
+\hypertarget{classExecutive}{}\section{Executive Class Reference}
+\label{classExecutive}\index{Executive@{Executive}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classExecutive_a0e233ad87bd0e0d438e4da3888327b8b}{run}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Main program thread. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classExecutive_aa18c7d0914c7332188968681132809d0}{get\+\_\+game\+\_\+in\+\_\+progress\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Getter for variable that tracks whether a game is currently running. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classExecutive_ac2be719a9026307aeb3dbc2e81297a84}{set\+\_\+game\+\_\+in\+\_\+progress\+\_\+state}} (int state)
+\begin{DoxyCompactList}\small\item\em Set game state. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExecutive_a50f84e87213028bb5f479b41ecdfd070}\label{classExecutive_a50f84e87213028bb5f479b41ecdfd070}} 
+int {\bfseries get\+\_\+game\+\_\+paused\+\_\+state} ()
+\item 
+void \mbox{\hyperlink{classExecutive_a660154fa665ba56fda1279e48ad69486}{set\+\_\+game\+\_\+paused\+\_\+state}} (int state)
+\begin{DoxyCompactList}\small\item\em Setter for variable that tracks whether game is paused. (0 -\/ play, 1 -\/ paused) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classExecutive_af910b08a89311aeb591440a58a6338f0}{which\+\_\+player\+\_\+is\+\_\+up}} ()
+\begin{DoxyCompactList}\small\item\em Polls executive object to see which player\textquotesingle{}s turn it is. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classExecutive_acf7839b1ac33deb79af36c654a7c5afa}{set\+\_\+which\+\_\+player}} (int player)
+\begin{DoxyCompactList}\small\item\em Set the variable that tracks which player is currently making a move. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classExecutive_aeb65d64eb9c379f4bb55cd42e3c9e961}{is\+\_\+a\+\_\+turn\+\_\+active}} ()
+\begin{DoxyCompactList}\small\item\em Polls executive object to see whether the turn is active. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classExecutive_a9000b97a47537ed955c9e40896829788}{set\+\_\+turn\+\_\+active}} (int active)
+\begin{DoxyCompactList}\small\item\em Set the variable that tracks which player is currently making a move. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExecutive_a0b5ec84c4420e2857d68dc0c9efcd423}\label{classExecutive_a0b5ec84c4420e2857d68dc0c9efcd423}} 
+void \mbox{\hyperlink{classExecutive_a0b5ec84c4420e2857d68dc0c9efcd423}{quit}} ()
+\begin{DoxyCompactList}\small\item\em Called from \mbox{\hyperlink{classMainMenu_a9b9f6812f90946e135022cf5826d8eed}{Main\+Menu\+::on\+\_\+exit\+\_\+button\+\_\+clicked()}} -- forces program exit (no memory is freed). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classBattleWindow}{Battle\+Window}} $\ast$ \mbox{\hyperlink{classExecutive_a97b5031314e8a65040de21d6424cb3a2}{get\+\_\+main\+\_\+window}} ()
+\begin{DoxyCompactList}\small\item\em Returns reference to Window object from \mbox{\hyperlink{window_8h}{window.\+h}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExecutive_afc983eb8910afe18eb8c41f311782048}\label{classExecutive_afc983eb8910afe18eb8c41f311782048}} 
+int \mbox{\hyperlink{classExecutive_afc983eb8910afe18eb8c41f311782048}{get\+\_\+turn\+\_\+count}} ()
+\begin{DoxyCompactList}\small\item\em Returns the current turn counter. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExecutive_a0240d3217edc59b481cd343ace98812d}\label{classExecutive_a0240d3217edc59b481cd343ace98812d}} 
+void \mbox{\hyperlink{classExecutive_a0240d3217edc59b481cd343ace98812d}{increment\+\_\+turn\+\_\+count}} ()
+\begin{DoxyCompactList}\small\item\em Increments turn count by one at the end of each turn. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExecutive_ad5c7706649b878b05d2e2126196d117a}\label{classExecutive_ad5c7706649b878b05d2e2126196d117a}} 
+void \mbox{\hyperlink{classExecutive_ad5c7706649b878b05d2e2126196d117a}{set\+\_\+turn\+\_\+counter}} (int count)
+\begin{DoxyCompactList}\small\item\em Used to set the turn counter back to zero at the end of the game or when it restarts. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExecutive_a1043133ae18fbe569ddc8da0cb122500}\label{classExecutive_a1043133ae18fbe569ddc8da0cb122500}} 
+void \mbox{\hyperlink{classExecutive_a1043133ae18fbe569ddc8da0cb122500}{set\+\_\+ship\+\_\+count}} (int count)
+\begin{DoxyCompactList}\small\item\em Stores the number of ships the players want to play with. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExecutive_addfd4ad7c6794fb6ed00e87456c593ea}\label{classExecutive_addfd4ad7c6794fb6ed00e87456c593ea}} 
+int \mbox{\hyperlink{classExecutive_addfd4ad7c6794fb6ed00e87456c593ea}{get\+\_\+ship\+\_\+count}} ()
+\begin{DoxyCompactList}\small\item\em Accessor for ship\+Count. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExecutive_aede4aaec377d04705c932cef1f0a995f}\label{classExecutive_aede4aaec377d04705c932cef1f0a995f}} 
+void \mbox{\hyperlink{classExecutive_aede4aaec377d04705c932cef1f0a995f}{set\+\_\+clicked\+\_\+row}} (int row)
+\begin{DoxyCompactList}\small\item\em Set target row for next move. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExecutive_a2e5f0cb131520db0229bbe5084cef3bc}\label{classExecutive_a2e5f0cb131520db0229bbe5084cef3bc}} 
+int \mbox{\hyperlink{classExecutive_a2e5f0cb131520db0229bbe5084cef3bc}{get\+\_\+clicked\+\_\+row}} ()
+\begin{DoxyCompactList}\small\item\em Get target row on next move. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExecutive_a2adde84f5a86ae30f955b9be8da29751}\label{classExecutive_a2adde84f5a86ae30f955b9be8da29751}} 
+void \mbox{\hyperlink{classExecutive_a2adde84f5a86ae30f955b9be8da29751}{set\+\_\+clicked\+\_\+col}} (int col)
+\begin{DoxyCompactList}\small\item\em Set target col for next move. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classExecutive_a3acf16d74de6856fd5254564cc914f34}\label{classExecutive_a3acf16d74de6856fd5254564cc914f34}} 
+int \mbox{\hyperlink{classExecutive_a3acf16d74de6856fd5254564cc914f34}{get\+\_\+clicked\+\_\+col}} ()
+\begin{DoxyCompactList}\small\item\em Get target col on next move. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classExecutive_abd86af2454e1c72a9c5eeb047eed7a8d}\label{classExecutive_abd86af2454e1c72a9c5eeb047eed7a8d}} 
+static \mbox{\hyperlink{classExecutive}{Executive}} $\ast$ \mbox{\hyperlink{classExecutive_abd86af2454e1c72a9c5eeb047eed7a8d}{get\+\_\+executive\+\_\+object}} ()
+\begin{DoxyCompactList}\small\item\em Returns executive singleton that can be used to change game state parameters. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classExecutive_aa18c7d0914c7332188968681132809d0}\label{classExecutive_aa18c7d0914c7332188968681132809d0}} 
+\index{Executive@{Executive}!get\_game\_in\_progress\_state@{get\_game\_in\_progress\_state}}
+\index{get\_game\_in\_progress\_state@{get\_game\_in\_progress\_state}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{get\_game\_in\_progress\_state()}{get\_game\_in\_progress\_state()}}
+{\footnotesize\ttfamily int Executive\+::get\+\_\+game\+\_\+in\+\_\+progress\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter for variable that tracks whether a game is currently running. 
+
+\begin{DoxyReturn}{Returns}
+int (0 or 1) indicating whether the game is running. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classExecutive_a97b5031314e8a65040de21d6424cb3a2}\label{classExecutive_a97b5031314e8a65040de21d6424cb3a2}} 
+\index{Executive@{Executive}!get\_main\_window@{get\_main\_window}}
+\index{get\_main\_window@{get\_main\_window}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{get\_main\_window()}{get\_main\_window()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBattleWindow}{Battle\+Window}}$\ast$ Executive\+::get\+\_\+main\+\_\+window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns reference to Window object from \mbox{\hyperlink{window_8h}{window.\+h}}. 
+
+\begin{DoxyReturn}{Returns}
+Battle\+Window$\ast$ Pointer to the game\textquotesingle{}s main window. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classExecutive_aeb65d64eb9c379f4bb55cd42e3c9e961}\label{classExecutive_aeb65d64eb9c379f4bb55cd42e3c9e961}} 
+\index{Executive@{Executive}!is\_a\_turn\_active@{is\_a\_turn\_active}}
+\index{is\_a\_turn\_active@{is\_a\_turn\_active}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{is\_a\_turn\_active()}{is\_a\_turn\_active()}}
+{\footnotesize\ttfamily int Executive\+::is\+\_\+a\+\_\+turn\+\_\+active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Polls executive object to see whether the turn is active. 
+
+\begin{DoxyReturn}{Returns}
+int (0 or 1) indicating state 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classExecutive_a0e233ad87bd0e0d438e4da3888327b8b}\label{classExecutive_a0e233ad87bd0e0d438e4da3888327b8b}} 
+\index{Executive@{Executive}!run@{run}}
+\index{run@{run}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily int Executive\+::run (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Main program thread. 
+
+\begin{DoxyPrecond}{Precondition}
+Successful creation of executive object. 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+Program exit code. 
+\end{DoxyReturn}
+\begin{DoxyPostcond}{Postcondition}
+Program exits and reports exit code to operating system. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classExecutive_ac2be719a9026307aeb3dbc2e81297a84}\label{classExecutive_ac2be719a9026307aeb3dbc2e81297a84}} 
+\index{Executive@{Executive}!set\_game\_in\_progress\_state@{set\_game\_in\_progress\_state}}
+\index{set\_game\_in\_progress\_state@{set\_game\_in\_progress\_state}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{set\_game\_in\_progress\_state()}{set\_game\_in\_progress\_state()}}
+{\footnotesize\ttfamily void Executive\+::set\+\_\+game\+\_\+in\+\_\+progress\+\_\+state (\begin{DoxyParamCaption}\item[{int}]{state }\end{DoxyParamCaption})}
+
+
+
+Set game state. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em state} & Set the variable that tracks game state to 1 (game in progress) or 0 (no game in progress) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExecutive_a660154fa665ba56fda1279e48ad69486}\label{classExecutive_a660154fa665ba56fda1279e48ad69486}} 
+\index{Executive@{Executive}!set\_game\_paused\_state@{set\_game\_paused\_state}}
+\index{set\_game\_paused\_state@{set\_game\_paused\_state}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{set\_game\_paused\_state()}{set\_game\_paused\_state()}}
+{\footnotesize\ttfamily void Executive\+::set\+\_\+game\+\_\+paused\+\_\+state (\begin{DoxyParamCaption}\item[{int}]{state }\end{DoxyParamCaption})}
+
+
+
+Setter for variable that tracks whether game is paused. (0 -\/ play, 1 -\/ paused) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em state} & Set the variable that tracks whether game is paused. Expects 0 (no) or 1 (yes) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExecutive_a9000b97a47537ed955c9e40896829788}\label{classExecutive_a9000b97a47537ed955c9e40896829788}} 
+\index{Executive@{Executive}!set\_turn\_active@{set\_turn\_active}}
+\index{set\_turn\_active@{set\_turn\_active}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{set\_turn\_active()}{set\_turn\_active()}}
+{\footnotesize\ttfamily void Executive\+::set\+\_\+turn\+\_\+active (\begin{DoxyParamCaption}\item[{int}]{active }\end{DoxyParamCaption})}
+
+
+
+Set the variable that tracks which player is currently making a move. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em active} & values\+: 0 (inactive) 1 (active) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExecutive_acf7839b1ac33deb79af36c654a7c5afa}\label{classExecutive_acf7839b1ac33deb79af36c654a7c5afa}} 
+\index{Executive@{Executive}!set\_which\_player@{set\_which\_player}}
+\index{set\_which\_player@{set\_which\_player}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{set\_which\_player()}{set\_which\_player()}}
+{\footnotesize\ttfamily void Executive\+::set\+\_\+which\+\_\+player (\begin{DoxyParamCaption}\item[{int}]{player }\end{DoxyParamCaption})}
+
+
+
+Set the variable that tracks which player is currently making a move. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em player} & values\+: 0 (player 1) or 1 (player 2) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classExecutive_af910b08a89311aeb591440a58a6338f0}\label{classExecutive_af910b08a89311aeb591440a58a6338f0}} 
+\index{Executive@{Executive}!which\_player\_is\_up@{which\_player\_is\_up}}
+\index{which\_player\_is\_up@{which\_player\_is\_up}!Executive@{Executive}}
+\subsubsection{\texorpdfstring{which\_player\_is\_up()}{which\_player\_is\_up()}}
+{\footnotesize\ttfamily int Executive\+::which\+\_\+player\+\_\+is\+\_\+up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Polls executive object to see which player\textquotesingle{}s turn it is. 
+
+\begin{DoxyReturn}{Returns}
+int values\+: (0 or 1) indicating player 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+inc/\mbox{\hyperlink{executive_8h}{executive.\+h}}\end{DoxyCompactItemize}

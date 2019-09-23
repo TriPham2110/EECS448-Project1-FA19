@@ -1,0 +1,157 @@
+\hypertarget{classMainMenu}{}\section{Main\+Menu Class Reference}
+\label{classMainMenu}\index{MainMenu@{MainMenu}}
+Inheritance diagram for Main\+Menu\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMainMenu}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMainMenu_a53eecf9d5ffd094f54ac4193e7e57eaf}\label{classMainMenu_a53eecf9d5ffd094f54ac4193e7e57eaf}} 
+\mbox{\hyperlink{classMainMenu_a53eecf9d5ffd094f54ac4193e7e57eaf}{Main\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Menu constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classMainMenu_a06d0ccbd60dd43322a79d762384344c8}\label{classMainMenu_a06d0ccbd60dd43322a79d762384344c8}} 
+virtual \mbox{\hyperlink{classMainMenu_a06d0ccbd60dd43322a79d762384344c8}{$\sim$\+Main\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Menu destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMainMenu_a49ada5047a5c54593462bf05ccf93c49}{on\+\_\+start\+\_\+button\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Singal handler for what should happen when the start button is clicked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMainMenu_a4c0bad31b1bbd49b3e8351ca137d4ac0}{on\+\_\+pause\+\_\+button\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Singal handler for what should happen when the pause button is clicked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMainMenu_a9b9f6812f90946e135022cf5826d8eed}{on\+\_\+exit\+\_\+button\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Singal handler for what should happen when the exit button is clicked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMainMenu_a2d91523fbe9c753f1de2ff429178b0d2}{on\+\_\+start\+\_\+turn\+\_\+button\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Singal handler for what should happen when the end turn button is clicked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMainMenu_a08d40ee75aeed409f4ec19008e22fae2}{on\+\_\+end\+\_\+turn\+\_\+button\+\_\+clicked}} ()
+\begin{DoxyCompactList}\small\item\em Singal handler for what should happen when the end turn button is clicked. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classMainMenu_ab155ec2f4fe3c5c26984118a23265ecb}{get\+\_\+result\+\_\+from\+\_\+ship\+\_\+dropdown}} ()
+\begin{DoxyCompactList}\small\item\em Singal handler for what should happen when the player chooses some number of ships to play with. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMainMenu_aea4360612bdac04a913cb1d57abcbdf4}\label{classMainMenu_aea4360612bdac04a913cb1d57abcbdf4}} 
+Gtk\+::\+Combo\+Box\+Text {\bfseries num\+\_\+ships\+\_\+dropdown}
+\item 
+\mbox{\Hypertarget{classMainMenu_affb7e8692845bf2037e19dc8b8a9ecdd}\label{classMainMenu_affb7e8692845bf2037e19dc8b8a9ecdd}} 
+Gtk\+::\+Button {\bfseries start\+\_\+menu\+\_\+button}
+\item 
+\mbox{\Hypertarget{classMainMenu_ab1e4fd578eaee5d9a4bcd5c498584591}\label{classMainMenu_ab1e4fd578eaee5d9a4bcd5c498584591}} 
+Gtk\+::\+Button {\bfseries pause\+\_\+menu\+\_\+button}
+\item 
+\mbox{\Hypertarget{classMainMenu_a3b919514d14da2a4a85fa05f5bacb330}\label{classMainMenu_a3b919514d14da2a4a85fa05f5bacb330}} 
+Gtk\+::\+Button {\bfseries exit\+\_\+menu\+\_\+button}
+\item 
+\mbox{\Hypertarget{classMainMenu_a4f1f0518d2c2a59da56be3bb80675ae2}\label{classMainMenu_a4f1f0518d2c2a59da56be3bb80675ae2}} 
+Gtk\+::\+Button {\bfseries end\+\_\+turn\+\_\+menu\+\_\+button}
+\item 
+\mbox{\Hypertarget{classMainMenu_a6bf0d04b2003e05519419b8bc21f8973}\label{classMainMenu_a6bf0d04b2003e05519419b8bc21f8973}} 
+Gtk\+::\+Button {\bfseries start\+\_\+turn\+\_\+menu\+\_\+button}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMainMenu_ab155ec2f4fe3c5c26984118a23265ecb}\label{classMainMenu_ab155ec2f4fe3c5c26984118a23265ecb}} 
+\index{MainMenu@{MainMenu}!get\_result\_from\_ship\_dropdown@{get\_result\_from\_ship\_dropdown}}
+\index{get\_result\_from\_ship\_dropdown@{get\_result\_from\_ship\_dropdown}!MainMenu@{MainMenu}}
+\subsubsection{\texorpdfstring{get\_result\_from\_ship\_dropdown()}{get\_result\_from\_ship\_dropdown()}}
+{\footnotesize\ttfamily int Main\+Menu\+::get\+\_\+result\+\_\+from\+\_\+ship\+\_\+dropdown (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Singal handler for what should happen when the player chooses some number of ships to play with. 
+
+\begin{DoxyPrecond}{Precondition}
+Main menu must be created. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Sets number of ships next game should start with in executive object. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classMainMenu_a08d40ee75aeed409f4ec19008e22fae2}\label{classMainMenu_a08d40ee75aeed409f4ec19008e22fae2}} 
+\index{MainMenu@{MainMenu}!on\_end\_turn\_button\_clicked@{on\_end\_turn\_button\_clicked}}
+\index{on\_end\_turn\_button\_clicked@{on\_end\_turn\_button\_clicked}!MainMenu@{MainMenu}}
+\subsubsection{\texorpdfstring{on\_end\_turn\_button\_clicked()}{on\_end\_turn\_button\_clicked()}}
+{\footnotesize\ttfamily void Main\+Menu\+::on\+\_\+end\+\_\+turn\+\_\+button\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Singal handler for what should happen when the end turn button is clicked. 
+
+\begin{DoxyPrecond}{Precondition}
+Main menu must be created. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+If player confirms, hand control to other player; reflect change in executive object. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classMainMenu_a9b9f6812f90946e135022cf5826d8eed}\label{classMainMenu_a9b9f6812f90946e135022cf5826d8eed}} 
+\index{MainMenu@{MainMenu}!on\_exit\_button\_clicked@{on\_exit\_button\_clicked}}
+\index{on\_exit\_button\_clicked@{on\_exit\_button\_clicked}!MainMenu@{MainMenu}}
+\subsubsection{\texorpdfstring{on\_exit\_button\_clicked()}{on\_exit\_button\_clicked()}}
+{\footnotesize\ttfamily void Main\+Menu\+::on\+\_\+exit\+\_\+button\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Singal handler for what should happen when the exit button is clicked. 
+
+\begin{DoxyPrecond}{Precondition}
+Main menu must be created. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Program exits, though not cleanly (no destructors are called.) 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classMainMenu_a4c0bad31b1bbd49b3e8351ca137d4ac0}\label{classMainMenu_a4c0bad31b1bbd49b3e8351ca137d4ac0}} 
+\index{MainMenu@{MainMenu}!on\_pause\_button\_clicked@{on\_pause\_button\_clicked}}
+\index{on\_pause\_button\_clicked@{on\_pause\_button\_clicked}!MainMenu@{MainMenu}}
+\subsubsection{\texorpdfstring{on\_pause\_button\_clicked()}{on\_pause\_button\_clicked()}}
+{\footnotesize\ttfamily void Main\+Menu\+::on\+\_\+pause\+\_\+button\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Singal handler for what should happen when the pause button is clicked. 
+
+\begin{DoxyPrecond}{Precondition}
+Main menu must be created. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+If paused, resume. If not paused, pause. Sets state with callback to \mbox{\hyperlink{classExecutive}{Executive}} object. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classMainMenu_a49ada5047a5c54593462bf05ccf93c49}\label{classMainMenu_a49ada5047a5c54593462bf05ccf93c49}} 
+\index{MainMenu@{MainMenu}!on\_start\_button\_clicked@{on\_start\_button\_clicked}}
+\index{on\_start\_button\_clicked@{on\_start\_button\_clicked}!MainMenu@{MainMenu}}
+\subsubsection{\texorpdfstring{on\_start\_button\_clicked()}{on\_start\_button\_clicked()}}
+{\footnotesize\ttfamily void Main\+Menu\+::on\+\_\+start\+\_\+button\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Singal handler for what should happen when the start button is clicked. 
+
+\begin{DoxyPrecond}{Precondition}
+Main menu must be created. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Start the game. If a game is in progress, ask other player for confirmation. If both agree, restart game. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{classMainMenu_a2d91523fbe9c753f1de2ff429178b0d2}\label{classMainMenu_a2d91523fbe9c753f1de2ff429178b0d2}} 
+\index{MainMenu@{MainMenu}!on\_start\_turn\_button\_clicked@{on\_start\_turn\_button\_clicked}}
+\index{on\_start\_turn\_button\_clicked@{on\_start\_turn\_button\_clicked}!MainMenu@{MainMenu}}
+\subsubsection{\texorpdfstring{on\_start\_turn\_button\_clicked()}{on\_start\_turn\_button\_clicked()}}
+{\footnotesize\ttfamily void Main\+Menu\+::on\+\_\+start\+\_\+turn\+\_\+button\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Singal handler for what should happen when the end turn button is clicked. 
+
+\begin{DoxyPrecond}{Precondition}
+Main menu must be created. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+If player confirms, hand control to other player; reflect change in executive object. 
+\end{DoxyPostcond}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+inc/mainmenu.\+h\end{DoxyCompactItemize}
