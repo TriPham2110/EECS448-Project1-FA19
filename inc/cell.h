@@ -2,7 +2,8 @@
 /**
  * @file   cell.h
  * @date   17 September 2019
- * @brief  cell class
+ * @brief  Provides a cell class which wraps Gtk::Button to serve the purposes
+ *         of playing Battleship.
  */
 
 #ifndef CELL_H
@@ -39,20 +40,17 @@ class Cell : public Gtk::Button {
 		 */
 		void putShip(Ship *ptr);
 
-		/** TODO: Add documentation
-		 * @brief
+		/**
+		 * @brief Hit this cell
 		 * @pre beenHit = false
 		 * @post beenHit = true
-		 * @brief Hit this cell
 		 * @return number of hits left on the ship
 		 *         9 if there is no ship in this cell
 		 *         (i.e. hit is a miss)
 		 */
 		int hit();
 
-		/** TODO: Add documentation
-		 * @pre
-		 * @post
+		/**
 		 * @brief Accessor for containsShip variable
 		 */
 		bool hasShip();

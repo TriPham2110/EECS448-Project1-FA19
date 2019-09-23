@@ -73,8 +73,7 @@ void Board::setShip(int row_num,int col_num, int size, char direction)
 			m_board[++row_num][col_num].putShip(nullptr);
 		}
 	}
-	else
-	{
+	else {
 		std::cout<<"\nShip is too big to place using the given orientation and position. Try Again!\n";
 	}
 }
