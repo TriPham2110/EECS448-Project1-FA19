@@ -55,6 +55,10 @@ void Board::bootstrap_board() {
 	}
 }
 
+void Board::makeShips(int num_ships){
+	
+}
+
 void Board::setShip(Ship ship)
 {
         row_num = ship.get_row();
@@ -69,10 +73,10 @@ void Board::setShip(Ship ship)
 	{
                 
                 // call putShip() for each cell in that the ship occupies
-		m_board[row_num][col_num].putShip();
+		m_board[row_num][col_num].putShip(ptrShip);
 		for(int i = 1;i<size;i++)
 		{
-			m_board[row_num][++col_num].putShip();
+			m_board[row_num][++col_num].putShip(ptrShip);
 		}
 	}
 
@@ -81,10 +85,10 @@ void Board::setShip(Ship ship)
 	{
                  
                 // call putShip() for each cell in that the ship occupies
-		m_board[row_num][col_num].putShip();
+		m_board[row_num][col_num].putShip(ptrShip);
 		for(int i = 1;i<size;i++)
 		{
-			m_board[++row_num][col_num].putShip();
+			m_board[++row_num][col_num].putShip(ptrShip);
 		}
 	}
 	else
