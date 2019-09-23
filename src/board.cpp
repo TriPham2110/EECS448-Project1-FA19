@@ -144,7 +144,10 @@ void Board::setLabel(std::string label) {
 	}
 }
 
-void Board::on_button_clicked(int i, int j)
-{
-	m_board[i][j].set_label("HIT");
+void Board::on_button_clicked(int i, int j) {
+	if(m_board[i][j].get_label() == "HIT") {
+		m_board[i][j].set_label("");
+	} else {
+		m_board[i][j].set_label("HIT");
+	}
 }
