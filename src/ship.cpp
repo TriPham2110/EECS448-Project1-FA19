@@ -51,7 +51,7 @@ int Ship::get_size(){
 }
 
 bool Ship::get_sunk(){
-	return (sunk ? true : false);i
+	return (sunk ? true : false);
 }
 
 int Ship::hit(){
