@@ -285,7 +285,7 @@ int MainMenu::confirm_exit_popup() {
 }
 
 int MainMenu::get_result_from_ship_dropdown() {
-		switch(std::stoi(num_ships_dropdown.get_active_id())) {
+	switch(std::stoi(num_ships_dropdown.get_active_id())) {
 		default: break;
 		case '0': {
 			return 1;
@@ -306,4 +306,6 @@ int MainMenu::get_result_from_ship_dropdown() {
 			return 5;
 		}
 	}
+	// Shut the compiler up; also just in case.
+	return 1;
 }
