@@ -56,7 +56,7 @@ void Board::bootstrap_board() {
 		m_board[i][0].set_label(std::to_string(i));
 	}
 }
-
+//when a cell is clicked
 void Board::makePlayable() {
 	for(int m=1;m<9;m++) {
 		for(int n = 1;n<9;n++) {
@@ -91,7 +91,7 @@ void Board::setShip(Ship* ship) {
 			m_board[row_num][++col_num].putShip(ptrShip);
 		}
 	}
-	// place a vertiacal ship
+	// place a vertical ship
 	else if ((direction == 'v')&&((row_num + (size - 1))<8)) {
 
 		// call putShip() for each cell in that the ship occupies

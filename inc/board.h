@@ -32,11 +32,7 @@ class Board : public Gtk::Table {
 		 */
 		virtual ~Board();
 
-		/**
-		 * @brief  Places a ship in the specified cell based on orientation
-		 * @param Takes in the row number, col number, size of the ship, and the direction and sets it on the cell
-		 */
-		void setShip(Ship ship);
+	//	void setShip(Ship ship);
 
 		/**
 		 * @param Checks the row and column
@@ -65,13 +61,26 @@ class Board : public Gtk::Table {
 		 */
 
 		void setLabel(std::string label);
-
+		/**
+		 * @brief  Places a ship in the specified cell based on orientation
+		 * @param Takes in the row number, col number, size of the ship, and the direction and sets it on the cell
+		 */
 		void setShip(Ship* ship);
+
+				/**
+				 * @brief ALlows interaction with the board, by choosing spots
+				 */
 
 		void makePlayable();
 
 	protected:
 		Cell **m_board;
+
+				/**
+				 * @pre Board is set up
+				 * @brief Sets labels for the board, for the rows and columns
+				 */
+
 		void on_button_clicked(int i, int j);
 
 	private:
