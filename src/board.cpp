@@ -91,7 +91,7 @@ bool Board::isHit(int row, int col) {
 		return false;
 }
 
-bool Board::isSunk() {
+bool Board::isSunk( int row, int col) {
 
 }
 
