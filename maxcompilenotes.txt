@@ -1,0 +1,34 @@
+how I got this to compile on windows:
+
+download msys2 and update accordingly as per their website
+
+add mingw64/bin to $path (my msys2/mingw64/bin was in straight up C:)
+
+then
+
+in mingw64 shell or msys2 or whatever run these commands:
+
+pacman -S mingw-w64-x86_64-gcc
+pacman -S mingw-w64-x86_64-gtkmm3
+pacman -S pkg-config
+pacman -S mingw-w64-x86_64-libffi
+
+then 
+
+export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/mingw64/lib/pkgconfig
+
+then
+
+cd /path/to/battleship
+
+then 
+
+make
+
+and it should take a while and have lots of warnings but will compile
+(this is what happened to me)
+
+For mac:
+
+a similar yet slightly simpler process using homebrew instead of mingw64 
+but similar pkg_config_path commands
