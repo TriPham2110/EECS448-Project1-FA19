@@ -106,6 +106,8 @@ void Board::setShip(Ship* ship) {
 }
 
 //Checks if board is empty else becomes true
+
+
 void Board::hit(int row, int col) {
 	if(m_board == nullptr) {
 		// do nothing
@@ -120,6 +122,8 @@ void Board::hit(int row, int col) {
 		}
 	}
 }
+
+
 //Returns true or false, whether or not the ship is hit or not.
 bool Board::isHit(int row, int col) {
 	if(m_board[row][col].hasShip())

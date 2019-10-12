@@ -19,7 +19,6 @@
 MainMenu::MainMenu()
 	: num_ships_dropdown(true), //t: show as dropdown f: show as button
 	  start_menu_button("Start"),
-	  pause_menu_button("Pause"),
 	  exit_menu_button("Exit"),
 	  end_turn_menu_button("Finish Turn"),
 	  start_turn_menu_button("Start Turn")
@@ -31,7 +30,7 @@ MainMenu::MainMenu()
 	this->add_start_turn_menu_button_decoration();
 	this->add_end_turn_menu_button_decoration();
 	this->add_num_ships_dropdown_decoration();
-	this->add_pause_menu_button_decoration();
+	
 	this->add_exit_menu_button_decoration();
 	// Set the active item to "Choose a Ship"
 	this->num_ships_dropdown.set_active_id("0");
@@ -112,19 +111,6 @@ void MainMenu::on_start_button_clicked() {
 	}
 }
 
-void MainMenu::on_pause_button_clicked() {
-	if(Executive::get_executive_object()->get_game_in_progress_state()) {
-		if(Executive::get_executive_object()->get_game_paused_state() == 0) {
-			Executive::get_executive_object()->set_game_paused_state(1);
-			std::cout << "Game paused." << std::endl;
-		} else {
-			Executive::get_executive_object()->set_game_paused_state(0);
-			std::cout << "Game unpaused." << std::endl;
-		}
-	} else {
-		std::cout << "No game to pause." << std::endl;
-	}
-}
 
 void MainMenu::on_exit_button_clicked() {
 	switch(confirm_exit_popup()) {
@@ -237,11 +223,7 @@ void MainMenu::add_start_menu_button_decoration() {
 	start_menu_button.show();
 }
 
-void MainMenu::add_pause_menu_button_decoration() {
-	pause_menu_button.signal_clicked().connect(sigc::mem_fun(*this, &MainMenu::on_pause_button_clicked));
-	this->add(pause_menu_button);
-	pause_menu_button.show();
-}
+
 
 void MainMenu::add_exit_menu_button_decoration() {
 	exit_menu_button.signal_clicked().connect(sigc::mem_fun(*this, &MainMenu::on_exit_button_clicked));

@@ -36,6 +36,8 @@ void Cell::putShip(Ship *ship_ptr){
 	m_ship_ptr = ship_ptr;
 }
 
+
+
 int Cell::hit(){
 	beenHit = true;
 	if(containsShip){
@@ -45,6 +47,8 @@ int Cell::hit(){
 		return 9;
 	}
 }
+
+
 
 bool Cell::hasShip() {
 	return (containsShip ? true : false);

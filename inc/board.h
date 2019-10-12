@@ -32,7 +32,7 @@ class Board : public Gtk::Table {
 		 */
 		virtual ~Board();
 
-	//	void setShip(Ship ship);
+    	//void setShip(Ship ship);
 
 		/**
 		 * @param Checks the row and column
