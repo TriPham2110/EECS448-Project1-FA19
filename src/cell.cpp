@@ -31,9 +31,7 @@ void Cell::set_location(int row, int col) {
 	m_col = col;
 }
 
-bool Cell::isBeenHit(){
-    return beenHit;
-}
+
 
 void Cell::putShip(Ship *ship_ptr){
 	containsShip = true;

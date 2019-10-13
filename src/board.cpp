@@ -16,7 +16,7 @@ Board::Board()
 	: Gtk::Table(10,10,false)
 {
 	bootstrap_board();
-        
+
     std::cout << "Testestsetsthis is board" << std::endl;
 }
 
@@ -135,9 +135,6 @@ bool Board::isHit(int row, int col) {
 	return false;
 }
 
-bool Board::isSunk( int row, int col) {
-
-}
 
 //Label is created for columns on the board
 void Board::setLabel(std::string label) {
@@ -150,17 +147,20 @@ void Board::setLabel(std::string label) {
 
 void Board::on_button_clicked(int i, int j) {
 	this->clear_labels();
-    
-    if(m_board[i][j].hasShip() && !m_board[i][j].isBeenHit()){
-        m_board[i][j].hit();
-        std::cout << "helphelphelphe" <<std::endl;
-        m_board[i][j].set_label("HIT");
+
+    if(m_board[i][j].hasShip()){
+					if (m_board[i][j].hit()==1){
+		        m_board[i][j].set_label("HIT");
+					}
+					else if (m_board[i][j].hit()==0){
+						m_board[i][j].set_label("SUNK");
+					}
     }
-    else if(!m_board[i][j].hasShip()){
-        m_board[i][j].hit();
+    else if(!m_board[i][j].hasShip()&& m_board[i][j].hit()==9){
         m_board[i][j].set_label("MISS");
+
     }
-	
+
 	Executive::get_executive_object()->set_clicked_row(i);
 	Executive::get_executive_object()->set_clicked_row(j);
 }

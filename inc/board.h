@@ -42,10 +42,6 @@ class Board : public Gtk::Table {
 
 		bool isHit(int row, int col);
 
-		/** TODO: Add documentation
-		 * @brief
-		 */
-		bool isSunk(int row, int col);
 
 		/**
 		 * @param Checks the row and column
