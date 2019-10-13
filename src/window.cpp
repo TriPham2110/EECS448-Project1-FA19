@@ -28,7 +28,7 @@ void BattleWindow::prettify_window_manager() {
 	 * their equally granular comments.
 	 */
 	// Title of Window in Window Manager
-	this->set_title("// B A T T L E S H I P //");
+	this->set_title(" B A T T L E S H I P ");
 	// Size: x, y
 	this->set_default_size(800,600);
 	// Width of border in Window Manager

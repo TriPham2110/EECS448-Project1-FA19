@@ -8,6 +8,8 @@
 #include "player.h"
 #include "board.h"
 
+#include <iostream>
+
 Player::Player()
 	: Gtk::Box(Gtk::ORIENTATION_HORIZONTAL)
 {
@@ -26,6 +28,7 @@ void Player::add_the_players_area() {
 	// widget, bool expand, bool fill, int margin
 	this->pack_start(*player_field,true,true);
 	player_field->setLabel("Moves");
+    std::cout << "testmaxmaxmamxamxxas" << std::endl;
 	player_field->makePlayable();
 	player_field->show();
 }

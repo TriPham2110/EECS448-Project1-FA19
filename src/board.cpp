@@ -16,6 +16,8 @@ Board::Board()
 	: Gtk::Table(10,10,false)
 {
 	bootstrap_board();
+        
+    std::cout << "Testestsetsthis is board" << std::endl;
 }
 
 Board::~Board() {
@@ -147,13 +149,7 @@ void Board::setLabel(std::string label) {
 }
 
 void Board::on_button_clicked(int i, int j) {
-	for(int k = 1; k < 9; k++) {
-		for(int m = 1; m < 9; m++) {
-			if(m_board[k][m].get_label() == "HIT") {
-				m_board[k][m].set_label("");
-			}
-		}
-	}
+	this->clear_labels();
 	m_board[i][j].set_label("HIT");
 	Executive::get_executive_object()->set_clicked_row(i);
 	Executive::get_executive_object()->set_clicked_row(j);

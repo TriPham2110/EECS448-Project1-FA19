@@ -7,8 +7,11 @@
 
 #include "ship.h"
 
+#include <iostream>
+
 Ship::Ship()
 {
+    std::cout << "testestsetsetalksfjlkajsdfljkfasdljkfdsjklfdsjkl" << std::endl;
 
 }
 
