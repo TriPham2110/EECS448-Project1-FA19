@@ -150,7 +150,17 @@ void Board::setLabel(std::string label) {
 
 void Board::on_button_clicked(int i, int j) {
 	this->clear_labels();
-	m_board[i][j].set_label("HIT");
+    
+    if(m_board[i][j].hasShip() && !m_board[i][j].isBeenHit()){
+        m_board[i][j].hit();
+        std::cout << "helphelphelphe" <<std::endl;
+        m_board[i][j].set_label("HIT");
+    }
+    else if(!m_board[i][j].hasShip()){
+        m_board[i][j].hit();
+        m_board[i][j].set_label("MISS");
+    }
+	
 	Executive::get_executive_object()->set_clicked_row(i);
 	Executive::get_executive_object()->set_clicked_row(j);
 }

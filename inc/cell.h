@@ -58,6 +58,11 @@ class Cell : public Gtk::Button {
 		 * @brief saves the location for a cell
 		 */
 		void set_location(int row, int col);
+    
+        /**
+		 * @brief Accessor for beenHit variable
+		 */
+        bool isBeenHit();
 
 	private:
 		int m_row;
