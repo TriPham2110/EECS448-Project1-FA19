@@ -14,12 +14,19 @@ pacman -Su
 then
 
 pacman -S mingw-w64-x86_64-gcc
+
 pacman -S mingw-w64-x86_64-gtkmm3
+
 pacman -S pkg-config
+
 pacman -S mingw-w64-x86_64-libffi
+
 pacman -S mingw-w64-x86_64-make
+
 pacman -Sy git
+
 pacman -Sy make
+
 pacman -Sy cmake
 
 then
