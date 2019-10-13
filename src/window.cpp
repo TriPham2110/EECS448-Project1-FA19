@@ -33,6 +33,8 @@ void BattleWindow::prettify_window_manager() {
 	this->set_default_size(800,600);
 	// Width of border in Window Manager
 	this->set_border_width(10);
+
+	this->set_icon_from_file("icon.jpg"); 
 }
 
 void BattleWindow::bootstrap_user_interface() {
