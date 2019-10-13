@@ -43,3 +43,5 @@ For mac:
 
 a similar yet slightly simpler process using homebrew instead of mingw64
 but similar pkg_config_path commands
+
+export PKG_CONFIG_PATH=/usr/local/opt/libffi/lib/pkgconfig/:$PKG_CONFIG_PATH
