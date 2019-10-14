@@ -44,13 +44,7 @@ void Executive::set_game_in_progress_state(int state) {
 	Executive::gameInProgressState = state;
 }
 
-int Executive::get_game_paused_state() {
-	return gamePausedState;
-}
 
-void Executive::set_game_paused_state(int state) {
-	Executive::gamePausedState = state;
-}
 
 int Executive::is_a_turn_active() {
 	return turnActive;

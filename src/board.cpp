@@ -16,8 +16,6 @@ Board::Board()
 	: Gtk::Table(10,10,false)
 {
 	bootstrap_board();
-
-    std::cout << "Testestsetsthis is board" << std::endl;
 }
 
 Board::~Board() {
@@ -103,7 +101,7 @@ void Board::setShip(Ship* ship) {
 		}
 	}
 	else {
-		std::cout << "Ship is too big to place using the given orientation and position. Try Again!" << std::endl;
+
 	}
 }
 
@@ -141,7 +139,7 @@ void Board::setLabel(std::string label) {
 	try {
 		m_board[0][0].set_label(label);
 	} catch (std::exception& e) {
-		std::cout << "Cannot set label of unallocated board." << std::endl;
+	
 	}
 }
 

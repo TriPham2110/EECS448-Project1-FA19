@@ -30,7 +30,7 @@ MainMenu::MainMenu()
 	this->add_start_turn_menu_button_decoration();
 	this->add_end_turn_menu_button_decoration();
 	this->add_num_ships_dropdown_decoration();
-	
+
 	this->add_exit_menu_button_decoration();
 	// Set the active item to "Choose a Ship"
 	this->num_ships_dropdown.set_active_id("0");
@@ -47,42 +47,42 @@ void MainMenu::on_start_button_clicked() {
 		Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_ones_board(1);
 	}
 	if(Executive::get_executive_object()->get_game_in_progress_state()) {
-		std::cout << "User requests new game... are they sure?" << std::endl;
+
 		switch(confirm_new_game_popup()) {
 			case(Gtk::RESPONSE_OK): {
-				std::cout << "User chose to start new game. Hiding board and asking other user..." << std::endl;
+
 				int current_player = Executive::get_executive_object()->which_player_is_up();
 				switch(current_player) {
 					default: break;
 					case 0: {
-						std::cout << "Player 1 is up. Hiding their board." << std::endl;
+
 						Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_ones_board(0);
 						break;
 					}
 					case 1: {
-						std::cout << "Player 2 is up. Hiding their board." << std::endl;
+
 						Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_twos_board(0);
 						break;
 					}
 				}
 				switch(confirm_new_game_popup()) {
 					case(Gtk::RESPONSE_OK): {
-						std::cout << "Other player agreed to restart. Congratulations!" << std::endl;
+
 						Executive::get_executive_object()->set_turn_counter(0);
 						Executive::get_executive_object()->set_game_in_progress_state(0);
 						break;
 					}
 					case(Gtk::RESPONSE_CANCEL): {
-						std::cout << "Other player declined to restart. Sorry, $PLAYER." << std::endl;
+
 						switch(current_player) {
 							default: break;
 							case 0: {
-								std::cout << "Player 1 is up. Hiding their board." << std::endl;
+
 								Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_ones_board(1);
 								break;
 							}
 							case 1: {
-								std::cout << "Player 2 is up. Hiding their board." << std::endl;
+
 								Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_twos_board(1);
 								break;
 							}
@@ -90,25 +90,25 @@ void MainMenu::on_start_button_clicked() {
 						break;
 					}
 					default: {
-						std::cout << "No seriously, how are you triggering these?" << std::endl;
+
 						break;
 					}
 				}
 				break;
 			}
 			case(Gtk::RESPONSE_CANCEL): {
-				std::cout << "User chose to continue; nevermind..." << std::endl;
+
 				break;
 			}
 			default: {
-				std::cout << "Wait a minute! How did you trigger this?" << std::endl;
+
 				break;
 			}
 		}
 	} else {
-		std::cout << "Game Started." << std::endl;
+
 		Executive::get_executive_object()->set_ship_count(MainMenu::get_result_from_ship_dropdown());
-		std::cout << "Using " << MainMenu::get_result_from_ship_dropdown() << " ships." << std::endl;
+
 		Executive::get_executive_object()->set_game_in_progress_state(1);
 	}
 }
@@ -117,12 +117,12 @@ void MainMenu::on_start_button_clicked() {
 void MainMenu::on_exit_button_clicked() {
 	switch(confirm_exit_popup()) {
 		case(Gtk::RESPONSE_OK): {
-			std::cout << "Exiting game..." << std::endl;
+
 			Executive::get_executive_object()->quit();
 			break;
 		}
 		case(Gtk::RESPONSE_CANCEL): {
-			std::cout << "Cancelling..." << std::endl;
+
 			break;
 		}
 		default: break;
@@ -130,21 +130,21 @@ void MainMenu::on_exit_button_clicked() {
 }
 
 void MainMenu::on_start_turn_button_clicked() {
-	std::cout << "Turn: " << Executive::get_executive_object()->get_turn_count() << std::endl;
+
 	if(Executive::get_executive_object()->get_game_in_progress_state()) {
 		if(Executive::get_executive_object()->is_a_turn_active()) {
-			std::cout << "Turn already in progress." << std::endl;
+
 		} else {
 			int current_player = Executive::get_executive_object()->which_player_is_up();
 			switch(current_player) {
 				default: break;
 				case 0: {
-					std::cout << "Starting Player 1's turn..." << std::endl;
+
 					Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_ones_board(1);
 					break;
 				}
 				case 1: {
-					std::cout << "Starting Player 2's turn..." << std::endl;
+
 					Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_twos_board(1);
 					break;
 				}
@@ -152,23 +152,23 @@ void MainMenu::on_start_turn_button_clicked() {
 			Executive::get_executive_object()->set_turn_active(1);
 		}
 	} else {
-		std::cout << "No game in progress; cannot start turn." << std::endl;
+
 	}
 }
 
 void MainMenu::on_end_turn_button_clicked() {
 	if(Executive::get_executive_object()->get_game_in_progress_state()) {
-		std::cout << "Showing change player popup..." << std::endl;
+
 		int current_player = Executive::get_executive_object()->which_player_is_up();
 		switch(current_player) {
 			default: break;
 			case 0: {
-				std::cout << "Player 1 is up. Hiding their board." << std::endl;
+
 				Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_ones_board(0);
 				break;
 			}
 			case 1: {
-				std::cout << "Player 2 is up. Hiding their board." << std::endl;
+
 				Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_twos_board(0);
 				break;
 			}
@@ -176,13 +176,13 @@ void MainMenu::on_end_turn_button_clicked() {
 		switch(confirm_switch_players_popup()) {
 			case(Gtk::RESPONSE_OK): {
 				if(Executive::get_executive_object()->which_player_is_up() == 0) {
-					std::cout << "Changing players (1 to 2)" << std::endl;
+
 					Executive::get_executive_object()->set_which_player(1);
 					Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_twos_board(1);
 					Executive::get_executive_object()->get_main_window()->get_user_interface()->get_player_two()->get_player_field()->clear_labels();
 					Executive::get_executive_object()->get_main_window()->get_user_interface()->get_player_two()->get_status_field()->scan_for_a_hit();
 				} else {
-					std::cout << "Changing players (2 to 1)" << std::endl;
+
 					Executive::get_executive_object()->set_which_player(0);
 					Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_ones_board(1);
 					Executive::get_executive_object()->get_main_window()->get_user_interface()->get_player_one()->get_player_field()->clear_labels();
@@ -195,27 +195,27 @@ void MainMenu::on_end_turn_button_clicked() {
 				switch(current_player) {
 					default: break;
 					case 0: {
-						std::cout << "Oh nevermind. Putting Player 1's board back." << std::endl;
+
 						Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_ones_board(1);
 						break;
 					}
 					case 1: {
-						std::cout << "Oh nevermind. Putting Player 2's board back." << std::endl;
+
 						Executive::get_executive_object()->get_main_window()->get_user_interface()->toggle_player_twos_board(1);
 						break;
 					}
 				}
-				std::cout << "User chose to continue; nevermind..." << std::endl;
+
 				break;
 			}
 			default: {
-				std::cout << "Wait a minute! How did you trigger this?" << std::endl;
+
 				break;
 			}
 		}
 		Executive::get_executive_object()->increment_turn_count();
 	} else {
-		std::cout << "No game in progress: nothing to do." << std::endl;
+	
 	}
 }
 

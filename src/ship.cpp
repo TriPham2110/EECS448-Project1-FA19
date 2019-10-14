@@ -11,7 +11,6 @@
 
 Ship::Ship()
 {
-    std::cout << "testestsetsetalksfjlkajsdfljkfasdljkfdsjklfdsjkl" << std::endl;
 
 }
 

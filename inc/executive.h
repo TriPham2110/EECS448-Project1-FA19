@@ -45,17 +45,6 @@ class Executive {
 		void set_game_in_progress_state(int state);
 
 		/**
-		 * @brief
-		 */
-		int get_game_paused_state();
-
-		/**
-		 * @brief Setter for variable that tracks whether game is paused. (0 - play, 1 - paused)
-		 * @param state Set the variable that tracks whether game is paused. Expects 0 (no) or 1 (yes)
-		 */
-		void set_game_paused_state(int state);
-
-		/**
 		 * @brief Polls executive object to see which player's turn it is.
 		 * @return int values: (0 or 1) indicating player
 		 */

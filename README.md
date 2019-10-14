@@ -14,12 +14,19 @@ pacman -Su
 then
 
 pacman -S mingw-w64-x86_64-gcc
+
 pacman -S mingw-w64-x86_64-gtkmm3
+
 pacman -S pkg-config
+
 pacman -S mingw-w64-x86_64-libffi
+
 pacman -S mingw-w64-x86_64-make
+
 pacman -Sy git
+
 pacman -Sy make
+
 pacman -Sy cmake
 
 then
@@ -43,3 +50,7 @@ For mac:
 
 a similar yet slightly simpler process using homebrew instead of mingw64
 but similar pkg_config_path commands
+
+export PKG_CONFIG_PATH=/usr/local/opt/libffi/lib/pkgconfig/:$PKG_CONFIG_PATH
+
+export PKG_CONFIG_PATH=/usr/local/opt/gtkmm3/lib/pkgconfig/:$PKG_CONFIG_PATH
