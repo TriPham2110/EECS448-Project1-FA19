@@ -19,23 +19,25 @@
 MainMenu::MainMenu()
 	: num_ships_dropdown(true), //t: show as dropdown f: show as button
 	  start_menu_button("Start"),
-	  exit_menu_button("Exit"),
-	  end_turn_menu_button("Finish Turn"),
-	  start_turn_menu_button("Start Turn")
+	  exit_menu_button("Exit")
+	  //end_turn_menu_button("Finish Turn"),
+	  //start_turn_menu_button("Start Turn")
 {
 	// Makes every button in the menu the same size
 	this->set_homogeneous(true);
+	//Makes it so the buttons can be vertical
+
 	// Adds buttons to the menu
 	this->add_start_menu_button_decoration();
-	this->add_start_turn_menu_button_decoration();
-	this->add_end_turn_menu_button_decoration();
+  //this->add_start_turn_menu_button_decoration();
+	//this->add_end_turn_menu_button_decoration();
 	this->add_num_ships_dropdown_decoration();
 
 	this->add_exit_menu_button_decoration();
 	// Set the active item to "Choose a Ship"
 	this->num_ships_dropdown.set_active_id("0");
-          
-    
+
+
 }
 
 MainMenu::~MainMenu() {
@@ -115,21 +117,12 @@ void MainMenu::on_start_button_clicked() {
 
 
 void MainMenu::on_exit_button_clicked() {
-	switch(confirm_exit_popup()) {
-		case(Gtk::RESPONSE_OK): {
 
-			Executive::get_executive_object()->quit();
-			break;
-		}
-		case(Gtk::RESPONSE_CANCEL): {
+		Executive::get_executive_object()->quit();
 
-			break;
-		}
-		default: break;
-	}
 }
 
-void MainMenu::on_start_turn_button_clicked() {
+/*void MainMenu::on_start_turn_button_clicked() {
 
 	if(Executive::get_executive_object()->get_game_in_progress_state()) {
 		if(Executive::get_executive_object()->is_a_turn_active()) {
@@ -155,7 +148,8 @@ void MainMenu::on_start_turn_button_clicked() {
 
 	}
 }
-
+*/
+/*
 void MainMenu::on_end_turn_button_clicked() {
 	if(Executive::get_executive_object()->get_game_in_progress_state()) {
 
@@ -215,13 +209,15 @@ void MainMenu::on_end_turn_button_clicked() {
 		}
 		Executive::get_executive_object()->increment_turn_count();
 	} else {
-	
+
 	}
-}
+}*/
 
 void MainMenu::add_start_menu_button_decoration() {
 	start_menu_button.signal_clicked().connect(sigc::mem_fun(*this, &MainMenu::on_start_button_clicked));
 	this->add(start_menu_button);
+	//button = start_menu_button;
+	//gtk_container_add (GTK_CONTAINER (buttonbox), button);
 	start_menu_button.show();
 }
 
@@ -230,29 +226,32 @@ void MainMenu::add_start_menu_button_decoration() {
 void MainMenu::add_exit_menu_button_decoration() {
 	exit_menu_button.signal_clicked().connect(sigc::mem_fun(*this, &MainMenu::on_exit_button_clicked));
 	this->add(exit_menu_button);
+	//button = exit_menu_button;
+	//gtk_container_add (GTK_CONTAINER (buttonbox), button);
 	exit_menu_button.show();
 }
 
-void MainMenu::add_start_turn_menu_button_decoration() {
+/*void MainMenu::add_start_turn_menu_button_decoration() {
 	start_turn_menu_button.signal_clicked().connect(sigc::mem_fun(*this, &MainMenu::on_start_turn_button_clicked));
 	this->add(start_turn_menu_button);
 	start_turn_menu_button.show();
-}
+}*/
 
-void MainMenu::add_end_turn_menu_button_decoration() {
+/*void MainMenu::add_end_turn_menu_button_decoration() {
 	end_turn_menu_button.signal_clicked().connect(sigc::mem_fun(*this, &MainMenu::on_end_turn_button_clicked));
 	this->add(end_turn_menu_button);
 	end_turn_menu_button.show();
-}
+}*/
 
 void MainMenu::add_num_ships_dropdown_decoration() {
-	num_ships_dropdown.append("0", "Choose number of ships");
-	num_ships_dropdown.append("1", "1 Ship");
-	num_ships_dropdown.append("2", "2 Ships");
-	num_ships_dropdown.append("3", "3 Ships");
-	num_ships_dropdown.append("4", "4 Ships");
-	num_ships_dropdown.append("5", "5 Ships");
+	num_ships_dropdown.append("0", "1 Ship");
+	num_ships_dropdown.append("1", "2 Ships");
+	num_ships_dropdown.append("2", "3 Ships");
+	num_ships_dropdown.append("3", "4 Ships");
+	num_ships_dropdown.append("4", "5 Ships");
 	this->add(num_ships_dropdown);
+	//button = num_ships_dropdown;
+	//gtk_container_add (GTK_CONTAINER (buttonbox), button);
 	num_ships_dropdown.show();
 }
 
@@ -268,11 +267,11 @@ int MainMenu::confirm_switch_players_popup() {
 	return dialog.run();
 }
 
-int MainMenu::confirm_exit_popup() {
+/*int MainMenu::confirm_exit_popup() {
 	Gtk::MessageDialog dialog("Are you sure you want to exit?",false,Gtk::MESSAGE_QUESTION,Gtk::BUTTONS_OK_CANCEL,false);
 	dialog.set_secondary_text("'Yes' to EXIT; 'No' to CONTINUE.");
 	return dialog.run();
-}
+}*/
 
 int MainMenu::get_result_from_ship_dropdown() {
 	int num_ships_to_play = std::stoi(num_ships_dropdown.get_active_id());

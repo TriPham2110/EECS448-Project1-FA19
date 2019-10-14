@@ -12,7 +12,7 @@
 #include <gtkmm/box.h>
 #include <gtkmm/button.h>
 #include <gtkmm/comboboxtext.h>
-
+#include <gtk/gtk.h>
 
 class MainMenu : public Gtk::Box {
 
@@ -47,7 +47,7 @@ class MainMenu : public Gtk::Box {
 		 * @brief Singal handler for what should happen when the pause button is
 		 *        clicked.
 		 */
-		
+
 
 		/**
 		 * @pre   Main menu must be created.
@@ -87,7 +87,10 @@ class MainMenu : public Gtk::Box {
 		// Member Widgets
 		Gtk::ComboBoxText num_ships_dropdown;
 		Gtk::Button start_menu_button;
-		
+
+		//GtkWidget *buttonbox = gtk_vbutton_box_new();
+		//GtkWidget *button;
+
 		Gtk::Button exit_menu_button;
 		Gtk::Button end_turn_menu_button;
 		Gtk::Button start_turn_menu_button;
@@ -104,7 +107,7 @@ class MainMenu : public Gtk::Box {
 		 * @brief Syntactic sugar that lets us avoid polluting other functions
 		 *        with calls that do not have anything to do with their intent.
 		 */
-		
+
 
 		/**
 		 * @brief Syntactic sugar that lets us avoid polluting other functions
