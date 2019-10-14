@@ -146,18 +146,7 @@ void Board::on_button_clicked(int i, int j) {
     //edit this to work correctly on ship placement and on game loop for each player
 	this->clear_labels();
 
-    if(m_board[i][j].hasShip()){
-        if (m_board[i][j].hit()==1){
-            m_board[i][j].set_label("HIT");
-        }
-        else if (m_board[i][j].hit()==0){
-            m_board[i][j].set_label("SUNK");
-        }
-    }
-    else if(!m_board[i][j].hasShip()&& m_board[i][j].hit()==9){
-        m_board[i][j].set_label("MISS");
-
-    }
+    m_board[i][j].hit();
 
 	Executive::get_executive_object()->set_clicked_row(i);
 	Executive::get_executive_object()->set_clicked_row(j);
