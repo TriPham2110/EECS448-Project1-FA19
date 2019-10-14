@@ -64,7 +64,10 @@ int Ship::hit(){
 		m_hits += 1;
 		if (m_hits == m_size){
 			sunk = true;
+            return 0;
 		}
-		return (m_size - m_hits);
+        else{
+		  return (m_size - m_hits);
+        }
 	}
 }

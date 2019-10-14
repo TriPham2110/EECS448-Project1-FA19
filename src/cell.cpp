@@ -14,49 +14,22 @@ Cell::Cell() {
 	containsShip = false;
 	beenHit = false;
 	Ship *m_ship_ptr = nullptr;
-    
-    this->set_label("water");
-    
-    /*
-    
-    image = new Gtk::Image("water.png");
-    
-    this->set_image(*image);
-    
-    image->show();
-    */
+  
+    water = new Gtk::Image("img/water.png");
+    hitI = new Gtk::Image("img/hit.png");
+    sunk = new Gtk::Image("img/sunk.png");
+    shipFront = new Gtk::Image("img/front.png");
+    shipMid = new Gtk::Image("img/mid.png");
+    miss = new Gtk::Image("img/miss.png");
     
     
+    this->set_image(*water);
+    
+    water->show();
+ 
 }
 
-Cell::Cell(int row, int col) {
-	m_row = row;
-	m_col = col;
-	containsShip = false;
-	beenHit = false;
-	Ship *m_ship_ptr = nullptr;
-    
-    std::cout << "testtestest" << std::endl;
-    
-    
-    //gtk_button_set_image((GtkButton*)this, image);
-   //gtk_button_set_always_show_image ((GtkButton*)this, true);
 
-}
-
-Cell::Cell(int row, int col, std::string filename) {
-	m_row = row;
-	m_col = col;
-	containsShip = false;
-	beenHit = false;
-	Ship *m_ship_ptr = nullptr;
-    
-   // gtk_button_set_image((GtkButton*)this, image);
-    
-   // gtk_button_set_always_show_image ((GtkButton*)this, true);
-
-
-}
 
 Cell::~Cell() {
     
@@ -77,12 +50,27 @@ void Cell::putShip(Ship *ship_ptr){
 
 
 
+
+
 int Cell::hit(){
 	beenHit = true;
 	if(containsShip){
-		return m_ship_ptr->hit();
+        //a temp variable for whether the ship was sunk or just hit
+        int i = m_ship_ptr->hit();
+		if(i == 0){
+            this->set_image(*sunk);
+            sunk->show();
+            return i;
+        }
+        else if(i == 1){
+            this->set_image(*hitI);
+            hitI->show();
+            return i;
+        }
 	}
 	else{
+        this->set_image(*miss);
+        miss->show();
 		return 9;
 	}
 }
