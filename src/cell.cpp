@@ -10,38 +10,40 @@
 
 #include <iostream>
 
-Cell::Cell() {
+Cell::Cell(){
+    containsShip = false;
+	beenHit = false;
+	Ship *m_ship_ptr = nullptr;
+}
+
+Cell::Cell(Gtk::Widget* (*pImages)[6]) {
 	containsShip = false;
 	beenHit = false;
 	Ship *m_ship_ptr = nullptr;
-  
-    water = new Gtk::Image("img/water.png");
-    hitI = new Gtk::Image("img/hit.png");
-    sunk = new Gtk::Image("img/sunk.png");
-    shipFront = new Gtk::Image("img/front.png");
-    shipMid = new Gtk::Image("img/mid.png");
-    miss = new Gtk::Image("img/miss.png");
     
     
     this->set_image(*water);
     
-    water->show();
+    this->pImages = pImages;
     
+    this->set_image(**(pImages)[0]);
     
-    
- 
+    //(pImages)[0]->show();
+
 }
 
+
+void Cell::cellInitImages(Gtk::Widget* (*pImages)[6]){
+    
+    //this->pImages = pImages;
+    
+    this->set_image(*new Gtk::Image("img/water.png"));
+}
 
 
 Cell::~Cell() {
     
-    delete water;
-    delete hitI;
-    delete sunk;
-    delete shipFront;
-    delete shipMid;
-    delete miss;
+
     
 
 }
@@ -57,14 +59,15 @@ void Cell::putShip(Ship *ship_ptr){
 	containsShip = true;
 	this->m_ship_ptr = ship_ptr;
     
-    this->set_image(*shipFront);
-    hitI->show();
+    this->set_image(**(pImages)[3]);
+    //**(pImages)[3]->show();
     
 }
 
 void Cell::setWater(){  
-    this->set_image(*water);
-    sunk->show();    
+    this->set_image(**(pImages)[0]);
+    
+   // **(pImages)[0]->show();  
 }
 
 
@@ -77,19 +80,19 @@ int Cell::hit(){
         //a temp variable for whether the ship was sunk or just hit
         int i = m_ship_ptr->hit();
 		if(i == 0){
-            this->set_image(*sunk);
-            sunk->show();
+            this->set_image(**(pImages)[2]);
+            //**(pImages)[2]->show();
             return i;
         }
         else if(i == 1){
-            this->set_image(*hitI);
-            hitI->show();
+            this->set_image(**(pImages)[1]);
+            //**(pImages)[1]->show();
             return i;
         }
 	}
 	else{
-        this->set_image(*miss);
-        miss->show();
+        this->set_image(**(pImages)[5]);
+        //**(pImages)[5]->show();
 		return 9;
 	}
 }

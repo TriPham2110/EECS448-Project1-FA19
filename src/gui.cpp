@@ -19,6 +19,16 @@ UserInterface::UserInterface()
 	bootstrap_player_ones_container();
 	bootstrap_player_twos_container();
 	bootstrap_main_menu();
+        
+    images[0]("img/water.png");
+    images[1]("img/hit.png");
+    images[2]("img/sunk.png");
+    images[3]("img/front.png");
+    images[4]("img/mid.png");
+    images[5]("img/miss.png");
+        
+    pImages = images;
+        
     
 }
 
@@ -26,17 +36,23 @@ UserInterface::~UserInterface() {
 	delete player_one;
 	delete player_two;
 	delete main_menu;
+    
+    
+    
+    delete pImages;
+
+    
 }
 
 void UserInterface::bootstrap_player_ones_container() {
-	this->player_one = new Player();
+	this->player_one = new Player(pImages);
 	// widget expand fill padding = 0
 	this->pack_start(*player_one,true,true);
 	//player_one->show();
 }
 
 void UserInterface::bootstrap_player_twos_container() {
-	this->player_two = new Player();
+	this->player_two = new Player(pImages);
 	// widget expand fill padding=0
 	this->pack_start(*player_two,true,true);
 }

@@ -92,6 +92,9 @@ class UserInterface : public Gtk::Box {
 
 		int board_visible = 0;
     
+        Gtk::Widget images[6];
+        Gtk::Widget *pImages ;
+    
         
 
 };

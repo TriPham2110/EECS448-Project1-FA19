@@ -10,13 +10,15 @@
 
 #include <iostream>
 
-Player::Player()
+Player::Player(Gtk::Widget* (*pImages)[6])
 	: Gtk::Box(Gtk::ORIENTATION_HORIZONTAL)
 {
 	add_the_players_area();
 	add_the_vertical_separator();
 	add_the_status_area();
     //this->num_ships = ships;
+        
+    this->pImages = pImages;
 }
 
 Player::~Player() {
@@ -25,7 +27,7 @@ Player::~Player() {
 
 
 void Player::add_the_players_area() {
-	this->player_field = new Board();
+	this->player_field = new Board(this->pImages);
 	// widget, bool expand, bool fill, int margin
 	this->pack_start(*player_field,true,true);
 	player_field->setLabel("Moves");
@@ -40,7 +42,7 @@ void Player::add_the_vertical_separator() {
 }
 
 void Player::add_the_status_area() {
-	this->status_field = new Board();
+	this->status_field = new Board(pImages);
 	this->pack_end(*status_field,true,true);
 	status_field->setLabel("Status");
 	status_field->show();

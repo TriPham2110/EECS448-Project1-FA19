@@ -12,12 +12,14 @@
 #include "cell.h"
 #include "ship.h"
 
-Board::Board()
+Board::Board(Gtk::Widget* (*pImages)[6])
 	: Gtk::Table(10,10,false)
 {
 	bootstrap_board();
         
     std::cout << this->num_ships  << "hehe"<< std::endl;
+        
+    this->pImages = pImages;
 }
 
 Board::~Board() {
@@ -36,6 +38,15 @@ void Board::bootstrap_board() {
 	for(int i = 0; i < 9; i++) {
 		m_board[i] = new Cell[9];
 	}
+    
+    for(int i = 1; i<9; i++){
+        for(int j = 1; j<9; j++){
+            m_board[i][j].cellInitImages(pImages);
+        }
+    }
+    
+    
+    
 	//Sets the location of each cell and creates buttons
 	for(int i = 0; i < 9; i++) {
 		for(int j = 0; j < 9; j++) {

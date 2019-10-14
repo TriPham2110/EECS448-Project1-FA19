@@ -25,7 +25,7 @@ class Board : public Gtk::Table {
 		/**
 		 * @brief Board constructor.
 		 */
-		Board();
+		Board(Gtk::Widget* (*pImages)[6]);
 
 		/**
 		 * @brief Board destructor.
@@ -113,6 +113,8 @@ class Board : public Gtk::Table {
 		 * @param int the number of ships to be made
 		 */
 		void makeShips(int num_ships, int x, int y);
+    
+        Gtk::Widget* (*pImages)[6];
 
 };
 

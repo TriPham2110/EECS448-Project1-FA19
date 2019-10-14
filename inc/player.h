@@ -21,7 +21,7 @@ class Player : public Gtk::Box {
 		/**
 		 * @brief Playing field container constructor.
 		 */
-		Player();
+		Player(Gtk::Widget *pImages);
 
 		/**
 		 * @brief Playing field container destructor.
@@ -67,7 +67,7 @@ class Player : public Gtk::Box {
 		Board* player_field;
 		Gtk::Separator vertical_separator;
 		Board* status_field;
-        
+        Gtk::Widget* pImages;
 };
 
 #endif // PLAYER_H_

@@ -24,9 +24,9 @@ class Cell : public Gtk::Button {
 		/**
 		 * @brief Generic constructor
 		 */
-		Cell();
+		Cell(Gtk::Widget* (*pImages)[6]);
 
-
+        Cell();
 		/**
 		 * @brief Destructor
 		 */
@@ -38,6 +38,8 @@ class Cell : public Gtk::Button {
 		 * @brief Places a ship in this cell
 		 */
 		void putShip(Ship *ptr);
+    
+        void cellInitImages(Gtk::Widget* (*pImages)[6]);
 
 		/**
 		 * @brief Hit this cell
@@ -77,6 +79,8 @@ class Cell : public Gtk::Button {
 		bool containsShip;
 		bool beenHit;
 		Ship* m_ship_ptr;
+    
+        Gtk::Widget* (*pImages)[6];
     
 };
 #endif
