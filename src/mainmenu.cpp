@@ -18,7 +18,7 @@
 
 MainMenu::MainMenu()
 	: num_ships_dropdown(true), //t: show as dropdown f: show as button
-	  start_menu_button("Start"),
+	  start_menu_button("Start/Restart"),
 	  exit_menu_button("Exit")
 	  //end_turn_menu_button("Finish Turn"),
 	  //start_turn_menu_button("Start Turn")
@@ -29,10 +29,11 @@ MainMenu::MainMenu()
 
 	// Adds buttons to the menu
 	this->add_start_menu_button_decoration();
+	std::cout<<"\n\n";
   //this->add_start_turn_menu_button_decoration();
 	//this->add_end_turn_menu_button_decoration();
 	this->add_num_ships_dropdown_decoration();
-
+	std::cout<<"\n\n";
 	this->add_exit_menu_button_decoration();
 	// Set the active item to "Choose a Ship"
 	this->num_ships_dropdown.set_active_id("0");
@@ -260,12 +261,12 @@ int MainMenu::confirm_new_game_popup() {
 	dialog.set_secondary_text("'Ok' to discard game and start anew; 'Cancel' to continue.");
 	return dialog.run();
 }
-
+/*
 int MainMenu::confirm_switch_players_popup() {
 	Gtk::MessageDialog dialog("End turn and switch players?",false,Gtk::MESSAGE_QUESTION,Gtk::BUTTONS_OK_CANCEL,false);
 	dialog.set_secondary_text("'Ok' to switch; 'Cancel' to continue.");
 	return dialog.run();
-}
+}*/
 
 /*int MainMenu::confirm_exit_popup() {
 	Gtk::MessageDialog dialog("Are you sure you want to exit?",false,Gtk::MESSAGE_QUESTION,Gtk::BUTTONS_OK_CANCEL,false);
