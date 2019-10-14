@@ -10,8 +10,8 @@
 
 #include <gtkmm/window.h>
 #include <gdk/gdk.h>
-#include <gtkmm/image.h>
 #include <gdkmm/pixbuf.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 
 
 
@@ -57,6 +57,8 @@ class BattleWindow : public Gtk::Window {
     
     
         GdkWindow *gdk_window;
+        
+       
 
 		/**
 		 * @brief Adds necessary containers to the window.

@@ -17,22 +17,55 @@ BattleWindow::BattleWindow()
 	prettify_window_manager();
 	bootstrap_user_interface();
     
-     GdkPixbuf* b = gdk_pixbuf_new_from_file("img/water.png", NULL );
-          
     
-          
+    /*
+    
+    GError* err = NULL;
+    GdkPixbuf* b = gdk_pixbuf_new_from_file("img/water.png", &err );
+    
+    gdk_window = gtk_widget_get_window(GTK_WIDGET(this->gobj()));
+    
     GdkCursor* c = gdk_cursor_new_from_pixbuf( gdk_display_get_default() , b, 0, 0);
     
-    gdk_window = gtk_widget_get_window(GTK_WIDGET(this));
     
-    gdk_window_set_cursor(gdk_window, c);
+    if(!c)
+        std::cout << "this is only a test" << std::endl;
+    else
+        gdk_window_set_cursor(gdk_window , c);
     
-    this->set_icon(Gdk::Pixbuf::create_from_file("img/water.png"));
+    
+    while(gtk_events_pending ()) { gtk_main_iteration (); }
+    
+    */
+    
+    
+    
+    
+    
+    /*
+    
+    Glib::RefPtr <Gdk::Window> ref_window;
+    
+     Glib::RefPtr<Gdk::Pixbuf> img = Gdk::Pixbuf::create_from_file("img/water.png");
+
+    ref_window = get_window();
+
+    Glib::RefPtr<Gdk::Cursor> c = Gdk::Cursor::create(get_display(), img, 0 ,0 );
+    
+    
+    //gdk_window_set_cursor(ref_window->gobj(), c->gobj());
+    ref_window->set_cursor(c);
+    
+    std::cout << "testsetsetkjfhihihihi1212312"<<std::endl;
+    */
+    
+    //this->set_icon(Gdk::Pixbuf::create_from_file("img/water.png"));
 }
 
 BattleWindow::~BattleWindow() {
 	delete user_interface;
 }
+
 
 void BattleWindow::prettify_window_manager() {
 	/*

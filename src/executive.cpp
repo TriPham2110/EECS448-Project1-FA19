@@ -8,6 +8,8 @@
 #include "executive.h"
 #include "window.h"
 
+#include <iostream>
+
 Executive* Executive::m_executive_instance = nullptr;
 
 Executive::Executive() {
@@ -17,14 +19,42 @@ Executive::Executive() {
 Executive::~Executive() {
 }
 
+void Executive::changeCursor(){
+    
+    /*
+    GError* err = NULL;
+    GdkPixbuf* b = gdk_pixbuf_new_from_file("img/water.png", &err );
+    
+    gdk_window = gtk_widget_get_window(GTK_WIDGET(main_window));
+    
+    GdkCursor* c = gdk_cursor_new_from_pixbuf( gdk_display_get_default() , b, 0, 0);
+    
+    
+    if(!c)
+        std::cout << "this is only a test" << std::endl;
+    else
+        gdk_window_set_cursor(gdk_window , c);
+    
+    while(gtk_events_pending ()) { gtk_main_iteration (); }
+    
+    */
+    
+    
+}
+
 Executive* Executive::get_executive_object() {
 	static Executive exec;
 	return &exec;
 }
 
+
+
 int Executive::run(int argc, char* argv[]) {
 	app = Gtk::Application::create(argc, argv, "eecs448.fa19.project1.tghet");
 	main_window = new BattleWindow;
+    
+    
+    
 	return app->run(*main_window);
 }
 

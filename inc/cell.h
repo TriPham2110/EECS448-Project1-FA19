@@ -75,5 +75,6 @@ class Cell : public Gtk::Button {
 		bool containsShip;
 		bool beenHit;
 		Ship* m_ship_ptr;
+    
 };
 #endif

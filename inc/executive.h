@@ -10,6 +10,9 @@
 
 #include <glibmm/refptr.h>
 #include <gtkmm/application.h>
+#include <gdk/gdk.h>
+#include <gdkmm/pixbuf.h>
+#include <gdk-pixbuf/gdk-pixbuf.h>
 
 // Forward Declarations
 class BattleWindow;
@@ -31,6 +34,8 @@ class Executive {
 		 * @brief Returns executive singleton that can be used to change game state parameters.
 		 */
 		static Executive* get_executive_object();
+    
+        void changeCursor();
 
 		/**
 		 * @brief Getter for variable that tracks whether a game is currently running.
@@ -123,6 +128,8 @@ class Executive {
 		 * @brief Get target col on next move.
 		 */
 		int get_clicked_col();
+    
+    
 
 	private:
 
@@ -141,6 +148,9 @@ class Executive {
 		int shipCount = 0;
 		int clicked_row = 0;
 		int clicked_col = 0;
+    
+        GdkWindow *gdk_window;
+        
 
 };
 

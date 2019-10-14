@@ -26,6 +26,9 @@ Cell::Cell() {
     this->set_image(*water);
     
     water->show();
+    
+    
+    
  
 }
 
