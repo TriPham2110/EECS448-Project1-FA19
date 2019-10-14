@@ -2,7 +2,7 @@
 /**
  * @file   cell.h
  * @date   17 September 2019
- * @brief  Provides a cell class which wraps Gtk::Button to serve the purposes
+ * @brief  Provides a cell class which inherits from Gtk::Button to serve the purposes
  *         of playing Battleship.
  */
 
@@ -10,6 +10,9 @@
 #define CELL_H
 
 #include <gtkmm/button.h>
+#include <gtkmm/image.h>
+
+#include <string>
 
 //Forward Declarations
 class Ship;
@@ -27,6 +30,12 @@ class Cell : public Gtk::Button {
 		 * @brief Constructor with positional arguments.
 		 */
 		Cell(int row, int col);
+        
+        /**
+		 * @brief Constructor with positional arguments and image .
+		 */
+    
+        Cell(int row, int col, std::string filename);
 
 		/**
 		 * @brief Destructor
@@ -65,6 +74,7 @@ class Cell : public Gtk::Button {
       
 
 	private:
+        Gtk::Widget* image;
 		int m_row;
 		int m_col;
 		bool containsShip;

@@ -15,6 +15,8 @@ BattleWindow::BattleWindow()
 {
 	prettify_window_manager();
 	bootstrap_user_interface();
+    
+    //gtk_window_set_icon(this, new GtkImage("img/icon.jpg"));
 }
 
 BattleWindow::~BattleWindow() {

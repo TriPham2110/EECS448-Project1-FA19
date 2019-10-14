@@ -34,6 +34,8 @@ MainMenu::MainMenu()
 	this->add_exit_menu_button_decoration();
 	// Set the active item to "Choose a Ship"
 	this->num_ships_dropdown.set_active_id("0");
+          
+    
 }
 
 MainMenu::~MainMenu() {
