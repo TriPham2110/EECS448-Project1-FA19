@@ -43,15 +43,13 @@ void Board::bootstrap_board() {
 		}
 	}
 	for(int i = 1; i < 9; i++) {
-		// Trying to do this the clever way by casting int to char inside to_string
-		// inside the set_label call did not work and just labelled them with letters.
-		// TRUST ME, I hate this code as much as you do right now.
+        //sets letter labels on the columns
 		char the_label = (char)64+i;
 		std::string label_the;
 		label_the += the_label;
 		m_board[0][i].set_label(label_the);
 	}
-	//Label created for rows on the board
+	//Label created for numbered rows on the board
 	for(int i = 1; i < 9; i++) {
 		m_board[i][0].set_label(std::to_string(i));
 	}
@@ -144,15 +142,17 @@ void Board::setLabel(std::string label) {
 }
 
 void Board::on_button_clicked(int i, int j) {
+    
+    //edit this to work correctly on ship placement and on game loop for each player
 	this->clear_labels();
 
     if(m_board[i][j].hasShip()){
-					if (m_board[i][j].hit()==1){
-		        m_board[i][j].set_label("HIT");
-					}
-					else if (m_board[i][j].hit()==0){
-						m_board[i][j].set_label("SUNK");
-					}
+        if (m_board[i][j].hit()==1){
+            m_board[i][j].set_label("HIT");
+        }
+        else if (m_board[i][j].hit()==0){
+            m_board[i][j].set_label("SUNK");
+        }
     }
     else if(!m_board[i][j].hasShip()&& m_board[i][j].hit()==9){
         m_board[i][j].set_label("MISS");

@@ -15,16 +15,17 @@ Cell::Cell() {
 	beenHit = false;
 	Ship *m_ship_ptr = nullptr;
     
-    this->set_label("water");
+   // this->set_label("water");
     
-    /*
+   
     
-    image = new Gtk::Image("water.png");
+    image = new Gtk::Image("img/water.png");
+     
     
     this->set_image(*image);
     
     image->show();
-    */
+    
     
     
 }
