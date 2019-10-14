@@ -39,7 +39,7 @@ MainMenu::MainMenu()
 	this->num_ships_dropdown.set_active_id("0");
           
   
-          Executive::get_executive_object()->changeCursor();
+         // Executive::get_executive_object()->changeCursor();
 
 }
 

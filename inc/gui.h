@@ -91,6 +91,8 @@ class UserInterface : public Gtk::Box {
 		void bootstrap_main_menu();
 
 		int board_visible = 0;
+    
+        
 
 };
 

@@ -16,6 +16,8 @@ Board::Board()
 	: Gtk::Table(10,10,false)
 {
 	bootstrap_board();
+        
+    std::cout << this->num_ships  << "hehe"<< std::endl;
 }
 
 Board::~Board() {
@@ -63,12 +65,12 @@ void Board::makePlayable() {
 	}
 }
 
-void Board::makeShips(int num_ships, int x, int y) {
-	initial_num_ships = num_ships;
-	current_num_live_ships = num_ships;
-	m_ships = new Ship[num_ships];
+void Board::makeShips(int ships, int x, int y) {
+    //dont know
+	m_ships = new Ship[this->num_ships];
+   
 
-	for (int i = 0; i < num_ships; ++i){
+	for (int i = 0; i < this->num_ships; i++){
 		// make new ship of size i+1
 		m_ships[i].set_size(i+1);
 		this->setShip(m_ships, x, y);
@@ -145,8 +147,10 @@ void Board::setLabel(std::string label) {
 
 void Board::on_button_clicked(int x, int y) {
 
-    //edit this to work correctly on ship placement and on game loop for each player
-	this->clear_labels();
+    num_ships = Executive::get_executive_object()->get_ship_count();
+    std::cout << this->num_ships  << "hehe"<< std::endl;
+    //save this for later
+	//this->clear_labels();
 
 	this->makeShips(1,x,y);
 
@@ -156,9 +160,9 @@ void Board::on_button_clicked(int x, int y) {
 void Board::clear_labels() {
 	for(int k = 1; k < 9; k++) {
 		for(int m = 1; m < 9; m++) {
-			if(m_board[k][m].get_label() == "HIT") {
-				m_board[k][m].set_label("");
-			}
+            
+            m_board[k][m].setWater();
+			
 		}
 	}
 }

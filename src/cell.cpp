@@ -62,6 +62,11 @@ void Cell::putShip(Ship *ship_ptr){
     
 }
 
+void Cell::setWater(){  
+    this->set_image(*water);
+    sunk->show();    
+}
+
 
 
 

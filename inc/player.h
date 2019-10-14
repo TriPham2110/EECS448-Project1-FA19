@@ -67,7 +67,7 @@ class Player : public Gtk::Box {
 		Board* player_field;
 		Gtk::Separator vertical_separator;
 		Board* status_field;
-
+        
 };
 
 #endif // PLAYER_H_

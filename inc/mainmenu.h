@@ -31,6 +31,8 @@ class MainMenu : public Gtk::Box {
 		 * @brief Menu destructor.
 		 */
 		virtual ~MainMenu();
+    
+        int get_result_from_ship_dropdown();
 
 	protected:
 
@@ -86,7 +88,7 @@ class MainMenu : public Gtk::Box {
 		 * @brief Singal handler for what should happen when the player chooses
 		 *        some number of ships to play with.
 		 */
-		int get_result_from_ship_dropdown();
+		
 
 		// Member Widgets
 		Gtk::ComboBoxText num_ships_dropdown;

@@ -92,8 +92,10 @@ class Board : public Gtk::Table {
 		int shipLength;
 		int initial_num_ships;
 		int current_num_live_ships;
+        int num_ships;
 		bool playable;
 		Ship *m_ships;
+        
 
 		/**
 		 * @brief Syntactic sugar that allows us to add buttons to the field

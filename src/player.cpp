@@ -16,6 +16,7 @@ Player::Player()
 	add_the_players_area();
 	add_the_vertical_separator();
 	add_the_status_area();
+    //this->num_ships = ships;
 }
 
 Player::~Player() {

@@ -61,6 +61,8 @@ class Cell : public Gtk::Button {
         /**
 		 * @brief Accessor for beenHit variable
 		 */
+    
+        void setWater();
       
 
 	private:

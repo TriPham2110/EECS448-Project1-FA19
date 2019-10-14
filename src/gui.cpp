@@ -19,6 +19,7 @@ UserInterface::UserInterface()
 	bootstrap_player_ones_container();
 	bootstrap_player_twos_container();
 	bootstrap_main_menu();
+    
 }
 
 UserInterface::~UserInterface() {
