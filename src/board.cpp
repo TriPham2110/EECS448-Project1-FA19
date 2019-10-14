@@ -56,14 +56,14 @@ void Board::bootstrap_board() {
 }
 //when a cell is clicked
 void Board::makePlayable() {
-	for(int m=1;m<9;m++) {
-		for(int n = 1;n<9;n++) {
-			m_board[m][n].signal_clicked().connect(sigc::bind<int>(sigc::mem_fun(*this, &Board::on_button_clicked), m,n));
+	for(int m=1; m<9; m++) {
+		for(int n=1; n<9; n++) {
+			m_board[m][n].signal_clicked().connect(sigc::bind<int>(sigc::mem_fun(*this, &Board::on_button_clicked), m, n));
 		}
 	}
 }
 
-void Board::makeShips(int num_ships) {
+void Board::makeShips(int num_ships, int x, int y) {
 	initial_num_ships = num_ships;
 	current_num_live_ships = num_ships;
 	m_ships = new Ship[num_ships];
@@ -71,18 +71,21 @@ void Board::makeShips(int num_ships) {
 	for (int i = 0; i < num_ships; ++i){
 		// make new ship of size i+1
 		m_ships[i].set_size(i+1);
+		this->setShip(m_ships, x, y);
 	}
 }
 
-void Board::setShip(Ship* ship) {
-	int row_num = ship->get_row();
-	int col_num = ship->get_col();
+void Board::setShip(Ship* ship, int x, int y) {
+	int row_num = x;
+	int col_num = y;
+	std::cout << row_num << ' ' << col_num << '\n';
 	int size = ship->get_size();
 	char direction = ship->get_direction();
 	Ship* ptrShip = ship;
 
 	// place a horizontal ship
-	if((direction == 'h')&&((col_num + (size - 1))<8)) {
+	//if (((direction == 'h')&&(col_num + (size - 1))<9)) {
+	if ((col_num + (size - 1))<9) {
 		// call putShip() for each cell in that the ship occupies
 		m_board[row_num][col_num].putShip(ptrShip);
 		for(int i = 1;i<size;i++) {
@@ -90,8 +93,8 @@ void Board::setShip(Ship* ship) {
 		}
 	}
 	// place a vertical ship
-	else if ((direction == 'v')&&((row_num + (size - 1))<8)) {
-
+	//else if (((direction == 'v')&&((row_num + (size - 1))<9))) {
+	else if ((col_num + (size - 1))<9) {
 		// call putShip() for each cell in that the ship occupies
 		m_board[row_num][col_num].putShip(ptrShip);
 		for(int i = 1;i<size;i++) {
@@ -124,10 +127,9 @@ void Board::hit(int row, int col) {
 
 //Returns true or false, whether or not the ship is hit or not.
 bool Board::isHit(int row, int col) {
-	if(m_board[row][col].hasShip())
-		{
-			return true;
-		}
+	if(m_board[row][col].hasShip()) {
+		return true;
+	}
 	return false;
 }
 
@@ -137,19 +139,18 @@ void Board::setLabel(std::string label) {
 	try {
 		m_board[0][0].set_label(label);
 	} catch (std::exception& e) {
-	
+
 	}
 }
 
-void Board::on_button_clicked(int i, int j) {
-    
+void Board::on_button_clicked(int x, int y) {
+
     //edit this to work correctly on ship placement and on game loop for each player
 	this->clear_labels();
 
-    m_board[i][j].hit();
+	this->makeShips(1,x,y);
 
-	Executive::get_executive_object()->set_clicked_row(i);
-	Executive::get_executive_object()->set_clicked_row(j);
+  //m_board[i][j].hit();
 }
 
 void Board::clear_labels() {

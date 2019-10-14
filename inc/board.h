@@ -61,7 +61,7 @@ class Board : public Gtk::Table {
 		 * @brief  Places a ship in the specified cell based on orientation
 		 * @param Takes in the row number, col number, size of the ship, and the direction and sets it on the cell
 		 */
-		void setShip(Ship* ship);
+		void setShip(Ship* ship, int x, int y);
 
 				/**
 				 * @brief ALlows interaction with the board, by choosing spots
@@ -82,7 +82,7 @@ class Board : public Gtk::Table {
 				 * @brief Sets labels for the board, for the rows and columns
 				 */
 
-		void on_button_clicked(int i, int j);
+		void on_button_clicked(int x, int y);
 
 	private:
 
@@ -110,7 +110,7 @@ class Board : public Gtk::Table {
 		 * @brief make ships
 		 * @param int the number of ships to be made
 		 */
-		void makeShips(int num_ships);
+		void makeShips(int num_ships, int x, int y);
 
 };
 
