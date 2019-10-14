@@ -14,25 +14,35 @@ Cell::Cell() {
 	containsShip = false;
 	beenHit = false;
 	Ship *m_ship_ptr = nullptr;
-
+  
     water = new Gtk::Image("img/water.png");
     hitI = new Gtk::Image("img/hit.png");
     sunk = new Gtk::Image("img/sunk.png");
     shipFront = new Gtk::Image("img/front.png");
     shipMid = new Gtk::Image("img/mid.png");
     miss = new Gtk::Image("img/miss.png");
-
-
+    
+    
     this->set_image(*water);
-
+    
     water->show();
-
+    
+    
+    
+ 
 }
 
 
 
 Cell::~Cell() {
-
+    
+    delete water;
+    delete hitI;
+    delete sunk;
+    delete shipFront;
+    delete shipMid;
+    delete miss;
+    
 
 }
 
@@ -45,9 +55,11 @@ void Cell::set_location(int row, int col) {
 
 void Cell::putShip(Ship *ship_ptr){
 	containsShip = true;
-	m_ship_ptr = ship_ptr;
-	this->set_image(*shipFront);
-	shipFront->show();
+	this->m_ship_ptr = ship_ptr;
+    
+    this->set_image(*shipFront);
+    hitI->show();
+    
 }
 
 
