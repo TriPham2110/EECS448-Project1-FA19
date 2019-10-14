@@ -278,8 +278,6 @@ int MainMenu::confirm_switch_players_popup() {
 
 int MainMenu::get_result_from_ship_dropdown() {
 	int num_ships_to_play = std::stoi(num_ships_dropdown.get_active_id());
-	if(num_ships_to_play == 0) {
-		return 1;
-	}
-	return num_ships_to_play;
+	
+	return num_ships_to_play+1;
 }
