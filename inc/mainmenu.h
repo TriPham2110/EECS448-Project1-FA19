@@ -13,6 +13,10 @@
 #include <gtkmm/button.h>
 #include <gtkmm/comboboxtext.h>
 #include <gtk/gtk.h>
+#include <gdkmm/cursor.h>
+#include <gdkmm/display.h>
+#include <gdkmm/pixbuf.h>
+
 
 class MainMenu : public Gtk::Box {
 
@@ -150,6 +154,8 @@ class MainMenu : public Gtk::Box {
 		 *        with calls that do not have anything to do with their intent.
 		 */
 		int confirm_exit_popup();
+    
+        
 
 };
 #endif // GUI_H_

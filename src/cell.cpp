@@ -33,6 +33,13 @@ Cell::Cell() {
 
 Cell::~Cell() {
     
+    delete water;
+    delete hitI;
+    delete sunk;
+    delete shipFront;
+    delete shipMid;
+    delete miss;
+    
 
 }
 
@@ -45,7 +52,11 @@ void Cell::set_location(int row, int col) {
 
 void Cell::putShip(Ship *ship_ptr){
 	containsShip = true;
-	m_ship_ptr = ship_ptr;
+	this->m_ship_ptr = ship_ptr;
+    
+    this->set_image(*shipFront);
+    hitI->show();
+    
 }
 
 

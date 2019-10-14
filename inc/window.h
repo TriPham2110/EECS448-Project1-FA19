@@ -9,6 +9,12 @@
 #define BATTLE_WINDOW_H
 
 #include <gtkmm/window.h>
+#include <gdk/gdk.h>
+#include <gtkmm/image.h>
+#include <gdkmm/pixbuf.h>
+
+
+
 
 // Forward Declarations
 class UserInterface;
@@ -48,6 +54,9 @@ class BattleWindow : public Gtk::Window {
 		 *          being constructed, throw in here.
 		 */
 		void prettify_window_manager();
+    
+    
+        GdkWindow *gdk_window;
 
 		/**
 		 * @brief Adds necessary containers to the window.

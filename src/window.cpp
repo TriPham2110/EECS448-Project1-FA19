@@ -11,12 +11,23 @@
 #include "window.h"
 
 
+
 BattleWindow::BattleWindow()
 {
 	prettify_window_manager();
 	bootstrap_user_interface();
     
-    //gtk_window_set_icon(this, new GtkImage("img/icon.jpg"));
+     GdkPixbuf* b = gdk_pixbuf_new_from_file("img/water.png", NULL );
+          
+    
+          
+    GdkCursor* c = gdk_cursor_new_from_pixbuf( gdk_display_get_default() , b, 0, 0);
+    
+    gdk_window = gtk_widget_get_window(GTK_WIDGET(this));
+    
+    gdk_window_set_cursor(gdk_window, c);
+    
+    this->set_icon(Gdk::Pixbuf::create_from_file("img/water.png"));
 }
 
 BattleWindow::~BattleWindow() {
