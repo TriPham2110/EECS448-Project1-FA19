@@ -52,7 +52,7 @@ string GameBoard::fire(int x, int y){
   }
 
   else if(board[x][y] == 1){
-    for(int i = 1; i <= ships.size(); i++){
+    for(int i = 0; i < ships.size(); i++){
       if(ships.at(i)->containsCoordinate(x,y)){
         ships.at(i)->hit(x,y);
         if(ships.at(i)->isDestroyed()){
@@ -70,7 +70,7 @@ int** GameBoard::getBoard(){
 }
 
 bool GameBoard::gameOver(){
-  for(int i = 1; i <= ships.size(); i++){
+  for(int i = 0; i < ships.size(); i++){
     if(!ships.at(i)->isDestroyed()){
       return false;
     }
