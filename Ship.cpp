@@ -8,7 +8,7 @@ Ship::Ship(int size)
 }
 
 
-std::vector<Point> Ship::getShipCoordinates()
+std::vector<Point*> Ship::getShipCoordinates()
 {
   return shipCoordinates;
 }
@@ -16,7 +16,7 @@ std::vector<Point> Ship::getShipCoordinates()
 
 void Ship::addCoordinates(int x, int y)
 {
-  shipCoordinates.insert(new Point(x,y));
+  shipCoordinates.push_back(new Point(x,y));
 }
 
 
@@ -26,10 +26,10 @@ bool Ship::inLine(int newX, int newY)
   {
     return true;
   }
-    for(Point shipPiece : shipCoordinates)
+    for(Point *shipPiece : shipCoordinates)
     {
-      int x = (int)shipPiece.getX();
-      int y = (int)shipPiece.getY();
+      int x = (int)shipPiece->getX();
+      int y = (int)shipPiece->getY();
       if(newX == x && (newY == y + 1 || newY == y - 1))
       {
         return true;
@@ -61,8 +61,8 @@ bool Ship::containsCoordinate(int x, int y)
   {
             for(int i = 0; i < shipCoordinates.size(); i++)
             {
-                int cordX = (int)shipCoordinates.get(i).getX();
-                int cordY = (int)shipCoordinates.get(i).getY();
+                int cordX = (int)shipCoordinates.at(i)->getX();
+                int cordY = (int)shipCoordinates.at(i)->getY();
                 if(cordX == x && cordY == y)
                 {
                   return true;

@@ -21,24 +21,24 @@ int Point::getY() const{
     return this->y;
 }
 
-string Point::toString() const{
-    return "(" + std::stoi(x) + ", " + std::stoi(y) + ")";
+std::string Point::toString() const{
+    return "(" + std::to_string(x) + ", " + std::to_string(y) + ")";
 }
 
-bool operator==(const Point & p2) const {
+bool Point::operator==(const Point & p2) const {
     
-    return (p2->x == this->x && p2->y == this->y);
+    return (p2.x == this->x && p2.y == this->y);
     
 }
 
 
-bool operator!=(const Point & p2) const {
+bool Point::operator!=(const Point & p2) const {
     
-    return (p2->x != this->x || p2->y != this->y);
+    return (p2.x != this->x || p2.y != this->y);
     
 }
 
 std::ostream & operator<<(std::ostream & os, const Point & pt){
-    return cout << this->toString();
+    return os;
 }
 

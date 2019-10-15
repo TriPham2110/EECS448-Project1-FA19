@@ -11,14 +11,14 @@ class Ship
 {
 public:
     Ship(int size);
-    std::vector<Point> getShipCoordinates();
+    std::vector<Point*> getShipCoordinates();
     void addCoordinates (int x, int y);
     bool inLine (int newX, int newY);
     void hit(int x, int y);
     bool containsCoordinate(int x, int y);
     bool isDestroyed();
 private:
-    std::vector<Point> shipCoordinates;
+    std::vector<Point*> shipCoordinates;
     int shipSize;
     int shipPieces;
 };
