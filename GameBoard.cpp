@@ -4,11 +4,12 @@ using namespace std;
 
 GameBoard::GameBoard(){
     boardSize = 8;
-    board = new int*[8];
+    
+    board =  new int*[8];
     for(int rep = 0; rep<8; rep++){
         board[rep] = new int[8];
     }
-
+    
     oppBoard = new int*[8];
     for(int rep = 0; rep<8; rep++){
         oppBoard[rep] = new int[8];
@@ -23,12 +24,13 @@ GameBoard::GameBoard(){
 }
 
 GameBoard::~GameBoard(){
-  for(int i = 0; i < 8; i++){
-    delete board[i];
-    delete oppBoard[i];
-  }
-  delete board;
-  delete oppBoard;
+    for(int i = 0; i < 8; i++){
+        delete board[i];
+        delete oppBoard[i];
+    }
+    delete[] board;
+    delete[] oppBoard;
+    ships.clear();
 }
 
 void GameBoard::addShip(Ship *newShip){
@@ -78,14 +80,31 @@ bool GameBoard::gameOver(){
   return true;
 }
 
-bool GameBoard::isOccupied(int x, int y){
-  if(board[x][y] == 0){
+bool GameBoard::canFindPath(int x, int y, int shipLength){
+    //recursively try to find 1 straight path of shipLength
+    //else return false
+    
+    if(shipLength == 0 && board[x][y] != 1)
+        return true;
+    else {
+        if(x+1 < 7 && board[x+1][y] != 1)
+            return canFindPath(x+1, y, shipLength -1);
+        if(y+1<7 && board[x][y+1] != 1)
+            return canFindPath(x, y+1, shipLength -1);
+        if(x-1 > 0 && board[x-1][y] != 1)
+            return canFindPath(x-1, y, shipLength -1);
+         if(y-1 > 0 && board[x][y-1] != 1)
+             return canFindPath(x, y-1, shipLength -1);
+    }
     return false;
-  }
-  else{
-    return true;
-  }
+    
+
 }
+
+bool GameBoard::isOccupied(int x, int y){
+    return board[x][y] == 1;
+}
+
 
 void GameBoard::updateOppBoard(int x, int y, string outcome){
   if(outcome == "Miss"){

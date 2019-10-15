@@ -35,10 +35,14 @@ Game::Game(){
 
 }
 
+Game::~Game(){
+    
+}
+
 void Game::placeShips(GameBoard &player, int numShips){
     for(int i = 1; i <= numShips; i++){
         int shipLength = i;
-        Ship *tempShip = new Ship(shipLength);
+        Ship tempShip(shipLength);
 
         player.printBoard();
 
@@ -48,16 +52,22 @@ void Game::placeShips(GameBoard &player, int numShips){
 
             int shipCol = getColumn();
             int shipRow = getRow();
-
-            if(tempShip->inLine(shipRow, shipCol) && !player.isOccupied(shipRow, shipCol) && !tempShip->containsCoordinate(shipRow, shipCol))
-                tempShip->addCoordinates(shipRow,shipCol);
-            else
+            
+            if(!player.canFindPath(shipRow, shipCol, shipLength-j+1) || player.isOccupied(shipRow, shipCol)){
                 j--;
+            }
+
+            else if(tempShip.inLine(shipRow, shipCol) && !tempShip.containsCoordinate(shipRow, shipCol))
+                tempShip.addCoordinates(shipRow,shipCol);
+            else
+                j--; // really shouldn't even trigger here
             
         }
 
-        player.addShip(tempShip);
+        player.addShip(&tempShip);
+        
     }
+    
 }
 
 void Game::playGame( GameBoard Player1, GameBoard Player2){

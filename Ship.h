@@ -11,6 +11,7 @@ class Ship
 {
 public:
     Ship(int size);
+    ~Ship();
     std::vector<Point*> getShipCoordinates();
     void addCoordinates (int x, int y);
     bool inLine (int newX, int newY);

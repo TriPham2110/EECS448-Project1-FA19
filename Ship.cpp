@@ -7,6 +7,10 @@ Ship::Ship(int size)
   this->shipPieces = size;
 }
 
+Ship::~Ship(){
+    shipCoordinates.clear();
+}
+
 
 std::vector<Point*> Ship::getShipCoordinates()
 {
@@ -42,6 +46,7 @@ bool Ship::inLine(int newX, int newY)
     }
        return false;
 }
+
 
 
 void Ship::hit(int x, int y)
@@ -80,7 +85,9 @@ bool Ship:: isDestroyed()
   if (shipPieces <= 0)
   {
     return true;
-    return false;
+    
   }
+    
+    return false;
 
 }
