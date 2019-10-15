@@ -18,6 +18,7 @@ GameBoard::GameBoard(){
         for(int j = 0; j<8; j++){
         board[i][j] = 0;
         oppBoard[i][j] = 0;
+        }
     }
 }
 
