@@ -14,13 +14,13 @@ void AIOpponent::easyTurn(){
 	int xRandom = rand() % 8;
 	int yRandom = rand() % 8;
 	
-	} while(AIBoard.oppBoard[xRandom][yRandom] != 0);
+	} while(AIBoard.getOppBoard[xRandom][yRandom] != 0);
 
 updateOppBoard(xRandom, yRandom, AIBoard.fire(xRandom, yRandom)); 
 
 }
 
-void mediumTurn(){
+void AIOpponent::mediumTurn(){
 
 	if(mediumTurnFlag == 0)
 	{
@@ -84,7 +84,22 @@ void mediumTurn(){
 	
 }
 
+void AIOpponent::hardTurn(){
 
+	for(x = 0; x < 7; x++){
+		for(y = 0; y < 7; y++){
+		
+			if(AIBoard.getOppBoard()[x][y] == 1){
+
+			updateOppBoard(x, y, AIBoard.fire(x, y));
+			return;			
+			
+			}
+
+		}
+	}
+
+}
 
 
 
