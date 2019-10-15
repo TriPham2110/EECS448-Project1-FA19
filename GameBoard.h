@@ -1,0 +1,29 @@
+#ifndef GAMEBOARD_H
+#define GAMEBOARD_H
+
+#include "Game.h"
+#include <string>
+#include <vector>
+
+using namespace std;
+
+class GameBoard{
+  private:
+    int boardSize;
+    int** board;
+    int** oppBoard;
+    int numOfShips;
+    vector<Ship> ships = new vector<Ship>(numOfShips);
+  public:
+    GameBoard();
+    ~GameBoard();
+    void addShip(Ship newShip);
+    string fire(int x, int y);
+    int** getBoard();
+    bool gameOver();
+    bool isOccupied(int x, int y);
+    void updateOppBoard(int x, int y, string outcome);
+    void printBoard();
+    void printOppBoard();
+};
+#endif
