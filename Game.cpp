@@ -22,20 +22,20 @@ Game::Game(){
         std::cout << ("Player 1 please place your ships")<< std::endl;;
         this->placeShips(Player1, numShips);
     
-        std::cout << ("Player 1's board...")<< std::endl;;
+        std::cout << ("Player 1's board...")<< std::endl;
         Player1.printBoard();
 
         std::cout << (" ")<< std::endl;;
         std::cout << ("Player 2 please place your ships")<< std::endl;;
         placeShips(Player2, numShips);
-        std::cout << ("Player 2's board...")<< std::endl;;
+        std::cout << ("Player 2's board...")<< std::endl;
         Player2.printBoard();
 
-        playGame( Player1, Player2);
+        playGame(Player1, Player2);
 
 }
 
-void Game::placeShips( GameBoard player, int numShips){
+void Game::placeShips(GameBoard &player, int numShips){
     for(int i = 1; i <= numShips; i++){
         int shipLength = i;
         Ship *tempShip = new Ship(shipLength);
@@ -53,6 +53,7 @@ void Game::placeShips( GameBoard player, int numShips){
                 tempShip->addCoordinates(shipRow,shipCol);
             else
                 j--;
+            
         }
 
         player.addShip(tempShip);

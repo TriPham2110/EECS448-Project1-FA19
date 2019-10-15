@@ -97,26 +97,26 @@ void GameBoard::updateOppBoard(int x, int y, string outcome){
 }
 
 void GameBoard::printBoard(){
-  cout << " A B C D E F G H\n ";
+  cout << "A B C D E F G H\n";
   for(int i = 0; i < boardSize; i++){
     
     for(int j = 0; j < boardSize; j++){
       cout << board[i][j] << " ";
     }
       cout << (i + 1) << " \n";
-    cout << " ";
+    cout << "";
   }
 }
 
 void GameBoard::printOppBoard(){
-  cout << " A B C D E F G H\n ";
+  cout << "A B C D E F G H\n";
   for(int i = 0; i < boardSize; i++){
     
     for(int j = 0; j < boardSize; j++){
       cout << oppBoard[i][j] << " ";
     }
       cout << (i + 1) << " \n";
-    cout << " ";
+    cout << "";
   }
 }
 
