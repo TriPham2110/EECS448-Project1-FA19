@@ -14,7 +14,6 @@ class GameBoard{
     int boardSize;
     int** board;
     int** oppBoard;
-    int numOfShips;
     vector<Ship> ships;
   public:
     GameBoard();
