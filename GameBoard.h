@@ -25,6 +25,7 @@ class GameBoard{
     bool gameOver();
     bool isOccupied(int x, int y);
     void updateOppBoard(int x, int y, string outcome);
+    void updateMyBoard(int x, int y, string outcome);
     void printBoard();
     void printOppBoard();
     GameBoard& operator=(const GameBoard &a);

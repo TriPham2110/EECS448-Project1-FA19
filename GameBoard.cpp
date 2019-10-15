@@ -100,6 +100,16 @@ void GameBoard::updateOppBoard(int x, int y, string outcome){
   }
 }
 
+void GameBoard::updateMyBoard(int x, int y, string outcome)
+{
+  if(outcome == "Miss"){
+    board[x][y] = 1;
+  }
+  else{
+    board[x][y] = 2;
+  }
+}
+
 void GameBoard::printBoard(){
   cout << "A B C D E F G H\n";
   for(int i = 0; i < boardSize; i++){
