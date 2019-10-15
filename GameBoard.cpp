@@ -24,28 +24,50 @@ GameBoard::GameBoard(){
 }
 
 GameBoard::~GameBoard(){
+    
+    /*
     for(int i = 0; i < 8; i++){
         delete board[i];
         delete oppBoard[i];
     }
+    
     delete[] board;
     delete[] oppBoard;
+    board = NULL;
+    oppBoard= NULL;
+    */
+   
+    
+    /*
+    
+    while(!ships.empty()){
+        delete ships.back();
+        ships.back() = NULL;
+        ships.pop_back();
+    }
+    */
+    
+    
     ships.clear();
+    
+    //ships = NULL;
 }
 
 void GameBoard::addShip(Ship *newShip){
+    
   vector<Point*> shipCords = newShip->getShipCoordinates();
 
   for(int i = 0; i < shipCords.size(); i++){
     int x = (int)shipCords.at(i)->getX();
     int y = (int)shipCords.at(i)->getY();
     board[x][y] = 1;
+      
   }
   ships.push_back(newShip);
 }
 
 string GameBoard::fire(int x, int y){
-  if((x >= boardSize) || (y >= boardSize) || (x < 0) || (y < 0)){
+  if((x >= 8) || (y >= 8) || (x < 0) || (y < 0)){
     return "Error Bounds";
   }
 

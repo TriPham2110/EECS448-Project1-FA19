@@ -14,13 +14,15 @@ Ship::~Ship(){
 
 std::vector<Point*> Ship::getShipCoordinates()
 {
-  return shipCoordinates;
+    return shipCoordinates;
 }
 
 
 void Ship::addCoordinates(int x, int y)
 {
-  shipCoordinates.push_back(new Point(x,y));
+    
+    shipCoordinates.push_back(new Point(x,y));
+    std::cout << shipCoordinates.size() << "size" << std::endl;
 }
 
 
@@ -58,23 +60,32 @@ void Ship::hit(int x, int y)
 
 bool Ship::containsCoordinate(int x, int y)
 {
-  if(shipCoordinates.size() == 0)
+    
+  if(0 == shipCoordinates.size())
   {
     return false;
   }
-  if(x >= 0 && x <= 7 && y >= 0 && y <= 7)
+  else if(x >= 0 && x <= 7 && y >= 0 && y <= 7)
   {
-            for(int i = 0; i < shipCoordinates.size(); i++)
+      
+        for(int i = 0; i < shipCoordinates.size(); i++)
+        {
+            
+            int cordX = (int)shipCoordinates.at(i)->getX();
+            int cordY = (int)shipCoordinates.at(i)->getY();
+            
+            std::cout << shipCoordinates.size() << "test" << std::endl;
+            
+            
+            
+            if(cordX == x && cordY == y)
             {
-                int cordX = (int)shipCoordinates.at(i)->getX();
-                int cordY = (int)shipCoordinates.at(i)->getY();
-                if(cordX == x && cordY == y)
-                {
-                  return true;
-                }
-
+                
+              return true;
             }
-    }
+
+        }
+  }
         return false;
 }
 

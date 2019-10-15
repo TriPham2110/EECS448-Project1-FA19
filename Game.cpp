@@ -42,7 +42,7 @@ Game::~Game(){
 void Game::placeShips(GameBoard &player, int numShips){
     for(int i = 1; i <= numShips; i++){
         int shipLength = i;
-        Ship tempShip(shipLength);
+        Ship* tempShip = new Ship(shipLength);
 
         player.printBoard();
 
@@ -57,14 +57,13 @@ void Game::placeShips(GameBoard &player, int numShips){
                 j--;
             }
 
-            else if(tempShip.inLine(shipRow, shipCol) && !tempShip.containsCoordinate(shipRow, shipCol))
-                tempShip.addCoordinates(shipRow,shipCol);
-            else
-                j--; // really shouldn't even trigger here
+            else if(tempShip->inLine(shipRow, shipCol) && !tempShip->containsCoordinate(shipRow, shipCol))
+                tempShip->addCoordinates(shipRow,shipCol);
+            
             
         }
 
-        player.addShip(&tempShip);
+        player.addShip(tempShip);
         
     }
     
