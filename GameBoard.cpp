@@ -4,12 +4,12 @@ using namespace std;
 
 GameBoard::GameBoard(){
     boardSize = 8;
-    
+
     board =  new int*[8];
     for(int rep = 0; rep<8; rep++){
         board[rep] = new int[8];
     }
-    
+
     oppBoard = new int*[8];
     for(int rep = 0; rep<8; rep++){
         oppBoard[rep] = new int[8];
@@ -24,44 +24,37 @@ GameBoard::GameBoard(){
 }
 
 GameBoard::~GameBoard(){
-    
-    /*
     for(int i = 0; i < 8; i++){
         delete board[i];
         delete oppBoard[i];
     }
-    
+
     delete[] board;
     delete[] oppBoard;
-    board = NULL;
-    oppBoard= NULL;
-    */
-   
-    
-    /*
-    
+    //board = NULL;
+    //oppBoard= NULL;
+
     while(!ships.empty()){
         delete ships.back();
         ships.back() = NULL;
         ships.pop_back();
     }
-    */
-    
-    
+
+
     ships.clear();
-    
+
     //ships = NULL;
 }
 
 void GameBoard::addShip(Ship *newShip){
-    
+
   vector<Point*> shipCords = newShip->getShipCoordinates();
 
-  for(int i = 0; i < shipCords.size(); i++){
+  for(int i = 0; i < (int)shipCords.size(); i++){
     int x = (int)shipCords.at(i)->getX();
     int y = (int)shipCords.at(i)->getY();
     board[x][y] = 1;
-      
+
   }
   ships.push_back(newShip);
 }
@@ -76,7 +69,7 @@ string GameBoard::fire(int x, int y){
   }
 
   else if(board[x][y] == 1){
-    for(int i = 0; i < ships.size(); i++){
+    for(int i = 0; i < (int)ships.size(); i++){
       if(ships.at(i)->containsCoordinate(x,y)){
         ships.at(i)->hit(x,y);
         if(ships.at(i)->isDestroyed()){
@@ -98,7 +91,7 @@ int** GameBoard::getOppBoard(){
 }
 
 bool GameBoard::gameOver(){
-  for(int i = 0; i < ships.size(); i++){
+  for(int i = 0; i < (int)ships.size(); i++){
     if(!ships.at(i)->isDestroyed()){
       return false;
     }
@@ -109,7 +102,7 @@ bool GameBoard::gameOver(){
 bool GameBoard::canFindPath(int x, int y, int shipLength){
     //recursively try to find 1 straight path of shipLength
     //else return false
-    
+
     if(shipLength == 0 && board[x][y] != 1)
         return true;
     else {
@@ -123,7 +116,7 @@ bool GameBoard::canFindPath(int x, int y, int shipLength){
              return canFindPath(x, y-1, shipLength -1);
     }
     return false;
-    
+
 
 }
 
