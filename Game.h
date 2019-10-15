@@ -2,7 +2,7 @@
 #define GAME_H
 
 #include <iostream>
-#inlcude "GameBoard.h"
+#include "GameBoard.h"
 #include "Ship.h"
 
 class Game {
