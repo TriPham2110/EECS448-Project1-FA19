@@ -14,7 +14,7 @@ GameBoard::GameBoard(){
     for(int rep = 0; rep<8; rep++){
         oppBoard[rep] = new int[8];
     }
-    
+
     for(int i = 0; i<8; i++){
         for(int j = 0; j<8; j++){
         board[i][j] = 0;
@@ -93,6 +93,10 @@ int** GameBoard::getBoard(){
   return board;
 }
 
+int** GameBoard::getOppBoard(){
+  return oppBoard;
+}
+
 bool GameBoard::gameOver(){
   for(int i = 0; i < ships.size(); i++){
     if(!ships.at(i)->isDestroyed()){
@@ -137,10 +141,20 @@ void GameBoard::updateOppBoard(int x, int y, string outcome){
   }
 }
 
+void GameBoard::updateMyBoard(int x, int y, string outcome)
+{
+  if(outcome == "Miss"){
+    board[x][y] = 1;
+  }
+  else{
+    board[x][y] = 2;
+  }
+}
+
 void GameBoard::printBoard(){
   cout << "A B C D E F G H\n";
   for(int i = 0; i < boardSize; i++){
-    
+
     for(int j = 0; j < boardSize; j++){
       cout << board[i][j] << " ";
     }
@@ -152,7 +166,7 @@ void GameBoard::printBoard(){
 void GameBoard::printOppBoard(){
   cout << "A B C D E F G H\n";
   for(int i = 0; i < boardSize; i++){
-    
+
     for(int j = 0; j < boardSize; j++){
       cout << oppBoard[i][j] << " ";
     }
