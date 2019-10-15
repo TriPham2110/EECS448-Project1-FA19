@@ -111,12 +111,13 @@ void GameBoard::printBoard(){
 }
 
 void GameBoard::printOppBoard(){
-  cout << " A B C D E F G H\n";
+  cout << " A B C D E F G H\n ";
   for(int i = 0; i < boardSize; i++){
-    cout << (i + 1) << " \n";
+    
     for(int j = 0; j < boardSize; j++){
-      cout << oppBoard[i][j] << " \n";
+      cout << oppBoard[i][j] << " ";
     }
+      cout << (i + 1) << " \n";
     cout << " ";
   }
 }
