@@ -13,6 +13,15 @@ GameBoard::GameBoard(){
     for(int rep = 0; rep<8; rep++){
         oppBoard[rep] = new int[8];
     }
+    
+    for(int i = 0; i < 8; i++){
+        for(int j = 0; j < 8; j++){
+        board[i][j] = 0;
+        oppBoard[i][j] = 0;
+        }
+    }
+    
+    
 }
 
 GameBoard::~GameBoard(){
@@ -94,7 +103,7 @@ void GameBoard::printBoard(){
   for(int i = 0; i < boardSize; i++){
     cout << (i + 1) << " \n";
     for(int j = 0; j < boardSize; j++){
-      cout << board[i][j] << " \n";
+      cout << board[i][j] << " ";
     }
     cout << " ";
   }
