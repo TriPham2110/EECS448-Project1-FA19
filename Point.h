@@ -90,4 +90,8 @@ public:
 
 std::ostream & operator<<(std::ostream & os, const Point & pt);
 
+private:
+    int x;
+    int y;
+
 #endif
