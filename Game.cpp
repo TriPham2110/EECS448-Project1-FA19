@@ -7,8 +7,8 @@ include "Game.h"
 Game::Game(){
         
 
-        GameBoard Player1 = new GameBoard();
-        GameBoard Player2 = new GameBoard();
+        Player1 = new GameBoard();
+        Player2 = new GameBoard();
 
         int numShips = -1;
         

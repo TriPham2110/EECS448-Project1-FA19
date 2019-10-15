@@ -12,6 +12,9 @@ class Game {
     
     private:
     
+    GameBoard Player1;
+    GameBoard Player2;
+    
     placeShips(GameBoard player, int numShips);
     playGame(GameBoard Player1, GameBoard Player2);
     getColumn();
