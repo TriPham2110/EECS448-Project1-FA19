@@ -14,11 +14,11 @@ class GameBoard{
     int boardSize;
     int** board;
     int** oppBoard;
-    vector<Ship> ships;
+    vector<Ship*> ships;
   public:
     GameBoard();
     ~GameBoard();
-    void addShip(Ship newShip);
+    void addShip(Ship *newShip);
     string fire(int x, int y);
     int** getBoard();
     bool gameOver();

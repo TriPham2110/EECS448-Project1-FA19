@@ -55,7 +55,7 @@ void Game::placeShips( GameBoard player, int numShips){
                 j--;
         }
 
-        player.addShip(*tempShip);
+        player.addShip(tempShip);
     }
 }
 

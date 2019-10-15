@@ -3,9 +3,16 @@
 using namespace std;
 
 GameBoard::GameBoard(){
-  boardSize = 8;
-  board = new int[boardSize][boardSize];
-  oppBoard = new int[boardSize][boardSize];
+    boardSize = 8;
+    board = new int*[8];
+    for(int rep = 0; rep<8; rep++){
+        board[rep] = new int[8];
+    }
+    
+    oppBoard = new int*[8];
+    for(int rep = 0; rep<8; rep++){
+        oppBoard[rep] = new int[8];
+    }
 }
 
 GameBoard::~GameBoard(){
@@ -17,15 +24,15 @@ GameBoard::~GameBoard(){
   delete oppBoard;
 }
 
-void GameBoard::addShip(Ship newShip){
-  vector<Ship> shipCords = newShip.getShipCoordinates();
+void GameBoard::addShip(Ship *newShip){
+  vector<Point*> shipCords = newShip->getShipCoordinates();
 
   for(int i = 0; i < shipCords.size(); i++){
-    int x = (int)shipCords.at(i).getX();
-    int y = (int)shipCords.at(i).getY();
+    int x = (int)shipCords.at(i)->getX();
+    int y = (int)shipCords.at(i)->getY();
     board[x][y] = 1;
   }
-  ships.insert(newShip);
+  ships.push_back(newShip);
 }
 
 string GameBoard::fire(int x, int y){
@@ -39,9 +46,9 @@ string GameBoard::fire(int x, int y){
 
   else if(board[x][y] == 1){
     for(int i = 1; i <= ships.size(); i++){
-      if(ship.containsCoordinate(x,y)){
-        ship.hit(x,y);
-        if(ship.isDestroyed()){
+      if(ships.at(i)->containsCoordinate(x,y)){
+        ships.at(i)->hit(x,y);
+        if(ships.at(i)->isDestroyed()){
           return "Sunk";
         }
         return "Hit";
@@ -57,7 +64,7 @@ int** GameBoard::getBoard(){
 
 bool GameBoard::gameOver(){
   for(int i = 1; i <= ships.size(); i++){
-    if(!ship.isDestroyed()){
+    if(!ships.at(i)->isDestroyed()){
       return false;
     }
   }
