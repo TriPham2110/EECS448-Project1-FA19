@@ -6,24 +6,24 @@
 
 
 class Game {
-    public: 
-    
+    public:
+
     Game();
     ~Game();
-    
+
     private:
-    
+
     GameBoard Player1;
     GameBoard Player2;
-    
+
     void placeShips(GameBoard& player, int numShips);
-    void playGame(GameBoard Player1, GameBoard Player2);
+    void playGame(GameBoard& Player1, GameBoard& Player2);
     int getColumn();
     int getRow();
-    
-    
-    
-    
+
+
+
+
 };
 
 

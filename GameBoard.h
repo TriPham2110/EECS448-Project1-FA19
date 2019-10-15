@@ -12,10 +12,9 @@ using namespace std;
 class GameBoard{
   private:
     int boardSize;
-    int** board = nullptr;
-    int** oppBoard = nullptr;
+    int** board;
+    int** oppBoard;
     vector<Ship*> ships;
-    int hard_code = 0;
   public:
     GameBoard();
     ~GameBoard();

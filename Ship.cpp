@@ -96,7 +96,7 @@ bool Ship::containsCoordinate(int x, int y)
 
 
 
-bool Ship:: isDestroyed()
+bool Ship::isDestroyed()
 {
   if (shipPieces <= 0)
   {

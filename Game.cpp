@@ -27,7 +27,7 @@ Game::Game(){
         std::cout << ("Player 2's board...")<< std::endl;
         Player2.printBoard();
 
-        //playGame(Player1, Player2);
+        playGame(Player1, Player2);
 
 }
 
@@ -65,7 +65,7 @@ void Game::placeShips(GameBoard &player, int numShips){
 
 }
 
-void Game::playGame( GameBoard Player1, GameBoard Player2){
+void Game::playGame( GameBoard& Player1, GameBoard& Player2){
     while(!Player1.gameOver() && !Player2.gameOver()){
         int row, col;
         bool validInput = false;
@@ -81,17 +81,17 @@ void Game::playGame( GameBoard Player1, GameBoard Player2){
             string fire = Player2.fire(row,col);
 
             if(fire == "Miss"){
-                std::cout << ("Miss")<< std::endl;;
+                std::cout << ("Miss") << std::endl;
                     Player1.updateOppBoard(row,col,"Miss");
                     validInput = true;
             }
             else if(fire == "Hit"){
-                std::cout << ("Hit!")<< std::endl;;
+                std::cout << ("Hit!") << std::endl;
                 Player1.updateOppBoard(row,col,"Hit");
                 validInput = true;
             }
             else if(fire == "Sunk"){
-                std::cout << ("Sunk!")<< std::endl;;
+                std::cout << ("Sunk!") << std::endl;
                 Player1.updateOppBoard(row,col,"Hit");
                 validInput = true;
             }
@@ -106,8 +106,8 @@ void Game::playGame( GameBoard Player1, GameBoard Player2){
         if(Player2.gameOver())
             break;
 
-        std::cout << ("")<< std::endl;;
-        std::cout << ("Player 2 please fire")<< std::endl;;
+        std::cout << ("")<< std::endl;
+        std::cout << ("Player 2 please fire")<< std::endl;
         Player2.printOppBoard();
 
         validInput = false;
@@ -118,17 +118,17 @@ void Game::playGame( GameBoard Player1, GameBoard Player2){
             string fire = Player1.fire(row,col);
 
             if(fire == "Miss"){
-                std::cout << ("Miss")<< std::endl;;
+                std::cout << ("Miss") << std::endl;
                     Player2.updateOppBoard(row,col,"Miss");
                     validInput = true;
             }
             else if(fire == "Hit"){
-                std::cout << ("Hit!")<< std::endl;;
+                std::cout << ("Hit!") << std::endl;
                 Player2.updateOppBoard(row,col,"Hit");
                 validInput = true;
             }
             else if(fire == "Sunk"){
-                std::cout << ("Sunk!")<< std::endl;;
+                std::cout << ("Sunk!") << std::endl;
                 Player2.updateOppBoard(row,col,"Hit");
                 validInput = true;
             }
@@ -137,7 +137,6 @@ void Game::playGame( GameBoard Player1, GameBoard Player2){
             }
             else {
                 std::cout << ("IDK what happened")<< std::endl;
-
             }
         }
 
@@ -146,10 +145,10 @@ void Game::playGame( GameBoard Player1, GameBoard Player2){
     }
 
     if(Player1.gameOver())
-        std::cout << ("Congrats Player 2, you won")<< std::endl;;
+        std::cout << ("Congrats Player 2, you won") << std::endl;
 
     if(Player2.gameOver())
-        std::cout << ("Congrats Player 1, you won")<< std::endl;;
+        std::cout << ("Congrats Player 1, you won") << std::endl;
 }
 
 int Game::getColumn(){
@@ -158,7 +157,7 @@ int Game::getColumn(){
     while(shipCol == -1){
         string shipColString;
 
-        std::cout << ("Ship column(A-H): ")<< std::endl;;
+        std::cout << ("Ship column(A-H): ")<< std::endl;
         cin >> shipColString;
 
 
@@ -199,7 +198,7 @@ int Game::getRow(){
     while(shipRow == -1){
         int tempRow;
 
-        std::cout << ("Ship row(1-8): ")<< std::endl;;
+        std::cout << ("Ship row(1-8): ")<< std::endl;
         cin >>tempRow;
 
         if(tempRow > 0 && tempRow <= 8)
