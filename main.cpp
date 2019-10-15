@@ -2,6 +2,6 @@
 #include "Game.h"
 
 int main(){
-    std::cout << "test" << std::endl;
+    std::cout << "POOR YORICK" << std::endl;
     Game g;
 }
