@@ -26,7 +26,6 @@ GameBoard::GameBoard(){
 GameBoard::~GameBoard(){
     if(hard_code <2){
         for(int i = 0; i < 8; i++){
-                std::cout << i<< std::endl;
                 delete board[i];
                 delete oppBoard[i];
         }
