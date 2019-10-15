@@ -1,4 +1,4 @@
-battleship: main.o
+battleship: main.o Game.o Point.o Ship.o 
 	g++ -std=c++11 -g -Wall main.o Game.o Point.o Ship.o -o battleship
 
 main.o: main.cpp
