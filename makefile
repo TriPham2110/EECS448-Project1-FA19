@@ -1,5 +1,5 @@
-battleship: main.o Game.o Point.o Ship.o GameBoard.o AIOpponent
-	g++ -std=c++11 -g -Wall main.o Game.o GameBoard.o Point.o Ship.o AIOpponent -o battleship
+battleship: main.o Game.o Point.o Ship.o GameBoard.o AIOpponent.o
+	g++ -std=c++11 -g -Wall main.o Game.o GameBoard.o Point.o Ship.o AIOpponent.o -o battleship
 
 main.o: main.cpp
 	g++ -std=c++11 -g -Wall -c main.cpp
