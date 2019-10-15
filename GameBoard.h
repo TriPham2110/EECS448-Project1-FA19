@@ -15,6 +15,7 @@ class GameBoard{
     int** board;
     int** oppBoard;
     vector<Ship*> ships;
+    int hard_code = 0;
   public:
     GameBoard();
     ~GameBoard();

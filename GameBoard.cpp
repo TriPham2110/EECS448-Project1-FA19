@@ -24,24 +24,30 @@ GameBoard::GameBoard(){
 }
 
 GameBoard::~GameBoard(){
-    for(int i = 0; i < 8; i++){
-        delete board[i];
-        delete oppBoard[i];
+    if(hard_code <2){
+        for(int i = 0; i < 8; i++){
+                std::cout << i<< std::endl;
+                delete board[i];
+                delete oppBoard[i];
+        }
+
+
+        delete[] board;
+        delete[] oppBoard;
+        //board = NULL;
+        //oppBoard= NULL;
+
+        while(!ships.empty()){
+            delete ships.back();
+            ships.back() = NULL;
+            ships.pop_back();
+        }
+
+
+        ships.clear();
+
+        hard_code++;
     }
-
-    delete[] board;
-    delete[] oppBoard;
-    //board = NULL;
-    //oppBoard= NULL;
-
-    while(!ships.empty()){
-        delete ships.back();
-        ships.back() = NULL;
-        ships.pop_back();
-    }
-
-
-    ships.clear();
 
     //ships = NULL;
 }
