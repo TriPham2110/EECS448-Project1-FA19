@@ -1,16 +1,12 @@
 
-  
+
 //import java.util.Scanner;
 #include "Game.h"
 
-    
+
 Game::Game(){
-        
-
-      
-
         int numShips = -1;
-        
+
         std::cout << ("Welcome to Battleship!") << std::endl;
 
         while(numShips > 5 || numShips < 1){
@@ -21,22 +17,22 @@ Game::Game(){
         std::cout << (" ")<< std::endl;;
         std::cout << ("Player 1 please place your ships")<< std::endl;;
         this->placeShips(Player1, numShips);
-    
+
         std::cout << ("Player 1's board...")<< std::endl;
         Player1.printBoard();
 
         std::cout << (" ")<< std::endl;;
         std::cout << ("Player 2 please place your ships")<< std::endl;;
-        placeShips(Player2, numShips);
+        this->placeShips(Player2, numShips);
         std::cout << ("Player 2's board...")<< std::endl;
         Player2.printBoard();
 
-        playGame(Player1, Player2);
+        //playGame(Player1, Player2);
 
 }
 
 Game::~Game(){
-    
+
 }
 
 void Game::placeShips(GameBoard &player, int numShips){
@@ -52,21 +48,21 @@ void Game::placeShips(GameBoard &player, int numShips){
 
             int shipCol = getColumn();
             int shipRow = getRow();
-            
+
             if(!player.canFindPath(shipRow, shipCol, shipLength-j+1) || player.isOccupied(shipRow, shipCol)){
                 j--;
             }
 
             else if(tempShip->inLine(shipRow, shipCol) && !tempShip->containsCoordinate(shipRow, shipCol))
                 tempShip->addCoordinates(shipRow,shipCol);
-            
-            
+
+
         }
 
         player.addShip(tempShip);
-        
+
     }
-    
+
 }
 
 void Game::playGame( GameBoard Player1, GameBoard Player2){
@@ -83,11 +79,11 @@ void Game::playGame( GameBoard Player1, GameBoard Player2){
             col = getColumn();
             row = getRow();
             string fire = Player2.fire(row,col);
-            
+
             if(fire == "Miss"){
                 std::cout << ("Miss")<< std::endl;;
                     Player1.updateOppBoard(row,col,"Miss");
-                    validInput = true;    
+                    validInput = true;
             }
             else if(fire == "Hit"){
                 std::cout << ("Hit!")<< std::endl;;
@@ -118,13 +114,13 @@ void Game::playGame( GameBoard Player1, GameBoard Player2){
         while(!validInput){
             col = getColumn();
             row = getRow();
-            
+
             string fire = Player1.fire(row,col);
-            
+
             if(fire == "Miss"){
                 std::cout << ("Miss")<< std::endl;;
                     Player2.updateOppBoard(row,col,"Miss");
-                    validInput = true;    
+                    validInput = true;
             }
             else if(fire == "Hit"){
                 std::cout << ("Hit!")<< std::endl;;
@@ -165,8 +161,8 @@ int Game::getColumn(){
         std::cout << ("Ship column(A-H): ")<< std::endl;;
         cin >> shipColString;
 
-        
-        
+
+
         if(shipColString == "A"){
             shipCol = 0;
         }
@@ -211,6 +207,3 @@ int Game::getRow(){
     }
     return shipRow;
 }
-
-
-

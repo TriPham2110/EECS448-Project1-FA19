@@ -13,7 +13,7 @@ Ship::~Ship(){
         shipCoordinates.back() = NULL;
         shipCoordinates.pop_back();
     }
-    shipCoordinates.clear();
+    //shipCoordinates.clear();
 }
 
 
@@ -78,6 +78,11 @@ bool Ship::containsCoordinate(int x, int y)
 
             int cordX = (int)shipCoordinates.at(i)->getX();
             int cordY = (int)shipCoordinates.at(i)->getY();
+
+            std::cout << shipCoordinates.size() << "test" << std::endl;
+
+
+
             if(cordX == x && cordY == y)
             {
 

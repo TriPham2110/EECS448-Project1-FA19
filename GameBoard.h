@@ -12,8 +12,8 @@ using namespace std;
 class GameBoard{
   private:
     int boardSize;
-    int** board;
-    int** oppBoard;
+    int** board = nullptr;
+    int** oppBoard = nullptr;
     vector<Ship*> ships;
     int hard_code = 0;
   public:
