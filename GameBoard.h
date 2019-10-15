@@ -5,6 +5,8 @@
 #include <string>
 #include <vector>
 
+#include "Ship.h"
+
 using namespace std;
 
 class GameBoard{
@@ -13,7 +15,7 @@ class GameBoard{
     int** board;
     int** oppBoard;
     int numOfShips;
-    vector<Ship> ships = new vector<Ship>(numOfShips);
+    vector<Ship> ships;
   public:
     GameBoard();
     ~GameBoard();

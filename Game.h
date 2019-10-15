@@ -15,10 +15,10 @@ class Game {
     GameBoard Player1;
     GameBoard Player2;
     
-    placeShips(GameBoard player, int numShips);
-    playGame(GameBoard Player1, GameBoard Player2);
-    getColumn();
-    getRow();
+    void placeShips(GameBoard player, int numShips);
+    void playGame(GameBoard Player1, GameBoard Player2);
+    int getColumn();
+    int getRow();
     
     
     
