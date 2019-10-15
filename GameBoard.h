@@ -26,5 +26,6 @@ class GameBoard{
     void updateOppBoard(int x, int y, string outcome);
     void printBoard();
     void printOppBoard();
+    GameBoard& operator=(const GameBoard &a);
 };
 #endif

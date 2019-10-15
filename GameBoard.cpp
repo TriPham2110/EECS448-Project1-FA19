@@ -8,20 +8,11 @@ GameBoard::GameBoard(){
     for(int rep = 0; rep<8; rep++){
         board[rep] = new int[8];
     }
-    
+
     oppBoard = new int*[8];
     for(int rep = 0; rep<8; rep++){
         oppBoard[rep] = new int[8];
     }
-    
-    for(int i = 0; i < 8; i++){
-        for(int j = 0; j < 8; j++){
-        board[i][j] = 0;
-        oppBoard[i][j] = 0;
-        }
-    }
-    
-    
 }
 
 GameBoard::~GameBoard(){
@@ -99,13 +90,12 @@ void GameBoard::updateOppBoard(int x, int y, string outcome){
 }
 
 void GameBoard::printBoard(){
-  cout << " A B C D E F G H\n ";
+  cout << " A B C D E F G H\n";
   for(int i = 0; i < boardSize; i++){
-    
+    cout << (i + 1) << " \n";
     for(int j = 0; j < boardSize; j++){
-      cout << board[i][j] << " ";
+      cout << board[i][j] << " \n";
     }
-      cout << (i + 1) << " \n";
     cout << " ";
   }
 }
@@ -120,4 +110,11 @@ void GameBoard::printOppBoard(){
       cout << (i + 1) << " \n";
     cout << " ";
   }
+}
+
+GameBoard& GameBoard::operator=(const GameBoard &a)
+{
+    boardSize = a.boardSize; board = a.board; oppBoard = a.oppBoard, ships = a.ships;
+
+    return *this;  // Return a reference to myself.
 }
