@@ -20,10 +20,10 @@ GameBoard::~GameBoard(){
 void GameBoard::addShip(Ship newShip){
   vector<Ship> shipCords = newShip.getShipCoordinates();
 
-  for(int x = 0; x < 8; x++){
-    for(int y = 0; y < 8; y++){
-      board[x][y] = 1;
-    }
+  for(int i = 0; i < shipCords.size(); i++){
+    int x = (int)shipCords.at(i).getX();
+    int y = (int)shipCords.at(i).getY();
+    board[x][y] = 1;
   }
   ships.insert(newShip);
 }
@@ -38,7 +38,7 @@ string GameBoard::fire(int x, int y){
   }
 
   else if(board[x][y] == 1){
-    for(int i = 1; i <= numOfShips; i++){
+    for(int i = 1; i <= ships.size(); i++){
       if(ship.containsCoordinate(x,y)){
         ship.hit(x,y);
         if(ship.isDestroyed()){
@@ -56,7 +56,7 @@ int** GameBoard::getBoard(){
 }
 
 bool GameBoard::gameOver(){
-  for(int i = 1; i <= numOfShips; i++){
+  for(int i = 1; i <= ships.size(); i++){
     if(!ship.isDestroyed()){
       return false;
     }
