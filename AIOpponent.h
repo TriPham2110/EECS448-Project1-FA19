@@ -11,20 +11,20 @@ using namespace std;
 class AIOpponent{
 
 private:
-	int numShips;
+
 	GameBoard AIBoard;
+	int mediumTurnFlag;
+	int xRandomValue,yRandomValue;
 		
 
 public:
-	AIOpponent(GameBoard AIBoard);
+	AIOpponent(GameBoard& AIBoardPass);
 
-	int getNumShips();
+	void easyTurn();
 
-	void easy();
+	void mediumTurn();
 
-	void medium();
-
-	void hard();
+	void hardTurn();
 
 };
 
