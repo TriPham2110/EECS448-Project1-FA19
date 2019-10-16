@@ -30,28 +30,28 @@ void AIOpponent::mediumTurn(){
 	}
 
 	if(mediumTurnFlag == 1){
-		if(xRandomValue > 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= 7){
+		if(xRandomValue > 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue] == 0){
 			string temp = AIBoard.fire(xRandomValue-1, yRandomValue);
 			AIBoard.updateOppBoard(xRandomValue-1, yRandomValue, temp);
 
 			if(temp == "Sunk")
 				mediumTurnFlag = 0;
 		}
-		else if(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue < 7){
+		else if(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue < 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue] == 0){
 			string temp = AIBoard.fire(xRandomValue, yRandomValue+1);
 			AIBoard.updateOppBoard(xRandomValue, yRandomValue+1, temp);
 
 			if(temp == "Sunk")
 				mediumTurnFlag = 0;
 		}
-		else if(xRandomValue >= 0 && xRandomValue < 7 && yRandomValue >= 0 && yRandomValue <= 7){
+		else if(xRandomValue >= 0 && xRandomValue < 7 && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue] == 0){
 			string temp = AIBoard.fire(xRandomValue+1, yRandomValue);
 			AIBoard.updateOppBoard(xRandomValue+1, yRandomValue, temp);
 
 			if(temp == "Sunk")
 				mediumTurnFlag = 0;
 		}
-		else if(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue > 0 && yRandomValue <= 7){
+		else if(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue > 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue] == 0){
 			string temp = AIBoard.fire(xRandomValue, yRandomValue-1);
 			AIBoard.updateOppBoard(xRandomValue, yRandomValue-1, temp);
 
