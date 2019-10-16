@@ -19,6 +19,7 @@ void AIOpponent::easyTurn(){
 }
 
 void AIOpponent::mediumTurn(){
+string tempTemp;
 	std::cout << "mediumFlag: " << mediumTurnFlag << std::endl;
 	if(mediumTurnFlag == 0){
 		do{
@@ -29,35 +30,50 @@ void AIOpponent::mediumTurn(){
 			yRandomValue = yRandom;
 		} while(AIBoard.getOppBoard()[xRandomValue][yRandomValue] != 0);
 		string temp = Player.fire(xRandomValue, yRandomValue);
+		tempTemp = temp;
 		AIBoard.updateOppBoard(xRandomValue, yRandomValue, temp);
 		if(temp == "Hit") mediumTurnFlag = 1;
 	}
 
-	else if(mediumTurnFlag == 1){
-		if(xRandomValue > 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue] == 0){
-			string temp = Player.fire(xRandomValue-1, yRandomValue);
-			AIBoard.updateOppBoard(xRandomValue-1, yRandomValue, temp);
+	else if(mediumTurnFlag != 0){
+		if(xRandomValue >= (0 + mediumTurnFlag) && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue-mediumTurnFlag][yRandomValue] == 0){
+			string temp = Player.fire(xRandomValue-mediumTurnFlag, yRandomValue);
+			tempTemp = temp;
+			AIBoard.updateOppBoard(xRandomValue-mediumTurnFlag, yRandomValue, temp);
 
 			if(temp == "Sunk")
 				mediumTurnFlag = 0;
 		}
-		else if(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue < 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue] == 0){
-			string temp = Player.fire(xRandomValue, yRandomValue+1);
-			AIBoard.updateOppBoard(xRandomValue, yRandomValue+1, temp);
+		else if(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= (7 - mediumTurnFlag) && AIBoard.getOppBoard()[xRandomValue][yRandomValue+mediumTurnFlag] == 0){
+			string temp = Player.fire(xRandomValue, yRandomValue+mediumTurnFlag);
+			tempTemp = temp;
+			AIBoard.updateOppBoard(xRandomValue, yRandomValue+mediumTurnFlag, temp);
+
+			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0) 				&& !(xRandomValue >= 0 && xRandomValue <= (7- mediumTurnFlag) && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue+mediumTurnFlag][yRandomValue] == 0)){
+			mediumTurnFlag++;
+			}
 
 			if(temp == "Sunk")
 				mediumTurnFlag = 0;
 		}
-		else if(xRandomValue >= 0 && xRandomValue < 7 && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue] == 0){
-			string temp = Player.fire(xRandomValue+1, yRandomValue);
-			AIBoard.updateOppBoard(xRandomValue+1, yRandomValue, temp);
+		else if(xRandomValue >= 0 && xRandomValue <= (7- mediumTurnFlag) && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue+mediumTurnFlag][yRandomValue] == 0){
+			string temp = Player.fire(xRandomValue+mediumTurnFlag, yRandomValue);
+			tempTemp = temp;
+			AIBoard.updateOppBoard(xRandomValue+mediumTurnFlag, yRandomValue, temp);
+
+			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0)){
+			mediumTurnFlag++;
+			}
 
 			if(temp == "Sunk")
 				mediumTurnFlag = 0;
 		}
-		else if(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue > 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue] == 0){
-			string temp = Player.fire(xRandomValue, yRandomValue-1);
-			AIBoard.updateOppBoard(xRandomValue, yRandomValue-1, temp);
+		else if(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0){
+			string temp = Player.fire(xRandomValue, yRandomValue-mediumTurnFlag);
+			tempTemp = temp;
+			AIBoard.updateOppBoard(xRandomValue, yRandomValue-mediumTurnFlag, temp);
+		
+			mediumTurnFlag++;
 
 			if(temp == "Sunk")
 				mediumTurnFlag = 0;
