@@ -11,8 +11,8 @@ Game::Game(){
         std::cout << ("Welcome to Battleship!") << std::endl;
         std::cout<<("How many players would you like to have (Press 1 or 2)?")<<std::endl;
         std::cin>>choice;
-        
-        
+
+
         if (choice == 1)
         {
               int difficulty = -1;
@@ -36,9 +36,9 @@ Game::Game(){
               placeShips(Player1, numShips);
               std::cout << ("Your board...")<< std::endl;
               Player1.printBoard();
-
               placeShipsAI(AI, numShips);
               playAI(Player1, AI, difficulty);
+
         }
         else if (choice == 2)
         {
@@ -46,7 +46,7 @@ Game::Game(){
                   std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
                   cin >> numShips;
               }
-                
+
               system("clear");
 
               std::cout << (" ")<< std::endl;;
@@ -209,7 +209,7 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
         while(!validInput){
             col = getColumn();
             row = getRow();
-            string fire = Player2.fire(row,col);
+            string fire = AI.fire(row,col);
 
             if(fire == "Miss"){
                 std::cout << ("Miss") << std::endl;
