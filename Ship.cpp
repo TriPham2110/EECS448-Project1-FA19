@@ -27,31 +27,27 @@ void Ship::addCoordinates(int x, int y)
 {
 
     shipCoordinates.push_back(new Point(x,y));
-    std::cout << shipCoordinates.size() << "size" << std::endl;
 }
 
 
-bool Ship::inLine(int newX, int newY)
-{
-  if(shipCoordinates.size() == 0)
-  {
-    return true;
-  }
-    for(Point *shipPiece : shipCoordinates)
-    {
-      int x = (int)shipPiece->getX();
-      int y = (int)shipPiece->getY();
-      if(newX == x && (newY == y + 1 || newY == y - 1))
-      {
+bool Ship::inLine(int newX, int newY, bool vert){
+    
+    if(shipCoordinates.size() == 0){
         return true;
-      }
-      else if(newY == y && (newX == x + 1 || newX == x - 1))
-      {
-        return true;
-      }
+    }
+    
+    for(Point *shipPiece : shipCoordinates){
+        int x = (int)shipPiece->getX();
+        int y = (int)shipPiece->getY();
+        if(newX == x && (newY == y + 1 || newY == y - 1) && (!vert || shipCoordinates.size() == 1)){
+            return true;
+        }
+        else if(newY == y && (newX == x + 1 || newX == x - 1) && (vert || shipCoordinates.size() == 1)){
+            return true;
+        }
 
     }
-       return false;
+   return false;
 }
 
 

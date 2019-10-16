@@ -14,7 +14,7 @@ public:
     ~Ship();
     std::vector<Point*> getShipCoordinates();
     void addCoordinates (int x, int y);
-    bool inLine (int newX, int newY);
+    bool inLine (int newX, int newY, bool vert);
     void hit(int x, int y);
     bool containsCoordinate(int x, int y);
     bool isDestroyed();

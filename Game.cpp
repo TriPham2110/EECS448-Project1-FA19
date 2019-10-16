@@ -39,22 +39,55 @@ void Game::placeShips(GameBoard &player, int numShips){
     for(int i = 1; i <= numShips; i++){
         int shipLength = i;
         Ship* tempShip = new Ship(shipLength);
+        bool vert = false;
 
         player.printBoard();
+        
+        int shipCol;
+        int shipRow;
+        int path = 3;
 
         for(int j = 1; j <= shipLength; j++){
-            std::cout << (" ")<< std::endl;;
-            std::cout << "Please place piece " << j << " of " << shipLength<< std::endl;;
+            std::cout << (" ")<< std::endl;
+            std::cout << "Please place piece " << j << " of " << shipLength<< std::endl;
+            
 
-            int shipCol = getColumn();
-            int shipRow = getRow();
-
-            if(!player.canFindPath(shipRow, shipCol, shipLength-j+1) || player.isOccupied(shipRow, shipCol)){
+            shipCol = getColumn();
+            shipRow = getRow();
+            
+            if(j==2)
+            {
+                if(tempShip->getShipCoordinates().at(0)->getY() != shipCol){
+                    vert = false;
+                    
+                }
+                else
+                    vert = true;
+                
+                std::cout << vert << " vert" << std::endl;
+            }
+            
+            if( j == 1 && shipLength > 1 ){
+                path = player.canFindPath(shipRow, shipCol, shipLength);
+                if(path == 0){
+                    j--;
+                }
+                else{
+                    tempShip->addCoordinates(shipRow, shipCol);
+                }
+            }
+            else if(player.isOccupied(shipRow, shipCol) || !tempShip->inLine(shipRow, shipCol, vert) || tempShip->containsCoordinate(shipRow, shipCol) || ((((path == 1 ) && vert) || ((path == 2 ) && !vert)))){
+                
                 j--;
             }
 
-            else if(tempShip->inLine(shipRow, shipCol) && !tempShip->containsCoordinate(shipRow, shipCol))
-                tempShip->addCoordinates(shipRow,shipCol);
+            else 
+                tempShip->addCoordinates(shipRow, shipCol);
+            
+            std::cout << "cookie " << j <<std::endl;
+            //checking on 2nd piece placement if the ship
+            //is vertical or horizontal
+            
 
 
         }

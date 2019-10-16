@@ -15,6 +15,8 @@ class GameBoard{
     int** board;
     int** oppBoard;
     vector<Ship*> ships;
+    int numInLineX(int x, int y, int dir);
+    int numInLineY(int x, int y, int dir);
   public:
     GameBoard();
     ~GameBoard();
@@ -23,7 +25,7 @@ class GameBoard{
     int** getBoard();
     int** getOppBoard();
     bool gameOver();
-    bool canFindPath(int x, int y, int shipLength);
+    int canFindPath(int x, int y, int shipLength);
     bool isOccupied(int x, int y);
     void updateOppBoard(int x, int y, string outcome);
     void updateMyBoard(int x, int y, string outcome);

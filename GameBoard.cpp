@@ -92,28 +92,50 @@ bool GameBoard::gameOver(){
   return true;
 }
 
-bool GameBoard::canFindPath(int x, int y, int shipLength){
+int GameBoard::canFindPath(int x, int y, int shipLength){
     //recursively try to find 1 straight path of shipLength
-    //else return false
+    //3 = both horizontal and vertical have paths
+    //2 = only vertical has path(s)
+    //1 = only horizontal has path(s)
+    //0 = no paths
+    bool horz = (shipLength <= numInLineX(x,y, 0)); 
+    bool vert = (shipLength <= numInLineY(x,y, 0));
 
-    if(shipLength == 0 && board[x][y] != 1)
-        return true;
-    else {
-        if(x+1 < 7 && board[x+1][y] != 1)
-            return canFindPath(x+1, y, shipLength -1);
-        if(y+1<7 && board[x][y+1] != 1)
-            return canFindPath(x, y+1, shipLength -1);
-        if(x-1 > 0 && board[x-1][y] != 1)
-            return canFindPath(x-1, y, shipLength -1);
-         if(y-1 > 0 && board[x][y-1] != 1)
-             return canFindPath(x, y-1, shipLength -1);
-    }
-    return false;
-
+    if(horz && vert)
+        return 3;
+    else if(vert)
+        return 2;
+    else if (horz)
+        return 1;
+    else
+        return 0;
 
 }
 
+int GameBoard::numInLineX(int x, int y, int dir){
+    if(x > 7 || x < 0  || board[x][y] == 1){
+        return 0;
+    }
+    else if (dir == 0 )
+        return 1 + numInLineX(x + 1, y , 1) + numInLineX(x - 1, y , -1);
+    else
+        return 1 + numInLineX(x+ dir, y, dir);
+        
+}
+
+int GameBoard::numInLineY(int x, int y, int dir){
+    if(y > 7 || y < 0  || board[x][y] == 1){
+        return 0;
+    }
+    else if (dir == 0 )
+        return 1 + numInLineY(x , y +1, 1) + numInLineY(x, y - 1 , -1);
+    else
+        return 1 + numInLineY(x, y + dir, dir);
+        
+}
+
 bool GameBoard::isOccupied(int x, int y){
+    
     return board[x][y] == 1;
 }
 
