@@ -5,6 +5,7 @@
 
 
 Game::Game(){
+        srand(time(NULL));
         int numShips = -1;
         int choice;
         std::cout << ("Welcome to Battleship!") << std::endl;
@@ -12,39 +13,51 @@ Game::Game(){
         std::cin>>choice;
         if (choice == 1)
         {
-          while(numShips > 5 || numShips < 1){
-              std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
-              cin >> numShips;
-          }
-          std::cout << (" ")<< std::endl;;
-          std::cout << ("Player 1 please place your ships")<< std::endl;;
-          this->placeShips(Player1, numShips);
-          std::cout << ("Player 1's board...")<< std::endl;
-          Player1.printBoard();
-          //do AI stuff here
-          playGame(Player1, AI);
+              int difficulty = -1;
+
+              while(difficulty > 3 || difficulty < 0){
+                  std::cout << "Please select a difficulty" << std::endl;
+                  std::cout << "0 - Easy" << std::endl;
+                  std::cout << "1 - Medium" << std::endl;
+                  std::cout << "2 - Hard" << std::endl;
+                  std::cout << "I choose you!: ";
+                  std::cin >> difficulty;
+              }
+
+              while(numShips > 5 || numShips < 1){
+                  std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
+                  cin >> numShips;
+              }
+              std::cout << (" ")<< std::endl;;
+              std::cout << ("Player 1 please place your ships")<< std::endl;;
+              placeShips(Player1, numShips);
+              std::cout << ("Player 1's board...")<< std::endl;
+              Player1.printBoard();
+
+              placeShipsAI(AI, numShips);
+              playAI(Player1, AI, difficulty);
         }
         else if (choice == 2)
         {
-          while(numShips > 5 || numShips < 1){
-              std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
-              cin >> numShips;
-          }
+              while(numShips > 5 || numShips < 1){
+                  std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
+                  cin >> numShips;
+              }
 
-          std::cout << (" ")<< std::endl;;
-          std::cout << ("Player 1 please place your ships")<< std::endl;;
-          this->placeShips(Player1, numShips);
+              std::cout << (" ")<< std::endl;;
+              std::cout << ("Player 1 please place your ships")<< std::endl;;
+              this->placeShips(Player1, numShips);
 
-          std::cout << ("Player 1's board...")<< std::endl;
-          Player1.printBoard();
+              std::cout << ("Player 1's board...")<< std::endl;
+              Player1.printBoard();
 
-          std::cout << (" ")<< std::endl;;
-          std::cout << ("Player 2 please place your ships")<< std::endl;;
-          this->placeShips(Player2, numShips);
-          std::cout << ("Player 2's board...")<< std::endl;
-          Player2.printBoard();
+              std::cout << (" ")<< std::endl;;
+              std::cout << ("Player 2 please place your ships")<< std::endl;;
+              this->placeShips(Player2, numShips);
+              std::cout << ("Player 2's board...")<< std::endl;
+              Player2.printBoard();
 
-          playGame(Player1, Player2);
+              playGame(Player1, Player2);
          }
 
 }
@@ -81,8 +94,6 @@ void Game::placeShips(GameBoard &player, int numShips){
                 }
                 else
                     vert = true;
-
-                std::cout << vert << " vert" << std::endl;
             }
 
             if( j == 1 && shipLength > 1 ){
@@ -101,8 +112,6 @@ void Game::placeShips(GameBoard &player, int numShips){
 
             else
                 tempShip->addCoordinates(shipRow, shipCol);
-
-            std::cout << "cookie " << j <<std::endl;
             //checking on 2nd piece placement if the ship
             //is vertical or horizontal
 
@@ -111,20 +120,137 @@ void Game::placeShips(GameBoard &player, int numShips){
         }
 
         player.addShip(tempShip);
-
     }
 
 }
 
 void Game::placeShipsAI(GameBoard& AI, int numShips)
 {
+    std::cout << std::endl;
+    for(int i = 1; i <= numShips; i++){
+        int shipLength = i;
+        bool placed = false;
 
+        while(!placed){
+            // right = 0
+            // down = 1
+            int orientation = rand() % 2;
+            int xRandom = 0;
+            int yRandom = 0;
 
+            if(orientation == 0){
+                xRandom = rand() % (8 - shipLength);
+                yRandom = rand() % 8;
+            }
+            else if(orientation == 1){
+                xRandom = rand() % 8;
+                yRandom = rand() % (8 - shipLength);
+            }
+
+            if(orientation == 0){
+                bool isValid = true;
+                Ship* tempShip = new Ship(shipLength);
+
+                for(int j = 0; j < shipLength; j++){
+                    if(AI.isOccupied(yRandom, xRandom+j))
+                        isValid = false;
+                    else
+                        tempShip->addCoordinates(yRandom,xRandom+j);
+                }
+
+                if(isValid){
+                    AI.addShip(tempShip);
+                    placed = true;
+                }
+                else
+                    delete tempShip;
+            }
+            else if(orientation == 1){
+                bool isValid = true;
+                Ship* tempShip = new Ship(shipLength);
+
+                for(int j = 0; j < shipLength; j++){
+                    if(AI.isOccupied(yRandom+j, xRandom))
+                        isValid = false;
+                    else
+                        tempShip->addCoordinates(yRandom+j,xRandom);
+                }
+
+                if(isValid){
+                    AI.addShip(tempShip);
+                    placed = true;
+                }
+                else
+                    delete tempShip;
+            }
+        }
+    }
 }
 
-void Game::playAI(GameBoard& Player1, GameBoard& ai)
+void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
 {
+    AIOpponent AIPlayer = AIOpponent(Player1, AI);
 
+    while(!Player1.gameOver() && !AI.gameOver()){
+        int row, col;
+        bool validInput = false;
+
+        std::cout << ("")<< std::endl;;
+        std::cout << ("Player 1 please fire")<< std::endl;
+
+        Player1.printOppBoard();
+
+        validInput = false;
+        while(!validInput){
+            col = getColumn();
+            row = getRow();
+            string fire = Player2.fire(row,col);
+
+            if(fire == "Miss"){
+                std::cout << ("Miss") << std::endl;
+                    Player1.updateOppBoard(row,col,"Miss");
+                    validInput = true;
+            }
+            else if(fire == "Hit"){
+                std::cout << ("Hit!") << std::endl;
+                Player1.updateOppBoard(row,col,"Hit");
+                validInput = true;
+            }
+            else if(fire == "Sunk"){
+                std::cout << ("Sunk!") << std::endl;
+                Player1.updateOppBoard(row,col,"Hit");
+                validInput = true;
+            }
+            else if(fire == "Error Bounds"){
+                 std::cout << ("Out of bounds")<< std::endl;
+            }
+            else {
+                std::cout << ("IDK what happened")<< std::endl;
+            }
+        }
+
+        if(AI.gameOver())
+            break;
+
+        // player 2 turn
+        if(difficulty == 0)
+            AIPlayer.easyTurn();
+        else if(difficulty == 1)
+            AIPlayer.mediumTurn();
+        else if(difficulty == 2)
+            AIPlayer.hardTurn();
+
+        AI.printOppBoard();
+
+        if(Player1.gameOver())
+            break;
+    }
+
+    if(Player1.gameOver())
+        std::cout << ("Sorry Player 1, you lost") << std::endl;
+
+    if(Player2.gameOver())
+        std::cout << ("Congrats Player 1, you won") << std::endl;
 }
 
 void Game::playGame( GameBoard& Player1, GameBoard& Player2){

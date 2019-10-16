@@ -31,11 +31,11 @@ void Ship::addCoordinates(int x, int y)
 
 
 bool Ship::inLine(int newX, int newY, bool vert){
-    
+
     if(shipCoordinates.size() == 0){
         return true;
     }
-    
+
     for(Point *shipPiece : shipCoordinates){
         int x = (int)shipPiece->getX();
         int y = (int)shipPiece->getY();
@@ -74,9 +74,6 @@ bool Ship::containsCoordinate(int x, int y)
 
             int cordX = (int)shipCoordinates.at(i)->getX();
             int cordY = (int)shipCoordinates.at(i)->getY();
-
-            std::cout << shipCoordinates.size() << "test" << std::endl;
-
 
 
             if(cordX == x && cordY == y)

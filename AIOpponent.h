@@ -13,12 +13,13 @@ class AIOpponent{
 private:
 
 	GameBoard AIBoard;
+	GameBoard Player;
 	int mediumTurnFlag;
 	int xRandomValue,yRandomValue;
-		
+
 
 public:
-	AIOpponent(GameBoard& AIBoardPass);
+	AIOpponent(GameBoard& Player1, GameBoard& AIBoardPass);
 
 	void easyTurn();
 
@@ -27,7 +28,3 @@ public:
 	void hardTurn();
 
 };
-
-
-
-
