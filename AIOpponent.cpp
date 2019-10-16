@@ -88,7 +88,8 @@ string tempTemp;
 void AIOpponent::hardTurn(){
 	for(int x = 0; x < 8; x++){
 		for(int y = 0; y < 8; y++){
-			if(AIBoard.getBoard()[x][y] == 1){
+			if(Player.getBoard()[x][y] == 1 && AIBoard.getOppBoard()[x][y] != 2){
+				std::cout << x << " " << y <<std::endl;
 				AIBoard.updateOppBoard(x, y, Player.fire(x, y));
 				return;
 			}

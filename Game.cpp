@@ -17,7 +17,7 @@ Game::Game(){
         {
               int difficulty = -1;
 
-              while(difficulty > 3 || difficulty < 0){
+              while(difficulty > 2 || difficulty < 0){
                   std::cout << "Please select a difficulty" << std::endl;
                   std::cout << "0 - Easy" << std::endl;
                   std::cout << "1 - Medium" << std::endl;
