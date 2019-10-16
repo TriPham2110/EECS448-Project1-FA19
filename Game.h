@@ -5,6 +5,7 @@
 #include "GameBoard.h"
 #include "AIOpponent.h"
 #include <cstdlib>
+#include <time.h>
 
 
 class Game {
