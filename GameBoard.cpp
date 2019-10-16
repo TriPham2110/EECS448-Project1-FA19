@@ -98,8 +98,8 @@ int GameBoard::canFindPath(int x, int y, int shipLength){
     //2 = only vertical has path(s)
     //1 = only horizontal has path(s)
     //0 = no paths
-    bool horz = (shipLength <= numInLineX(x,y, 0)); 
-    bool vert = (shipLength <= numInLineY(x,y, 0));
+    bool vert = (shipLength <= numInLineX(x,y, 0)); 
+    bool horz = (shipLength <= numInLineY(x,y, 0));
 
     if(horz && vert)
         return 3;

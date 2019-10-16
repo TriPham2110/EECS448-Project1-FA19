@@ -33,30 +33,48 @@ void AIOpponent::mediumTurn(){
 		if(temp == "Hit") mediumTurnFlag = 1;
 	}
 
+<<<<<<< HEAD
 	else if(mediumTurnFlag == 1){
 		if(xRandomValue > 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue] == 0){
 			string temp = Player.fire(xRandomValue-1, yRandomValue);
+=======
+	if(mediumTurnFlag == 1){
+		if(xRandomValue > 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue] == 0){
+			string temp = AIBoard.fire(xRandomValue-1, yRandomValue);
+>>>>>>> be2e77ccc80791046cc7a34171b0cf43748b1206
 			AIBoard.updateOppBoard(xRandomValue-1, yRandomValue, temp);
 
 			if(temp == "Sunk")
 				mediumTurnFlag = 0;
 		}
 		else if(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue < 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue] == 0){
+<<<<<<< HEAD
 			string temp = Player.fire(xRandomValue, yRandomValue+1);
+=======
+			string temp = AIBoard.fire(xRandomValue, yRandomValue+1);
+>>>>>>> be2e77ccc80791046cc7a34171b0cf43748b1206
 			AIBoard.updateOppBoard(xRandomValue, yRandomValue+1, temp);
 
 			if(temp == "Sunk")
 				mediumTurnFlag = 0;
 		}
 		else if(xRandomValue >= 0 && xRandomValue < 7 && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue] == 0){
+<<<<<<< HEAD
 			string temp = Player.fire(xRandomValue+1, yRandomValue);
+=======
+			string temp = AIBoard.fire(xRandomValue+1, yRandomValue);
+>>>>>>> be2e77ccc80791046cc7a34171b0cf43748b1206
 			AIBoard.updateOppBoard(xRandomValue+1, yRandomValue, temp);
 
 			if(temp == "Sunk")
 				mediumTurnFlag = 0;
 		}
 		else if(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue > 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue] == 0){
+<<<<<<< HEAD
 			string temp = Player.fire(xRandomValue, yRandomValue-1);
+=======
+			string temp = AIBoard.fire(xRandomValue, yRandomValue-1);
+>>>>>>> be2e77ccc80791046cc7a34171b0cf43748b1206
 			AIBoard.updateOppBoard(xRandomValue, yRandomValue-1, temp);
 
 			if(temp == "Sunk")
