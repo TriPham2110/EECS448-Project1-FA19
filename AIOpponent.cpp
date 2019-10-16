@@ -41,6 +41,10 @@ string tempTemp;
 			tempTemp = temp;
 			AIBoard.updateOppBoard(xRandomValue-mediumTurnFlag, yRandomValue, temp);
 
+			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0) 				&& !(xRandomValue >= 0 && xRandomValue <= (7- mediumTurnFlag) && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue+mediumTurnFlag][yRandomValue] == 0) 				&& !(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= (7 - mediumTurnFlag) && AIBoard.getOppBoard()[xRandomValue][yRandomValue+mediumTurnFlag] == 0)){
+			mediumTurnFlag++;
+			}
+
 			if(temp == "Sunk")
 				mediumTurnFlag = 0;
 		}
@@ -82,10 +86,10 @@ string tempTemp;
 }
 
 void AIOpponent::hardTurn(){
-	for(int x = 0; x < 7; x++){
-		for(int y = 0; y < 7; y++){
+	for(int x = 0; x < 8; x++){
+		for(int y = 0; y < 8; y++){
 			if(AIBoard.getBoard()[x][y] == 1){
-				AIBoard.updateMyBoard(x, y, Player.fire(x, y));
+				AIBoard.updateOppBoard(x, y, Player.fire(x, y));
 				return;
 			}
 		}
