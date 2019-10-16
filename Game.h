@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "GameBoard.h"
+#include <cstdlib>
 
 
 class Game {
@@ -15,9 +16,12 @@ class Game {
 
     GameBoard Player1;
     GameBoard Player2;
+    GameBoard AI;
 
     void placeShips(GameBoard& player, int numShips);
     void playGame(GameBoard& Player1, GameBoard& Player2);
+    void placeShipsAI(GameBoard& AI, int numShips);
+    void playAI(GameBoard& Player1, GameBoard& AI);
     int getColumn();
     int getRow();
 

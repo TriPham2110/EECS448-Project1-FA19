@@ -6,28 +6,46 @@
 
 Game::Game(){
         int numShips = -1;
-
+        int choice;
         std::cout << ("Welcome to Battleship!") << std::endl;
-
-        while(numShips > 5 || numShips < 1){
-            std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
-            cin >> numShips;
+        std::cout<<("How many players would you like to have (Press 1 or 2)?")<<std::endl;
+        std::cin>>choice;
+        if (choice == 1)
+        {
+          while(numShips > 5 || numShips < 1){
+              std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
+              cin >> numShips;
+          }
+          std::cout << (" ")<< std::endl;;
+          std::cout << ("Player 1 please place your ships")<< std::endl;;
+          this->placeShips(Player1, numShips);
+          std::cout << ("Player 1's board...")<< std::endl;
+          Player1.printBoard();
+          //do AI stuff here
+          playGame(Player1, AI);
         }
+        else if (choice == 2)
+        {
+          while(numShips > 5 || numShips < 1){
+              std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
+              cin >> numShips;
+          }
 
-        std::cout << (" ")<< std::endl;;
-        std::cout << ("Player 1 please place your ships")<< std::endl;;
-        this->placeShips(Player1, numShips);
+          std::cout << (" ")<< std::endl;;
+          std::cout << ("Player 1 please place your ships")<< std::endl;;
+          this->placeShips(Player1, numShips);
 
-        std::cout << ("Player 1's board...")<< std::endl;
-        Player1.printBoard();
+          std::cout << ("Player 1's board...")<< std::endl;
+          Player1.printBoard();
 
-        std::cout << (" ")<< std::endl;;
-        std::cout << ("Player 2 please place your ships")<< std::endl;;
-        this->placeShips(Player2, numShips);
-        std::cout << ("Player 2's board...")<< std::endl;
-        Player2.printBoard();
+          std::cout << (" ")<< std::endl;;
+          std::cout << ("Player 2 please place your ships")<< std::endl;;
+          this->placeShips(Player2, numShips);
+          std::cout << ("Player 2's board...")<< std::endl;
+          Player2.printBoard();
 
-        playGame(Player1, Player2);
+          playGame(Player1, Player2);
+         }
 
 }
 
@@ -42,7 +60,7 @@ void Game::placeShips(GameBoard &player, int numShips){
         bool vert = false;
 
         player.printBoard();
-        
+
         int shipCol;
         int shipRow;
         int path = 3;
@@ -50,23 +68,23 @@ void Game::placeShips(GameBoard &player, int numShips){
         for(int j = 1; j <= shipLength; j++){
             std::cout << (" ")<< std::endl;
             std::cout << "Please place piece " << j << " of " << shipLength<< std::endl;
-            
+
 
             shipCol = getColumn();
             shipRow = getRow();
-            
+
             if(j==2)
             {
                 if(tempShip->getShipCoordinates().at(0)->getY() != shipCol){
                     vert = false;
-                    
+
                 }
                 else
                     vert = true;
-                
+
                 std::cout << vert << " vert" << std::endl;
             }
-            
+
             if( j == 1 && shipLength > 1 ){
                 path = player.canFindPath(shipRow, shipCol, shipLength);
                 if(path == 0){
@@ -77,17 +95,17 @@ void Game::placeShips(GameBoard &player, int numShips){
                 }
             }
             else if(player.isOccupied(shipRow, shipCol) || !tempShip->inLine(shipRow, shipCol, vert) || tempShip->containsCoordinate(shipRow, shipCol) || ((((path == 1 ) && vert) || ((path == 2 ) && !vert)))){
-                
+
                 j--;
             }
 
-            else 
+            else
                 tempShip->addCoordinates(shipRow, shipCol);
-            
+
             std::cout << "cookie " << j <<std::endl;
             //checking on 2nd piece placement if the ship
             //is vertical or horizontal
-            
+
 
 
         }
@@ -95,6 +113,17 @@ void Game::placeShips(GameBoard &player, int numShips){
         player.addShip(tempShip);
 
     }
+
+}
+
+void Game::placeShipsAI(GameBoard& AI, int numShips)
+{
+
+
+}
+
+void Game::playAI(GameBoard& Player1, GameBoard& ai)
+{
 
 }
 
