@@ -2,3 +2,5 @@ Works Cited:
 
 1:      http://web.stanford.edu/class/archive/cs/cs106b/cs106b.1132/materials/cppdoc/point.html
 2:      http://www.hellgeeks.com/arraylist-in-c-with-examples/
+3:      http://patorjk.com/software/taag/
+4:      https://stackoverflow.com/questions/9158150/colored-output-in-c
