@@ -253,8 +253,7 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
 
     if(Player1.gameOver())
         std::cout << ("Sorry Player 1, you lost") << std::endl;
-
-    if(Player2.gameOver())
+    else
         std::cout << ("Congrats Player 1, you won") << std::endl;
 }
 
