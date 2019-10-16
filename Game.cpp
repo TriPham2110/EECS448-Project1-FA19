@@ -11,6 +11,8 @@ Game::Game(){
         std::cout << ("Welcome to Battleship!") << std::endl;
         std::cout<<("How many players would you like to have (Press 1 or 2)?")<<std::endl;
         std::cin>>choice;
+        
+        
         if (choice == 1)
         {
               int difficulty = -1;
@@ -28,10 +30,11 @@ Game::Game(){
                   std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
                   cin >> numShips;
               }
+            system("clear");
               std::cout << (" ")<< std::endl;;
-              std::cout << ("Player 1 please place your ships")<< std::endl;;
+              std::cout << ("Please place your ships")<< std::endl;;
               placeShips(Player1, numShips);
-              std::cout << ("Player 1's board...")<< std::endl;
+              std::cout << ("Your board...")<< std::endl;
               Player1.printBoard();
 
               placeShipsAI(AI, numShips);
@@ -43,6 +46,8 @@ Game::Game(){
                   std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
                   cin >> numShips;
               }
+                
+              system("clear");
 
               std::cout << (" ")<< std::endl;;
               std::cout << ("Player 1 please place your ships")<< std::endl;;
@@ -80,7 +85,7 @@ void Game::placeShips(GameBoard &player, int numShips){
 
         for(int j = 1; j <= shipLength; j++){
             std::cout << (" ")<< std::endl;
-            std::cout << "Please place piece " << j << " of " << shipLength<< std::endl;
+            std::cout << "Please place piece " << j << " of " << shipLength << " of ship " << shipLength<< std::endl;
 
 
             shipCol = getColumn();
