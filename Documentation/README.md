@@ -60,13 +60,13 @@ if(...){
 ```
 **Function names are camel case.**
 ``` c++
-public void run(){
+void run(){
 	...
 }
 ```
 or 
 ``` c++
-public String getName(){
+String getName(){
 	...
 }
 ```
