@@ -8,8 +8,8 @@ Game::Game(){
         std::cout << ("Welcome to Battleship!") << std::endl;
         std::cout<<("How many players would you like to have (Press 1 or 2)?")<<std::endl;
         std::cin>>choice;
-        
-        
+
+
         if (choice == 1)
         {
               int difficulty = -1;
@@ -43,7 +43,7 @@ Game::Game(){
                   std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
                   std::cin >> numShips;
               }
-                
+
               system("clear");
 
               std::cout << (" ")<< std::endl;;
@@ -52,7 +52,7 @@ Game::Game(){
 
               std::cout << ("Player 1's board...")<< std::endl;
               Player1.printBoard();
-                
+
               system("clear");
               std::cout << (" ")<< std::endl;;
               std::cout << ("Player 2 please place your ships")<< std::endl;;
@@ -85,7 +85,7 @@ void Game::placeShips(GameBoard &player, int numShips){
 		int shipLength = i;
 		Ship* tempShip = new Ship(shipLength);
 		bool vert = false;
-        
+
         system("clear");
 
 		player.printBoard();
@@ -93,7 +93,7 @@ void Game::placeShips(GameBoard &player, int numShips){
 		int shipCol;
 		int shipRow;
 		int path = 3;
-        
+
 
 		for(int j = 1; j <= shipLength; j++){
 			std::cout << (" ") << std::endl;
@@ -222,26 +222,31 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
             row = getRow();
             std::string fire = Player2.fire(row,col);
 
-            if(fire == "Miss"){
-                std::cout << ("Miss") << std::endl;
-                    Player1.updateOppBoard(row,col,"Miss");
+            if(Player1.getOppBoard()[row][col] == 0){
+                if(fire == "Miss"){
+                    std::cout << ("Miss") << std::endl;
+                        Player1.updateOppBoard(row,col,"Miss");
+                        validInput = true;
+                }
+                else if(fire == "Hit"){
+                    std::cout << ("Hit!") << std::endl;
+                    Player1.updateOppBoard(row,col,"Hit");
                     validInput = true;
+                }
+                else if(fire == "Sunk"){
+                    std::cout << ("Sunk!") << std::endl;
+                    Player1.updateOppBoard(row,col,"Sunk");
+                    validInput = true;
+                }
+                else if(fire == "Error Bounds"){
+                     std::cout << ("Out of bounds") << std::endl;
+                }
+                else {
+                    std::cout << ("IDK what happened")<< std::endl;
+                }
             }
-            else if(fire == "Hit"){
-                std::cout << ("Hit!") << std::endl;
-                Player1.updateOppBoard(row,col,"Hit");
-                validInput = true;
-            }
-            else if(fire == "Sunk"){
-                std::cout << ("Sunk!") << std::endl;
-                Player1.updateOppBoard(row,col,"Sunk");
-                validInput = true;
-            }
-            else if(fire == "Error Bounds"){
-                 std::cout << ("Out of bounds")<< std::endl;
-            }
-            else {
-                std::cout << ("IDK what happened")<< std::endl;
+            else{
+                std::cout << std::endl << "You've already fired here" << std::endl << std::endl;
             }
         }
 
@@ -287,47 +292,48 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
             row = getRow();
             std::string fire = Player2.fire(row,col);
 
-            if(fire == "Miss"){
-                system("clear");
-                std::cout << ("Missed!") << std::endl;
-                getchar();
-                system("clear");
+            if(Player1.getOppBoard()[row][col] == 0){
+                if(fire == "Miss"){
+                    system("clear");
+                    std::cout << ("Missed!") << std::endl;
+                    getchar();
+                    system("clear");
 
-                Player1.updateOppBoard(row,col,"Miss");
-                Player2.updateMyBoard(row, col, "Miss");
-                validInput = true;
-            }
-            else if(fire == "Hit"){
-                system("clear");
-                std::cout << ("Hit!") << std::endl;
-                getchar();
-                system("clear");
-                
-                Player1.updateOppBoard(row,col,"Hit");
-                Player2.updateMyBoard(row, col, "Hit");
-                validInput = true;
-            }
-            else if(fire == "Sunk"){
-                system("clear");
-                std::cout << ("Sunk!") << std::endl;
-                getchar();
-                system("clear");
-                
-                Player1.updateOppBoard(row,col,"Sunk");
-                Player2.updateMyBoard(row, col, "Sunk");
-                validInput = true;
-            }
-            else if(fire == "Error Bounds"){
-                 std::cout << ("Out of bounds")<< std::endl;
-            }
-            else {
-                std::cout << ("Can't fire twice on same spot")<< std::endl;
+                    Player1.updateOppBoard(row,col,"Miss");
+                    Player2.updateMyBoard(row, col, "Miss");
+                    validInput = true;
+                }
+                else if(fire == "Hit"){
+                    system("clear");
+                    std::cout << ("Hit!") << std::endl;
+                    getchar();
+                    system("clear");
 
+                    Player1.updateOppBoard(row,col,"Hit");
+                    Player2.updateMyBoard(row, col, "Hit");
+                    validInput = true;
+                }
+                else if(fire == "Sunk"){
+                    system("clear");
+                    std::cout << ("Sunk!") << std::endl;
+                    getchar();
+                    system("clear");
+
+                    Player1.updateOppBoard(row,col,"Sunk");
+                    Player2.updateMyBoard(row, col, "Sunk");
+                    validInput = true;
+                }
+                else if(fire == "Error Bounds"){
+                     std::cout << ("Out of bounds")<< std::endl;
+                }
+            }
+            else{
+                std::cout << std::endl << "You've already fired here" << std::endl << std::endl;
             }
         }
         if(Player2.gameOver())
             break;
-        
+
         system("clear");
 
         std::cout << ("")<< std::endl;
@@ -344,41 +350,43 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
 
             std::string fire = Player1.fire(row,col);
 
-            if(fire == "Miss"){
+            if(Player2.getOppBoard()[row][col] == 0){
+                if(fire == "Miss"){
+                        system("clear");
+                        std::cout << ("Missed!") << std::endl;
+                        getchar();
+                        system("clear");
+
+                        Player2.updateOppBoard(row,col,"Miss");
+                        Player1.updateMyBoard(row,col,"Miss");
+                        validInput = true;
+                }
+                else if(fire == "Hit"){
                     system("clear");
-                    std::cout << ("Missed!") << std::endl;
+                    std::cout << ("Hit!") << std::endl;
                     getchar();
                     system("clear");
-                    
-                    Player2.updateOppBoard(row,col,"Miss");
-                    Player1.updateMyBoard(row,col,"Miss");
+
+                    Player2.updateOppBoard(row,col,"Hit");
+                    Player1.updateMyBoard(row,col,"Hit");
                     validInput = true;
+                }
+                else if(fire == "Sunk"){
+                    system("clear");
+                    std::cout << ("Sunk!") << std::endl;
+                    getchar();
+                    system("clear");
+
+                    Player2.updateOppBoard(row,col,"Sunk");
+                    Player1.updateMyBoard(row,col,"Sunk");
+                    validInput = true;
+                }
+                else if(fire == "Error Bounds"){
+                     std::cout << ("Out of bounds")<< std::endl;
+                }
             }
-            else if(fire == "Hit"){
-                system("clear");
-                std::cout << ("Hit!") << std::endl;
-                getchar();
-                system("clear");
-                
-                Player2.updateOppBoard(row,col,"Hit");
-                Player1.updateMyBoard(row,col,"Hit");
-                validInput = true;
-            }
-            else if(fire == "Sunk"){
-                system("clear");
-                std::cout << ("Sunk!") << std::endl;
-                getchar();
-                system("clear");
-                
-                Player2.updateOppBoard(row,col,"Sunk");
-                Player1.updateMyBoard(row,col,"Sunk");
-                validInput = true;
-            }
-            else if(fire == "Error Bounds"){
-                 std::cout << ("Out of bounds")<< std::endl;
-            }
-            else {
-                std::cout << ("Can't fire twice on same spot")<< std::endl;
+            else{
+                std::cout << std::endl << "You've already fired here" << std::endl << std::endl;
             }
         }
 
@@ -402,7 +410,7 @@ int Game::getColumn(){
 	do{
 		std::cout << ("Ship column(A-H): ") << std::endl;
 		std::getline(std::cin, shipColString);
-		
+
 		if(shipColString == "A"){
 			shipCol = 0;
 		}
@@ -431,7 +439,7 @@ int Game::getColumn(){
 			shipCol = -1;
 		}
 	}while(shipColString.length() != 1 || shipCol == -1);
-	
+
 	return shipCol;
 }
 
