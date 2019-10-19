@@ -356,45 +356,43 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
 }
 
 int Game::getColumn(){
-    int shipCol = -1;
+	int shipCol = -1;
+	string shipColString;
 
-    while(shipCol == -1){
-        string shipColString;
+	do{
+		std::cout << ("Ship column(A-H): ")<< std::endl;
+        	std::getline(std::cin, shipColString);
+		
+		if(shipColString == "A"){
+		    shipCol = 0;
+		}
+		else if(shipColString == "B"){
+		    shipCol = 1;
+		}
+		else if(shipColString == "C"){
+		    shipCol = 2;
+		}
+		else if(shipColString == "D"){
+		    shipCol = 3;
+		}
+		else if(shipColString == "E"){
+		    shipCol = 4;
+		}
+		else if(shipColString == "F"){
+		    shipCol = 5;
+		}
+		else if(shipColString == "G"){
+		    shipCol = 6;
+		}
+		else if(shipColString == "H"){
+		    shipCol = 7;
+		}
+		else{
+		    shipCol = -1;
+		}
+	}while(shipColString.length() != 1 || shipCol == -1);
 
-        std::cout << ("Ship column(A-H): ")<< std::endl;
-        cin >> shipColString;
-
-
-
-        if(shipColString == "A"){
-            shipCol = 0;
-        }
-        else if(shipColString == "B"){
-            shipCol = 1;
-        }
-        else if(shipColString == "C"){
-            shipCol = 2;
-        }
-        else if(shipColString == "D"){
-            shipCol = 3;
-        }
-        else if(shipColString == "E"){
-            shipCol = 4;
-        }
-        else if(shipColString == "F"){
-            shipCol = 5;
-        }
-        else if(shipColString == "G"){
-            shipCol = 6;
-        }
-        else if(shipColString == "H"){
-            shipCol = 7;
-        }
-        else{
-            shipCol = -1;
-        }
-    }
-    return shipCol;
+	return shipCol;
 }
 
 int Game::getRow(){
@@ -404,6 +402,7 @@ int Game::getRow(){
 
         std::cout << ("Ship row(1-8): ")<< std::endl;
         cin >>tempRow;
+	tempRow = restrictIntInput(tempRow);
 
         if(tempRow > 0 && tempRow <= 8)
             shipRow = tempRow - 1;
