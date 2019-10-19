@@ -13,6 +13,7 @@ Ship::~Ship(){
 	}
 }
 
+
 std::vector<Point*> Ship::getShipCoordinates(){
 	return shipCoordinates;
 }
