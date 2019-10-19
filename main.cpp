@@ -5,6 +5,7 @@
 
 int main(){
 
+
 	std::string heath = StringColor::YELLOW;
 
 	/*for(int rep = 0; rep<200; rep++){
@@ -25,4 +26,5 @@ int main(){
 	std::cout << std::endl;
 
 	Game g;
+
 }

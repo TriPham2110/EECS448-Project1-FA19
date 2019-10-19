@@ -2,65 +2,68 @@
 #include <limits>
 
 Game::Game(){
-	srand(time(NULL));
-	int numShips = -1;
-	int choice;
-	std::cout << ("Welcome to Battleship!") << std::endl;
-	do{
-		std::cout << ("How many players would you like to have (Press 1 or 2)?") << std::endl;
-		std::cin >> choice;
+        srand(time(NULL));
+        int numShips = -1;
+        int choice;
+        std::cout << ("Welcome to Battleship!") << std::endl;
+        std::cout<<("How many players would you like to have (Press 1 or 2)?")<<std::endl;
+        std::cin>>choice;
+        
+        
+        if (choice == 1)
+        {
+              int difficulty = -1;
 
-		choice = restrictIntInput(choice);
+              while(difficulty > 3 || difficulty < 0){
+                  std::cout << "Please select a difficulty" << std::endl;
+                  std::cout << "0 - Easy" << std::endl;
+                  std::cout << "1 - Medium" << std::endl;
+                  std::cout << "2 - Hard" << std::endl;
+                  std::cout << "I choose you!: ";
+                  std::cin >> difficulty;
+              }
 
-		if(choice == 1){
-			int difficulty = -1;
-			while(difficulty > 2 || difficulty < 0){
-				std::cout << "Please select a difficulty" << std::endl;
-				std::cout << "0 - Easy" << std::endl;
-				std::cout << "1 - Medium" << std::endl;
-				std::cout << "2 - Hard" << std::endl;
-				std::cout << "I choose you!: ";
-				std::cin >> difficulty;
-				difficulty = restrictIntInput(difficulty);
-			}
-			while(numShips > 5 || numShips < 1){
-				std::cout << ("How many ships would you like to have(1-5): ") << std::endl;
-				std::cin >> numShips;
-				numShips = restrictIntInput(numShips);
-			}
-			system("clear");
-			std::cout << (" ") << std::endl;
-			std::cout << ("Please place your ships") << std::endl;
-			placeShips(Player1, numShips);
-			std::cout << ("Your board...") << std::endl;
-			Player1.printBoard();
-			placeShipsAI(AI, numShips);
-			playAI(Player1, AI, difficulty);
-		}
-		
-		else if(choice == 2){
-			while(numShips > 5 || numShips < 1){
-				std::cout << ("How many ships would you like to have(1-5): ") << std::endl;
-				std::cin >> numShips;
-                numShips = restrictIntInput(numShips);
-			}
-			system("clear");
-			
-			std::cout << (" ") << std::endl;
-			std::cout << ("Player 1 please place your ships") << std::endl;
-			this->placeShips(Player1, numShips);
-			std::cout << ("Player 1's board...") << std::endl;
-			Player1.printBoard();
+              while(numShips > 5 || numShips < 1){
+                  std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
+                  std::cin >> numShips;
+              }
+            system("clear");
+              std::cout << (" ")<< std::endl;;
+              std::cout << ("Please place your ships")<< std::endl;;
+              placeShips(Player1, numShips);
+              std::cout << ("Your board...")<< std::endl;
+              Player1.printBoard();
 
-			std::cout << (" ") << std::endl;
-			std::cout << ("Player 2 please place your ships") << std::endl;
-			this->placeShips(Player2, numShips);
-			std::cout << ("Player 2's board...") << std::endl;
-			Player2.printBoard();
-			
-			playGame(Player1, Player2);
-		}
-	}while(choice != 1 && choice != 2);
+              placeShipsAI(AI, numShips);
+              playAI(Player1, AI, difficulty);
+        }
+        else if (choice == 2)
+        {
+              while(numShips > 5 || numShips < 1){
+                  std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
+                  std::cin >> numShips;
+              }
+                
+              system("clear");
+
+              std::cout << (" ")<< std::endl;;
+              std::cout << ("Player 1 please place your ships")<< std::endl;;
+              this->placeShips(Player1, numShips);
+
+              std::cout << ("Player 1's board...")<< std::endl;
+              Player1.printBoard();
+                
+              system("clear");
+              std::cout << (" ")<< std::endl;;
+              std::cout << ("Player 2 please place your ships")<< std::endl;;
+              this->placeShips(Player2, numShips);
+              std::cout << ("Player 2's board...")<< std::endl;
+              Player2.printBoard();
+
+              playGame(Player1, Player2);
+         }
+
+
 }
 
 Game::~Game(){}
@@ -200,161 +203,196 @@ void Game::placeShipsAI(GameBoard& AI, int numShips){
 	}
 }
 
-void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty){
-	AIOpponent AIPlayer = AIOpponent(Player1, AI);
+void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
+{
+    AIOpponent AIPlayer = AIOpponent(Player1, AI);
 
-	while(!Player1.gameOver() && !AI.gameOver()){
-		int row, col;
-		bool validInput = false;
+    while(!Player1.gameOver() && !AI.gameOver()){
+        int row, col;
+        bool validInput = false;
 
-		std::cout << ("") << std::endl;
-		std::cout << ("Player 1 please fire") << std::endl;
+        std::cout << ("")<< std::endl;;
+        std::cout << ("Player 1 please fire")<< std::endl;
 
-		Player1.printOppBoard();
+        Player1.printOppBoard();
 
-		validInput = false;
-		while(!validInput){
-			col = getColumn();
-			row = getRow();
-			std::string fire = AI.fire(row,col);
+        validInput = false;
+        while(!validInput){
+            col = getColumn();
+            row = getRow();
+            std::string fire = Player2.fire(row,col);
 
-			if(fire == "Miss"){
-				std::cout << ("Miss") << std::endl;
-				Player1.updateOppBoard(row,col,"Miss");
-				validInput = true;
-			}
-			else if(fire == "Hit"){
-				std::cout << ("Hit!") << std::endl;
-				Player1.updateOppBoard(row,col,"Hit");
-				validInput = true;
-			}
-			else if(fire == "Sunk"){
-				std::cout << ("Sunk!") << std::endl;
-				Player1.updateOppBoard(row,col,"Hit");
-				validInput = true;
-			}
-			else if(fire == "Error Bounds"){
-				std::cout << ("Out of bounds") << std::endl;
-			}
-			else{
-				std::cout << ("IDK what happened") << std::endl;
-			}
-		}
-		if(AI.gameOver()){
-			break;
-		}
+            if(fire == "Miss"){
+                std::cout << ("Miss") << std::endl;
+                    Player1.updateOppBoard(row,col,"Miss");
+                    validInput = true;
+            }
+            else if(fire == "Hit"){
+                std::cout << ("Hit!") << std::endl;
+                Player1.updateOppBoard(row,col,"Hit");
+                validInput = true;
+            }
+            else if(fire == "Sunk"){
+                std::cout << ("Sunk!") << std::endl;
+                Player1.updateOppBoard(row,col,"Sunk");
+                validInput = true;
+            }
+            else if(fire == "Error Bounds"){
+                 std::cout << ("Out of bounds")<< std::endl;
+            }
+            else {
+                std::cout << ("IDK what happened")<< std::endl;
+            }
+        }
 
-		// player 2 turn
-		if(difficulty == 0){
-			AIPlayer.easyTurn();
-		}
-		else if(difficulty == 1){
-			AIPlayer.mediumTurn();
-		}
-		else if(difficulty == 2){
-			AIPlayer.hardTurn();
-		}
+        if(AI.gameOver())
+            break;
 
-		AI.printOppBoard();
+        // player 2 turn
+        if(difficulty == 0)
+            AIPlayer.easyTurn();
+        else if(difficulty == 1)
+            AIPlayer.mediumTurn();
+        else if(difficulty == 2)
+            AIPlayer.hardTurn();
 
-		if(Player1.gameOver()){
-			break;
-		}
-	}
+        AI.printOppBoard();
 
-	if(Player1.gameOver()){
-		std::cout << ("Sorry Player 1, you lost") << std::endl;
-	}
-	else{
-		std::cout << ("Congrats Player 1, you won") << std::endl;
-	}
+        if(Player1.gameOver())
+            break;
+    }
+
+    if(Player1.gameOver())
+        std::cout << ("Sorry Player 1, you lost") << std::endl;
+    else
+        std::cout << ("Congrats Player 1, you won") << std::endl;
 }
 
 void Game::playGame( GameBoard& Player1, GameBoard& Player2){
-	while(!Player1.gameOver() && !Player2.gameOver()){
-		int row, col;
-		bool validInput = false;
+    while(!Player1.gameOver() && !Player2.gameOver()){
+        int row, col;
+        bool validInput = false;
+        system("clear");
 
-		std::cout << ("") << std::endl;
-		std::cout << ("Player 1 please fire") << std::endl;
-		Player1.printOppBoard();
+        std::cout << ("")<< std::endl;;
+        std::cout << ("Player 1 please fire")<< std::endl;
+        std::cout << ("Opponents Board:")<< std::endl;
+        Player1.printOppBoard();
+        std::cout << ("Your Board:")<< std::endl;
+        Player1.printBoard();
 
-		validInput = false;
-		while(!validInput){
-			col = getColumn();
-			row = getRow();
-			std::string fire = Player2.fire(row,col);
+        validInput = false;
+        while(!validInput){
+            col = getColumn();
+            row = getRow();
+            std::string fire = Player2.fire(row,col);
 
-			if(fire == "Miss"){
-				std::cout << ("Miss") << std::endl;
-				Player1.updateOppBoard(row,col,"Miss");
-				validInput = true;
-			}
-			else if(fire == "Hit"){
-				std::cout << ("Hit!") << std::endl;
-				Player1.updateOppBoard(row,col,"Hit");
-				validInput = true;
-			}
-			else if(fire == "Sunk"){
-				std::cout << ("Sunk!") << std::endl;
-				Player1.updateOppBoard(row,col,"Hit");
-				validInput = true;
-			}
-			else if(fire == "Error Bounds"){
-				std::cout << ("Out of bounds") << std::endl;
-			}
-			else{
-				std::cout << ("IDK what happened") << std::endl;
-			}
-		}
-		if(Player2.gameOver()){
-			break;
-		}
+            if(fire == "Miss"){
+                system("clear");
+                std::cout << ("Missed!") << std::endl;
+                getchar();
+                system("clear");
 
-		std::cout << ("") << std::endl;
-		std::cout << ("Player 2 please fire") << std::endl;
-		Player2.printOppBoard();
+                Player1.updateOppBoard(row,col,"Miss");
+                Player2.updateMyBoard(row, col, "Miss");
+                validInput = true;
+            }
+            else if(fire == "Hit"){
+                system("clear");
+                std::cout << ("Hit!") << std::endl;
+                getchar();
+                system("clear");
+                
+                Player1.updateOppBoard(row,col,"Hit");
+                Player2.updateMyBoard(row, col, "Hit");
+                validInput = true;
+            }
+            else if(fire == "Sunk"){
+                system("clear");
+                std::cout << ("Sunk!") << std::endl;
+                getchar();
+                system("clear");
+                
+                Player1.updateOppBoard(row,col,"Sunk");
+                Player2.updateMyBoard(row, col, "Sunk");
+                validInput = true;
+            }
+            else if(fire == "Error Bounds"){
+                 std::cout << ("Out of bounds")<< std::endl;
+            }
+            else {
+                std::cout << ("Can't fire twice on same spot")<< std::endl;
 
-		validInput = false;
-		while(!validInput){
-			col = getColumn();
-			row = getRow();
+            }
+        }
+        if(Player2.gameOver())
+            break;
+        
+        system("clear");
 
-			std::string fire = Player1.fire(row,col);
+        std::cout << ("")<< std::endl;
+        std::cout << ("Player 2 please fire")<< std::endl;
+        std::cout << ("Opponents Board:")<< std::endl;
+        Player2.printOppBoard();
+        std::cout << ("Your Board:")<< std::endl;
+        Player2.printBoard();
 
-			if(fire == "Miss"){
-				std::cout << ("Miss") << std::endl;
-				Player2.updateOppBoard(row,col,"Miss");
-				validInput = true;
-			}
-			else if(fire == "Hit"){
-				std::cout << ("Hit!") << std::endl;
-				Player2.updateOppBoard(row,col,"Hit");
-				validInput = true;
-			}
-			else if(fire == "Sunk"){
-				std::cout << ("Sunk!") << std::endl;
-				Player2.updateOppBoard(row,col,"Hit");
-				validInput = true;
-			}
-			else if(fire == "Error Bounds"){
-				std::cout << ("Out of bounds") << std::endl;
-			}
-			else{
-				std::cout << ("IDK what happened") << std::endl;
-			}
-		}
-		if(Player1.gameOver()){
-			break;
-		}
-	}
+        validInput = false;
+        while(!validInput){
+            col = getColumn();
+            row = getRow();
 
-	if(Player1.gameOver()){
-		std::cout << ("Congrats Player 2, you won") << std::endl;
-	}
-	if(Player2.gameOver()){
-		std::cout << ("Congrats Player 1, you won") << std::endl;
-	}
+            std::string fire = Player1.fire(row,col);
+
+            if(fire == "Miss"){
+                    system("clear");
+                    std::cout << ("Missed!") << std::endl;
+                    getchar();
+                    system("clear");
+                    
+                    Player2.updateOppBoard(row,col,"Miss");
+                    Player1.updateMyBoard(row,col,"Miss");
+                    validInput = true;
+            }
+            else if(fire == "Hit"){
+                system("clear");
+                std::cout << ("Hit!") << std::endl;
+                getchar();
+                system("clear");
+                
+                Player2.updateOppBoard(row,col,"Hit");
+                Player1.updateMyBoard(row,col,"Hit");
+                validInput = true;
+            }
+            else if(fire == "Sunk"){
+                system("clear");
+                std::cout << ("Sunk!") << std::endl;
+                getchar();
+                system("clear");
+                
+                Player2.updateOppBoard(row,col,"Sunk");
+                Player1.updateMyBoard(row,col,"Sunk");
+                validInput = true;
+            }
+            else if(fire == "Error Bounds"){
+                 std::cout << ("Out of bounds")<< std::endl;
+            }
+            else {
+                std::cout << ("Can't fire twice on same spot")<< std::endl;
+            }
+        }
+
+        if(Player1.gameOver())
+            break;
+        system("clear");
+    }
+
+    if(Player1.gameOver())
+        std::cout << ("Congrats Player 2, you won") << std::endl;
+
+    if(Player2.gameOver())
+        std::cout << ("Congrats Player 1, you won") << std::endl;
+
 }
 
 int Game::getColumn(){

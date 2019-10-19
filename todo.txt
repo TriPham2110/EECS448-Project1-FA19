@@ -17,6 +17,8 @@ magenta ≠ sunk ships
 
 fix malloc error ai
 
+show player their board with ships before letting next player select/starting new game
+
 
 different color combinations are different themes:
 

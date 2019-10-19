@@ -1,5 +1,9 @@
 #include "GameBoard.h"
 
+#include "StringColor.h"
+
+using namespace std;
+
 GameBoard::GameBoard(){
 	boardSize = 8;
 	
@@ -140,50 +144,89 @@ bool GameBoard::isOccupied(int x, int y){
 }
 
 
-void GameBoard::updateOppBoard(int x, int y, std::string outcome){
-	if(outcome == "Miss"){
-		oppBoard[x][y] = 1;
-	}
-	else{
-		oppBoard[x][y] = 2;
-	}
+
+void GameBoard::updateOppBoard(int x, int y, string outcome){
+    if(outcome == "Miss"){
+        oppBoard[x][y] = 4;
+    }
+    else if (outcome == "Hit"){
+        oppBoard[x][y] = 2;
+    }
+    else if (outcome == "Sunk"){
+        oppBoard[x][y] = 3;
+    }
+    else
+        oppBoard[x][y] = 4;
 }
 
-void GameBoard::updateMyBoard(int x, int y, std::string outcome){
-	if(outcome == "Miss"){
-		board[x][y] = 1;
-	}
-	else{
-		board[x][y] = 2;
-	}
+void GameBoard::updateMyBoard(int x, int y, string outcome)
+{
+    if(outcome == "Miss"){
+        board[x][y] = 4;
+    }
+    else if (outcome == "Hit"){
+        board[x][y] = 2;
+    }
+    else if (outcome == "Sunk"){
+        board[x][y] = 3;
+    }
+    else
+        board[x][y] = 4;
+        
 }
+
+
 
 void GameBoard::printBoard(){
-	std::cout << "A B C D E F G H\n";
-	for(int i = 0; i < boardSize; i++){
-		for(int j = 0; j < boardSize; j++){
-			std::cout << board[i][j] << " ";
-		}
-		std::cout << (i + 1) << " \n";
-		std::cout << "";
-	}
+  cout << "A B C D E F G H\n";
+  for(int i = 0; i < boardSize; i++){
+
+    for(int j = 0; j < boardSize; j++){
+        if(board[i][j] == 0)
+            cout << StringColor::BLUE;
+        else if(board[i][j] == 1)
+            cout << StringColor::GREEN;
+        else if(board[i][j] == 2)
+            cout << StringColor::RED;
+        else if(board[i][j] == 3)
+            cout << StringColor::MAGENTA;
+        else if(board[i][j] == 4)
+            cout << StringColor::CYAN;
+      cout << board[i][j] << " ";
+    }
+      cout << StringColor::YELLOW;
+      cout << (i + 1) << " \n";
+    cout << "";
+  }
 }
 
 void GameBoard::printOppBoard(){
-	std::cout << "A B C D E F G H\n";
-	for(int i = 0; i < boardSize; i++){
-		for(int j = 0; j < boardSize; j++){
-			std::cout << oppBoard[i][j] << " ";
-		}
-		std::cout << (i + 1) << " \n";
-		std::cout << "";
-	}
+  cout << "A B C D E F G H\n";
+  for(int i = 0; i < boardSize; i++){
+
+    for(int j = 0; j < boardSize; j++){
+      if(oppBoard[i][j] == 0)
+            cout << StringColor::BLUE;
+        else if(oppBoard[i][j] == 1)
+            cout << StringColor::GREEN;
+        else if(oppBoard[i][j] == 2)
+            cout << StringColor::RED;
+        else if(oppBoard[i][j] == 3)
+            cout << StringColor::MAGENTA;
+        else if(oppBoard[i][j] == 3)
+            cout << StringColor::CYAN;
+      cout << oppBoard[i][j] << " ";
+    }
+      cout << StringColor::YELLOW;
+      cout << (i + 1) << " \n";
+    cout << "";
+  }
 }
 
-GameBoard& GameBoard::operator=(const GameBoard &a){
-	boardSize = a.boardSize; 
-	board = a.board; 
-	oppBoard = a.oppBoard; 
-	ships = a.ships;
-	return *this;  // Return a reference to myself.
+GameBoard& GameBoard::operator=(const GameBoard &a)
+{
+    boardSize = a.boardSize; board = a.board; oppBoard = a.oppBoard, ships = a.ships;
+
+    return *this;  // Return a reference to myself.
+
 }
