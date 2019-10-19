@@ -13,6 +13,7 @@ class Game {
 
     Game();
     ~Game();
+    int restrictIntInput(int option);
 
     private:
 

@@ -2,6 +2,7 @@
 
 //import java.util.Scanner;
 #include "Game.h"
+#include <limits>
 
 
 Game::Game(){
@@ -9,66 +10,77 @@ Game::Game(){
         int numShips = -1;
         int choice;
         std::cout << ("Welcome to Battleship!") << std::endl;
-        std::cout<<("How many players would you like to have (Press 1 or 2)?")<<std::endl;
-        std::cin>>choice;
+	do{
+        	std::cout<<("How many players would you like to have (Press 1 or 2)?")<<std::endl;
+		std::cin>>choice;
 
+		choice = restrictIntInput(choice);
 
-        if (choice == 1)
-        {
-              int difficulty = -1;
+		if(choice == 1){
+		      int difficulty = -1;
 
-              while(difficulty > 2 || difficulty < 0){
-                  std::cout << "Please select a difficulty" << std::endl;
-                  std::cout << "0 - Easy" << std::endl;
-                  std::cout << "1 - Medium" << std::endl;
-                  std::cout << "2 - Hard" << std::endl;
-                  std::cout << "I choose you!: ";
-                  std::cin >> difficulty;
-              }
+		      while(difficulty > 2 || difficulty < 0){
+		          std::cout << "Please select a difficulty" << std::endl;
+		          std::cout << "0 - Easy" << std::endl;
+		          std::cout << "1 - Medium" << std::endl;
+		          std::cout << "2 - Hard" << std::endl;
+		          std::cout << "I choose you!: ";
+		          std::cin >> difficulty;
+			  difficulty = restrictIntInput(difficulty);
+		      }
 
-              while(numShips > 5 || numShips < 1){
-                  std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
-                  cin >> numShips;
-              }
-            system("clear");
-              std::cout << (" ")<< std::endl;;
-              std::cout << ("Please place your ships")<< std::endl;;
-              placeShips(Player1, numShips);
-              std::cout << ("Your board...")<< std::endl;
-              Player1.printBoard();
-              placeShipsAI(AI, numShips);
-              playAI(Player1, AI, difficulty);
+		      while(numShips > 5 || numShips < 1){
+		          std::cout << ("How many ships would you like to have(1-5): ") << std::endl;
+		          cin >> numShips;
+			  numShips = restrictIntInput(numShips);
+		      }
+		      system("clear");
+		      std::cout << (" ") << std::endl;
+		      std::cout << ("Please place your ships") << std::endl;
+		      placeShips(Player1, numShips);
+		      std::cout << ("Your board...") << std::endl;
+		      Player1.printBoard();
+		      placeShipsAI(AI, numShips);
+		      playAI(Player1, AI, difficulty);
 
-        }
-        else if (choice == 2)
-        {
-              while(numShips > 5 || numShips < 1){
-                  std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
-                  cin >> numShips;
-              }
+		}
+		else if(choice == 2){
+		      while(numShips > 5 || numShips < 1){
+		          std::cout << ("How many ships would you like to have(1-5): ") << std::endl;
+		          cin >> numShips;
+		      }
 
-              system("clear");
+		      system("clear");
 
-              std::cout << (" ")<< std::endl;;
-              std::cout << ("Player 1 please place your ships")<< std::endl;;
-              this->placeShips(Player1, numShips);
+		      std::cout << (" ") << std::endl;
+		      std::cout << ("Player 1 please place your ships") << std::endl;
+		      this->placeShips(Player1, numShips);
 
-              std::cout << ("Player 1's board...")<< std::endl;
-              Player1.printBoard();
+		      std::cout << ("Player 1's board...") << std::endl;
+		      Player1.printBoard();
 
-              std::cout << (" ")<< std::endl;;
-              std::cout << ("Player 2 please place your ships")<< std::endl;;
-              this->placeShips(Player2, numShips);
-              std::cout << ("Player 2's board...")<< std::endl;
-              Player2.printBoard();
+		      std::cout << (" ") << std::endl;
+		      std::cout << ("Player 2 please place your ships") << std::endl;
+		      this->placeShips(Player2, numShips);
+		      std::cout << ("Player 2's board...") << std::endl;
+		      Player2.printBoard();
 
-              playGame(Player1, Player2);
-         }
-
+		      playGame(Player1, Player2);
+		}
+	}while(choice != 1 && choice != 2);
 }
 
-Game::~Game(){
+Game::~Game(){}
 
+int Game::restrictIntInput(int option){
+	while ( std::cin.fail() ){
+       		std::cin.clear();
+       		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+       		std::cout << "Please enter a valid int: ";
+       		std::cin >> option;
+   	}
+   	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	return option;
 }
 
 void Game::placeShips(GameBoard &player, int numShips){
