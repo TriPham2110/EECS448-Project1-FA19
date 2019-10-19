@@ -8,7 +8,6 @@
 class StringColor {
     public:
         StringColor(){};
-        
         static const std::string RESET;   
         static const std::string BLACK;      
         static const std::string RED;          
@@ -25,11 +24,8 @@ class StringColor {
         static const std::string BOLDBLUE;     
         static const std::string BOLDMAGENTA; 
         static const std::string BOLDCYAN;
-        static const std::string BOLDWHITE;
-        
-        
+        static const std::string BOLDWHITE;       
     private:
 
 };
-
 #endif

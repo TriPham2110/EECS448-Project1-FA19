@@ -1,8 +1,6 @@
 #include "Ship.h"
-using namespace std;
 
-Ship::Ship(int size)
-{
+Ship::Ship(int size){
   this->shipSize = size;
   this->shipPieces = size;
 }
@@ -13,29 +11,20 @@ Ship::~Ship(){
         shipCoordinates.back() = NULL;
         shipCoordinates.pop_back();
     }
-    //shipCoordinates.clear();
 }
 
-
-std::vector<Point*> Ship::getShipCoordinates()
-{
-    return shipCoordinates;
+std::vector<Point*> Ship::getShipCoordinates(){
+	return shipCoordinates;
 }
 
-
-void Ship::addCoordinates(int x, int y)
-{
-
+void Ship::addCoordinates(int x, int y){
     shipCoordinates.push_back(new Point(x,y));
 }
 
-
 bool Ship::inLine(int newX, int newY, bool vert){
-
     if(shipCoordinates.size() == 0){
         return true;
     }
-
     for(Point *shipPiece : shipCoordinates){
         int x = (int)shipPiece->getX();
         int y = (int)shipPiece->getY();
@@ -45,58 +34,33 @@ bool Ship::inLine(int newX, int newY, bool vert){
         else if(newY == y && (newX == x + 1 || newX == x - 1) && (vert || shipCoordinates.size() == 1)){
             return true;
         }
-
     }
-   return false;
+	return false;
 }
 
-
-
-void Ship::hit(int x, int y)
-{
+void Ship::hit(int x, int y){
   shipPieces--;
 }
 
-
-
-bool Ship::containsCoordinate(int x, int y)
-{
-
-  if(0 == shipCoordinates.size())
-  {
-    return false;
-  }
-  else if(x >= 0 && x <= 7 && y >= 0 && y <= 7)
-  {
-
-        for(int i = 0; i < (int)shipCoordinates.size(); i++)
-        {
-
+bool Ship::containsCoordinate(int x, int y){
+	if(0 == shipCoordinates.size()){
+		return false;
+	}
+	else if(x >= 0 && x <= 7 && y >= 0 && y <= 7){
+        for(int i = 0; i < (int)shipCoordinates.size(); i++){
             int cordX = (int)shipCoordinates.at(i)->getX();
             int cordY = (int)shipCoordinates.at(i)->getY();
-
-
-            if(cordX == x && cordY == y)
-            {
-
-              return true;
+            if(cordX == x && cordY == y){
+				return true;
             }
-
         }
-  }
-        return false;
+	}
+    return false;
 }
 
-
-
-bool Ship::isDestroyed()
-{
-  if (shipPieces <= 0)
-  {
-    return true;
-
-  }
-
-    return false;
-
+bool Ship::isDestroyed(){
+	if (shipPieces <= 0){
+		return true;
+	}
+	return false;
 }

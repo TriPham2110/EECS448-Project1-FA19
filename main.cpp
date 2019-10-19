@@ -1,11 +1,7 @@
 #include <iostream>
 #include "Game.h"
 #include <string>
-
 #include "StringColor.h"
-
-
-
 
 int main(){
 
@@ -18,7 +14,7 @@ int main(){
 
     }*/
 
-	  // ASCII conversion influenced from Patorjk's text to ASCII art generator http://patorjk.com/software/taag/
+	// ASCII conversion influenced from Patorjk's text to ASCII art generator http://patorjk.com/software/taag/
     std::cout << StringColor::RED <<    " _______  _______  _______  ______      __   __  _______  ______    ___   _______  ___   _ " << std::endl;
     std::cout << StringColor::YELLOW << "|       ||       ||       ||    _ |    |  | |  ||       ||    _ |  |   | |       ||   | | |" << std::endl;
     std::cout << StringColor::GREEN <<  "|    _  ||   _   ||   _   ||   | ||    |  |_|  ||   _   ||   | ||  |   | |       ||   |_| |" << std::endl;
@@ -28,8 +24,6 @@ int main(){
     std::cout << StringColor::MAGENTA <<"|___|    |_______||_______||___|  |_|    |___|  |_______||___|  |_||___| |_______||___| |_|" << std::endl;
     std::cout << heath << std::endl;
     std::cout << std::endl;
-
-
 
     Game g;
 }

@@ -1,11 +1,8 @@
 #include "Point.h"
 
-
-
 Point::Point(){
     this->x = 0;
     this->y = 0;
-    
 }
 
 Point::Point(int x, int y){
@@ -26,16 +23,12 @@ std::string Point::toString() const{
 }
 
 bool Point::operator==(const Point & p2) const {
-    
     return (p2.x == this->x && p2.y == this->y);
-    
 }
 
 
-bool Point::operator!=(const Point & p2) const {
-    
+bool Point::operator!=(const Point & p2) const { 
     return (p2.x != this->x || p2.y != this->y);
-    
 }
 
 std::ostream & operator<<(std::ostream & os, const Point & pt){
