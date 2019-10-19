@@ -1,40 +1,40 @@
 #include "GameBoard.h"
 
 GameBoard::GameBoard(){
-    boardSize = 8;
+	boardSize = 8;
+	
+	board =  new int*[8];
+	for(int rep = 0; rep<8; rep++){
+		board[rep] = new int[8];
+	}
 
-    board =  new int*[8];
-    for(int rep = 0; rep<8; rep++){
-        board[rep] = new int[8];
-    }
+	oppBoard = new int*[8];
+	for(int rep = 0; rep<8; rep++){
+		oppBoard[rep] = new int[8];
+	}
 
-    oppBoard = new int*[8];
-    for(int rep = 0; rep<8; rep++){
-        oppBoard[rep] = new int[8];
-    }
-
-    for(int i = 0; i<8; i++){
-        for(int j = 0; j<8; j++){
-        board[i][j] = 0;
-        oppBoard[i][j] = 0;
-        }
-    }
+	for(int i = 0; i<8; i++){
+		for(int j = 0; j<8; j++){
+		board[i][j] = 0;
+		oppBoard[i][j] = 0;
+		}
+	}
 }
 
 GameBoard::~GameBoard(){
 	for(int i = 0; i < 8; i++){
-        delete[] board[i];
-        delete[] oppBoard[i];
-    }
+		delete[] board[i];
+		delete[] oppBoard[i];
+	}
 
-    delete[] board;
-    delete[] oppBoard;
+	delete[] board;
+	delete[] oppBoard;
 
-    while(!ships.empty()){
+	while(!ships.empty()){
 		delete ships.back();
-        ships.back() = nullptr;
-        ships.pop_back();
-    }
+		ships.back() = nullptr;
+		ships.pop_back();
+	}
 }
 
 void GameBoard::addShip(Ship *newShip){
@@ -89,54 +89,54 @@ bool GameBoard::gameOver(){
 }
 
 int GameBoard::canFindPath(int x, int y, int shipLength){
-    //recursively try to find 1 straight path of shipLength
-    //3 = both horizontal and vertical have paths
-    //2 = only vertical has path(s)
-    //1 = only horizontal has path(s)
-    //0 = no paths
-    bool vert = (shipLength <= numInLineX(x,y, 0)); 
-    bool horz = (shipLength <= numInLineY(x,y, 0));
+	//recursively try to find 1 straight path of shipLength
+	//3 = both horizontal and vertical have paths
+	//2 = only vertical has path(s)
+	//1 = only horizontal has path(s)
+	//0 = no paths
+	bool vert = (shipLength <= numInLineX(x,y, 0)); 
+	bool horz = (shipLength <= numInLineY(x,y, 0));
 
-    if(horz && vert){
-        return 3;
+	if(horz && vert){
+		return 3;
 	}
-    else if(vert){
-        return 2;
+	else if(vert){
+		return 2;
 	}
-    else if (horz){
-        return 1;
+	else if (horz){
+		return 1;
 	}
-    else{
-        return 0;
+	else{
+		return 0;
 	}
 }
 
 int GameBoard::numInLineX(int x, int y, int dir){
-    if(x > 7 || x < 0  || board[x][y] == 1){
-        return 0;
-    }
-    else if (dir == 0 ){
-        return 1 + numInLineX(x + 1, y , 1) + numInLineX(x - 1, y , -1);
+	if(x > 7 || x < 0  || board[x][y] == 1){
+		return 0;
 	}
-    else{
-        return 1 + numInLineX(x+ dir, y, dir);
+	else if (dir == 0 ){
+		return 1 + numInLineX(x + 1, y , 1) + numInLineX(x - 1, y , -1);
+	}
+	else{
+		return 1 + numInLineX(x+ dir, y, dir);
 	}
 }
 
 int GameBoard::numInLineY(int x, int y, int dir){
-    if(y > 7 || y < 0  || board[x][y] == 1){
-        return 0;
-    }
-    else if (dir == 0 ){
-        return 1 + numInLineY(x , y +1, 1) + numInLineY(x, y - 1 , -1);
+	if(y > 7 || y < 0  || board[x][y] == 1){
+		return 0;
 	}
-    else{
-        return 1 + numInLineY(x, y + dir, dir);
+	else if (dir == 0 ){
+		return 1 + numInLineY(x , y +1, 1) + numInLineY(x, y - 1 , -1);
+	}
+	else{
+		return 1 + numInLineY(x, y + dir, dir);
 	}
 }
 
 bool GameBoard::isOccupied(int x, int y){
-    return board[x][y] == 1;
+	return board[x][y] == 1;
 }
 
 
@@ -181,9 +181,9 @@ void GameBoard::printOppBoard(){
 }
 
 GameBoard& GameBoard::operator=(const GameBoard &a){
-    boardSize = a.boardSize; 
+	boardSize = a.boardSize; 
 	board = a.board; 
 	oppBoard = a.oppBoard; 
 	ships = a.ships;
-    return *this;  // Return a reference to myself.
+	return *this;  // Return a reference to myself.
 }

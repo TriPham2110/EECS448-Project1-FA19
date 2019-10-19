@@ -1,7 +1,5 @@
 #include "StringColor.h"
 
-
-
 const std::string StringColor::RESET       = "\033[0m"; 
 const std::string StringColor::BLACK       = "\033[30m"; 
 const std::string StringColor::RED         = "\033[31m"; 

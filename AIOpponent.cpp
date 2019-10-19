@@ -42,7 +42,7 @@ void AIOpponent::mediumTurn(){
 			tempTemp = temp;
 			AIBoard.updateOppBoard(xRandomValue-mediumTurnFlag, yRandomValue, temp);
 
-			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0) 				&& !(xRandomValue >= 0 && xRandomValue <= (7- mediumTurnFlag) && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue+mediumTurnFlag][yRandomValue] == 0) 				&& !(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= (7 - mediumTurnFlag) && AIBoard.getOppBoard()[xRandomValue][yRandomValue+mediumTurnFlag] == 0)){
+			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0) && !(xRandomValue >= 0 && xRandomValue <= (7- mediumTurnFlag) && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue+mediumTurnFlag][yRandomValue] == 0) && !(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= (7 - mediumTurnFlag) && AIBoard.getOppBoard()[xRandomValue][yRandomValue+mediumTurnFlag] == 0)){
 				mediumTurnFlag++;
 			}
 
@@ -55,7 +55,7 @@ void AIOpponent::mediumTurn(){
 			tempTemp = temp;
 			AIBoard.updateOppBoard(xRandomValue, yRandomValue+mediumTurnFlag, temp);
 
-			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0) 				&& !(xRandomValue >= 0 && xRandomValue <= (7- mediumTurnFlag) && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue+mediumTurnFlag][yRandomValue] == 0)){
+			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0) && !(xRandomValue >= 0 && xRandomValue <= (7- mediumTurnFlag) && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue+mediumTurnFlag][yRandomValue] == 0)){
 				mediumTurnFlag++;
 			}
 

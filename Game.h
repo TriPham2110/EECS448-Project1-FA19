@@ -8,7 +8,7 @@
 #include <time.h>
 
 class Game{
-    private:
+	private:
 		GameBoard Player1;
 		GameBoard Player2;
 		GameBoard AI;
