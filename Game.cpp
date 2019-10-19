@@ -42,6 +42,7 @@ Game::Game(){
 			while(numShips > 5 || numShips < 1){
 				std::cout << ("How many ships would you like to have(1-5): ") << std::endl;
 				std::cin >> numShips;
+                numShips = restrictIntInput(numShips);
 			}
 			system("clear");
 			
@@ -76,16 +77,20 @@ int Game::restrictIntInput(int option){
 }
 
 void Game::placeShips(GameBoard &player, int numShips){
+
 	for(int i = 1; i <= numShips; i++){
 		int shipLength = i;
 		Ship* tempShip = new Ship(shipLength);
 		bool vert = false;
+        
+        system("clear");
 
 		player.printBoard();
 
 		int shipCol;
 		int shipRow;
 		int path = 3;
+        
 
 		for(int j = 1; j <= shipLength; j++){
 			std::cout << (" ") << std::endl;
@@ -124,6 +129,7 @@ void Game::placeShips(GameBoard &player, int numShips){
 		}
 		player.addShip(tempShip);
 	}
+
 }
 
 void Game::placeShipsAI(GameBoard& AI, int numShips){
