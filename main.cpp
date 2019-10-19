@@ -18,14 +18,15 @@ int main(){
 
     }*/
 
-	// ASCII conversion influenced from http://patorjk.com/software/taag/
-    std::cout << StringColor::RED << " _____      ____       ____     ______       __      __    ____     ______      _____     ____    __   ___ " << std::endl;
-    std::cout << StringColor::YELLOW << "(  __ \\\    / __ \\\     / __ \\\   (   __ \\\      ) \\\    / (   / __ \\\   (   __ \\\    (_   _)   / ___)  () ) / __)" << std::endl;
-    std::cout << StringColor::GREEN << " ) )_) )  / /  \\\ \\\   / /  \\\ \\\   ) (__) )      \\\ \\\  / /   / /  \\\ \\\   ) (__) )     | |    / /      ( (_/ /" << std::endl;
-    std::cout << StringColor::CYAN << "(  ___/  ( ()  () ) ( ()  () ) (    __/        \\\ \\\/ /   ( ()  () ) (    __/      | |   ( (       ()   (" << std::endl;
-    std::cout << StringColor::BLUE << " ) )     ( ()  () ) ( ()  () )  ) \\\ \\\  _        \\\  /    ( ()  () )  ) \\\ \\\  _     | |   ( (       () /\\\ \\\ " << std::endl;
-    std::cout << StringColor::BOLDBLUE << "( (       \\\ \\\__/ /   \\\ \\\__/ /  ( ( \\\ \\\_))        )(      \\\ \\\__/ /  ( ( \\\ \\\_))   _| |__  \\\ \\\___   ( (  \\\ \\\ " << std::endl;
-    std::cout << StringColor::MAGENTA << "/__\\\       \\\____/     \\\____/    )_) \\\__/        /__\\\      \\\____/    )_) \\\__/   /_____(   \\\____)  ()_)  \\\_\\\ " << std::endl;
+	  // ASCII conversion influenced from Patorjk's text to ASCII art generator http://patorjk.com/software/taag/
+    std::cout << StringColor::RED <<    " _______  _______  _______  ______      __   __  _______  ______    ___   _______  ___   _ " << std::endl;
+    std::cout << StringColor::YELLOW << "|       ||       ||       ||    _ |    |  | |  ||       ||    _ |  |   | |       ||   | | |" << std::endl;
+    std::cout << StringColor::GREEN <<  "|    _  ||   _   ||   _   ||   | ||    |  |_|  ||   _   ||   | ||  |   | |       ||   |_| |" << std::endl;
+    std::cout << StringColor::CYAN <<   "|   |_| ||  | |  ||  | |  ||   |_||_   |       ||  | |  ||   |_||_ |   | |       ||      _|" << std::endl;
+    std::cout << StringColor::BLUE <<   "|    ___||  |_|  ||  |_|  ||    __  |  |_     _||  |_|  ||    __  ||   | |      _||     |_ " << std::endl;
+    std::cout << StringColor::BOLDBLUE<<"|   |    |       ||       ||   |  | |    |   |  |       ||   |  | ||   | |     |_ |    _  |" << std::endl;
+    std::cout << StringColor::MAGENTA <<"|___|    |_______||_______||___|  |_|    |___|  |_______||___|  |_||___| |_______||___| |_|" << std::endl;
+    std::cout << heath << std::endl;
     std::cout << std::endl;
 
 
