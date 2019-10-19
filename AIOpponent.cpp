@@ -9,14 +9,18 @@ AIOpponent::AIOpponent(GameBoard& Player1, GameBoard& AIBoardPass){
 
 void AIOpponent::easyTurn(){
 	do{
-		int xRandom = rand() % 8;
-		int yRandom = rand() % 8;
-		xRandomValue = xRandom;
-		yRandomValue = yRandom;
-	}while(AIBoard.getOppBoard()[xRandomValue][yRandomValue] != 0);
 
-	AIBoard.updateOppBoard(xRandomValue, yRandomValue, Player.fire(xRandomValue, yRandomValue));
+	int xRandom = rand() % 8;
+	int yRandom = rand() % 8;
+	xRandomValue = xRandom;
+	yRandomValue = yRandom;
+
+	} while(AIBoard.getOppBoard()[xRandomValue][yRandomValue] != 0);
+
+    AIBoard.updateOppBoard(xRandomValue, yRandomValue, AIBoard.fire(xRandomValue, yRandomValue));
+
 }
+
 
 void AIOpponent::mediumTurn(){
 	std::string tempTemp;

@@ -1,0 +1,29 @@
+todo text file
+
+::
+
+finish hard ai
+
+make screen clear at appropriate times
+and make buffer screen between each turn that tells player whether they sank miss or hit their opponents ships /the opponent will see this too (and that is on purpose and okay)
+
+allow ships to be placed by one parsed string  (A1 or 1A)
+
+change symbols for ships/water/etc and have more appropriate colors
+blue ≈ for waves
+green ± for ships
+red # for hit ships
+magenta ≠ sunk ships
+
+fix malloc error ai
+
+
+different color combinations are different themes:
+
+apurva's epic theme
+max's autumn theme
+jace's gamer theme
+meet's indian theme
+tris chaotic theme
+
+add epic win screen with epic colors
