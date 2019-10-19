@@ -44,14 +44,14 @@ class Game{
 		 * @ pre none
 		 *	@ param none
 		 *	@ post gets the column
-		 * @ return none
+		 * @ return col
 		 */
 		int getColumn();
 		/*
 		 * @ pre none
 		 *	@ param none
 		 *	@ post gets the row
-		 * @ return none
+		 * @ return row
 		 */
 		int getRow();
 		/*
