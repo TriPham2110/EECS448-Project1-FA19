@@ -29,15 +29,15 @@ Game::Game(){
                   std::cin >> numShips;
                   numShips = restrictIntInput(numShips);
               }
-            system("clear");
+              system("clear");
               std::cout << (" ")<< std::endl;;
               std::cout << ("Please place your ships")<< std::endl;;
-              placeShips(Player1, numShips);
+              this->placeShips(Player1, numShips);
               std::cout << ("Your board...")<< std::endl;
               Player1.printBoard();
 
-              placeShipsAI(AI, numShips);
-              playAI(Player1, AI, difficulty);
+              this->placeShipsAI(AI, numShips);
+              this->playAI(Player1, AI, difficulty);
         }
         else if (choice == 2)
         {
@@ -219,11 +219,17 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
     while(!Player1.gameOver() && !AI.gameOver()){
         int row, col;
         bool validInput = false;
+        system("clear");
+
+        system("clear");
 
         std::cout << ("")<< std::endl;;
-        std::cout << ("Player 1' please fire'")<< std::endl;
-
+        std::cout << ("Player 1 please fire")<< std::endl;
+        std::cout << ("AI Board:")<< std::endl;
         Player1.printOppBoard();
+        std::cout << ("Your Board:")<< std::endl;
+        Player1.printBoard();
+
 
         validInput = false;
         while(!validInput){

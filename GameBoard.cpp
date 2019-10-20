@@ -66,6 +66,9 @@ std::string GameBoard::fire(int x, int y){
 			if(ships.at(i)->containsCoordinate(x,y)){
 				ships.at(i)->hit(x,y);
 				if(ships.at(i)->isDestroyed()){
+                    for(Point* coordinate : ships.at(i)->getShipCoordinates()){
+                        board[coordinate->getX()][coordinate->getY()] = 3;
+                    }
 					return "Sunk";
 				}
 			return "Hit";
