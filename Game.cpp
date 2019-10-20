@@ -27,15 +27,15 @@ Game::Game(){
                   std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
                   std::cin >> numShips;
               }
-            system("clear");
+              system("clear");
               std::cout << (" ")<< std::endl;;
               std::cout << ("Please place your ships")<< std::endl;;
-              placeShips(Player1, numShips);
+              this->placeShips(Player1, numShips);
               std::cout << ("Your board...")<< std::endl;
               Player1.printBoard();
 
-              placeShipsAI(AI, numShips);
-              playAI(Player1, AI, difficulty);
+              this->placeShipsAI(AI, numShips);
+              this->playAI(Player1, AI, difficulty);
         }
         else if (choice == 2)
         {
