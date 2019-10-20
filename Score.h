@@ -21,6 +21,7 @@ class Score{
         void Print();
         void Sort();
         void write();
+				void insert();
 
 };
 #endif
