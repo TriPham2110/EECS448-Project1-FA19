@@ -8,6 +8,10 @@ AIOpponent::AIOpponent(GameBoard* Player1, GameBoard* AIBoardPass){
 	mediumTurnFlag = 0;
 }
 
+AIOpponent::~AIOpponent(){
+    
+}
+
 void AIOpponent::easyTurn(){
 	do{
 		int xRandom = rand() % 8;
@@ -103,7 +107,6 @@ void AIOpponent::hardTurn(){
 	for(int x = 0; x < 8; x++){
 		for(int y = 0; y < 8; y++){
 			if(Player.getBoard()[x][y] == 1 && (AIBoard.getOppBoard()[x][y] != 2 )){
-				std::cout << x << " " << y << std::endl;
                 std::string outcome = Player.fire(x,y);
                 Player.updateMyBoard(x,y,outcome);
 				AIBoard.updateOppBoard(x, y, outcome);

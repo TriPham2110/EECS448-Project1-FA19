@@ -248,7 +248,7 @@ void GameBoard::printOppBoard(){
 
 GameBoard& GameBoard::operator=(const GameBoard &a)
 {
-    boardSize = a.boardSize; board = a.board; oppBoard = a.oppBoard, ships = a.ships;
+    boardSize = a.boardSize; board = a.board; oppBoard = a.oppBoard; ships = a.ships;
 
     return *this;  // Return a reference to myself.
 

@@ -42,4 +42,6 @@ class AIOpponent{
 	     * @ return none
 	     */
 		void hardTurn();
+    
+        ~AIOpponent();
 };
