@@ -39,13 +39,16 @@ class StringColor {
         static std::string HIT;
         static std::string MISS;
         static std::string SUNK;
+        static std::string BACKGROUND;
     
         static void changeTheme(std::string themeName);
+        static void reset();
         
     
     private:
         
         std::string theme = "default";
+        
 
 };
 #endif

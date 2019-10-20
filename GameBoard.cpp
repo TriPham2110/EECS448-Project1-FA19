@@ -181,67 +181,66 @@ void GameBoard::updateMyBoard(int x, int y, string outcome)
 
 
 void GameBoard::printBoard(){
-  cout << "A B C D E F G H\n";
+  cout <<StringColor::TEXT<< " A  B  C  D  E  F  G  H \n";
   for(int i = 0; i < boardSize; i++){
 
     for(int j = 0; j < boardSize; j++){
         if(board[i][j] == 0){
-            cout << StringColor::BLUE;
+            
             cout << StringColor::WATER << " ";
         }
         else if(board[i][j] == 1){
-            cout << StringColor::GREEN;
+            
             cout << StringColor::SHIP << " ";
         }
         else if(board[i][j] == 2){
-            cout << StringColor::RED;
+            
             cout << StringColor::HIT << " ";
         }
         else if(board[i][j] == 3){
-            cout << StringColor::MAGENTA;
+            
             cout << StringColor::SUNK << " ";
         }
         else if(board[i][j] == 4){
-            cout << StringColor::CYAN;
+            
             cout << StringColor::MISS << " ";
         }
-      //cout << board[i][j] << " ";
+      //cout << oppBoard[i][j] << " ";
     }
-      cout << StringColor::YELLOW;
-      cout << (i + 1) << " \n";
+   
+      cout << StringColor::TEXT << (i + 1) << " \n";
     cout << "";
   }
 }
 
 void GameBoard::printOppBoard(){
-  cout << "A B C D E F G H\n";
+  cout <<StringColor::TEXT<< " A  B  C  D  E  F  G  H \n";
   for(int i = 0; i < boardSize; i++){
 
     for(int j = 0; j < boardSize; j++){
         if(oppBoard[i][j] == 0){
-            cout << StringColor::BLUE;
+            
             cout << StringColor::WATER << " ";
         }
         else if(oppBoard[i][j] == 1){
-            cout << StringColor::GREEN;
+            
             cout << StringColor::SHIP << " ";
         }
         else if(oppBoard[i][j] == 2){
-            cout << StringColor::RED;
+            
             cout << StringColor::HIT << " ";
         }
         else if(oppBoard[i][j] == 3){
-            cout << StringColor::MAGENTA;
+            
             cout << StringColor::SUNK << " ";
         }
         else if(oppBoard[i][j] == 4){
-            cout << StringColor::CYAN;
+            
             cout << StringColor::MISS << " ";
         }
       //cout << oppBoard[i][j] << " ";
     }
-      cout << StringColor::YELLOW;
-      cout << (i + 1) << " \n";
+      cout << StringColor::TEXT << (i + 1) << " \n";
     cout << "";
   }
 }

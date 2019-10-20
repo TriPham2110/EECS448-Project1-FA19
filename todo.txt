@@ -10,7 +10,7 @@ and make buffer screen between each turn that tells player whether they sank mis
 parse strings as 1A or a1 or 1a
 (1/2 done)
 
-fix mem leak?
+fix mem leak? ( tri's god class, nuke AIopponent)
 
 show player their board with ships before letting next player select/starting new game
 (1/2 done)

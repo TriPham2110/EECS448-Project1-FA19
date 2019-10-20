@@ -1,5 +1,6 @@
 #include "Game.h"
 #include <limits>
+#include "StringColor.h"
 
 Game::Game(){
         srand(time(NULL));
@@ -8,6 +9,8 @@ Game::Game(){
         std::cout << ("Welcome to Battleship!") << std::endl;
         std::cout<<("How many players would you like to have (Press 1 or 2)?")<<std::endl;
         std::cin>>choice;
+    
+        StringColor::changeTheme("default");
 
 
         if (choice == 1)
@@ -60,7 +63,7 @@ Game::Game(){
               std::cout << (" ")<< std::endl;;
               std::cout << ("Player 2 please place your ships")<< std::endl;;
               this->placeShips(Player2, numShips);
-              std::cout << ("Player 2's board...")<< std::endl;
+              std::cout << ("Player 2's board...") << std::endl;
               Player2.printBoard();
 
               playGame(Player1, Player2);
@@ -215,13 +218,11 @@ void Game::placeShipsAI(GameBoard& AI, int numShips){
 void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
 {
     AIOpponent * AIPlayer = new AIOpponent(&Player1, &AI);
-
+    system("clear");
     while(!Player1.gameOver() && !AI.gameOver()){
         int row, col;
         bool validInput = false;
-        system("clear");
-
-        system("clear");
+        
 
         std::cout << ("")<< std::endl;;
         std::cout << ("Player 1 please fire")<< std::endl;
@@ -246,19 +247,28 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
 
             if(Player1.getOppBoard()[row][col] == 0){
                 if(fire == "Miss"){
-                    std::cout << ("Miss") << std::endl;
+                        
                         Player1.updateOppBoard(row,col,"Miss");
+                        std::cout << ("Missed!") << std::endl;
                         validInput = true;
+                        
+                        system("clear");
                 }
                 else if(fire == "Hit"){
-                    std::cout << ("Hit!") << std::endl;
+                   
                     Player1.updateOppBoard(row,col,"Hit");
+                    std::cout << ("Hit!") << std::endl;
                     validInput = true;
+                    
+                    system("clear");
                 }
                 else if(fire == "Sunk"){
-                    std::cout << ("Sunk!") << std::endl;
+                    
                     Player1.updateOppBoard(row,col,"Sunk");
+                    std::cout << ("Sunk!") << std::endl;
                     validInput = true;
+                    
+                    system("clear");
                 }
                 else if(fire == "Error Bounds"){
                      std::cout << ("Out of bounds") << std::endl;
@@ -283,8 +293,6 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
         else if(difficulty == 2)
             AIPlayer->hardTurn();
 
-        AI.printOppBoard();
-
         if(Player1.gameOver())
             break;
     }
@@ -293,6 +301,7 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
         std::cout << ("Sorry Player 1, you lost") << std::endl;
     else
         std::cout << ("Congrats Player 1, you won") << std::endl;
+    
 }
 
 void Game::playGame( GameBoard& Player1, GameBoard& Player2){

@@ -1,4 +1,5 @@
 #include "StringColor.h"
+#include <iostream>
 
 const std::string StringColor::RESET       = "\033[0m"; 
 const std::string StringColor::BLACK       = "\033[30m"; 
@@ -18,18 +19,46 @@ const std::string StringColor::BOLDMAGENTA = "\033[1m\033[35m";
 const std::string StringColor::BOLDCYAN    = "\033[1m\033[36m"; 
 const std::string StringColor::BOLDWHITE   = "\033[1m\033[37m";
 
-std::string StringColor::WATER      = "≈";
-std::string StringColor::SHIP       = "±";
-std::string StringColor::BORDER;
-std::string StringColor::TEXT;
-std::string StringColor::HIT        = "#";
-std::string StringColor::MISS       = "Ω";
-std::string StringColor::SUNK       = "≠";
+std::string StringColor::WATER      = " ░";
+std::string StringColor::SHIP       = " ±";
+std::string StringColor::BORDER     = "\033[1m\033[33m";
+std::string StringColor::TEXT       = "\033[1m\033[33m";
+std::string StringColor::HIT        = " #";
+std::string StringColor::MISS       = " Ω";
+std::string StringColor::SUNK       = " ≠";
+std::string StringColor::BACKGROUND = "\033[44m";
 
 
 void StringColor::changeTheme(std::string themeName){
     if(themeName == "default"){
-        BORDER = "\033[37m";
+        BACKGROUND = "\033[44m";
+        BORDER = "\033[1m\033[33m";
+        TEXT = "\033[1m\033[33m\033[40m";
+        WATER = BACKGROUND + BOLDWHITE + WATER;
+        SHIP = "\033[40m" + GREEN + SHIP;
+        HIT = RED + HIT;
+        MISS = CYAN + MISS;
+        SUNK = MAGENTA + SUNK;
+    }
+    
+    else if(themeName == "meet"){
+        WATER = BOLDBLACK + WATER;
+        SHIP = GREEN + SHIP;
+        HIT = RED + HIT;
+        MISS = CYAN + MISS;
+        SUNK = MAGENTA + SUNK;
+    }
+    else if(themeName == "tri"){
+    }
+    else if(themeName == "apurva"){
+    }
+    else if(themeName == "jace"){
+    }
+    else if(themeName == "max"){
     }
      
+}
+
+void StringColor::reset(){
+    std::cout << RESET << std::endl;
 }
