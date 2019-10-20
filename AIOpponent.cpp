@@ -35,6 +35,7 @@ void AIOpponent::mediumTurn(){
 		std::string temp = Player.fire(xRandomValue, yRandomValue);
 		tempTemp = temp;
 		AIBoard.updateOppBoard(xRandomValue, yRandomValue, temp);
+        Player.updateMyBoard(xRandomValue, yRandomValue, temp);
 		if(temp == "Hit"){
 			mediumTurnFlag = 1;
 		}
@@ -45,6 +46,7 @@ void AIOpponent::mediumTurn(){
 			std::string temp = Player.fire(xRandomValue-mediumTurnFlag, yRandomValue);
 			tempTemp = temp;
 			AIBoard.updateOppBoard(xRandomValue-mediumTurnFlag, yRandomValue, temp);
+            Player.updateMyBoard(xRandomValue, yRandomValue, temp);
 
 			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0) && !(xRandomValue >= 0 && xRandomValue <= (7- mediumTurnFlag) && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue+mediumTurnFlag][yRandomValue] == 0) && !(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= (7 - mediumTurnFlag) && AIBoard.getOppBoard()[xRandomValue][yRandomValue+mediumTurnFlag] == 0)){
 				mediumTurnFlag++;
@@ -58,6 +60,7 @@ void AIOpponent::mediumTurn(){
 			std::string temp = Player.fire(xRandomValue, yRandomValue+mediumTurnFlag);
 			tempTemp = temp;
 			AIBoard.updateOppBoard(xRandomValue, yRandomValue+mediumTurnFlag, temp);
+            Player.updateMyBoard(xRandomValue, yRandomValue, temp);
 
 			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0) && !(xRandomValue >= 0 && xRandomValue <= (7- mediumTurnFlag) && yRandomValue >= 0 && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue+mediumTurnFlag][yRandomValue] == 0)){
 				mediumTurnFlag++;
@@ -71,6 +74,7 @@ void AIOpponent::mediumTurn(){
 			std::string temp = Player.fire(xRandomValue+mediumTurnFlag, yRandomValue);
 			tempTemp = temp;
 			AIBoard.updateOppBoard(xRandomValue+mediumTurnFlag, yRandomValue, temp);
+            Player.updateMyBoard(xRandomValue, yRandomValue, temp);
 
 			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AIBoard.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0)){
 				mediumTurnFlag++;
@@ -84,6 +88,7 @@ void AIOpponent::mediumTurn(){
 			std::string temp = Player.fire(xRandomValue, yRandomValue-mediumTurnFlag);
 			tempTemp = temp;
 			AIBoard.updateOppBoard(xRandomValue, yRandomValue-mediumTurnFlag, temp);
+            Player.updateMyBoard(xRandomValue, yRandomValue, temp);
 		
 			mediumTurnFlag++;
 
