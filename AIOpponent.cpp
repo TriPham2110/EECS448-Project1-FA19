@@ -1,10 +1,10 @@
   
 #include "AIOpponent.h"
 
-AIOpponent::AIOpponent(GameBoard& Player1, GameBoard& AIBoardPass){
+AIOpponent::AIOpponent(GameBoard* Player1, GameBoard* AIBoardPass){
 	srand(time(NULL));
-	AIBoard = AIBoardPass;
-	Player = Player1;
+	AIBoard = *AIBoardPass;
+	Player = *Player1;
 	mediumTurnFlag = 0;
 }
 
