@@ -12,6 +12,9 @@ Game::Game(){
 
         if (choice == 1)
         {
+
+              std::cout<<("Enter your name:")<<std::endl;
+              std::cin>>name1;
               int difficulty = -1;
 
               while(difficulty > 3 || difficulty < 0){
@@ -41,6 +44,11 @@ Game::Game(){
         }
         else if (choice == 2)
         {
+
+              std::cout<<("Enter Player 1 name:")<<std::endl;
+              std::cin>>name1;
+              std::cout<<("Enter Player 2 name:")<<std::endl;
+              std::cin>>name2;
               while(numShips > 5 || numShips < 1){
                   std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
                   std::cin >> numShips;
@@ -50,17 +58,17 @@ Game::Game(){
               system("clear");
 
               std::cout << (" ")<< std::endl;;
-              std::cout << ("Player 1 please place your ships")<< std::endl;;
+              std::cout << name1<<(" please place your ships")<< std::endl;;
               this->placeShips(Player1, numShips);
 
-              std::cout << ("Player 1's board...")<< std::endl;
+              std::cout << name1<<("'s board...")<< std::endl;
               Player1.printBoard();
 
               system("clear");
               std::cout << (" ")<< std::endl;;
-              std::cout << ("Player 2 please place your ships")<< std::endl;;
+              std::cout << name2<<(" please place your ships")<< std::endl;;
               this->placeShips(Player2, numShips);
-              std::cout << ("Player 2's board...")<< std::endl;
+              std::cout << name2<<("'s board...")<< std::endl;
               Player2.printBoard();
 
               playGame(Player1, Player2);
@@ -140,8 +148,9 @@ void Game::placeShips(GameBoard &player, int numShips){
 			//is vertical or horizontal
 		}
 		player.addShip(tempShip);
-	}
 
+	}
+    system("clear");
 }
 
 void Game::placeShipsAI(GameBoard& AI, int numShips){
@@ -224,7 +233,7 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
         system("clear");
 
         std::cout << ("")<< std::endl;;
-        std::cout << ("Player 1 please fire")<< std::endl;
+        std::cout << name1<<(" please fire")<< std::endl;
         std::cout << ("AI Board:")<< std::endl;
         Player1.printOppBoard();
         std::cout << ("Your Board:")<< std::endl;
@@ -247,16 +256,26 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
             if(Player1.getOppBoard()[row][col] == 0){
                 if(fire == "Miss"){
                     std::cout << ("Miss") << std::endl;
-                        Player1.updateOppBoard(row,col,"Miss");
-                        validInput = true;
+                    std::cout << ("Press enter to continue!") << std::endl;
+                    getchar();
+
+                    Player1.updateOppBoard(row,col,"Miss");
+                    validInput = true;
+
                 }
                 else if(fire == "Hit"){
                     std::cout << ("Hit!") << std::endl;
+                    std::cout << ("Press enter to continue!") << std::endl;
+                    getchar();
+
                     Player1.updateOppBoard(row,col,"Hit");
                     validInput = true;
                 }
                 else if(fire == "Sunk"){
                     std::cout << ("Sunk!") << std::endl;
+                    std::cout << ("Press enter to continue!") << std::endl;
+                    getchar();
+
                     Player1.updateOppBoard(row,col,"Sunk");
                     validInput = true;
                 }
@@ -290,9 +309,9 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
     }
 
     if(Player1.gameOver())
-        std::cout << ("Sorry Player 1, you lost") << std::endl;
+        std::cout << "Sorry "<<name1<<", you lost" << std::endl;
     else
-        std::cout << ("Congrats Player 1, you won") << std::endl;
+        std::cout << "Congrats "<<name1<<", you won" << std::endl;
 }
 
 void Game::playGame( GameBoard& Player1, GameBoard& Player2){
@@ -302,8 +321,8 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
         system("clear");
 
         std::cout << ("")<< std::endl;;
-        std::cout << ("Player 1 please fire")<< std::endl;
-        std::cout << ("Opponents Board:")<< std::endl;
+        std::cout << name1 <<" please fire"<< std::endl;
+        std::cout <<name2<<"'s Board:"<< std::endl;
         Player1.printOppBoard();
         std::cout << ("Your Board:")<< std::endl;
         Player1.printBoard();
@@ -325,6 +344,7 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
                 if(fire == "Miss"){
                     system("clear");
                     std::cout << ("Missed!") << std::endl;
+                    std::cout << ("Press enter to continue!") << std::endl;
                     getchar();
                     system("clear");
 
@@ -335,6 +355,7 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
                 else if(fire == "Hit"){
                     system("clear");
                     std::cout << ("Hit!") << std::endl;
+                    std::cout << ("Press enter to continue!") << std::endl;
                     getchar();
                     system("clear");
 
@@ -345,6 +366,7 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
                 else if(fire == "Sunk"){
                     system("clear");
                     std::cout << ("Sunk!") << std::endl;
+                    std::cout << ("Press enter to continue!") << std::endl;
                     getchar();
                     system("clear");
 
@@ -366,8 +388,8 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
         system("clear");
 
         std::cout << ("")<< std::endl;
-        std::cout << ("Player 2 please fire")<< std::endl;
-        std::cout << ("Opponents Board:")<< std::endl;
+        std::cout << name2<<" please fire"<< std::endl;
+        std::cout << name1<<"'s Board:"<< std::endl;
         Player2.printOppBoard();
         std::cout << ("Your Board:")<< std::endl;
         Player2.printBoard();
@@ -389,6 +411,7 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
                 if(fire == "Miss"){
                         system("clear");
                         std::cout << ("Missed!") << std::endl;
+                        std::cout << ("Press enter to continue!") << std::endl;
                         getchar();
                         system("clear");
 
@@ -399,6 +422,7 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
                 else if(fire == "Hit"){
                     system("clear");
                     std::cout << ("Hit!") << std::endl;
+                    std::cout << ("Press enter to continue!") << std::endl;
                     getchar();
                     system("clear");
 
@@ -409,6 +433,7 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
                 else if(fire == "Sunk"){
                     system("clear");
                     std::cout << ("Sunk!") << std::endl;
+                    std::cout << ("Press enter to continue!") << std::endl;
                     getchar();
                     system("clear");
 
@@ -431,10 +456,10 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
     }
 
     if(Player1.gameOver())
-        std::cout << ("Congrats Player 2, you won") << std::endl;
+        std::cout << "Congrats " <<name2<<", you won" << std::endl;
 
     if(Player2.gameOver())
-        std::cout << ("Congrats Player 1, you won") << std::endl;
+        std::cout << "Congrats "<<name1<<", you won" << std::endl;
 
 }
 

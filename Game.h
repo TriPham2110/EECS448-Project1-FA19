@@ -12,6 +12,8 @@ class Game{
 		GameBoard Player1;
 		GameBoard Player2;
 		GameBoard AI;
+		std::string name1 = "";
+		std::string name2 = "";
 		/*
 		 * @ pre user's input on how many ships they want
 		 *	@ param GameBoard player 1 and number of ships
