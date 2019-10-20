@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <algorithm>
 
 
 using namespace std;
@@ -25,6 +26,7 @@ class Score{
         string name;
         string wins;
         string losses;
+       // bool compareByVal(const Player &a, const Player &b);
 
 	public:
         Score(); //screw it we will make a constructor

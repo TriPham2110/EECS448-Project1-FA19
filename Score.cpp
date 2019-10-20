@@ -23,7 +23,13 @@ void Score::loadInfo(){
             scoreboard[numPlayer].name = name;
             scoreboard[numPlayer].wins = stoi(wins);
             scoreboard[numPlayer].losses = stoi(losses);
-            scoreboard[numPlayer].percentage = 100*(scoreboard[numPlayer].wins)/((scoreboard[numPlayer].wins) + scoreboard[numPlayer].losses);
+            
+            if(scoreboard[numPlayer].wins == 0 && scoreboard[numPlayer].losses == 0){
+                scoreboard[numPlayer].percentage = 0;
+            }
+            else{
+                scoreboard[numPlayer].percentage = 100*(scoreboard[numPlayer].wins)/((scoreboard[numPlayer].wins) + scoreboard[numPlayer].losses);
+            }
             
             
             numPlayer++;
@@ -40,7 +46,7 @@ void Score::print(){
     
         if(ten > 10)
             ten = 10;
-    
+        std::cout << ten << "ten" <<std::endl;
         for(int i=0; i < ten; i++){
             std::cout << (i+1) << ":\t" << scoreboard[i].name << "\t" << scoreboard[i].wins << "\t" << scoreboard[i].losses << "\t" << scoreboard[i].percentage << "%\n";
         }
@@ -56,27 +62,22 @@ bool Score::playerInScoreboard(std::string name){
 
 void Score::addNewPlayer(std::string name){
     ofstream output;
-    output.open("scoreboard.tri");
+    output.open("scoreboard.tri", std::ios_base::app);
     
-    output << name << "0" << "0";
+    output << std::endl << name << std::endl << "0" << std::endl << "0";
     
     output.close();
 }
 
 void Score::sort() {
-    for(int x=0; x<scoreboard.size(); x++)
-    {
-        for(int y=0; y<scoreboard.size()-1; y++)
-        {
-            if(scoreboard[y].percentage < scoreboard[y+1].percentage)
-            {
-                    Player temporary = scoreboard[y+1];
-                    scoreboard[y+1] = scoreboard[y];
-                    scoreboard[y] = temporary;
-            }
-        }
-    }
+
+   std::sort(scoreboard.begin(), scoreboard.end(), [](const Player& lhs, const Player& rhs)
+{
+    return lhs.percentage > rhs.percentage;
+});
 }
+
+
 
 void Score::insert(){
 

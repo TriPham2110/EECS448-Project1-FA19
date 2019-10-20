@@ -10,6 +10,7 @@ Game::Game(){
         std::cout <<"Couldn't load scoreboard" << std::endl;
     }
         
+    s.sort();
     s.print();
     
         srand(time(NULL));
@@ -97,6 +98,12 @@ Game::Game(){
 
               playGame(Player1, Player2);
          }
+    
+    try{
+        s.loadInfo();
+    }catch(int e){
+        std::cout <<"Couldn't load scoreboard" << std::endl;
+    }
     s.print();
 
 
