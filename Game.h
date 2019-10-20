@@ -40,20 +40,14 @@ class Game{
 		 * @ return none
 		 */
 		void playAI(GameBoard& Player1, GameBoard& AI, int difficulty);
+
 		/*
-		 * @ pre none
-		 *	@ param none
-		 *	@ post gets the column
-		 * @ return col
+		* @ pre none
+		*	@ param coordinates
+		*	@ post takes user input and returns threw reference coordinates
+		* @ return none
 		 */
-		int getColumn();
-		/*
-		 * @ pre none
-		 *	@ param none
-		 *	@ post gets the row
-		 * @ return row
-		 */
-		int getRow();
+		void getCoordinateInput(int*& coordinates);
 		/*
 		 * @ pre none
 		 *	@ param the option

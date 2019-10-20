@@ -21,11 +21,13 @@ Game::Game(){
                   std::cout << "2 - Hard" << std::endl;
                   std::cout << "I choose you!: ";
                   std::cin >> difficulty;
+                  difficulty = restrictIntInput(difficulty);
               }
 
               while(numShips > 5 || numShips < 1){
                   std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
                   std::cin >> numShips;
+                  numShips = restrictIntInput(numShips);
               }
             system("clear");
               std::cout << (" ")<< std::endl;;
@@ -42,6 +44,7 @@ Game::Game(){
               while(numShips > 5 || numShips < 1){
                   std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
                   std::cin >> numShips;
+                  numShips = restrictIntInput(numShips);
               }
 
               system("clear");
@@ -99,8 +102,14 @@ void Game::placeShips(GameBoard &player, int numShips){
 			std::cout << (" ") << std::endl;
 			std::cout << "Please place piece " << j << " of " << shipLength << " of ship " << shipLength << std::endl;
 
-			shipCol = getColumn();
-			shipRow = getRow();
+            int* cords = new int[2];
+
+            getCoordinateInput(cords);
+
+            shipCol = cords[0];
+            shipRow = cords[1];
+
+            delete[] cords;
 
 			if(j==2){
 				if(tempShip->getShipCoordinates().at(0)->getY() != shipCol){
@@ -218,8 +227,15 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
 
         validInput = false;
         while(!validInput){
-            col = getColumn();
-            row = getRow();
+            int* cords = new int[2];
+
+            getCoordinateInput(cords);
+
+            col = cords[0];
+            row = cords[1];
+
+            delete[] cords;
+
             std::string fire = Player2.fire(row,col);
 
             if(Player1.getOppBoard()[row][col] == 0){
@@ -288,8 +304,15 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
 
         validInput = false;
         while(!validInput){
-            col = getColumn();
-            row = getRow();
+            int* cords = new int[2];
+
+            getCoordinateInput(cords);
+
+            col = cords[0];
+            row = cords[1];
+
+            delete[] cords;
+
             std::string fire = Player2.fire(row,col);
 
             if(Player1.getOppBoard()[row][col] == 0){
@@ -345,8 +368,14 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
 
         validInput = false;
         while(!validInput){
-            col = getColumn();
-            row = getRow();
+            int* cords = new int[2];
+
+            getCoordinateInput(cords);
+
+            col = cords[0];
+            row = cords[1];
+
+            delete[] cords;
 
             std::string fire = Player1.fire(row,col);
 
@@ -403,56 +432,60 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
 
 }
 
-int Game::getColumn(){
-	int shipCol = -1;
-	std::string shipColString;
+void Game::getCoordinateInput(int*& coordinates){
+    bool valid = false;
+    std::string input;
 
-	do{
-		std::cout << ("Ship column(A-H): ") << std::endl;
-		std::getline(std::cin, shipColString);
+    while(!valid){
+        std::cout << "Please enter a coordinate: ";
+        std::getline(std::cin, input);
+        if(input.length() == 2){
+            std::string x = input.substr(0,1);
+            std::string y = input.substr(1,1);
 
-		if(shipColString == "A"){
-			shipCol = 0;
-		}
-		else if(shipColString == "B"){
-			shipCol = 1;
-		}
-		else if(shipColString == "C"){
-			shipCol = 2;
-		}
-		else if(shipColString == "D"){
-			shipCol = 3;
-		}
-		else if(shipColString == "E"){
-			shipCol = 4;
-		}
-		else if(shipColString == "F"){
-			shipCol = 5;
-		}
-		else if(shipColString == "G"){
-			shipCol = 6;
-		}
-		else if(shipColString == "H"){
-			shipCol = 7;
-		}
-		else{
-			shipCol = -1;
-		}
-	}while(shipColString.length() != 1 || shipCol == -1);
+            int xTemp = -1;
+            int yTemp = -1;
 
-	return shipCol;
-}
+            if(x == "A"){
+    			xTemp = 0;
+    		}
+    		else if(x == "B"){
+    			xTemp = 1;
+    		}
+    		else if(x == "C"){
+    			xTemp = 2;
+    		}
+    		else if(x == "D"){
+    			xTemp = 3;
+    		}
+    		else if(x == "E"){
+    			xTemp = 4;
+    		}
+    		else if(x == "F"){
+    			xTemp = 5;
+    		}
+    		else if(x == "G"){
+    			xTemp = 6;
+    		}
+    		else if(x == "H"){
+    			xTemp = 7;
+    		}
 
-int Game::getRow(){
-	int shipRow = -1;
-	while(shipRow == -1){
-		int tempRow;
-		std::cout << ("Ship row(1-8): ") << std::endl;
-		std::cin >> tempRow;
-		tempRow = restrictIntInput(tempRow);
-		if(tempRow > 0 && tempRow <= 8){
-			shipRow = tempRow - 1;
-		}
-	}
-	return shipRow;
+            if((y.find_first_not_of( "0123456789" ) == std::string::npos)){
+                yTemp = std::stoi(y);
+                if(yTemp > 0 && yTemp <= 8 && yTemp){
+        			 yTemp--;
+        		}
+                else{
+                    yTemp = -1;
+                }
+            }
+
+            if(xTemp != -1 && yTemp != -1){
+                coordinates[0] = xTemp;
+                coordinates[1] = yTemp;
+                valid = true;
+            }
+        }
+    }
 }
