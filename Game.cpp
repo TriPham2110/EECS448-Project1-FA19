@@ -4,28 +4,35 @@
 
 Game::Game(){
         
-    try{
-        s.loadInfo();
-    }catch(int e){
-        std::cout <<"Couldn't load scoreboard" << std::endl;
-    }
-        
-    s.sort();
-    s.printStart();
+    
+    
     
         srand(time(NULL));
         int numShips = -1;
         int choice;
+        std::string newGame = "";
+        
+        
+    
+    do{
+        newGame = "";
         std::cout << ("Welcome to Battleship!") << std::endl;
-        std::cout<<("How many players would you like to have (Press 1 or 2)?")<<std::endl;
-        std::cin>>choice;
-		choice = restrictIntInput(choice);
 
         StringColor::changeTheme("default");
+    
+    
+        std::cout << "1. Player vs Player" <<std::endl;
+        std::cout << "2. Player vs Computer" <<std::endl;
+        std::cout << "3. Change Theme" <<std::endl;
+        std::cout << "4. Scoreboard" <<std::endl;
+        std::cout << "5. Exit" <<std::endl;
+    
+        std::cin>>choice;
+		choice = restrictIntInput(choice);
+        
+        
 
-
-        if (choice == 1)
-        {
+        if (choice == 2){
 
               std::cout<<("Enter your name:")<<std::endl;
               std::cin>>name1;
@@ -60,8 +67,7 @@ Game::Game(){
               this->placeShipsAI(AI, numShips);
               this->playAI(Player1, AI, difficulty);
         }
-        else if (choice == 2)
-        {
+        else if (choice == 1){
 
               std::cout<<("Enter Player 1 name:")<<std::endl;
               std::cin>>name1;
@@ -100,13 +106,86 @@ Game::Game(){
               playGame(Player1, Player2);
          }
     
-    try{
-        s.loadInfo();
-    }catch(int e){
-        std::cout <<"Couldn't load scoreboard" << std::endl;
-    }
-	s.sort();
-    s.printEnd();
+        else if(choice == 3){
+            system("clear");
+            std::cout << "Choose Theme" <<std::endl;
+            std::cout << "1. Default" <<std::endl;
+            std::cout << "2. Meet's theme" <<std::endl;
+            std::cout << "3. Tri's theme" <<std::endl;
+            std::cout << "4. Apurva's theme" <<std::endl;
+            std::cout << "5. Jace's theme" <<std::endl;
+            std::cout << "6. Max's theme" <<std::endl;
+            
+            int theme;
+            std::cin>>theme;
+		    theme = restrictIntInput(theme);
+            
+            if(theme == 1){
+                StringColor::changeTheme("default");
+            }
+            else if(theme == 2){
+                StringColor::changeTheme("meet");
+            }
+            else if(theme == 3){
+                StringColor::changeTheme("tri");
+            }
+            else if(theme == 4){
+                StringColor::changeTheme("apurva");
+            }
+            else if(theme == 5){
+                StringColor::changeTheme("jace");
+            }
+            else if(theme == 6){
+                StringColor::changeTheme("max");
+            }
+            
+            system("clear");
+            
+        }
+    
+        else if (choice == 4){
+            system("clear");
+            
+            try{
+                s.loadInfo();
+                s.sort();
+                s.printStart();
+            }catch(int e){
+                std::cout <<"Couldn't load scoreboard" << std::endl;
+            }
+            std::cout <<std::endl;
+            std::cout << "Press enter to return to main menu" <<std::endl;
+            getchar();
+            
+            
+        }
+        
+        
+        if(choice == 2 || choice == 1){
+            while((newGame != "Y" && newGame != "y") && (newGame != "N" && newGame != "n")){
+            std::cout << "\nNew Game? [Y/n]:";
+            std::cin >> newGame;
+            }
+            
+            if(newGame == "n" || newGame == "N" ){
+                choice = 5;
+            }
+            else{
+                choice = 3;
+            }
+            
+        }
+        
+        
+
+        
+        system("clear");
+        
+    }while(choice != 2 && choice != 1 && choice !=5);
+    
+    
+    
+    
 
 
 }
