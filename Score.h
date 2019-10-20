@@ -7,37 +7,34 @@
 #include <fstream>
 #include <algorithm>
 
-
 using namespace std;
 
 struct Player{
-    string name;
-    int wins;
-    int losses;
-    double percentage;
-    
+	string name;
+	int wins;
+	int losses;
+	double percentage;
 };
 
 //http://www.cplusplus.com/forum/beginner/78887/
 class Score{
 	private:
 
-        std::vector<Player> scoreboard;
-        string name;
-        string wins;
-        string losses;
-       // bool compareByVal(const Player &a, const Player &b);
+		std::vector<Player> scoreboard;
+		string name;
+		string wins;
+		string losses;
+		int ten;
 
 	public:
-        Score(); //screw it we will make a constructor
-        void loadInfo();
-        void print();
-        void sort();
-        void write();
-        void insert();
-        bool playerInScoreboard(std::string name);
-        void addNewPlayer(std::string name);
-        
-
+		Score();
+		void loadInfo();
+		void printStart();
+		void printEnd();
+		void sort();
+		void write();
+		void insert();
+		bool playerInScoreboard(std::string name);
+		void addNewPlayer(std::string name);
 };
 #endif
