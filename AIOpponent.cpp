@@ -9,7 +9,7 @@ AIOpponent::AIOpponent(GameBoard* Player1, GameBoard* AIBoardPass){
 }
 
 AIOpponent::~AIOpponent(){
-    
+    std::cout << "test" << std::endl;
 }
 
 void AIOpponent::easyTurn(){

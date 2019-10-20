@@ -11,11 +11,13 @@ void Score::AddPlayer(std::string playerName, int points){
         input.open("Scoreboard.tri");
         white(input)
         {
+            input >> playerName >> points;
             name = playerName;
             score = points;
-            scoreboard.push_back(name);
-            scoreboard.push_back(score);
+            scoreboard.push_back(Entry);
         }
+
+        input.close();
 }
 
 void Score::Print(){
@@ -39,7 +41,16 @@ void Score::Sort() {
     }
 }
 
+void Score::insert(){
+
+  scoreboard.peek()
+
+}
+
 void Score::write()
 {
+//Entry e;
+
+while(scoreboard.peek().score >>)
 
 }

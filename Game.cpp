@@ -1,5 +1,6 @@
 #include "Game.h"
 #include <limits>
+#include "StringColor.h"
 
 Game::Game(){
         srand(time(NULL));
@@ -8,6 +9,8 @@ Game::Game(){
         std::cout << ("Welcome to Battleship!") << std::endl;
         std::cout<<("How many players would you like to have (Press 1 or 2)?")<<std::endl;
         std::cin>>choice;
+
+        StringColor::changeTheme("default");
 
 
         if (choice == 1)
@@ -224,13 +227,11 @@ void Game::placeShipsAI(GameBoard& AI, int numShips){
 void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
 {
     AIOpponent * AIPlayer = new AIOpponent(&Player1, &AI);
-
+    system("clear");
     while(!Player1.gameOver() && !AI.gameOver()){
         int row, col;
         bool validInput = false;
-        system("clear");
 
-        system("clear");
 
         std::cout << ("")<< std::endl;;
         std::cout << name1<<(" please fire")<< std::endl;
@@ -269,7 +270,10 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
                     getchar();
 
                     Player1.updateOppBoard(row,col,"Hit");
+                    std::cout << ("Hit!") << std::endl;
                     validInput = true;
+
+                    system("clear");
                 }
                 else if(fire == "Sunk"){
                     std::cout << ("Sunk!") << std::endl;
@@ -277,7 +281,10 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
                     getchar();
 
                     Player1.updateOppBoard(row,col,"Sunk");
+                    std::cout << ("Sunk!") << std::endl;
                     validInput = true;
+
+                    system("clear");
                 }
                 else if(fire == "Error Bounds"){
                      std::cout << ("Out of bounds") << std::endl;
@@ -301,8 +308,6 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
             AIPlayer->mediumTurn();
         else if(difficulty == 2)
             AIPlayer->hardTurn();
-
-        AI.printOppBoard();
 
         if(Player1.gameOver())
             break;
