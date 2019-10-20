@@ -20,7 +20,7 @@ class AIOpponent{
 	     *	@ post constructor
 	     * @ return none
 	     */
-		AIOpponent(GameBoard& Player1, GameBoard& AIBoardPass);
+		AIOpponent(GameBoard* Player1, GameBoard* AIBoardPass);
 		/*
 	     * @ pre none
 	     *	@ param none
@@ -42,4 +42,6 @@ class AIOpponent{
 	     * @ return none
 	     */
 		void hardTurn();
+    
+        ~AIOpponent();
 };

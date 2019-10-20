@@ -1,11 +1,15 @@
   
 #include "AIOpponent.h"
 
-AIOpponent::AIOpponent(GameBoard& Player1, GameBoard& AIBoardPass){
+AIOpponent::AIOpponent(GameBoard* Player1, GameBoard* AIBoardPass){
 	srand(time(NULL));
-	AIBoard = AIBoardPass;
-	Player = Player1;
+	AIBoard = *AIBoardPass;
+	Player = *Player1;
 	mediumTurnFlag = 0;
+}
+
+AIOpponent::~AIOpponent(){
+    
 }
 
 void AIOpponent::easyTurn(){
@@ -103,7 +107,6 @@ void AIOpponent::hardTurn(){
 	for(int x = 0; x < 8; x++){
 		for(int y = 0; y < 8; y++){
 			if(Player.getBoard()[x][y] == 1 && (AIBoard.getOppBoard()[x][y] != 2 )){
-				std::cout << x << " " << y << std::endl;
                 std::string outcome = Player.fire(x,y);
                 Player.updateMyBoard(x,y,outcome);
 				AIBoard.updateOppBoard(x, y, outcome);
