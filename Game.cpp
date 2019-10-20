@@ -210,11 +210,17 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
     while(!Player1.gameOver() && !AI.gameOver()){
         int row, col;
         bool validInput = false;
+        system("clear");
+
+        system("clear");
 
         std::cout << ("")<< std::endl;;
-        std::cout << ("Player 1' please fire'")<< std::endl;
-
+        std::cout << ("Player 1 please fire")<< std::endl;
+        std::cout << ("AI Board:")<< std::endl;
         Player1.printOppBoard();
+        std::cout << ("Your Board:")<< std::endl;
+        Player1.printBoard();
+
 
         validInput = false;
         while(!validInput){
