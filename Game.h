@@ -6,6 +6,7 @@
 #include "AIOpponent.h"
 #include <cstdlib>
 #include <time.h>
+#include "Score.h"
 
 class Game{
 	private:
@@ -14,6 +15,8 @@ class Game{
 		GameBoard AI;
 		std::string name1 = "";
 		std::string name2 = "";
+    
+        Score s;
 		/*
 		 * @ pre user's input on how many ships they want
 		 *	@ param GameBoard player 1 and number of ships

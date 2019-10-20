@@ -3,6 +3,15 @@
 #include "StringColor.h"
 
 Game::Game(){
+        
+    try{
+        s.loadInfo();
+    }catch(int e){
+        std::cout <<"Couldn't load scoreboard" << std::endl;
+    }
+        
+    s.print();
+    
         srand(time(NULL));
         int numShips = -1;
         int choice;
@@ -19,6 +28,10 @@ Game::Game(){
               std::cout<<("Enter your name:")<<std::endl;
               std::cin>>name1;
               int difficulty = -1;
+            
+              if(!s.playerInScoreboard(name1)){
+                  s.addNewPlayer(name1);
+              }
 
               while(difficulty > 3 || difficulty < 0){
                   std::cout << "Please select a difficulty" << std::endl;
@@ -52,6 +65,14 @@ Game::Game(){
               std::cin>>name1;
               std::cout<<("Enter Player 2 name:")<<std::endl;
               std::cin>>name2;
+            
+              if(!s.playerInScoreboard(name1)){
+                  s.addNewPlayer(name1);
+              }
+              if(!s.playerInScoreboard(name2)){
+                  s.addNewPlayer(name2);
+              }
+            
               while(numShips > 5 || numShips < 1){
                   std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
                   std::cin >> numShips;
@@ -76,6 +97,7 @@ Game::Game(){
 
               playGame(Player1, Player2);
          }
+    s.print();
 
 
 }

@@ -1,39 +1,76 @@
 #include "Score.h"
+#include "StringColor.h"
 
-struct Entry{
-    std::string name;
-    int score;
-};
 
-void Score::AddPlayer(std::string playerName, int points){
+Score::Score(){
+}
+
+void Score::loadInfo(){
 
         ifstream input;
         input.open("Scoreboard.tri");
-        white(input)
+        int numPlayer = 0;
+    
+        while(input)
         {
-            input >> playerName >> points;
-            name = playerName;
-            score = points;
-            scoreboard.push_back(Entry);
+            
+            
+            input >> name >> wins >> losses;
+            
+            
+            scoreboard.push_back(Player());
+            
+            scoreboard[numPlayer].name = name;
+            scoreboard[numPlayer].wins = stoi(wins);
+            scoreboard[numPlayer].losses = stoi(losses);
+            scoreboard[numPlayer].percentage = 100*(scoreboard[numPlayer].wins)/((scoreboard[numPlayer].wins) + scoreboard[numPlayer].losses);
+            
+            
+            numPlayer++;
         }
 
         input.close();
 }
 
-void Score::Print(){
-        for(int i=0; i < scoreboard.size(); i++){
-            std::cout << (i+1) << ":\n" << scoreboard[i].name << "\n" << scoreboard[i].score << "\n";
+void Score::print(){
+    this->sort();
+    std::cout << "#" << "\t" << "NAME" << "\t" << "WINS"<< "\t" << "Loss" << "\t" << "W/L PERCENT" << "\n";
+    
+        int ten = (scoreboard.size()-1);
+    
+        if(ten > 10)
+            ten = 10;
+    
+        for(int i=0; i < ten; i++){
+            std::cout << (i+1) << ":\t" << scoreboard[i].name << "\t" << scoreboard[i].wins << "\t" << scoreboard[i].losses << "\t" << scoreboard[i].percentage << "%\n";
         }
 }
 
-void Score::Sort() {
+bool Score::playerInScoreboard(std::string name){
+    for(int rep=0; rep<scoreboard.size(); rep++){
+        if(scoreboard[rep].name == name)
+            return true;
+    }
+    return false;
+}
+
+void Score::addNewPlayer(std::string name){
+    ofstream output;
+    output.open("scoreboard.tri");
+    
+    output << name << "0" << "0";
+    
+    output.close();
+}
+
+void Score::sort() {
     for(int x=0; x<scoreboard.size(); x++)
     {
         for(int y=0; y<scoreboard.size()-1; y++)
         {
-            if(scoreboard[y].score < scoreboard[y+1].score)
+            if(scoreboard[y].percentage < scoreboard[y+1].percentage)
             {
-                    Entry temporary = scoreboard[y+1];
+                    Player temporary = scoreboard[y+1];
                     scoreboard[y+1] = scoreboard[y];
                     scoreboard[y] = temporary;
             }
@@ -43,7 +80,7 @@ void Score::Sort() {
 
 void Score::insert(){
 
-  scoreboard.peek()
+  //scoreboard.peek()
 
 }
 
@@ -51,6 +88,5 @@ void Score::write()
 {
 //Entry e;
 
-while(scoreboard.peek().score >>)
 
 }

@@ -3,25 +3,39 @@
 
 #include <string>
 #include <iostream>
-#include "Game.h"
+#include <vector>
 #include <fstream>
-#include "GameBoard.h"
-using namespace std
+
+
+using namespace std;
+
+struct Player{
+    string name;
+    int wins;
+    int losses;
+    double percentage;
+    
+};
 
 //http://www.cplusplus.com/forum/beginner/78887/
 class Score{
 	private:
 
-        std::vector<Entry> scoreboard;
-
-        //Score();
+        std::vector<Player> scoreboard;
+        string name;
+        string wins;
+        string losses;
 
 	public:
-        void AddPlayer(std::string playerName, int points);
-        void Print();
-        void Sort();
+        Score(); //screw it we will make a constructor
+        void loadInfo();
+        void print();
+        void sort();
         void write();
-				void insert();
+        void insert();
+        bool playerInScoreboard(std::string name);
+        void addNewPlayer(std::string name);
+        
 
 };
 #endif

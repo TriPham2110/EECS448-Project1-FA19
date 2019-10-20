@@ -3,9 +3,12 @@
 #include <string>
 #include "StringColor.h"
 
+
 int main(){
 
     StringColor::reset();
+    
+    
     
     
 
