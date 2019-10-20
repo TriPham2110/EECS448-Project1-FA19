@@ -259,6 +259,7 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
                     std::cout << ("Miss") << std::endl;
                     std::cout << ("Press enter to continue!") << std::endl;
                     getchar();
+                    system("clear");
 
                     Player1.updateOppBoard(row,col,"Miss");
                     validInput = true;
@@ -313,10 +314,16 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
             break;
     }
 
-    if(Player1.gameOver())
+    if(Player1.gameOver()){
         std::cout << "Sorry "<<name1<<", you lost" << std::endl;
+    }
     else
         std::cout << "Congrats "<<name1<<", you won" << std::endl;
+    
+    std::cout << "Your board :\n";
+    Player1.printBoard();
+    std::cout << "\nAI's board :\n";
+    AI.printBoard();
 }
 
 void Game::playGame( GameBoard& Player1, GameBoard& Player2){
@@ -460,11 +467,18 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
         system("clear");
     }
 
-    if(Player1.gameOver())
+    if(Player1.gameOver()) {
         std::cout << "Congrats " <<name2<<", you won" << std::endl;
+    }
 
-    if(Player2.gameOver())
+    if(Player2.gameOver()){
         std::cout << "Congrats "<<name1<<", you won" << std::endl;
+    }
+    
+    std::cout << name1 << "'s board :\n";
+    Player1.printBoard();
+    std::cout << name2 << "'s board :\n";
+    Player2.printBoard();
 
 }
 

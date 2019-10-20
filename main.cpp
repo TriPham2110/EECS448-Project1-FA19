@@ -18,17 +18,28 @@ int main(){
 	std::cout << StringColor::BOLDBLUE<<"|   |    |       ||       ||   |  | |    |   |  |       ||   |  | ||   | |     |_ |    _  |" << std::endl;
 	std::cout << StringColor::MAGENTA <<"|___|    |_______||_______||___|  |_|    |___|  |_______||___|  |_||___| |_______||___| |_|" << std::endl;
 	
-	std::cout << std::endl;
-    std::cout << StringColor::YELLOW;
-
-	Game g;
     
-    StringColor::reset();
-    system("clear");
-    system("clear");
+    std::string newGame = "";
+    
+    while(newGame != "N" && newGame != "n"){
+        newGame = "";
+        std::cout << std::endl;
+        std::cout << StringColor::YELLOW;
 
-    system("clear");
-
+	    Game g;
+        
+        while((newGame != "Y" && newGame != "y") && (newGame != "N" && newGame != "n")){
+            std::cout << "\nNew Game? [Y/n]:";
+            std::cin >> newGame;
+        }
+        
+        
+    
+        StringColor::reset();
+    }
+        
+    
+    
 
 
 }

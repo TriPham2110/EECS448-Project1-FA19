@@ -187,23 +187,23 @@ void GameBoard::printBoard(){
     for(int j = 0; j < boardSize; j++){
         if(board[i][j] == 0){
             
-            cout << StringColor::WATER << " ";
+            cout << StringColor::WATER;
         }
         else if(board[i][j] == 1){
             
-            cout << StringColor::SHIP << " ";
+            cout << StringColor::SHIP;
         }
         else if(board[i][j] == 2){
             
-            cout << StringColor::HIT << " ";
+            cout << StringColor::HIT;
         }
         else if(board[i][j] == 3){
             
-            cout << StringColor::SUNK << " ";
+            cout << StringColor::SUNK;
         }
         else if(board[i][j] == 4){
             
-            cout << StringColor::MISS << " ";
+            cout << StringColor::MISS;
         }
       //cout << oppBoard[i][j] << " ";
     }
@@ -220,23 +220,23 @@ void GameBoard::printOppBoard(){
     for(int j = 0; j < boardSize; j++){
         if(oppBoard[i][j] == 0){
             
-            cout << StringColor::WATER << " ";
+            cout << StringColor::WATER;
         }
         else if(oppBoard[i][j] == 1){
             
-            cout << StringColor::SHIP << " ";
+            cout << StringColor::SHIP;
         }
         else if(oppBoard[i][j] == 2){
             
-            cout << StringColor::HIT << " ";
+            cout << StringColor::HIT;
         }
         else if(oppBoard[i][j] == 3){
             
-            cout << StringColor::SUNK << " ";
+            cout << StringColor::SUNK;
         }
         else if(oppBoard[i][j] == 4){
             
-            cout << StringColor::MISS << " ";
+            cout << StringColor::MISS;
         }
       //cout << oppBoard[i][j] << " ";
     }
