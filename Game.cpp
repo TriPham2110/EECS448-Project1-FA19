@@ -214,7 +214,7 @@ void Game::placeShipsAI(GameBoard& AI, int numShips){
 
 void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
 {
-    AIOpponent AIPlayer = AIOpponent(Player1, AI);
+    AIOpponent * AIPlayer = new AIOpponent(Player1, AI);
 
     while(!Player1.gameOver() && !AI.gameOver()){
         int row, col;
@@ -277,11 +277,11 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
 
         // player 2 turn
         if(difficulty == 0)
-            AIPlayer.easyTurn();
+            AIPlayer->easyTurn();
         else if(difficulty == 1)
-            AIPlayer.mediumTurn();
+            AIPlayer->mediumTurn();
         else if(difficulty == 2)
-            AIPlayer.hardTurn();
+            AIPlayer->chardTurn();
 
         AI.printOppBoard();
 
