@@ -3,16 +3,16 @@
 #include "StringColor.h"
 
 Game::Game(){
-        
+
     try{
         s.loadInfo();
     }catch(int e){
         std::cout <<"Couldn't load scoreboard" << std::endl;
     }
-        
+
     s.sort();
     s.print();
-    
+
         srand(time(NULL));
         int numShips = -1;
         int choice;
@@ -29,7 +29,7 @@ Game::Game(){
               std::cout<<("Enter your name:")<<std::endl;
               std::cin>>name1;
               int difficulty = -1;
-            
+
               if(!s.playerInScoreboard(name1)){
                   s.addNewPlayer(name1);
               }
@@ -66,14 +66,14 @@ Game::Game(){
               std::cin>>name1;
               std::cout<<("Enter Player 2 name:")<<std::endl;
               std::cin>>name2;
-            
+
               if(!s.playerInScoreboard(name1)){
                   s.addNewPlayer(name1);
               }
               if(!s.playerInScoreboard(name2)){
                   s.addNewPlayer(name2);
               }
-            
+
               while(numShips > 5 || numShips < 1){
                   std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
                   std::cin >> numShips;
@@ -98,7 +98,7 @@ Game::Game(){
 
               playGame(Player1, Player2);
          }
-    
+
     try{
         s.loadInfo();
     }catch(int e){
@@ -281,7 +281,7 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
 
             delete[] cords;
 
-            std::string fire = Player2.fire(row,col);
+            std::string fire = AI.fire(row,col);
 
             if(Player1.getOppBoard()[row][col] == 0){
                 if(fire == "Miss"){
@@ -348,7 +348,7 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
     }
     else
         std::cout << "Congrats "<<name1<<", you won" << std::endl;
-    
+
     std::cout << "Your board :\n";
     Player1.printBoard();
     std::cout << "\nAI's board :\n";
@@ -503,7 +503,7 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
     if(Player2.gameOver()){
         std::cout << "Congrats "<<name1<<", you won" << std::endl;
     }
-    
+
     std::cout << name1 << "'s board :\n";
     Player1.printBoard();
     std::cout << name2 << "'s board :\n";
