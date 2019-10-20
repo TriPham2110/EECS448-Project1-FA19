@@ -4,3 +4,4 @@ Works Cited:
 2:      http://www.hellgeeks.com/arraylist-in-c-with-examples/
 3:      http://patorjk.com/software/taag/
 4:      https://stackoverflow.com/questions/9158150/colored-output-in-c
+5:      http://www.cplusplus.com/forum/beginner/78887/
