@@ -212,7 +212,7 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
         bool validInput = false;
 
         std::cout << ("")<< std::endl;;
-        std::cout << ("Player 1 please fire")<< std::endl;
+        std::cout << ("Player 1' please fire'")<< std::endl;
 
         Player1.printOppBoard();
 

@@ -17,3 +17,19 @@ const std::string StringColor::BOLDBLUE    = "\033[1m\033[34m";
 const std::string StringColor::BOLDMAGENTA = "\033[1m\033[35m";
 const std::string StringColor::BOLDCYAN    = "\033[1m\033[36m"; 
 const std::string StringColor::BOLDWHITE   = "\033[1m\033[37m";
+
+std::string StringColor::WATER      = "≈";
+std::string StringColor::SHIP       = "±";
+std::string StringColor::BORDER;
+std::string StringColor::TEXT;
+std::string StringColor::HIT        = "#";
+std::string StringColor::MISS       = "Ω";
+std::string StringColor::SUNK       = "≠";
+
+
+void StringColor::changeTheme(std::string themeName){
+    if(themeName == "default"){
+        BORDER = "\033[37m";
+    }
+     
+}

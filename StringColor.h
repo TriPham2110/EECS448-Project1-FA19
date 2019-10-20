@@ -14,6 +14,7 @@ class StringColor {
          * @ return none
          */
         StringColor(){};
+        
         static const std::string RESET;
         static const std::string BLACK;
         static const std::string RED;
@@ -31,7 +32,20 @@ class StringColor {
         static const std::string BOLDMAGENTA;
         static const std::string BOLDCYAN;
         static const std::string BOLDWHITE;
+        static std::string WATER;
+        static std::string SHIP;
+        static std::string BORDER;
+        static std::string TEXT;
+        static std::string HIT;
+        static std::string MISS;
+        static std::string SUNK;
+    
+        static void changeTheme(std::string themeName);
+        
+    
     private:
+        
+        std::string theme = "default";
 
 };
 #endif

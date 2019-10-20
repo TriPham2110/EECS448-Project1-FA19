@@ -14,6 +14,7 @@ blue ≈ for waves
 green ± for ships
 red # for hit ships
 magenta ≠ sunk ships
+white Ω for miss
 
 fix malloc error ai
 
