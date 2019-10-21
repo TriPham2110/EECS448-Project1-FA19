@@ -35,5 +35,8 @@ class Score{
 		void insert();
 		bool playerInScoreboard(std::string name);
 		void addNewPlayer(std::string name);
+        void playerAddWin(std::string name);
+        void playerAddLoss(std::string name);
+        void updateFile();
 };
 #endif

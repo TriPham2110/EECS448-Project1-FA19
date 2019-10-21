@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "GameBoard.h"
-#include "AIOpponent.h"
+
 #include <cstdlib>
 #include <time.h>
 #include "Score.h"

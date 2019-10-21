@@ -15,6 +15,7 @@ Game::Game(){
 
 
     do{
+        numShips = -1;
         newGame = "";
         std::cout << ("Welcome to Battleship!") << std::endl;
 
@@ -149,7 +150,7 @@ Game::Game(){
             try{
                 s.loadInfo();
                 s.sort();
-                s.printStart();
+                s.print();
             }catch(int e){
                 std::cout <<"Couldn't load scoreboard" << std::endl;
             }
@@ -162,17 +163,9 @@ Game::Game(){
 
 
         if(choice == 2 || choice == 1){
-            while((newGame != "Y" && newGame != "y") && (newGame != "N" && newGame != "n")){
-            std::cout << "\nNew Game? [Y/n]:";
-            std::cin >> newGame;
-            }
-
-            if(newGame == "n" || newGame == "N" ){
-                choice = 5;
-            }
-            else{
-                choice = 3;
-            }
+            std::cout <<std::endl;
+            std::cout << "Press enter to return to main menu" <<std::endl;
+            getchar();
 
         }
 
@@ -180,8 +173,10 @@ Game::Game(){
 
 
         system("clear");
+        
+      
 
-    }while(choice != 2 && choice != 1 && choice !=5);
+    }while(choice !=5);
 
 
 
@@ -425,9 +420,14 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
 
     if(Player1.gameOver()){
         std::cout << "Sorry "<<name1<<", you lost" << std::endl;
+        s.playerAddLoss(name1);
+        s.updateFile();
     }
-    else
+    else{
         std::cout << "Congrats "<<name1<<", you won" << std::endl;
+        s.playerAddWin(name1);
+        s.updateFile();
+    }
 
     std::cout << "Your board :\n";
     Player1.printBoard();
@@ -578,10 +578,17 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
 
     if(Player1.gameOver()) {
         std::cout << "Congrats " <<name2<<", you won" << std::endl;
+        s.playerAddLoss(name1);
+        s.playerAddWin(name2);
+        s.updateFile();
     }
 
     if(Player2.gameOver()){
         std::cout << "Congrats "<<name1<<", you won" << std::endl;
+        s.playerAddLoss(name2);
+        s.playerAddWin(name1);
+        s.updateFile();
+        
     }
 
     std::cout << name1 << "'s board :\n";
