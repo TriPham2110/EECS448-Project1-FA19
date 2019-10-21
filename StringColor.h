@@ -58,6 +58,7 @@ class StringColor {
 
     
     private:
+        static int RandInt(int a, int b);
 
         std::string theme = "default";
 

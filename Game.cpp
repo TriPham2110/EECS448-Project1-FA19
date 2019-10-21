@@ -127,6 +127,7 @@ Game::Game(){
             std::cout << "6. Max's theme" <<std::endl;
             std::cout << "7. Light Mode" <<std::endl;
             std::cout << "8. Dark Mode" <<std::endl;
+            std::cout << "9. Chaos" <<std::endl;
 
             int theme =0;
             std::cin>>theme;
@@ -157,6 +158,9 @@ Game::Game(){
             }
             else if(theme == 8){
                 StringColor::changeTheme("darkMode");
+            }
+            else if(theme == 9){
+                StringColor::changeTheme("chaos");
             }
 
             system("clear");

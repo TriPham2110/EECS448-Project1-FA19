@@ -90,9 +90,24 @@ void StringColor::changeTheme(std::string themeName){
         MISS = WHITE + " Ω ";
         SUNK = WHITE + " ≠ ";
     }
+    
+    else if (themeName == "chaos"){
+        BACKGROUND = "\033[" + std::to_string(RandInt(40, 7)) + "m";
+        BORDER = "\033[1m\033[3"+std::to_string(RandInt(40, 7))+"m\033[" + std::to_string(RandInt(30, 7)) + "m";
+        TEXT = "\033[1m\033[3"+std::to_string(RandInt(40, 7))+"m\033[" + std::to_string(RandInt(30, 7)) + "m";
+        WATER = BACKGROUND + "\033[1m\033[3"+ std::to_string(RandInt(40, 7))+"m\033[" + std::to_string(RandInt(30, 7)) + "m" + (char)RandInt(33,22) + (char)RandInt(33,22) + (char)RandInt(33,22);
+        SHIP = "\033[1m\033[3"+ std::to_string(RandInt(40, 7))+"m\033[" + std::to_string(RandInt(30, 7)) + "m" + (char)RandInt(33,22) + (char)RandInt(33,22) + (char)RandInt(33,22);
+        HIT = "\033[1m\033[3"+std::to_string(RandInt(40, 7))+"m\033[" + std::to_string(RandInt(30, 7))+"m"+ (char)RandInt(33,22) + (char)RandInt(33,22) + (char)RandInt(33,22);
+        MISS = "\033[1m\033[3"+std::to_string(RandInt(40, 7))+"m\033[" + std::to_string(RandInt(30, 7))+"m"+ (char)RandInt(33,22) + (char)RandInt(33,22) + (char)RandInt(33,22);
+        SUNK = "\033[1m\033[3"+std::to_string(RandInt(40, 7))+"m\033[" + std::to_string(RandInt(30, 7))+"m" + (char)RandInt(33,22) + (char)RandInt(33,22) + (char)RandInt(33,22);
+    }
 
 }
 
 void StringColor::reset(){
     std::cout << RESET << std::endl;
+}
+
+int StringColor::RandInt(int a, int b){
+    return (rand()%b+a);
 }
