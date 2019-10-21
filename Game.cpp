@@ -14,22 +14,15 @@ Game::Game(){
     
         s.loadInfo();
 
-<<<<<<< HEAD
-        //StringColor::changeTheme("default");
-=======
+
         StringColor::changeTheme("default");
->>>>>>> 63c8bd798b07379397ce058b1fbb55bd0a48e490
+
 
     do{
         numShips = -1;
         newGame = "";
         std::cout << ("Welcome to Battleship!") << std::endl;
 
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> 63c8bd798b07379397ce058b1fbb55bd0a48e490
 
 
         std::cout << "1. Player vs Player" <<std::endl;
