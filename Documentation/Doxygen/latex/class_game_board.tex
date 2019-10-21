@@ -1,0 +1,406 @@
+\hypertarget{class_game_board}{}\doxysection{Game\+Board Class Reference}
+\label{class_game_board}\index{GameBoard@{GameBoard}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}{Game\+Board}} ()
+\item 
+\mbox{\hyperlink{class_game_board_a48e19b4953c87cc5eea1f9152d09499e}{$\sim$\+Game\+Board}} ()
+\item 
+void \mbox{\hyperlink{class_game_board_ac09830aa4245189be330dbcef4dba375}{add\+Ship}} (\mbox{\hyperlink{class_ship}{Ship}} $\ast$new\+Ship)
+\item 
+std\+::string \mbox{\hyperlink{class_game_board_a50225dd9c1daba9b06be28d9bf0b5513}{fire}} (int x, int y)
+\item 
+int $\ast$$\ast$ \mbox{\hyperlink{class_game_board_a4e52f4fce070f16a3cd9aaab1dbfaacc}{get\+Board}} ()
+\item 
+int $\ast$$\ast$ \mbox{\hyperlink{class_game_board_a2540f26fcf5b0c2e3db75eed32f3e414}{get\+Opp\+Board}} ()
+\item 
+bool \mbox{\hyperlink{class_game_board_aafda2038309024f8a7aa6607c68441e4}{game\+Over}} ()
+\item 
+int \mbox{\hyperlink{class_game_board_a34906c62d81d520e6d7c580a5c7d8eaa}{can\+Find\+Path}} (int x, int y, int ship\+Length)
+\item 
+bool \mbox{\hyperlink{class_game_board_a9ff953cf6232ca364871f4e1675be5ea}{is\+Occupied}} (int x, int y)
+\item 
+void \mbox{\hyperlink{class_game_board_a067ef7b3c03a267d00c69aa1345d9b85}{update\+Opp\+Board}} (int x, int y, std\+::string outcome)
+\item 
+void \mbox{\hyperlink{class_game_board_a680909ecb106df8d8576bfc2477d552c}{update\+My\+Board}} (int x, int y, std\+::string outcome)
+\item 
+void \mbox{\hyperlink{class_game_board_abbcd432d62ac889c57ac94758358365a}{print\+Board}} ()
+\item 
+void \mbox{\hyperlink{class_game_board_a854112fc66393aee25ca383e3a75a713}{print\+Opp\+Board}} ()
+\item 
+void \mbox{\hyperlink{class_game_board_a5d17eabe81a94e5a265066ff5ad7dbf5}{reset\+Board}} ()
+\item 
+\mbox{\hyperlink{class_game_board}{Game\+Board}} \& \mbox{\hyperlink{class_game_board_a7c319d0fb6504870c8b7d11de7144531}{operator=}} (const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&a)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_game_board_af19ba0fa25eb7b6921855ad6e9d4a72b}{num\+In\+LineX}} (int x, int y, int dir)
+\item 
+int \mbox{\hyperlink{class_game_board_ae7781fa1ee7e65782587d280b6de3d48}{num\+In\+LineY}} (int x, int y, int dir)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_board_af4f6e780e81efcfddf4af2c0c1b0feda}\label{class_game_board_af4f6e780e81efcfddf4af2c0c1b0feda}} 
+int {\bfseries board\+Size}
+\item 
+\mbox{\Hypertarget{class_game_board_af3dfb4b336e2f5aaef68e9c778d5eb94}\label{class_game_board_af3dfb4b336e2f5aaef68e9c778d5eb94}} 
+int $\ast$$\ast$ {\bfseries board}
+\item 
+\mbox{\Hypertarget{class_game_board_a975b484f9ed85a11e14137d6227601b5}\label{class_game_board_a975b484f9ed85a11e14137d6227601b5}} 
+int $\ast$$\ast$ {\bfseries opp\+Board}
+\item 
+\mbox{\Hypertarget{class_game_board_aa3f7dcdd7432d464e46b120c55346173}\label{class_game_board_aa3f7dcdd7432d464e46b120c55346173}} 
+std\+::vector$<$ \mbox{\hyperlink{class_ship}{Ship}} $\ast$ $>$ {\bfseries ships}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}\label{class_game_board_ac622cadcc81b3ffb71d8feb4506c04ac}} 
+\index{GameBoard@{GameBoard}!GameBoard@{GameBoard}}
+\index{GameBoard@{GameBoard}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{GameBoard()}{GameBoard()}}
+{\footnotesize\ttfamily Game\+Board\+::\+Game\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+consturctor 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_a48e19b4953c87cc5eea1f9152d09499e}\label{class_game_board_a48e19b4953c87cc5eea1f9152d09499e}} 
+\index{GameBoard@{GameBoard}!````~GameBoard@{$\sim$GameBoard}}
+\index{````~GameBoard@{$\sim$GameBoard}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{$\sim$GameBoard()}{~GameBoard()}}
+{\footnotesize\ttfamily Game\+Board\+::$\sim$\+Game\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+deconsturctor 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_board_ac09830aa4245189be330dbcef4dba375}\label{class_game_board_ac09830aa4245189be330dbcef4dba375}} 
+\index{GameBoard@{GameBoard}!addShip@{addShip}}
+\index{addShip@{addShip}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{addShip()}{addShip()}}
+{\footnotesize\ttfamily void Game\+Board\+::add\+Ship (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ship}{Ship}} $\ast$}]{new\+Ship }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em Ships} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+Adds ships 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_a34906c62d81d520e6d7c580a5c7d8eaa}\label{class_game_board_a34906c62d81d520e6d7c580a5c7d8eaa}} 
+\index{GameBoard@{GameBoard}!canFindPath@{canFindPath}}
+\index{canFindPath@{canFindPath}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{canFindPath()}{canFindPath()}}
+{\footnotesize\ttfamily int Game\+Board\+::can\+Find\+Path (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{ship\+Length }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & and y coordinates and ship\textquotesingle{}s lenght \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+finds the path 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_a50225dd9c1daba9b06be28d9bf0b5513}\label{class_game_board_a50225dd9c1daba9b06be28d9bf0b5513}} 
+\index{GameBoard@{GameBoard}!fire@{fire}}
+\index{fire@{fire}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{fire()}{fire()}}
+{\footnotesize\ttfamily std\+::string Game\+Board\+::fire (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & and y coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+handles the fire asspect of the game 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+hit fire or miss 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_aafda2038309024f8a7aa6607c68441e4}\label{class_game_board_aafda2038309024f8a7aa6607c68441e4}} 
+\index{GameBoard@{GameBoard}!gameOver@{gameOver}}
+\index{gameOver@{gameOver}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{gameOver()}{gameOver()}}
+{\footnotesize\ttfamily bool Game\+Board\+::game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+one players ships are all sunk 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+game ends 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false on if all the ships are sunk 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_a4e52f4fce070f16a3cd9aaab1dbfaacc}\label{class_game_board_a4e52f4fce070f16a3cd9aaab1dbfaacc}} 
+\index{GameBoard@{GameBoard}!getBoard@{getBoard}}
+\index{getBoard@{getBoard}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{getBoard()}{getBoard()}}
+{\footnotesize\ttfamily int $\ast$$\ast$ Game\+Board\+::get\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+gets the board 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+board 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_a2540f26fcf5b0c2e3db75eed32f3e414}\label{class_game_board_a2540f26fcf5b0c2e3db75eed32f3e414}} 
+\index{GameBoard@{GameBoard}!getOppBoard@{getOppBoard}}
+\index{getOppBoard@{getOppBoard}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{getOppBoard()}{getOppBoard()}}
+{\footnotesize\ttfamily int $\ast$$\ast$ Game\+Board\+::get\+Opp\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+gets the opponent board 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+opponent board 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_a9ff953cf6232ca364871f4e1675be5ea}\label{class_game_board_a9ff953cf6232ca364871f4e1675be5ea}} 
+\index{GameBoard@{GameBoard}!isOccupied@{isOccupied}}
+\index{isOccupied@{isOccupied}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{isOccupied()}{isOccupied()}}
+{\footnotesize\ttfamily bool Game\+Board\+::is\+Occupied (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & and y coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+checks to see if a spot is occupied 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false on if the ship is occupied 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_af19ba0fa25eb7b6921855ad6e9d4a72b}\label{class_game_board_af19ba0fa25eb7b6921855ad6e9d4a72b}} 
+\index{GameBoard@{GameBoard}!numInLineX@{numInLineX}}
+\index{numInLineX@{numInLineX}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{numInLineX()}{numInLineX()}}
+{\footnotesize\ttfamily int Game\+Board\+::num\+In\+LineX (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & and y coordinates and direction \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+returns number in line x 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+number in line x 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_ae7781fa1ee7e65782587d280b6de3d48}\label{class_game_board_ae7781fa1ee7e65782587d280b6de3d48}} 
+\index{GameBoard@{GameBoard}!numInLineY@{numInLineY}}
+\index{numInLineY@{numInLineY}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{numInLineY()}{numInLineY()}}
+{\footnotesize\ttfamily int Game\+Board\+::num\+In\+LineY (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{dir }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & and y coordinates and direction @postreturns number in line y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+number in line y 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_a7c319d0fb6504870c8b7d11de7144531}\label{class_game_board_a7c319d0fb6504870c8b7d11de7144531}} 
+\index{GameBoard@{GameBoard}!operator=@{operator=}}
+\index{operator=@{operator=}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_game_board}{Game\+Board}} \& Game\+Board\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{a }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_game_board}{Game\+Board}}} & a \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+= overload 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_abbcd432d62ac889c57ac94758358365a}\label{class_game_board_abbcd432d62ac889c57ac94758358365a}} 
+\index{GameBoard@{GameBoard}!printBoard@{printBoard}}
+\index{printBoard@{printBoard}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{printBoard()}{printBoard()}}
+{\footnotesize\ttfamily void Game\+Board\+::print\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+prints board 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_a854112fc66393aee25ca383e3a75a713}\label{class_game_board_a854112fc66393aee25ca383e3a75a713}} 
+\index{GameBoard@{GameBoard}!printOppBoard@{printOppBoard}}
+\index{printOppBoard@{printOppBoard}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{printOppBoard()}{printOppBoard()}}
+{\footnotesize\ttfamily void Game\+Board\+::print\+Opp\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+prints opponent\textquotesingle{}s board 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_a5d17eabe81a94e5a265066ff5ad7dbf5}\label{class_game_board_a5d17eabe81a94e5a265066ff5ad7dbf5}} 
+\index{GameBoard@{GameBoard}!resetBoard@{resetBoard}}
+\index{resetBoard@{resetBoard}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{resetBoard()}{resetBoard()}}
+{\footnotesize\ttfamily void Game\+Board\+::reset\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+resets the board 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_a680909ecb106df8d8576bfc2477d552c}\label{class_game_board_a680909ecb106df8d8576bfc2477d552c}} 
+\index{GameBoard@{GameBoard}!updateMyBoard@{updateMyBoard}}
+\index{updateMyBoard@{updateMyBoard}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{updateMyBoard()}{updateMyBoard()}}
+{\footnotesize\ttfamily void Game\+Board\+::update\+My\+Board (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{std\+::string}]{outcome }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+an action has to be done 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & and y coordinates and what the outcome of the action \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+updates players board 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_board_a067ef7b3c03a267d00c69aa1345d9b85}\label{class_game_board_a067ef7b3c03a267d00c69aa1345d9b85}} 
+\index{GameBoard@{GameBoard}!updateOppBoard@{updateOppBoard}}
+\index{updateOppBoard@{updateOppBoard}!GameBoard@{GameBoard}}
+\doxysubsubsection{\texorpdfstring{updateOppBoard()}{updateOppBoard()}}
+{\footnotesize\ttfamily void Game\+Board\+::update\+Opp\+Board (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{std\+::string}]{outcome }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+an action has to be done 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & and y coordinates and what the outcome of the action \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+updates the opponent\textquotesingle{}s board 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/mkapa/\+E\+E\+C\+S448-\/\+Project1-\/\+F\+A19/Game\+Board.\+h\item 
+C\+:/\+Users/mkapa/\+E\+E\+C\+S448-\/\+Project1-\/\+F\+A19/Game\+Board.\+cpp\end{DoxyCompactItemize}

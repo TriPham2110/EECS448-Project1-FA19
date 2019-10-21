@@ -1,0 +1,205 @@
+\hypertarget{class_ship}{}\doxysection{Ship Class Reference}
+\label{class_ship}\index{Ship@{Ship}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ship_ab07f0085e1d727ccebf315f69d6956cc}{Ship}} (int size)
+\item 
+\mbox{\hyperlink{class_ship_a43cd6eeaffc11b49239b091621963a65}{$\sim$\+Ship}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_point}{Point}} $\ast$ $>$ \mbox{\hyperlink{class_ship_aca2f82d4703d1b7bcf23016dcae1945a}{get\+Ship\+Coordinates}} ()
+\item 
+void \mbox{\hyperlink{class_ship_a404f7088864b1faaf8e1a3173c065fbc}{add\+Coordinates}} (int x, int y)
+\item 
+bool \mbox{\hyperlink{class_ship_a7dcb59d4395589dbb642b9034add35ca}{in\+Line}} (int newX, int newY, bool vert)
+\item 
+void \mbox{\hyperlink{class_ship_a60c9c01f2efd956a2235c50179e72fd4}{hit}} (int x, int y)
+\item 
+bool \mbox{\hyperlink{class_ship_aff04fb7c2e38ac18ca021f309777ff08}{contains\+Coordinate}} (int x, int y)
+\item 
+bool \mbox{\hyperlink{class_ship_af4fbef39336439af9abaea4b12fa3205}{is\+Destroyed}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_ship_a457ea41906dbf4a369c208b4d90061d9}\label{class_ship_a457ea41906dbf4a369c208b4d90061d9}} 
+std\+::vector$<$ \mbox{\hyperlink{class_point}{Point}} $\ast$ $>$ {\bfseries ship\+Coordinates}
+\item 
+\mbox{\Hypertarget{class_ship_aea8e9066aacd98ed50227179e8d8fff9}\label{class_ship_aea8e9066aacd98ed50227179e8d8fff9}} 
+int {\bfseries ship\+Size}
+\item 
+\mbox{\Hypertarget{class_ship_a948ca1a2dfa7f637cd327bbe5a318a88}\label{class_ship_a948ca1a2dfa7f637cd327bbe5a318a88}} 
+int {\bfseries ship\+Pieces}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_ship_ab07f0085e1d727ccebf315f69d6956cc}\label{class_ship_ab07f0085e1d727ccebf315f69d6956cc}} 
+\index{Ship@{Ship}!Ship@{Ship}}
+\index{Ship@{Ship}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{Ship()}{Ship()}}
+{\footnotesize\ttfamily Ship\+::\+Ship (\begin{DoxyParamCaption}\item[{int}]{size }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em size} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+constructor 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ship_a43cd6eeaffc11b49239b091621963a65}\label{class_ship_a43cd6eeaffc11b49239b091621963a65}} 
+\index{Ship@{Ship}!````~Ship@{$\sim$Ship}}
+\index{````~Ship@{$\sim$Ship}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{$\sim$Ship()}{~Ship()}}
+{\footnotesize\ttfamily Ship\+::$\sim$\+Ship (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+deconstructor 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ship_a404f7088864b1faaf8e1a3173c065fbc}\label{class_ship_a404f7088864b1faaf8e1a3173c065fbc}} 
+\index{Ship@{Ship}!addCoordinates@{addCoordinates}}
+\index{addCoordinates@{addCoordinates}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{addCoordinates()}{addCoordinates()}}
+{\footnotesize\ttfamily void Ship\+::add\+Coordinates (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & and y coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+adds add\+Coordinates 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ship_aff04fb7c2e38ac18ca021f309777ff08}\label{class_ship_aff04fb7c2e38ac18ca021f309777ff08}} 
+\index{Ship@{Ship}!containsCoordinate@{containsCoordinate}}
+\index{containsCoordinate@{containsCoordinate}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{containsCoordinate()}{containsCoordinate()}}
+{\footnotesize\ttfamily bool Ship\+::contains\+Coordinate (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & and y coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+contains coordinates or not 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false if these coordinates are there or not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ship_aca2f82d4703d1b7bcf23016dcae1945a}\label{class_ship_aca2f82d4703d1b7bcf23016dcae1945a}} 
+\index{Ship@{Ship}!getShipCoordinates@{getShipCoordinates}}
+\index{getShipCoordinates@{getShipCoordinates}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{getShipCoordinates()}{getShipCoordinates()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{class_point}{Point}} $\ast$ $>$ Ship\+::get\+Ship\+Coordinates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+gets ships coordinates 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+return ships coordinates 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ship_a60c9c01f2efd956a2235c50179e72fd4}\label{class_ship_a60c9c01f2efd956a2235c50179e72fd4}} 
+\index{Ship@{Ship}!hit@{hit}}
+\index{hit@{hit}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{hit()}{hit()}}
+{\footnotesize\ttfamily void Ship\+::hit (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+a hit has to made on a ship 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em x} & and y coordinates \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+if hit, ship\+Pieces are decresed 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ship_a7dcb59d4395589dbb642b9034add35ca}\label{class_ship_a7dcb59d4395589dbb642b9034add35ca}} 
+\index{Ship@{Ship}!inLine@{inLine}}
+\index{inLine@{inLine}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{inLine()}{inLine()}}
+{\footnotesize\ttfamily bool Ship\+::in\+Line (\begin{DoxyParamCaption}\item[{int}]{newX,  }\item[{int}]{newY,  }\item[{bool}]{vert }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em new} & x and y coordinates and vertical or not \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+check whether the points are aligned 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false if its inline or not 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_ship_af4fbef39336439af9abaea4b12fa3205}\label{class_ship_af4fbef39336439af9abaea4b12fa3205}} 
+\index{Ship@{Ship}!isDestroyed@{isDestroyed}}
+\index{isDestroyed@{isDestroyed}!Ship@{Ship}}
+\doxysubsubsection{\texorpdfstring{isDestroyed()}{isDestroyed()}}
+{\footnotesize\ttfamily bool Ship\+::is\+Destroyed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+a ship has to be sunk 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+ship is destoryed or not 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false on if the ship is destroyed 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/mkapa/\+E\+E\+C\+S448-\/\+Project1-\/\+F\+A19/Ship.\+h\item 
+C\+:/\+Users/mkapa/\+E\+E\+C\+S448-\/\+Project1-\/\+F\+A19/Ship.\+cpp\end{DoxyCompactItemize}
