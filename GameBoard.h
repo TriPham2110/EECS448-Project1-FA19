@@ -118,6 +118,8 @@ class GameBoard{
 		 * @ return none
 		 */
 		void printOppBoard();
+
+		void resetBoard();
 		/*
 		 * @ pre none
 		 *	@ param GameBoard a
