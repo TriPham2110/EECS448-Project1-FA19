@@ -24,7 +24,7 @@ class Score{
 		string name;
 		string wins;
 		string losses;
-		int ten;
+		int ten = 0;
 
 	public:
 		Score();
