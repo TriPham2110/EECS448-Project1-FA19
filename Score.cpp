@@ -26,7 +26,7 @@ void Score::loadInfo(){
 	input.close();
 }
 
-void Score::printStart(){
+void Score::print(){
 	std::cout << "#" << "\t" << "NAME" << "\t" << "WINS"<< "\t" << "Loss" << "\t" << "W/L PERCENT" << "\n";
 	
 	ten = (scoreboard.size()-1);
@@ -35,17 +35,6 @@ void Score::printStart(){
 		ten = 10;
 	}
 	for(int i=0; i <= ten; i++){
-		std::cout << (i+1) << ":\t" << scoreboard[i].name << "\t" << scoreboard[i].wins << "\t" << scoreboard[i].losses << "\t" << scoreboard[i].percentage << "%\n";
-	}
-}
-
-void Score::printEnd(){
-	std::cout << "#" << "\t" << "NAME" << "\t" << "WINS"<< "\t" << "Loss" << "\t" << "W/L PERCENT" << "\n";
-	
-	if(ten > 10){
-		ten = 10;
-	}
-	for(int i=0; i <= ten+1; i++){
 		std::cout << (i+1) << ":\t" << scoreboard[i].name << "\t" << scoreboard[i].wins << "\t" << scoreboard[i].losses << "\t" << scoreboard[i].percentage << "%\n";
 	}
 }

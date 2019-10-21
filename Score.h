@@ -10,7 +10,7 @@
 using namespace std;
 
 struct Player{
-	string name;
+	string name; 
 	int wins;
 	int losses;
 	double percentage;
@@ -29,8 +29,7 @@ class Score{
 	public:
 		Score();
 		void loadInfo();
-		void printStart();
-		void printEnd();
+		void print();
 		void sort();
 		void write();
 		void insert();
