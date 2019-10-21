@@ -12,14 +12,14 @@ Game::Game(){
         int choice;
         std::string newGame = "";
 
-
+        //StringColor::changeTheme("default");
 
     do{
         numShips = -1;
         newGame = "";
         std::cout << ("Welcome to Battleship!") << std::endl;
 
-        StringColor::changeTheme("default");
+
 
 
         std::cout << "1. Player vs Player" <<std::endl;
@@ -111,11 +111,13 @@ Game::Game(){
             system("clear");
             std::cout << "Choose Theme" <<std::endl;
             std::cout << "1. Default" <<std::endl;
-            std::cout << "2. Meet's theme" <<std::endl;
+            std::cout << "2. Meet's Lakers theme" <<std::endl;
             std::cout << "3. Tri's theme" <<std::endl;
             std::cout << "4. Apurva's theme" <<std::endl;
             std::cout << "5. Jace's theme" <<std::endl;
             std::cout << "6. Max's theme" <<std::endl;
+            std::cout << "7. Light Mode" <<std::endl;
+            std::cout << "8. Dark Mode" <<std::endl;
 
             int theme;
             std::cin>>theme;
@@ -138,6 +140,12 @@ Game::Game(){
             }
             else if(theme == 6){
                 StringColor::changeTheme("max");
+            }
+            else if(theme == 7){
+                StringColor::changeTheme("lightMode");
+            }
+            else if(theme == 8){
+                StringColor::changeTheme("darkMode");
             }
 
             system("clear");
@@ -173,8 +181,8 @@ Game::Game(){
 
 
         system("clear");
-        
-      
+
+
 
     }while(choice !=5);
 
@@ -588,7 +596,7 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
         s.playerAddLoss(name2);
         s.playerAddWin(name1);
         s.updateFile();
-        
+
     }
 
     std::cout << name1 << "'s board :\n";
