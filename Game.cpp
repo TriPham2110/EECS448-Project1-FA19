@@ -3,16 +3,16 @@
 #include "StringColor.h"
 
 Game::Game(){
-        srand(time(NULL));
-        int numShips = -1;
-        int choice;
-        std::string newGame = "";
+	srand(time(NULL));
+	int numShips = -1;
+	int choice;
+	std::string newGame = "";
 
-        s.loadInfo();
-        StringColor::changeTheme("default");
-		
-    do{
-        std::cout << StringColor::TEXT;
+	s.loadInfo();
+	StringColor::changeTheme("default");
+	
+	do{
+		std::cout << StringColor::TEXT;
 
 		Player1.resetBoard();
 		Player2.resetBoard();
@@ -69,7 +69,7 @@ Game::Game(){
 
 			this->placeShipsAI(AI, numShips);
 			this->playAI(Player1, AI, difficulty);
-        }
+		}
 		else if (choice == 1){
 			std::cout <<std::endl;
 			std::cout<<("Enter Player 1 name:")<<std::endl;
@@ -187,7 +187,6 @@ Game::Game(){
 
 		}
 		system("clear");
-		
 	}while(choice !=5);
 }
 
