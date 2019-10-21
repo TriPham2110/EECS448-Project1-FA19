@@ -19,7 +19,6 @@ struct Player{
 //http://www.cplusplus.com/forum/beginner/78887/
 class Score{
 	private:
-
 		std::vector<Player> scoreboard;
 		string name;
 		string wins;
@@ -89,20 +88,20 @@ class Score{
 		 *		@post player's win
 		 * 		@return none
 		 */
-        void playerAddWin(std::string name);
+		void playerAddWin(std::string name);
 		/**
 		 * @pre none
 		 *		@param name
 		 *		@post player's loss
 		 * 		@return none
 		 */
-        void playerAddLoss(std::string name);
+		void playerAddLoss(std::string name);
 		/**
 		 * @pre none
 		 *		@param none
 		 *		@post updates Scoreboard.tri
 		 * 		@return none
 		 */
-        void updateFile();
+		void updateFile();
 };
 #endif

@@ -6,34 +6,33 @@
 
 int main(){
 
-    StringColor::reset();
-    
-    
-    std::cout << StringColor::TEXT;
-    system("clear");
-    std::cout << StringColor::TEXT;
-    system("clear");
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-    std::cout << " " << std::endl;
-     system("clear");
+	StringColor::reset();
+	
+	std::cout << StringColor::TEXT;
+	system("clear");
+	std::cout << StringColor::TEXT;
+	system("clear");
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	std::cout << " " << std::endl;
+	system("clear");
 
 	// ASCII conversion influenced from Patorjk's text to ASCII art generator http://patorjk.com/software/taag/
 	std::cout<< "\033[40m" << StringColor::RED <<    " _______  _______  _______  ______      __   __  _______  ______    ___   _______  ___   _ " << std::endl;
@@ -44,12 +43,7 @@ int main(){
 	std::cout << StringColor::BOLDBLUE<<"|   |    |       ||       ||   |  | |    |   |  |       ||   |  | ||   | |     |_ |    _  |" << std::endl;
 	std::cout << StringColor::MAGENTA <<"|___|    |_______||_______||___|  |_|    |___|  |_______||___|  |_||___| |_______||___| |_|" << std::endl;
 
-	    Game g;
+	Game g;
 
-    StringColor::reset();
-        
-    
-    
-
-
+	StringColor::reset();
 }

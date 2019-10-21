@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include "GameBoard.h"
-
 #include <cstdlib>
 #include <time.h>
 #include "Score.h"
@@ -15,8 +14,8 @@ class Game{
 		GameBoard AI;
 		std::string name1 = "";
 		std::string name2 = "";
-
-    Score s;
+		Score s;
+		
 		/**
 		 * @pre user's input on how many ships they want
 		 *		@param GameBoard player 1 and number of ships
@@ -65,25 +64,25 @@ class Game{
 		int xRandomValue,yRandomValue;
 
 		/**
-	     * @pre none
-	     *		@param none
-	     *		@post AI's easy difficulty
-	     * 		@return none
-	     */
+		 * @pre none
+		 *		@param none
+		 *		@post AI's easy difficulty
+		 * 		@return none
+		 */
 		void easyTurn();
 		/**
-	     * @pre none
-	     *		@param none
-	     *		@post AI's medium difficulty
-	     * 		@return none
-	     */
+		 * @pre none
+		 *		@param none
+		 *		@post AI's medium difficulty
+		 * 		@return none
+		 */
 		void mediumTurn();
 		/**
-	     * @pre none
-	     *		@param none
-	     *		@post AI's hard difficulty
-	     * 		@return none
-	     */
+		 * @pre none
+		 *		@param none
+		 *		@post AI's hard difficulty
+		 * 		@return none
+		 */
 		void hardTurn();
 
 	public:

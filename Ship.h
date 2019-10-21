@@ -70,4 +70,4 @@ class Ship{
 		 */
 		bool isDestroyed();
 };
-#endif //SHIP_H
+#endif

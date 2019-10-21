@@ -27,32 +27,23 @@ void Score::loadInfo(){
 }
 
 void Score::playerAddWin(std::string name){
-
-    for(int rep = 0; rep < (int)scoreboard.size(); rep++){
-        if(scoreboard[rep].name == name ){
-            scoreboard[rep].wins = scoreboard[rep].wins + 1; //add 1 win
-            //also update percentages
-            scoreboard[rep].percentage = 100*(scoreboard[rep].wins)/(scoreboard[rep].wins + scoreboard[rep].losses);
-        }
-    }
-
-
-
-
+	for(int rep = 0; rep < (int)scoreboard.size(); rep++){
+		if(scoreboard[rep].name == name ){
+			scoreboard[rep].wins = scoreboard[rep].wins + 1; //add 1 win
+			//also update percentages
+			scoreboard[rep].percentage = 100*(scoreboard[rep].wins)/(scoreboard[rep].wins + scoreboard[rep].losses);
+		}
+	}
 }
 
 void Score::playerAddLoss(std::string name){
-
-    for(int rep = 0; rep < (int)scoreboard.size(); rep++){
-        if(scoreboard[rep].name == name ){
-            scoreboard[rep].losses = scoreboard[rep].losses + 1; //add 1 win
-            //also update percentages
-            scoreboard[rep].percentage = 100*(scoreboard[rep].wins)/(scoreboard[rep].wins + scoreboard[rep].losses);
-        }
-    }
-
-
-
+	for(int rep = 0; rep < (int)scoreboard.size(); rep++){
+		if(scoreboard[rep].name == name ){
+			scoreboard[rep].losses = scoreboard[rep].losses + 1; //add 1 win
+			//also update percentages
+			scoreboard[rep].percentage = 100*(scoreboard[rep].wins)/(scoreboard[rep].wins + scoreboard[rep].losses);
+		}
+	}
 }
 
 void Score::print(){
@@ -64,9 +55,9 @@ void Score::print(){
 		ten = 9;
 	}
 	for(int i=0; i <= ten; i++){
-        if(scoreboard[i].name.length() > 1){
+		if(scoreboard[i].name.length() > 1){
 		  std::cout << (i+1) << ":\t" << scoreboard[i].name << "\t" << scoreboard[i].wins << "\t" << scoreboard[i].losses << "\t" << scoreboard[i].percentage << "%\n";
-        }
+		}
 	}
 }
 
@@ -76,8 +67,6 @@ bool Score::playerInScoreboard(std::string name){
 			return true;
 		}
 	}
-
-
 	return false;
 }
 
@@ -89,28 +78,24 @@ void Score::addNewPlayer(std::string name){
 }
 
 void Score::updateFile(){
-    //go through file and update changes hehe
+	//go through file and update changes hehe
 
-    std::ofstream ofs;
-    ofs.open("Scoreboard.tri", std::ofstream::out | std::ofstream::trunc);
-    ofs.close();
+	std::ofstream ofs;
+	ofs.open("Scoreboard.tri", std::ofstream::out | std::ofstream::trunc);
+	ofs.close();
 
-    ofstream output;
+	ofstream output;
 	output.open("Scoreboard.tri", std::ios_base::app);
 
+	for(int rep = 0; rep < (int)scoreboard.size(); rep++){
+	   if(scoreboard[rep].name.length() > 1){
+			output << scoreboard[rep].name << endl;
 
+			output << std::to_string(scoreboard[rep].wins) << endl;
 
-
-    for(int rep = 0; rep < (int)scoreboard.size(); rep++){
-       if(scoreboard[rep].name.length() > 1){
-            output << scoreboard[rep].name << endl;
-
-            output << std::to_string(scoreboard[rep].wins) << endl;
-
-            output << std::to_string(scoreboard[rep].losses)<< endl;;
-       }
-
-    }
+			output << std::to_string(scoreboard[rep].losses)<< endl;;
+	   }
+	}
 	output.close();
 }
 

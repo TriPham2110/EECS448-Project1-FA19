@@ -3,10 +3,6 @@
 #include "StringColor.h"
 
 Game::Game(){
-
-
-
-
         srand(time(NULL));
         int numShips = -1;
         int choice;
@@ -14,213 +10,185 @@ Game::Game(){
 
         s.loadInfo();
         StringColor::changeTheme("default");
-
-
+		
     do{
         std::cout << StringColor::TEXT;
 
+		Player1.resetBoard();
+		Player2.resetBoard();
+		AI.resetBoard();
 
-        Player1.resetBoard();
-        Player2.resetBoard();
-        AI.resetBoard();
+		numShips = -1;
+		newGame = "";
+		std::cout << ("Welcome to Battleship!") << std::endl;
+		
+		std::cout << "1. Player vs Player" <<std::endl;
+		std::cout << "2. Player vs Computer" <<std::endl;
+		std::cout << "3. Change Theme" <<std::endl;
+		std::cout << "4. Scoreboard" <<std::endl;
+		std::cout << "5. Exit" <<std::endl;
 
-        numShips = -1;
-        newGame = "";
-        std::cout << ("Welcome to Battleship!") << std::endl;
+		std::cin>>choice;
+		choice = restrictIntInput(choice);
 
+		if (choice == 2){
+			std::cout <<std::endl;
+			std::cout<<("Enter your name:")<<std::endl;
+			std::getline(std::cin, name1);
+			int difficulty = -1;
 
+			if(!s.playerInScoreboard(name1)){
+			  s.addNewPlayer(name1);
+			  s.loadInfo();
+			}
 
-        std::cout << "1. Player vs Player" <<std::endl;
-        std::cout << "2. Player vs Computer" <<std::endl;
-        std::cout << "3. Change Theme" <<std::endl;
-        std::cout << "4. Scoreboard" <<std::endl;
-        std::cout << "5. Exit" <<std::endl;
+			while(difficulty > 2 || difficulty < 0){
+				std::cout <<std::endl;
+				std::cout << "Please select a difficulty" << std::endl;
+				std::cout << "0 - Easy" << std::endl;
+				std::cout << "1 - Medium" << std::endl;
+				std::cout << "2 - Hard" << std::endl;
+				std::cout << "I choose you!: ";
+				std::cin >> difficulty;
+				difficulty = restrictIntInput(difficulty);
+			}
 
-        std::cin>>choice;
-		    choice = restrictIntInput(choice);
+			while(numShips > 5 || numShips < 1){
+			  std::cout <<std::endl;
+			  std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
+			  std::cin >> numShips;
+			  numShips = restrictIntInput(numShips);
+			}
+			
+			system("clear");
+			std::cout << (" ")<< std::endl;
+			std::cout << ("Please place your ships")<< std::endl;
+			this->placeShips(Player1, numShips, 1);
+			std::cout << ("Your board...")<< std::endl;
+			Player1.printBoard();
 
-
-
-        if (choice == 2){
-              std::cout <<std::endl;
-              std::cout<<("Enter your name:")<<std::endl;
-              std::getline(std::cin, name1);
-              int difficulty = -1;
-
-              if(!s.playerInScoreboard(name1)){
-
-                  s.addNewPlayer(name1);
-                  s.loadInfo();
-              }
-
-              while(difficulty > 2 || difficulty < 0){
-                  std::cout <<std::endl;
-                  std::cout << "Please select a difficulty" << std::endl;
-                  std::cout << "0 - Easy" << std::endl;
-                  std::cout << "1 - Medium" << std::endl;
-                  std::cout << "2 - Hard" << std::endl;
-                  std::cout << "I choose you!: ";
-                  std::cin >> difficulty;
-                  difficulty = restrictIntInput(difficulty);
-              }
-
-              while(numShips > 5 || numShips < 1){
-                  std::cout <<std::endl;
-                  std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
-                  std::cin >> numShips;
-                  numShips = restrictIntInput(numShips);
-              }
-              system("clear");
-              std::cout << (" ")<< std::endl;
-              std::cout << ("Please place your ships")<< std::endl;
-              this->placeShips(Player1, numShips, 1);
-              std::cout << ("Your board...")<< std::endl;
-              Player1.printBoard();
-
-              this->placeShipsAI(AI, numShips);
-              this->playAI(Player1, AI, difficulty);
+			this->placeShipsAI(AI, numShips);
+			this->playAI(Player1, AI, difficulty);
         }
-        else if (choice == 1){
-              std::cout <<std::endl;
-              std::cout<<("Enter Player 1 name:")<<std::endl;
-              std::getline(std::cin, name1);
-              std::cout <<std::endl;
-              std::cout<<("Enter Player 2 name:")<<std::endl;
-              std::getline(std::cin, name2);
+		else if (choice == 1){
+			std::cout <<std::endl;
+			std::cout<<("Enter Player 1 name:")<<std::endl;
+			std::getline(std::cin, name1);
+			std::cout <<std::endl;
+			std::cout<<("Enter Player 2 name:")<<std::endl;
+			std::getline(std::cin, name2);
 
-              if(!s.playerInScoreboard(name1)){
-                  s.addNewPlayer(name1);
-                  s.loadInfo();
-              }
-              if(!s.playerInScoreboard(name2)){
-                  s.addNewPlayer(name2);
-                  s.loadInfo();
-              }
+			if(!s.playerInScoreboard(name1)){
+			  s.addNewPlayer(name1);
+			  s.loadInfo();
+			}
+			if(!s.playerInScoreboard(name2)){
+			  s.addNewPlayer(name2);
+			  s.loadInfo();
+			}
 
-              while(numShips > 5 || numShips < 1){
-                  std::cout <<std::endl;
-                  std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
-                  std::cin >> numShips;
-                  numShips = restrictIntInput(numShips);
-              }
+			while(numShips > 5 || numShips < 1){
+			  std::cout <<std::endl;
+			  std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
+			  std::cin >> numShips;
+			  numShips = restrictIntInput(numShips);
+			}
 
-              system("clear");
+			system("clear");
+			std::cout << (" ")<< std::endl;
+			std::cout << name1<<(" please place your ships")<< std::endl;
+			this->placeShips(Player1, numShips, 1);
+			std::cout << name1<<("'s board...")<< std::endl;
+			Player1.printBoard();
 
-              std::cout << (" ")<< std::endl;
-              std::cout << name1<<(" please place your ships")<< std::endl;
-              this->placeShips(Player1, numShips, 1);
+			system("clear");
+			std::cout << (" ")<< std::endl;;
+			std::cout << name2 <<(" please place your ships")<< std::endl;
+			this->placeShips(Player2, numShips, 2);
+			std::cout << name2<<("'s board...")<< std::endl;
+			Player2.printBoard();
 
-              std::cout << name1<<("'s board...")<< std::endl;
-              Player1.printBoard();
+			playGame(Player1, Player2);
+		}
 
-              system("clear");
-              std::cout << (" ")<< std::endl;;
-              std::cout << name2 <<(" please place your ships")<< std::endl;
-              this->placeShips(Player2, numShips, 2);
-              std::cout << name2<<("'s board...")<< std::endl;
-              Player2.printBoard();
+		else if(choice == 3){
+			system("clear");
+			std::cout << "Choose Theme" <<std::endl;
+			std::cout << "1. Default" <<std::endl;
+			std::cout << "2. Meet's Lakers theme" <<std::endl;
+			std::cout << "3. Tri's theme" <<std::endl;
+			std::cout << "4. Apurva's theme" <<std::endl;
+			std::cout << "5. Jace's theme" <<std::endl;
+			std::cout << "6. Max's theme" <<std::endl;
+			std::cout << "7. Light Mode" <<std::endl;
+			std::cout << "8. Dark Mode" <<std::endl;
+			std::cout << "9. Chaos" <<std::endl;
 
-              playGame(Player1, Player2);
-         }
+			int theme =0;
+			std::cin>>theme;
+			theme = restrictIntInput(theme);
 
-        else if(choice == 3){
-            system("clear");
-            std::cout << "Choose Theme" <<std::endl;
-            std::cout << "1. Default" <<std::endl;
-            std::cout << "2. Meet's Lakers theme" <<std::endl;
-            std::cout << "3. Tri's theme" <<std::endl;
-            std::cout << "4. Apurva's theme" <<std::endl;
-            std::cout << "5. Jace's theme" <<std::endl;
-            std::cout << "6. Max's theme" <<std::endl;
-            std::cout << "7. Light Mode" <<std::endl;
-            std::cout << "8. Dark Mode" <<std::endl;
-            std::cout << "9. Chaos" <<std::endl;
+			if(theme == 1){
+				StringColor::changeTheme("default");
+				std::cout << StringColor::BACKGROUND <<std::endl;
+			}
+			else if(theme == 2){
+				StringColor::changeTheme("meet");
+				std::cout << StringColor::BACKGROUND <<std::endl;
+			}
+			else if(theme == 3){
+				StringColor::changeTheme("tri");
+				std::cout << StringColor::BACKGROUND <<std::endl;
+			}
+			else if(theme == 4){
+				StringColor::changeTheme("apurva");
+				std::cout << StringColor::BACKGROUND <<std::endl;
+			}
+			else if(theme == 5){
+				StringColor::changeTheme("jace");
+				std::cout << StringColor::BACKGROUND <<std::endl;
+			}
+			else if(theme == 6){
+				StringColor::changeTheme("max");
+				std::cout << StringColor::BACKGROUND <<std::endl;
+			}
+			else if(theme == 7){
+				StringColor::changeTheme("lightMode");
+				std::cout << StringColor::BACKGROUND <<std::endl;
+			}
+			else if(theme == 8){
+				StringColor::changeTheme("darkMode");
+				std::cout << StringColor::BACKGROUND <<std::endl;
+			}
+			else if(theme == 9){
+				StringColor::changeTheme("chaos");
+				std::cout << StringColor::BACKGROUND <<std::endl;
+			}
+			system("clear");
+		}
 
-            int theme =0;
-            std::cin>>theme;
-		    theme = restrictIntInput(theme);
+		else if (choice == 4){
+			system("clear");
+			try{
+				s.loadInfo();
+				s.sort();
+				s.print();
+			}catch(int e){
+				std::cout <<"Couldn't load scoreboard" << std::endl;
+			}
+			std::cout <<std::endl;
+			std::cout << "Press enter to return to main menu" <<std::endl;
+			getchar();
+		}
+		if(choice == 2 || choice == 1){
+			std::cout <<std::endl;
+			std::cout << "Press enter to return to main menu" <<std::endl;
+			getchar();
 
-            if(theme == 1){
-                StringColor::changeTheme("default");
-                std::cout << StringColor::BACKGROUND <<std::endl;
-            }
-            else if(theme == 2){
-                StringColor::changeTheme("meet");
-                std::cout << StringColor::BACKGROUND <<std::endl;
-                
-            }
-            else if(theme == 3){
-                StringColor::changeTheme("tri");
-                std::cout << StringColor::BACKGROUND <<std::endl;
-            }
-            else if(theme == 4){
-                StringColor::changeTheme("apurva");
-                std::cout << StringColor::BACKGROUND <<std::endl;
-            }
-            else if(theme == 5){
-                StringColor::changeTheme("jace");
-                std::cout << StringColor::BACKGROUND <<std::endl;
-            }
-            else if(theme == 6){
-                StringColor::changeTheme("max");
-                std::cout << StringColor::BACKGROUND <<std::endl;
-            }
-            else if(theme == 7){
-                StringColor::changeTheme("lightMode");
-                std::cout << StringColor::BACKGROUND <<std::endl;
-            }
-            else if(theme == 8){
-                StringColor::changeTheme("darkMode");
-                std::cout << StringColor::BACKGROUND <<std::endl;
-            }
-            else if(theme == 9){
-                StringColor::changeTheme("chaos");
-                std::cout << StringColor::BACKGROUND <<std::endl;
-            }
-
-            system("clear");
-
-        }
-
-        else if (choice == 4){
-            system("clear");
-
-            try{
-                s.loadInfo();
-                s.sort();
-                s.print();
-            }catch(int e){
-                std::cout <<"Couldn't load scoreboard" << std::endl;
-            }
-            std::cout <<std::endl;
-            std::cout << "Press enter to return to main menu" <<std::endl;
-            getchar();
-
-
-        }
-
-
-        if(choice == 2 || choice == 1){
-            std::cout <<std::endl;
-            std::cout << "Press enter to return to main menu" <<std::endl;
-            getchar();
-
-        }
-
-
-
-
-        system("clear");
-
-
-
-    }while(choice !=5);
-
-
-
-
-
-
+		}
+		system("clear");
+		
+	}while(choice !=5);
 }
 
 Game::~Game(){}
@@ -237,24 +205,24 @@ int Game::restrictIntInput(int option){
 }
 
 void Game::placeShips(GameBoard &player, int numShips, int pNum){
-    std::string tempName;
+	std::string tempName;
 	for(int i = 1; i <= numShips; i++){
 		int shipLength = i;
 		Ship* tempShip = new Ship(shipLength);
 		bool vert = false;
 
-        system("clear");
+		system("clear");
 
 		player.printBoard();
 
-        tempName = "";
+		tempName = "";
 
-        if(pNum == 1){
-            tempName = name1;
-        }
-        else{
-            tempName = name2;
-        }
+		if(pNum == 1){
+			tempName = name1;
+		}
+		else{
+			tempName = name2;
+		}
 
 		int shipCol;
 		int shipRow;
@@ -265,14 +233,14 @@ void Game::placeShips(GameBoard &player, int numShips, int pNum){
 			std::cout << (" ") << std::endl;
 			std::cout<<tempName << " please place piece " << j << " of " << shipLength << " of ship " << shipLength << std::endl;
 
-            int* cords = new int[2];
+			int* cords = new int[2];
 
-            getCoordinateInput(cords);
+			getCoordinateInput(cords);
 
-            shipCol = cords[0];
-            shipRow = cords[1];
+			shipCol = cords[0];
+			shipRow = cords[1];
 
-            delete[] cords;
+			delete[] cords;
 
 			if(j==2){
 				if(tempShip->getShipCoordinates().at(0)->getY() != shipCol){
@@ -304,12 +272,11 @@ void Game::placeShips(GameBoard &player, int numShips, int pNum){
 		}
 		player.addShip(tempShip);
 	}
-    system("clear");
-    player.printBoard();
-    std::cout << tempName << "'s board\nPress enter to continue";
-    getchar();
-
-    system("clear");
+	system("clear");
+	player.printBoard();
+	std::cout << tempName << "'s board\nPress enter to continue";
+	getchar();
+	system("clear");
 }
 
 void Game::placeShipsAI(GameBoard& AI, int numShips){
@@ -382,340 +349,335 @@ void Game::placeShipsAI(GameBoard& AI, int numShips){
 
 void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
 {
-    system("clear");
-    while(!Player1.gameOver() && !AI.gameOver()){
-        int row, col;
-        bool validInput = false;
+	system("clear");
+	while(!Player1.gameOver() && !AI.gameOver()){
+		int row, col;
+		bool validInput = false;
 
 
-        std::cout << ("")<< std::endl;;
-        std::cout << name1<<(" please fire")<< std::endl;
-        std::cout << ("AI Board:")<< std::endl;
-        Player1.printOppBoard();
-        std::cout << ("Your Board:")<< std::endl;
-        Player1.printBoard();
+		std::cout << ("")<< std::endl;;
+		std::cout << name1<<(" please fire")<< std::endl;
+		std::cout << ("AI Board:")<< std::endl;
+		Player1.printOppBoard();
+		std::cout << ("Your Board:")<< std::endl;
+		Player1.printBoard();
 
 
-        validInput = false;
-        while(!validInput){
-            int* cords = new int[2];
+		validInput = false;
+		while(!validInput){
+			int* cords = new int[2];
 
-            getCoordinateInput(cords);
+			getCoordinateInput(cords);
 
-            col = cords[0];
-            row = cords[1];
+			col = cords[0];
+			row = cords[1];
 
-            delete[] cords;
+			delete[] cords;
 
-            std::string fire = AI.fire(row,col);
+			std::string fire = AI.fire(row,col);
 
-            if(Player1.getOppBoard()[row][col] == 0){
-                if(fire == "Miss"){
-                    std::cout << ("Miss") << std::endl;
-                    std::cout << ("Press enter to continue!") << std::endl;
-                    getchar();
-                    system("clear");
+			if(Player1.getOppBoard()[row][col] == 0){
+				if(fire == "Miss"){
+					std::cout << ("Miss") << std::endl;
+					std::cout << ("Press enter to continue!") << std::endl;
+					getchar();
+					system("clear");
 
-                    Player1.updateOppBoard(row,col,"Miss");
-                    validInput = true;
+					Player1.updateOppBoard(row,col,"Miss");
+					validInput = true;
 
-                }
-                else if(fire == "Hit"){
-                    std::cout << ("Hit!") << std::endl;
-                    std::cout << ("Press enter to continue!") << std::endl;
-                    getchar();
+				}
+				else if(fire == "Hit"){
+					std::cout << ("Hit!") << std::endl;
+					std::cout << ("Press enter to continue!") << std::endl;
+					getchar();
 
-                    Player1.updateOppBoard(row,col,"Hit");
-                    std::cout << ("Hit!") << std::endl;
-                    validInput = true;
+					Player1.updateOppBoard(row,col,"Hit");
+					std::cout << ("Hit!") << std::endl;
+					validInput = true;
 
-                    system("clear");
-                }
-                else if(fire == "Sunk"){
-                    std::cout << ("Sunk!") << std::endl;
-                    std::cout << ("Press enter to continue!") << std::endl;
-                    getchar();
+					system("clear");
+				}
+				else if(fire == "Sunk"){
+					std::cout << ("Sunk!") << std::endl;
+					std::cout << ("Press enter to continue!") << std::endl;
+					getchar();
 
-                    Player1.updateOppBoard(row,col,"Sunk");
-                    std::cout << ("Sunk!") << std::endl;
-                    validInput = true;
+					Player1.updateOppBoard(row,col,"Sunk");
+					std::cout << ("Sunk!") << std::endl;
+					validInput = true;
 
-                    system("clear");
-                }
-                else if(fire == "Error Bounds"){
-                     std::cout << ("Out of bounds") << std::endl;
-                }
-                else {
-                    std::cout << ("IDK what happened")<< std::endl;
-                }
-            }
-            else{
-                std::cout << std::endl << "You've already fired here" << std::endl << std::endl;
-            }
-        }
+					system("clear");
+				}
+				else if(fire == "Error Bounds"){
+					 std::cout << ("Out of bounds") << std::endl;
+				}
+				else {
+					std::cout << ("IDK what happened")<< std::endl;
+				}
+			}
+			else{
+				std::cout << std::endl << "You've already fired here" << std::endl << std::endl;
+			}
+		}
 
-        if(AI.gameOver())
-            break;
+		if(AI.gameOver())
+			break;
 
-        // AI's turn
-        if(difficulty == 0)
-            easyTurn();
-        else if(difficulty == 1)
-            mediumTurn();
-        else if(difficulty == 2)
-            hardTurn();
+		// AI's turn
+		if(difficulty == 0)
+			easyTurn();
+		else if(difficulty == 1)
+			mediumTurn();
+		else if(difficulty == 2)
+			hardTurn();
 
-        if(Player1.gameOver())
-            break;
-    }
-
-    if(Player1.gameOver()){
-        std::cout << "Sorry "<<name1<<", you lost" << std::endl;
-        s.playerAddLoss(name1);
-        s.updateFile();
-    }
-    else{
-        std::cout << "Congrats "<<name1<<", you won" << std::endl;
-        s.playerAddWin(name1);
-        s.updateFile();
-    }
-
-    std::cout << "Your board :\n";
-    Player1.printBoard();
-    std::cout << "\nAI's board :\n";
-    AI.printBoard();
+		if(Player1.gameOver())
+			break;
+	}
+	if(Player1.gameOver()){
+		std::cout << "Sorry "<<name1<<", you lost" << std::endl;
+		s.playerAddLoss(name1);
+		s.updateFile();
+	}
+	else{
+		std::cout << "Congrats "<<name1<<", you won" << std::endl;
+		s.playerAddWin(name1);
+		s.updateFile();
+	}
+	std::cout << "Your board :\n";
+	Player1.printBoard();
+	std::cout << "\nAI's board :\n";
+	AI.printBoard();
 }
 
 void Game::playGame( GameBoard& Player1, GameBoard& Player2){
-    while(!Player1.gameOver() && !Player2.gameOver()){
-        int row, col;
-        bool validInput = false;
-        system("clear");
+	while(!Player1.gameOver() && !Player2.gameOver()){
+		int row, col;
+		bool validInput = false;
+		system("clear");
 
-        std::cout << name1 << "'s turn\nPress enter to start turn";
-        getchar();
+		std::cout << name1 << "'s turn\nPress enter to start turn";
+		getchar();
 
-        system("clear");
+		system("clear");
 
 
-        std::cout << ("")<< std::endl;;
-        std::cout << name1 <<" please fire"<< std::endl;
-        std::cout <<name2<<"'s Board:"<< std::endl;
-        Player1.printOppBoard();
-        std::cout << ("Your Board:")<< std::endl;
-        Player1.printBoard();
+		std::cout << ("")<< std::endl;;
+		std::cout << name1 <<" please fire"<< std::endl;
+		std::cout <<name2<<"'s Board:"<< std::endl;
+		Player1.printOppBoard();
+		std::cout << ("Your Board:")<< std::endl;
+		Player1.printBoard();
 
-        validInput = false;
-        while(!validInput){
-            int* cords = new int[2];
+		validInput = false;
+		while(!validInput){
+			int* cords = new int[2];
 
-            getCoordinateInput(cords);
+			getCoordinateInput(cords);
 
-            col = cords[0];
-            row = cords[1];
+			col = cords[0];
+			row = cords[1];
 
-            delete[] cords;
+			delete[] cords;
 
-            std::string fire = Player2.fire(row,col);
+			std::string fire = Player2.fire(row,col);
 
-            if(Player1.getOppBoard()[row][col] == 0){
-                if(fire == "Miss"){
-                    system("clear");
-                    std::cout << ("Missed!") << std::endl;
-                    std::cout << ("Press enter to continue!") << std::endl;
-                    getchar();
-                    system("clear");
+			if(Player1.getOppBoard()[row][col] == 0){
+				if(fire == "Miss"){
+					system("clear");
+					std::cout << ("Missed!") << std::endl;
+					std::cout << ("Press enter to continue!") << std::endl;
+					getchar();
+					system("clear");
 
-                    Player1.updateOppBoard(row,col,"Miss");
-                    Player2.updateMyBoard(row, col, "Miss");
-                    validInput = true;
-                }
-                else if(fire == "Hit"){
-                    system("clear");
-                    std::cout << ("Hit!") << std::endl;
-                    std::cout << ("Press enter to continue!") << std::endl;
-                    getchar();
-                    system("clear");
+					Player1.updateOppBoard(row,col,"Miss");
+					Player2.updateMyBoard(row, col, "Miss");
+					validInput = true;
+				}
+				else if(fire == "Hit"){
+					system("clear");
+					std::cout << ("Hit!") << std::endl;
+					std::cout << ("Press enter to continue!") << std::endl;
+					getchar();
+					system("clear");
 
-                    Player1.updateOppBoard(row,col,"Hit");
-                    Player2.updateMyBoard(row, col, "Hit");
-                    validInput = true;
-                }
-                else if(fire == "Sunk"){
-                    system("clear");
-                    std::cout << ("Sunk!") << std::endl;
-                    std::cout << ("Press enter to continue!") << std::endl;
-                    getchar();
-                    system("clear");
+					Player1.updateOppBoard(row,col,"Hit");
+					Player2.updateMyBoard(row, col, "Hit");
+					validInput = true;
+				}
+				else if(fire == "Sunk"){
+					system("clear");
+					std::cout << ("Sunk!") << std::endl;
+					std::cout << ("Press enter to continue!") << std::endl;
+					getchar();
+					system("clear");
 
-                    Player1.updateOppBoard(row,col,"Sunk");
-                    Player2.updateMyBoard(row, col, "Sunk");
-                    validInput = true;
-                }
-                else if(fire == "Error Bounds"){
-                     std::cout << ("Out of bounds")<< std::endl;
-                }
-            }
-            else{
-                std::cout << std::endl << "You've already fired here" << std::endl << std::endl;
-            }
-        }
-        if(Player2.gameOver())
-            break;
+					Player1.updateOppBoard(row,col,"Sunk");
+					Player2.updateMyBoard(row, col, "Sunk");
+					validInput = true;
+				}
+				else if(fire == "Error Bounds"){
+					 std::cout << ("Out of bounds")<< std::endl;
+				}
+			}
+			else{
+				std::cout << std::endl << "You've already fired here" << std::endl << std::endl;
+			}
+		}
+		if(Player2.gameOver())
+			break;
 
-        system("clear");
+		system("clear");
 
-        std::cout << name2 << "'s turn\nPress enter to start turn";
-        getchar();
+		std::cout << name2 << "'s turn\nPress enter to start turn";
+		getchar();
 
-        system("clear");
+		system("clear");
 
-        std::cout << ("")<< std::endl;
-        std::cout << name2<<" please fire"<< std::endl;
-        std::cout << name1<<"'s Board:"<< std::endl;
-        Player2.printOppBoard();
-        std::cout << ("Your Board:")<< std::endl;
-        Player2.printBoard();
+		std::cout << ("")<< std::endl;
+		std::cout << name2<<" please fire"<< std::endl;
+		std::cout << name1<<"'s Board:"<< std::endl;
+		Player2.printOppBoard();
+		std::cout << ("Your Board:")<< std::endl;
+		Player2.printBoard();
 
-        validInput = false;
-        while(!validInput){
-            int* cords = new int[2];
+		validInput = false;
+		while(!validInput){
+			int* cords = new int[2];
 
-            getCoordinateInput(cords);
+			getCoordinateInput(cords);
 
-            col = cords[0];
-            row = cords[1];
+			col = cords[0];
+			row = cords[1];
 
-            delete[] cords;
+			delete[] cords;
 
-            std::string fire = Player1.fire(row,col);
+			std::string fire = Player1.fire(row,col);
 
-            if(Player2.getOppBoard()[row][col] == 0){
-                if(fire == "Miss"){
-                        system("clear");
-                        std::cout << ("Missed!") << std::endl;
-                        std::cout << ("Press enter to continue!") << std::endl;
-                        getchar();
-                        system("clear");
+			if(Player2.getOppBoard()[row][col] == 0){
+				if(fire == "Miss"){
+						system("clear");
+						std::cout << ("Missed!") << std::endl;
+						std::cout << ("Press enter to continue!") << std::endl;
+						getchar();
+						system("clear");
 
-                        Player2.updateOppBoard(row,col,"Miss");
-                        Player1.updateMyBoard(row,col,"Miss");
-                        validInput = true;
-                }
-                else if(fire == "Hit"){
-                    system("clear");
-                    std::cout << ("Hit!") << std::endl;
-                    std::cout << ("Press enter to continue!") << std::endl;
-                    getchar();
-                    system("clear");
+						Player2.updateOppBoard(row,col,"Miss");
+						Player1.updateMyBoard(row,col,"Miss");
+						validInput = true;
+				}
+				else if(fire == "Hit"){
+					system("clear");
+					std::cout << ("Hit!") << std::endl;
+					std::cout << ("Press enter to continue!") << std::endl;
+					getchar();
+					system("clear");
 
-                    Player2.updateOppBoard(row,col,"Hit");
-                    Player1.updateMyBoard(row,col,"Hit");
-                    validInput = true;
-                }
-                else if(fire == "Sunk"){
-                    system("clear");
-                    std::cout << ("Sunk!") << std::endl;
-                    std::cout << ("Press enter to continue!") << std::endl;
-                    getchar();
-                    system("clear");
+					Player2.updateOppBoard(row,col,"Hit");
+					Player1.updateMyBoard(row,col,"Hit");
+					validInput = true;
+				}
+				else if(fire == "Sunk"){
+					system("clear");
+					std::cout << ("Sunk!") << std::endl;
+					std::cout << ("Press enter to continue!") << std::endl;
+					getchar();
+					system("clear");
 
-                    Player2.updateOppBoard(row,col,"Sunk");
-                    Player1.updateMyBoard(row,col,"Sunk");
-                    validInput = true;
-                }
-                else if(fire == "Error Bounds"){
-                     std::cout << ("Out of bounds")<< std::endl;
-                }
-            }
-            else{
-                std::cout << std::endl << "You've already fired here" << std::endl << std::endl;
-            }
-        }
+					Player2.updateOppBoard(row,col,"Sunk");
+					Player1.updateMyBoard(row,col,"Sunk");
+					validInput = true;
+				}
+				else if(fire == "Error Bounds"){
+					 std::cout << ("Out of bounds")<< std::endl;
+				}
+			}
+			else{
+				std::cout << std::endl << "You've already fired here" << std::endl << std::endl;
+			}
+		}
+		if(Player1.gameOver())
+			break;
+		system("clear");
+	}
 
-        if(Player1.gameOver())
-            break;
-        system("clear");
-    }
+	if(Player1.gameOver()) {
+		std::cout << "Congrats " <<name2<<", you won" << std::endl;
+		s.playerAddLoss(name1);
+		s.playerAddWin(name2);
+		s.updateFile();
+	}
 
-    if(Player1.gameOver()) {
-        std::cout << "Congrats " <<name2<<", you won" << std::endl;
-        s.playerAddLoss(name1);
-        s.playerAddWin(name2);
-        s.updateFile();
-    }
+	if(Player2.gameOver()){
+		std::cout << "Congrats "<<name1<<", you won" << std::endl;
+		s.playerAddLoss(name2);
+		s.playerAddWin(name1);
+		s.updateFile();
 
-    if(Player2.gameOver()){
-        std::cout << "Congrats "<<name1<<", you won" << std::endl;
-        s.playerAddLoss(name2);
-        s.playerAddWin(name1);
-        s.updateFile();
-
-    }
-
-    std::cout << name1 << "'s board :\n";
-    Player1.printBoard();
-    std::cout << name2 << "'s board :\n";
-    Player2.printBoard();
-
+	}
+	std::cout << name1 << "'s board :\n";
+	Player1.printBoard();
+	std::cout << name2 << "'s board :\n";
+	Player2.printBoard();
 }
 
 void Game::getCoordinateInput(int*& coordinates){
-    bool valid = false;
-    std::string input;
+	bool valid = false;
+	std::string input;
 
-    while(!valid){
-        std::cout << "Please enter a coordinate: ";
-        std::getline(std::cin, input);
-        if(input.length() == 2){
-            std::string x = input.substr(0,1);
-            std::string y = input.substr(1,1);
+	while(!valid){
+		std::cout << "Please enter a coordinate: ";
+		std::getline(std::cin, input);
+		if(input.length() == 2){
+			std::string x = input.substr(0,1);
+			std::string y = input.substr(1,1);
 
-            int xTemp = -1;
-            int yTemp = -1;
+			int xTemp = -1;
+			int yTemp = -1;
 
-            if(x == "A"){
-    			xTemp = 0;
-    		}
-    		else if(x == "B"){
-    			xTemp = 1;
-    		}
-    		else if(x == "C"){
-    			xTemp = 2;
-    		}
-    		else if(x == "D"){
-    			xTemp = 3;
-    		}
-    		else if(x == "E"){
-    			xTemp = 4;
-    		}
-    		else if(x == "F"){
-    			xTemp = 5;
-    		}
-    		else if(x == "G"){
-    			xTemp = 6;
-    		}
-    		else if(x == "H"){
-    			xTemp = 7;
-    		}
+			if(x == "A"){
+				xTemp = 0;
+			}
+			else if(x == "B"){
+				xTemp = 1;
+			}
+			else if(x == "C"){
+				xTemp = 2;
+			}
+			else if(x == "D"){
+				xTemp = 3;
+			}
+			else if(x == "E"){
+				xTemp = 4;
+			}
+			else if(x == "F"){
+				xTemp = 5;
+			}
+			else if(x == "G"){
+				xTemp = 6;
+			}
+			else if(x == "H"){
+				xTemp = 7;
+			}
 
-            if((y.find_first_not_of( "0123456789" ) == std::string::npos)){
-                yTemp = std::stoi(y);
-                if(yTemp > 0 && yTemp <= 8 && yTemp){
-        			 yTemp--;
-        		}
-                else{
-                    yTemp = -1;
-                }
-            }
+			if((y.find_first_not_of( "0123456789" ) == std::string::npos)){
+				yTemp = std::stoi(y);
+				if(yTemp > 0 && yTemp <= 8 && yTemp){
+					 yTemp--;
+				}
+				else{
+					yTemp = -1;
+				}
+			}
 
-            if(xTemp != -1 && yTemp != -1){
-                coordinates[0] = xTemp;
-                coordinates[1] = yTemp;
-                valid = true;
-            }
-        }
-    }
+			if(xTemp != -1 && yTemp != -1){
+				coordinates[0] = xTemp;
+				coordinates[1] = yTemp;
+				valid = true;
+			}
+		}
+	}
 }
 
 void Game::easyTurn(){
@@ -726,8 +688,8 @@ void Game::easyTurn(){
 		yRandomValue = yRandom;
 	}while(AI.getOppBoard()[xRandomValue][yRandomValue] != 0);
 
-    std::string outcome = Player1.fire(xRandomValue, yRandomValue);
-    Player1.updateMyBoard(xRandomValue, yRandomValue, outcome);
+	std::string outcome = Player1.fire(xRandomValue, yRandomValue);
+	Player1.updateMyBoard(xRandomValue, yRandomValue, outcome);
 
 	AI.updateOppBoard(xRandomValue, yRandomValue, outcome);
 }
@@ -745,7 +707,7 @@ void Game::mediumTurn(){
 		std::string temp = Player1.fire(xRandomValue, yRandomValue);
 		tempTemp = temp;
 		AI.updateOppBoard(xRandomValue, yRandomValue, temp);
-        Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
+		Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
 		if(temp == "Hit"){
 			mediumTurnFlag = 1;
 		}
@@ -756,7 +718,7 @@ void Game::mediumTurn(){
 			std::string temp = Player1.fire(xRandomValue-mediumTurnFlag, yRandomValue);
 			tempTemp = temp;
 			AI.updateOppBoard(xRandomValue-mediumTurnFlag, yRandomValue, temp);
-            Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
+			Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
 
 			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AI.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0) && !(xRandomValue >= 0 && xRandomValue <= (7- mediumTurnFlag) && yRandomValue >= 0 && yRandomValue <= 7 && AI.getOppBoard()[xRandomValue+mediumTurnFlag][yRandomValue] == 0) && !(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= (7 - mediumTurnFlag) && AI.getOppBoard()[xRandomValue][yRandomValue+mediumTurnFlag] == 0)){
 				mediumTurnFlag++;
@@ -770,7 +732,7 @@ void Game::mediumTurn(){
 			std::string temp = Player1.fire(xRandomValue, yRandomValue+mediumTurnFlag);
 			tempTemp = temp;
 			AI.updateOppBoard(xRandomValue, yRandomValue+mediumTurnFlag, temp);
-            Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
+			Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
 
 			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AI.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0) && !(xRandomValue >= 0 && xRandomValue <= (7- mediumTurnFlag) && yRandomValue >= 0 && yRandomValue <= 7 && AI.getOppBoard()[xRandomValue+mediumTurnFlag][yRandomValue] == 0)){
 				mediumTurnFlag++;
@@ -784,7 +746,7 @@ void Game::mediumTurn(){
 			std::string temp = Player1.fire(xRandomValue+mediumTurnFlag, yRandomValue);
 			tempTemp = temp;
 			AI.updateOppBoard(xRandomValue+mediumTurnFlag, yRandomValue, temp);
-            Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
+			Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
 
 			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AI.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0)){
 				mediumTurnFlag++;
@@ -798,7 +760,7 @@ void Game::mediumTurn(){
 			std::string temp = Player1.fire(xRandomValue, yRandomValue-mediumTurnFlag);
 			tempTemp = temp;
 			AI.updateOppBoard(xRandomValue, yRandomValue-mediumTurnFlag, temp);
-            Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
+			Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
 
 			mediumTurnFlag++;
 
@@ -813,8 +775,8 @@ void Game::hardTurn(){
 	for(int x = 0; x < 8; x++){
 		for(int y = 0; y < 8; y++){
 			if(Player1.getBoard()[x][y] == 1 && (AI.getOppBoard()[x][y] != 2 )){
-                std::string outcome = Player1.fire(x,y);
-                Player1.updateMyBoard(x,y,outcome);
+				std::string outcome = Player1.fire(x,y);
+				Player1.updateMyBoard(x,y,outcome);
 				AI.updateOppBoard(x, y, outcome);
 				return;
 			}

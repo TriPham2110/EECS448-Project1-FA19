@@ -19,8 +19,8 @@ GameBoard::GameBoard(){
 
 	for(int i = 0; i<8; i++){
 		for(int j = 0; j<8; j++){
-		board[i][j] = 0;
-		oppBoard[i][j] = 0;
+			board[i][j] = 0;
+			oppBoard[i][j] = 0;
 		}
 	}
 }
@@ -66,9 +66,9 @@ std::string GameBoard::fire(int x, int y){
 			if(ships.at(i)->containsCoordinate(x,y)){
 				ships.at(i)->hit(x,y);
 				if(ships.at(i)->isDestroyed()){
-                    for(Point* coordinate : ships.at(i)->getShipCoordinates()){
-                        board[coordinate->getX()][coordinate->getY()] = 3;
-                    }
+					for(Point* coordinate : ships.at(i)->getShipCoordinates()){
+						board[coordinate->getX()][coordinate->getY()] = 3;
+					}
 					return "Sunk";
 				}
 			return "Hit";
@@ -146,110 +146,91 @@ bool GameBoard::isOccupied(int x, int y){
 	return board[x][y] == 1;
 }
 
-
-
 void GameBoard::updateOppBoard(int x, int y, string outcome){
-    if(outcome == "Miss"){
-        oppBoard[x][y] = 4;
-    }
-    else if (outcome == "Hit"){
-        oppBoard[x][y] = 2;
-    }
-    else if (outcome == "Sunk"){
-        oppBoard[x][y] = 3;
-    }
-    else
-        oppBoard[x][y] = 4;
+	if(outcome == "Miss"){
+		oppBoard[x][y] = 4;
+	}
+	else if (outcome == "Hit"){
+		oppBoard[x][y] = 2;
+	}
+	else if (outcome == "Sunk"){
+		oppBoard[x][y] = 3;
+	}
+	else{
+		oppBoard[x][y] = 4;
+	}
 }
 
-void GameBoard::updateMyBoard(int x, int y, string outcome)
-{
-    if(outcome == "Miss"){
-        board[x][y] = 4;
-    }
-    else if (outcome == "Hit"){
-        board[x][y] = 2;
-    }
-    else if (outcome == "Sunk"){
-        board[x][y] = 3;
-    }
-    else
-        board[x][y] = 4;
-
+void GameBoard::updateMyBoard(int x, int y, string outcome){
+	if(outcome == "Miss"){
+		board[x][y] = 4;
+	}
+	else if (outcome == "Hit"){
+		board[x][y] = 2;
+	}
+	else if (outcome == "Sunk"){
+		board[x][y] = 3;
+	}
+	else{
+		board[x][y] = 4;
+	}
 }
-
-
 
 void GameBoard::printBoard(){
-  cout <<StringColor::TEXT<< " A  B  C  D  E  F  G  H \n";
-  for(int i = 0; i < boardSize; i++){
-
-    for(int j = 0; j < boardSize; j++){
-        if(board[i][j] == 0){
-
-            cout << StringColor::WATER;
-        }
-        else if(board[i][j] == 1){
-
-            cout << StringColor::SHIP;
-        }
-        else if(board[i][j] == 2){
-
-            cout << StringColor::HIT;
-        }
-        else if(board[i][j] == 3){
-
-            cout << StringColor::SUNK;
-        }
-        else if(board[i][j] == 4){
-
-            cout << StringColor::MISS;
-        }
-      //cout << oppBoard[i][j] << " ";
-    }
-
-      cout << StringColor::TEXT << (i + 1) << " \n";
-    cout << "";
-  }
+	cout <<StringColor::TEXT<< " A  B  C  D  E  F  G  H \n";
+	for(int i = 0; i < boardSize; i++){
+		for(int j = 0; j < boardSize; j++){
+			if(board[i][j] == 0){
+				cout << StringColor::WATER;
+			}
+			else if(board[i][j] == 1){
+				cout << StringColor::SHIP;
+			}
+			else if(board[i][j] == 2){
+				cout << StringColor::HIT;
+			}
+			else if(board[i][j] == 3){
+				cout << StringColor::SUNK;
+			}
+			else if(board[i][j] == 4){
+				cout << StringColor::MISS;
+			}
+		}
+		cout << StringColor::TEXT << (i + 1) << " \n";
+		cout << "";
+	}
 }
 
 void GameBoard::printOppBoard(){
-  cout <<StringColor::TEXT<< " A  B  C  D  E  F  G  H \n";
-  for(int i = 0; i < boardSize; i++){
-
-    for(int j = 0; j < boardSize; j++){
-        if(oppBoard[i][j] == 0){
-
-            cout << StringColor::WATER;
-        }
-        else if(oppBoard[i][j] == 1){
-
-            cout << StringColor::SHIP;
-        }
-        else if(oppBoard[i][j] == 2){
-
-            cout << StringColor::HIT;
-        }
-        else if(oppBoard[i][j] == 3){
-
-            cout << StringColor::SUNK;
-        }
-        else if(oppBoard[i][j] == 4){
-
-            cout << StringColor::MISS;
-        }
-      //cout << oppBoard[i][j] << " ";
-    }
-      cout << StringColor::TEXT << (i + 1) << " \n";
-    cout << "";
-  }
+	cout <<StringColor::TEXT<< " A  B  C  D  E  F  G  H \n";
+	for(int i = 0; i < boardSize; i++){
+		for(int j = 0; j < boardSize; j++){
+			if(oppBoard[i][j] == 0){
+				cout << StringColor::WATER;
+			}
+			else if(oppBoard[i][j] == 1){
+				cout << StringColor::SHIP;
+			}
+			else if(oppBoard[i][j] == 2){
+				cout << StringColor::HIT;
+			}
+			else if(oppBoard[i][j] == 3){
+				cout << StringColor::SUNK;
+			}
+			else if(oppBoard[i][j] == 4){
+				cout << StringColor::MISS;
+			}
+		}
+		cout << StringColor::TEXT << (i + 1) << " \n";
+		cout << "";
+	}
 }
 
 void GameBoard::resetBoard(){
 	for(int i = 0; i<8; i++){
 		for(int j = 0; j<8; j++){
-		board[i][j] = 0;
-		oppBoard[i][j] = 0;
+			board[i][j] = 0;
+			oppBoard[i][j] = 0;
 		}
 	}
 	while(!ships.empty()){
@@ -259,10 +240,10 @@ void GameBoard::resetBoard(){
 	}
 }
 
-GameBoard& GameBoard::operator=(const GameBoard &a)
-{
-    boardSize = a.boardSize; board = a.board; oppBoard = a.oppBoard; ships = a.ships;
-
-    return *this;  // Return a reference to myself.
-
+GameBoard& GameBoard::operator=(const GameBoard &a){
+	boardSize = a.boardSize; 
+	board = a.board; 
+	oppBoard = a.oppBoard; 
+	ships = a.ships;
+	return *this;  // Return a reference to myself.
 }
