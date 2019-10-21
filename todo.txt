@@ -2,29 +2,11 @@ todo text file
 
 ::
 
-make screen clear at appropriate times
-and make buffer screen between each turn that tells player whether they sank miss or hit their opponents ships /the opponent will see this too (and that is on purpose and okay)
-(1/2 done)
-
-
-parse strings as 1A or a1 or 1a
-(1/2 done)
-
-add to wins and losses when win/lose
-
-add menu
-
-fix mem leak? ( tri's god class, nuke AIopponent)
-
 show player their board with ships before letting next player select/starting new game
 (1/2 done)
 
 different color combinations are different themes:
 
-apurva's epic theme
-max's autumn theme
-jace's gamer theme
-meet's indian theme
-tri's chaotic theme
+documentation
 
-add epic win screen with epic colors
+reset boards on game restart

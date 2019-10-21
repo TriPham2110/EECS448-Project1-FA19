@@ -34,22 +34,23 @@ void StringColor::changeTheme(std::string themeName){
         BACKGROUND = "\033[44m";
         BORDER = "\033[1m\033[33m";
         TEXT = "\033[1m\033[33m\033[40m";
-        WATER = BACKGROUND + BOLDWHITE + WATER;
-        SHIP = "\033[40m" + GREEN + SHIP;
-        HIT = RED + HIT;
-        MISS = CYAN + MISS;
-        SUNK = MAGENTA + SUNK;
+        WATER = BACKGROUND + BOLDWHITE + "░▒░";
+        SHIP = "\033[40m" + GREEN + "═╩═";
+        HIT = RED +" # ";
+        MISS = CYAN + " Ω ";
+        SUNK = MAGENTA + " ≠ ";
     }
 
     else if(themeName == "meet"){
+        
         BACKGROUND = "\033[45m";
         BORDER = "\033[1m\033[33m";
         TEXT = "\033[1m\033[33m";
-        WATER = BACKGROUND + BOLDYELLOW + WATER;
-        SHIP = "\033[40m" + YELLOW + SHIP;
-        HIT = BOLDYELLOW  + HIT;
-        MISS = BOLDYELLOW + MISS;
-        SUNK = BOLDYELLOW + SUNK;
+        WATER = "\033[45m" + BOLDYELLOW + "░▒░";
+        SHIP = "\033[40m" + YELLOW + "═╩═";
+        HIT = BOLDYELLOW  + " # ";
+        MISS = BOLDYELLOW + " Ω ";
+        SUNK = BOLDYELLOW + " ≠ ";
     }
     else if(themeName == "tri"){
     }
@@ -57,11 +58,11 @@ void StringColor::changeTheme(std::string themeName){
         BACKGROUND = "\033[1m\033[32m";
         BORDER = "\033[1m\033[31m";
         TEXT = "\033[1m\033[36m";
-        WATER = BACKGROUND + BOLDBLACK + WATER;
-        SHIP = "\033[40m" + RED + SHIP;
-        HIT = WHITE + HIT;
-        MISS = BLUE + MISS;
-        SUNK = CYAN + SUNK;
+        WATER = "\033[1m\033[32m" + BOLDBLACK + "░▒░";
+        SHIP = "\033[40m" + RED + "═╩═";
+        HIT = WHITE + " # ";
+        MISS = BLUE + " Ω ";
+        SUNK = CYAN + " ≠ ";
     }
     else if(themeName == "jace"){
     }
@@ -72,22 +73,22 @@ void StringColor::changeTheme(std::string themeName){
         BACKGROUND = "\033[47m";
         BORDER = "\033[1m\033[30m";
         TEXT = "\033[1m\033[30m";
-        WATER = BACKGROUND + BOLDBLACK + WATER;
-        SHIP = "\033[40m" + BLACK + SHIP;
-        HIT = BLACK + HIT;
-        MISS = BLACK + MISS;
-        SUNK = BLACK + SUNK;
+        WATER = "\033[47m" + BOLDBLACK + "░▒░";
+        SHIP = "\033[47m" + BLACK + "═╩═";
+        HIT = BLACK + " # ";
+        MISS = BLACK + " Ω ";
+        SUNK = BLACK + " ≠ ";
 
     }
     else if(themeName == "darkMode"){
         BACKGROUND = "\033[40m";
         BORDER = "\033[1m\033[37m";
         TEXT = "\033[1m\033[37m";
-        WATER = BACKGROUND + BOLDWHITE + WATER;
-        SHIP = "\033[40m" + WHITE + SHIP;
-        HIT = WHITE + HIT;
-        MISS = WHITE + MISS;
-        SUNK = WHITE + SUNK;
+        WATER = BACKGROUND + BOLDWHITE + "░▒░";
+        SHIP = "\033[40m" + WHITE + "═╩═";
+        HIT = WHITE + " # ";
+        MISS = WHITE + " Ω ";
+        SUNK = WHITE + " ≠ ";
     }
 
 }

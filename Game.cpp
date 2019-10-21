@@ -13,12 +13,14 @@ Game::Game(){
         std::string newGame = "";
     
         s.loadInfo();
-
-
         StringColor::changeTheme("default");
 
 
     do{
+        Player1.resetBoard();
+        Player2.resetBoard();
+        AI.resetBoard();
+        
         numShips = -1;
         newGame = "";
         std::cout << ("Welcome to Battleship!") << std::endl;
@@ -106,7 +108,7 @@ Game::Game(){
 
               system("clear");
               std::cout << (" ")<< std::endl;;
-              std::cout << name2<<(" please place your ships")<< std::endl;;
+              std::cout << name2 <<(" please place your ships")<< std::endl;;
               this->placeShips(Player2, numShips);
               std::cout << name2<<("'s board...")<< std::endl;
               Player2.printBoard();
@@ -136,6 +138,7 @@ Game::Game(){
             else if(theme == 2){
                 StringColor::changeTheme("meet");
                 std::cout << "testing working" <<std::endl;
+                std::cout << StringColor::WATER <<std::endl;
             }
             else if(theme == 3){
                 StringColor::changeTheme("tri");
