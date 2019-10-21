@@ -11,15 +11,17 @@ Game::Game(){
         int numShips = -1;
         int choice;
         std::string newGame = "";
+    
+        s.loadInfo();
 
-
+        StringColor::changeTheme("default");
 
     do{
         numShips = -1;
         newGame = "";
         std::cout << ("Welcome to Battleship!") << std::endl;
 
-        StringColor::changeTheme("default");
+        
 
 
         std::cout << "1. Player vs Player" <<std::endl;
@@ -40,7 +42,9 @@ Game::Game(){
               int difficulty = -1;
 
               if(!s.playerInScoreboard(name1)){
+                  std::cout << "meet is okay!!!"  << std::endl;
                   s.addNewPlayer(name1);
+                  s.loadInfo();
               }
 
               while(difficulty > 3 || difficulty < 0){
@@ -77,9 +81,11 @@ Game::Game(){
 
               if(!s.playerInScoreboard(name1)){
                   s.addNewPlayer(name1);
+                  s.loadInfo();
               }
               if(!s.playerInScoreboard(name2)){
                   s.addNewPlayer(name2);
+                  s.loadInfo();
               }
 
               while(numShips > 5 || numShips < 1){
@@ -117,7 +123,7 @@ Game::Game(){
             std::cout << "5. Jace's theme" <<std::endl;
             std::cout << "6. Max's theme" <<std::endl;
 
-            int theme;
+            int theme =0;
             std::cin>>theme;
 		    theme = restrictIntInput(theme);
 
@@ -126,6 +132,7 @@ Game::Game(){
             }
             else if(theme == 2){
                 StringColor::changeTheme("meet");
+                std::cout << "testing working" <<std::endl;
             }
             else if(theme == 3){
                 StringColor::changeTheme("tri");

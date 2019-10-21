@@ -58,48 +58,60 @@ void Score::playerAddLoss(std::string name){
 void Score::print(){
 	std::cout << "#" << "\t" << "NAME" << "\t" << "WINS"<< "\t" << "Loss" << "\t" << "W/L PERCENT" << "\n";
 	
-	ten = (scoreboard.size()-1);
+	ten = (int)(scoreboard.size()-1);
 	
-	if(ten > 10){
-		ten = 10;
+	if(ten > 9){
+		ten = 9;
 	}
 	for(int i=0; i <= ten; i++){
-		std::cout << (i+1) << ":\t" << scoreboard[i].name << "\t" << scoreboard[i].wins << "\t" << scoreboard[i].losses << "\t" << scoreboard[i].percentage << "%\n";
+        if(scoreboard[i].name.length() > 1){
+		  std::cout << (i+1) << ":\t" << scoreboard[i].name << "\t" << scoreboard[i].wins << "\t" << scoreboard[i].losses << "\t" << scoreboard[i].percentage << "%\n";
+        }
 	}
 }
 
 bool Score::playerInScoreboard(std::string name){
 	for(int rep=0; rep<(int)scoreboard.size(); rep++){
+        std::cout << scoreboard[0].name << " " << name << std::endl;
 		if(scoreboard[rep].name == name){
 			return true;
 		}
 	}
+    
+    
 	return false;
 }
 
 void Score::addNewPlayer(std::string name){
 	ofstream output;
-	output.open("scoreboard.tri", std::ios_base::app);
-	output << std::endl << name << std::endl << "0" << std::endl << "0";
+	output.open("Scoreboard.tri", std::ios_base::app);
+	output << name << std::endl << "0" << std::endl << "0" << std::endl;
 	output.close();
 }
 
 void Score::updateFile(){
-    //clear file
-    //https://stackoverflow.com/questions/17032970/clear-data-inside-text-file-in-c
+    //go through file and update changes hehe
+    
     std::ofstream ofs;
     ofs.open("Scoreboard.tri", std::ofstream::out | std::ofstream::trunc);
     ofs.close();
     
-    //re-fill file with update info
-    
     ofstream output;
-	output.open("scoreboard.tri", std::ios_base::app);
+	output.open("Scoreboard.tri", std::ios_base::app);
     
-    for(int rep = 0; rep < scoreboard.size(); rep++){
-	   output << scoreboard[rep].name << std::endl << std::to_string(scoreboard[rep].wins) << std::endl << std::to_string(scoreboard[rep].losses) << std::endl;
+
+    
+    
+    for(int rep = 0; rep < (int)scoreboard.size(); rep++){
+       if(scoreboard[rep].name.length() > 1){
+            output << scoreboard[rep].name << endl;
+    
+            output << std::to_string(scoreboard[rep].wins) << endl;
+     
+            output << std::to_string(scoreboard[rep].losses)<< endl;;
+       }
+	  
     }
-    
 	output.close();
 }
 
