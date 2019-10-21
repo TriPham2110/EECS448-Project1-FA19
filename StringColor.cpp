@@ -53,6 +53,14 @@ void StringColor::changeTheme(std::string themeName){
         SUNK = BOLDYELLOW + " ≠ ";
     }
     else if(themeName == "tri"){
+		BACKGROUND = "\033[44m";
+        BORDER = "\033[1m\033[33m";
+        TEXT = "\033[1m\033[33m\033[40m";
+        WATER = BACKGROUND + GREEN + "▒░▒";
+        SHIP = "\033[40m" + BOLDWHITE + "◥۩◤";
+        HIT = RED + " ๑ ";
+        MISS = CYAN + MISS;
+        SUNK = MAGENTA + " ✖ ";
     }
     else if(themeName == "apurva"){
         BACKGROUND = "\033[1m\033[32m";
