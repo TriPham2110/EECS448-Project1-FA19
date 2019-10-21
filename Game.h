@@ -23,7 +23,7 @@ class Game{
 		 *	@ post ships are placed onto a board
 		 * @ return none
 		 */
-		void placeShips(GameBoard& player, int numShips);
+		void placeShips(GameBoard& player, int numShips, int pNum);
 		/*
 		 * @ pre ships are placed for both players
 		 *	@ param GameBoard player 1 and 2

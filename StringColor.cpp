@@ -22,7 +22,7 @@ const std::string StringColor::BOLDWHITE   = "\033[1m\033[37m";
 std::string StringColor::WATER      = "░▒░";
 std::string StringColor::SHIP       = "═╩═";
 std::string StringColor::BORDER     = "\033[1m\033[33m";
-std::string StringColor::TEXT       = "\033[1m\033[33m";
+std::string StringColor::TEXT       = "\033[1m\033[33m\033[40m";
 std::string StringColor::HIT        = " # ";
 std::string StringColor::MISS       = " Ω ";
 std::string StringColor::SUNK       = " ≠ ";
@@ -35,7 +35,7 @@ void StringColor::changeTheme(std::string themeName){
         BORDER = "\033[1m\033[33m";
         TEXT = "\033[1m\033[33m\033[40m";
         WATER = BACKGROUND + BOLDWHITE + "░▒░";
-        SHIP = "\033[40m" + GREEN + "═╩═";
+        SHIP = "\033[40m" + YELLOW + "═╩═";
         HIT = RED +" # ";
         MISS = CYAN + " Ω ";
         SUNK = MAGENTA + " ≠ ";
@@ -75,6 +75,14 @@ void StringColor::changeTheme(std::string themeName){
     else if(themeName == "jace"){
     }
     else if(themeName == "max"){
+        BACKGROUND = "\033[" + std::to_string(RandInt(40, 7)) + "m";
+        BORDER = "\033[1m\033[3"+std::to_string(RandInt(40, 7))+"m\033[" + std::to_string(RandInt(30, 7)) + "m";
+        TEXT = "\033[1m\033[3"+std::to_string(RandInt(40, 7))+"m\033[" + std::to_string(RandInt(30, 7)) + "m";
+        WATER = BACKGROUND + "\033[1m\033[3"+ std::to_string(RandInt(40, 7))+"m\033[" + std::to_string(RandInt(30, 7)) + "m" + (char)RandInt(33,22) + (char)RandInt(33,22) + (char)RandInt(33,22);
+        SHIP = "\033[1m\033[3"+ std::to_string(RandInt(40, 7))+"m\033[" + std::to_string(RandInt(30, 7)) + "m" + (char)RandInt(33,22) + (char)RandInt(33,22) + (char)RandInt(33,22);
+        HIT = "\033[1m\033[3"+std::to_string(RandInt(40, 7))+"m\033[" + std::to_string(RandInt(30, 7))+"m"+ (char)RandInt(33,22) + (char)RandInt(33,22) + (char)RandInt(33,22);
+        MISS = "\033[1m\033[3"+std::to_string(RandInt(40, 7))+"m\033[" + std::to_string(RandInt(30, 7))+"m"+ (char)RandInt(33,22) + (char)RandInt(33,22) + (char)RandInt(33,22);
+        SUNK = "\033[1m\033[3"+std::to_string(RandInt(40, 7))+"m\033[" + std::to_string(RandInt(30, 7))+"m" + (char)RandInt(33,22) + (char)RandInt(33,22) + (char)RandInt(33,22);
     }
 
     else if(themeName == "lightMode"){

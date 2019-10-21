@@ -72,7 +72,6 @@ void Score::print(){
 
 bool Score::playerInScoreboard(std::string name){
 	for(int rep=0; rep<(int)scoreboard.size(); rep++){
-        std::cout << scoreboard[0].name << " " << name << std::endl;
 		if(scoreboard[rep].name == name){
 			return true;
 		}

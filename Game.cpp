@@ -17,6 +17,9 @@ Game::Game(){
 
 
     do{
+        std::cout << StringColor::TEXT;
+        
+        
         Player1.resetBoard();
         Player2.resetBoard();
         AI.resetBoard();
@@ -39,18 +42,19 @@ Game::Game(){
 
 
         if (choice == 2){
-
+              std::cout <<std::endl;
               std::cout<<("Enter your name:")<<std::endl;
               std::cin>>name1;
               int difficulty = -1;
 
               if(!s.playerInScoreboard(name1)){
-                  std::cout << "meet is okay!!!"  << std::endl;
+                  
                   s.addNewPlayer(name1);
                   s.loadInfo();
               }
 
               while(difficulty > 3 || difficulty < 0){
+                  std::cout <<std::endl;
                   std::cout << "Please select a difficulty" << std::endl;
                   std::cout << "0 - Easy" << std::endl;
                   std::cout << "1 - Medium" << std::endl;
@@ -61,14 +65,15 @@ Game::Game(){
               }
 
               while(numShips > 5 || numShips < 1){
+                  std::cout <<std::endl;
                   std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
                   std::cin >> numShips;
                   numShips = restrictIntInput(numShips);
               }
               system("clear");
-              std::cout << (" ")<< std::endl;;
-              std::cout << ("Please place your ships")<< std::endl;;
-              this->placeShips(Player1, numShips);
+              std::cout << (" ")<< std::endl;
+              std::cout << ("Please place your ships")<< std::endl;
+              this->placeShips(Player1, numShips, 1);
               std::cout << ("Your board...")<< std::endl;
               Player1.printBoard();
 
@@ -76,11 +81,13 @@ Game::Game(){
               this->playAI(Player1, AI, difficulty);
         }
         else if (choice == 1){
-
+              std::cout <<std::endl;
               std::cout<<("Enter Player 1 name:")<<std::endl;
               std::cin>>name1;
+              std::cout <<std::endl;
               std::cout<<("Enter Player 2 name:")<<std::endl;
               std::cin>>name2;
+              std::cout <<std::endl;
 
               if(!s.playerInScoreboard(name1)){
                   s.addNewPlayer(name1);
@@ -92,6 +99,7 @@ Game::Game(){
               }
 
               while(numShips > 5 || numShips < 1){
+                  std::cout <<std::endl;
                   std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
                   std::cin >> numShips;
                   numShips = restrictIntInput(numShips);
@@ -99,17 +107,17 @@ Game::Game(){
 
               system("clear");
 
-              std::cout << (" ")<< std::endl;;
-              std::cout << name1<<(" please place your ships")<< std::endl;;
-              this->placeShips(Player1, numShips);
+              std::cout << (" ")<< std::endl;
+              std::cout << name1<<(" please place your ships")<< std::endl;
+              this->placeShips(Player1, numShips, 1);
 
               std::cout << name1<<("'s board...")<< std::endl;
               Player1.printBoard();
 
               system("clear");
               std::cout << (" ")<< std::endl;;
-              std::cout << name2 <<(" please place your ships")<< std::endl;;
-              this->placeShips(Player2, numShips);
+              std::cout << name2 <<(" please place your ships")<< std::endl;
+              this->placeShips(Player2, numShips, 2);
               std::cout << name2<<("'s board...")<< std::endl;
               Player2.printBoard();
 
@@ -221,8 +229,8 @@ int Game::restrictIntInput(int option){
 	return option;
 }
 
-void Game::placeShips(GameBoard &player, int numShips){
-
+void Game::placeShips(GameBoard &player, int numShips, int pNum){
+    std::string tempName;
 	for(int i = 1; i <= numShips; i++){
 		int shipLength = i;
 		Ship* tempShip = new Ship(shipLength);
@@ -231,6 +239,15 @@ void Game::placeShips(GameBoard &player, int numShips){
         system("clear");
 
 		player.printBoard();
+        
+        tempName = "";
+        
+        if(pNum == 1){
+            tempName = name1;
+        }
+        else{
+            tempName = name2;
+        }
 
 		int shipCol;
 		int shipRow;
@@ -239,7 +256,7 @@ void Game::placeShips(GameBoard &player, int numShips){
 
 		for(int j = 1; j <= shipLength; j++){
 			std::cout << (" ") << std::endl;
-			std::cout << "Please place piece " << j << " of " << shipLength << " of ship " << shipLength << std::endl;
+			std::cout<<tempName << " please place piece " << j << " of " << shipLength << " of ship " << shipLength << std::endl;
 
             int* cords = new int[2];
 
@@ -281,6 +298,11 @@ void Game::placeShips(GameBoard &player, int numShips){
 		player.addShip(tempShip);
 
 	}
+    system("clear");
+    player.printBoard();
+    std::cout << tempName << "'s board\nPress enter to continue";
+    getchar();
+    
     system("clear");
 }
 
@@ -463,6 +485,12 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
         int row, col;
         bool validInput = false;
         system("clear");
+        
+        std::cout << name1 << "'s turn\nPress enter to start turn";
+        getchar();
+        
+        system("clear");
+        
 
         std::cout << ("")<< std::endl;;
         std::cout << name1 <<" please fire"<< std::endl;
@@ -529,6 +557,11 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
         if(Player2.gameOver())
             break;
 
+        system("clear");
+        
+        std::cout << name2 << "'s turn\nPress enter to start turn";
+        getchar();
+        
         system("clear");
 
         std::cout << ("")<< std::endl;
