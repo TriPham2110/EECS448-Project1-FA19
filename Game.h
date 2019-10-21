@@ -17,88 +17,88 @@ class Game{
 		std::string name2 = "";
 
     Score s;
-		/*
-		 * @ pre user's input on how many ships they want
-		 *	@ param GameBoard player 1 and number of ships
-		 *	@ post ships are placed onto a board
-		 * @ return none
+		/**
+		 * @pre user's input on how many ships they want
+		 *		@param GameBoard player 1 and number of ships
+		 *		@post ships are placed onto a board
+		 * 		@return none
 		 */
 		void placeShips(GameBoard& player, int numShips, int pNum);
-		/*
-		 * @ pre ships are placed for both players
-		 *	@ param GameBoard player 1 and 2
-		 *	@ post function where two player game is played
-		 * @ return none
+		/**
+		 * @pre ships are placed for both players
+		 *		@param GameBoard player 1 and 2
+		 *		@post function where two player game is played
+		 * 		@return none
 		 */
 		void playGame(GameBoard& Player1, GameBoard& Player2);
-		/*
-		 * @ pre one player mode is picked
-		 *	@ param GameBoard AI and number of ships
-		 *	@ post AI ship's are placed
-		 * @ return none
+		/**
+		 * @pre one player mode is picked
+		 *		@param GameBoard AI and number of ships
+		 *		@post AI ship's are placed
+		 * 		@return none
 		 */
 		void placeShipsAI(GameBoard& AI, int numShips);
-		/*
-		 * @ pre ships are placed for AI and player 1
-		 *	@ param GameBoard player 1 and AI and AI difficulty
-		 *	@ post function where single player game is played
-		 * @ return none
+		/**
+		 * @pre ships are placed for AI and player 1
+		 *		@param GameBoard player 1 and AI and AI difficulty
+		 *		@post function where single player game is played
+		 * 		@return none
 		 */
 		void playAI(GameBoard& Player1, GameBoard& AI, int difficulty);
 
-		/*
-		* @ pre none
-		*	@ param coordinates
-		*	@ post takes user input and returns threw reference coordinates
-		* @ return none
+		/**
+		* @pre none
+		*		@param coordinates
+		*		@post takes user input and returns threw reference coordinates
+		* 		@return none
 		 */
 		void getCoordinateInput(int*& coordinates);
-		/*
-		 * @ pre none
-		 *	@ param the option
-		 *	@ post points out invalid options
-		 * @ return none
+		/**
+		 * @pre none
+		 *		@param the option
+		 *		@post points out invalid options
+		 * 		@return none
 		 */
 		int restrictIntInput(int option);
 
 		int mediumTurnFlag;
 		int xRandomValue,yRandomValue;
 
-		/*
-	     * @ pre none
-	     *	@ param none
-	     *	@ post AI's easy difficulty
-	     * @ return none
+		/**
+	     * @pre none
+	     *		@param none
+	     *		@post AI's easy difficulty
+	     * 		@return none
 	     */
 		void easyTurn();
-		/*
-	     * @ pre none
-	     *	@ param none
-	     *	@ post AI's medium difficulty
-	     * @ return none
+		/**
+	     * @pre none
+	     *		@param none
+	     *		@post AI's medium difficulty
+	     * 		@return none
 	     */
 		void mediumTurn();
-		/*
-	     * @ pre none
-	     *	@ param none
-	     *	@ post AI's hard difficulty
-	     * @ return none
+		/**
+	     * @pre none
+	     *		@param none
+	     *		@post AI's hard difficulty
+	     * 		@return none
 	     */
 		void hardTurn();
 
 	public:
-		/*
-		 * @ pre none
-		 *	@ param none
-		 *	@ post constructor
-		 * @ return none
+		/**
+		 * @pre none
+		 *		@param none
+		 *		@post constructor
+		 * 		@return none
 		 */
 		Game();
-		/*
-		 * @ pre none
-		 *	@ param none
-		 *	@ post deconstructor
-		 * @ return none
+		/**
+		 * @pre none
+		 *		@param none
+		 *		@post deconstructor
+		 * 		@return none
 		 */
 		~Game();
 };

@@ -1,0 +1,292 @@
+\hypertarget{class_game}{}\doxysection{Game Class Reference}
+\label{class_game}\index{Game@{Game}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_ad59df6562a58a614fda24622d3715b65}{Game}} ()
+\item 
+\mbox{\hyperlink{class_game_ae3d112ca6e0e55150d2fdbc704474530}{$\sim$\+Game}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_a656ab139a68ae95262136adaf74ed98b}{place\+Ships}} (\mbox{\hyperlink{class_game_board}{Game\+Board}} \&player, int num\+Ships, int p\+Num)
+\item 
+void \mbox{\hyperlink{class_game_a2843de23ac00416bf57ac96aa009d9da}{play\+Game}} (\mbox{\hyperlink{class_game_board}{Game\+Board}} \&Player1, \mbox{\hyperlink{class_game_board}{Game\+Board}} \&Player2)
+\item 
+void \mbox{\hyperlink{class_game_a4d63e9b65e6a5acf127fb23aad184da1}{place\+Ships\+AI}} (\mbox{\hyperlink{class_game_board}{Game\+Board}} \&AI, int num\+Ships)
+\item 
+void \mbox{\hyperlink{class_game_a44d710b043e6b34cd472ec8d7f51c0a1}{play\+AI}} (\mbox{\hyperlink{class_game_board}{Game\+Board}} \&Player1, \mbox{\hyperlink{class_game_board}{Game\+Board}} \&AI, int difficulty)
+\item 
+void \mbox{\hyperlink{class_game_a8aeb4abe3af50e36bad9ff16f9b42bc3}{get\+Coordinate\+Input}} (int $\ast$\&coordinates)
+\item 
+int \mbox{\hyperlink{class_game_a6c6361f2dc078c8fbcb4e5151c83d6d0}{restrict\+Int\+Input}} (int option)
+\item 
+void \mbox{\hyperlink{class_game_a5987b332be9a0e620bfcfa49b0e3f6a5}{easy\+Turn}} ()
+\item 
+void \mbox{\hyperlink{class_game_a362481f9e7b337dd1da5579933e9f885}{medium\+Turn}} ()
+\item 
+void \mbox{\hyperlink{class_game_a5cc3b601a9d163f5592b0382437cd70a}{hard\+Turn}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_af54f813a8b955d403332eaede1475d1c}\label{class_game_af54f813a8b955d403332eaede1475d1c}} 
+\mbox{\hyperlink{class_game_board}{Game\+Board}} {\bfseries Player1}
+\item 
+\mbox{\Hypertarget{class_game_ab772d971cb130908e0a89aacbdf6ec87}\label{class_game_ab772d971cb130908e0a89aacbdf6ec87}} 
+\mbox{\hyperlink{class_game_board}{Game\+Board}} {\bfseries Player2}
+\item 
+\mbox{\Hypertarget{class_game_af97f3c79bcea1d2a9c6318233ce90d31}\label{class_game_af97f3c79bcea1d2a9c6318233ce90d31}} 
+\mbox{\hyperlink{class_game_board}{Game\+Board}} {\bfseries AI}
+\item 
+\mbox{\Hypertarget{class_game_a5f6faac0f82338fbd786bdc39ac6ba7f}\label{class_game_a5f6faac0f82338fbd786bdc39ac6ba7f}} 
+std\+::string {\bfseries name1} = \char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{class_game_ae042e187c9423dfba3a6d222fcd612c7}\label{class_game_ae042e187c9423dfba3a6d222fcd612c7}} 
+std\+::string {\bfseries name2} = \char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{class_game_ac9ca3edac55773d45192136ca90976a2}\label{class_game_ac9ca3edac55773d45192136ca90976a2}} 
+\mbox{\hyperlink{class_score}{Score}} {\bfseries s}
+\item 
+\mbox{\Hypertarget{class_game_a280c2f5fac7ebb45dd41580a588cee0b}\label{class_game_a280c2f5fac7ebb45dd41580a588cee0b}} 
+int {\bfseries medium\+Turn\+Flag}
+\item 
+\mbox{\Hypertarget{class_game_a3370ee7748df1bc8c06b8439b3628a35}\label{class_game_a3370ee7748df1bc8c06b8439b3628a35}} 
+int {\bfseries x\+Random\+Value}
+\item 
+\mbox{\Hypertarget{class_game_ac985cac6d1b3f000529296e7a43e1ece}\label{class_game_ac985cac6d1b3f000529296e7a43e1ece}} 
+int {\bfseries y\+Random\+Value}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_ad59df6562a58a614fda24622d3715b65}\label{class_game_ad59df6562a58a614fda24622d3715b65}} 
+\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily Game\+::\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+constructor 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_ae3d112ca6e0e55150d2fdbc704474530}\label{class_game_ae3d112ca6e0e55150d2fdbc704474530}} 
+\index{Game@{Game}!````~Game@{$\sim$Game}}
+\index{````~Game@{$\sim$Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{$\sim$Game()}{~Game()}}
+{\footnotesize\ttfamily Game\+::$\sim$\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+deconstructor 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_a5987b332be9a0e620bfcfa49b0e3f6a5}\label{class_game_a5987b332be9a0e620bfcfa49b0e3f6a5}} 
+\index{Game@{Game}!easyTurn@{easyTurn}}
+\index{easyTurn@{easyTurn}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{easyTurn()}{easyTurn()}}
+{\footnotesize\ttfamily void Game\+::easy\+Turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+AI\textquotesingle{}s easy difficulty 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_a8aeb4abe3af50e36bad9ff16f9b42bc3}\label{class_game_a8aeb4abe3af50e36bad9ff16f9b42bc3}} 
+\index{Game@{Game}!getCoordinateInput@{getCoordinateInput}}
+\index{getCoordinateInput@{getCoordinateInput}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{getCoordinateInput()}{getCoordinateInput()}}
+{\footnotesize\ttfamily void Game\+::get\+Coordinate\+Input (\begin{DoxyParamCaption}\item[{int $\ast$\&}]{coordinates }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em coordinates} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+takes user input and returns threw reference coordinates 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_a5cc3b601a9d163f5592b0382437cd70a}\label{class_game_a5cc3b601a9d163f5592b0382437cd70a}} 
+\index{Game@{Game}!hardTurn@{hardTurn}}
+\index{hardTurn@{hardTurn}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{hardTurn()}{hardTurn()}}
+{\footnotesize\ttfamily void Game\+::hard\+Turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+AI\textquotesingle{}s hard difficulty 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_a362481f9e7b337dd1da5579933e9f885}\label{class_game_a362481f9e7b337dd1da5579933e9f885}} 
+\index{Game@{Game}!mediumTurn@{mediumTurn}}
+\index{mediumTurn@{mediumTurn}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mediumTurn()}{mediumTurn()}}
+{\footnotesize\ttfamily void Game\+::medium\+Turn (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+AI\textquotesingle{}s medium difficulty 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_a656ab139a68ae95262136adaf74ed98b}\label{class_game_a656ab139a68ae95262136adaf74ed98b}} 
+\index{Game@{Game}!placeShips@{placeShips}}
+\index{placeShips@{placeShips}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{placeShips()}{placeShips()}}
+{\footnotesize\ttfamily void Game\+::place\+Ships (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{player,  }\item[{int}]{num\+Ships,  }\item[{int}]{p\+Num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+user\textquotesingle{}s input on how many ships they want 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_game_board}{Game\+Board}}} & player 1 and number of ships \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+ships are placed onto a board 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_a4d63e9b65e6a5acf127fb23aad184da1}\label{class_game_a4d63e9b65e6a5acf127fb23aad184da1}} 
+\index{Game@{Game}!placeShipsAI@{placeShipsAI}}
+\index{placeShipsAI@{placeShipsAI}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{placeShipsAI()}{placeShipsAI()}}
+{\footnotesize\ttfamily void Game\+::place\+Ships\+AI (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{AI,  }\item[{int}]{num\+Ships }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+one player mode is picked 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_game_board}{Game\+Board}}} & AI and number of ships \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+AI ship\textquotesingle{}s are placed 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_a44d710b043e6b34cd472ec8d7f51c0a1}\label{class_game_a44d710b043e6b34cd472ec8d7f51c0a1}} 
+\index{Game@{Game}!playAI@{playAI}}
+\index{playAI@{playAI}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{playAI()}{playAI()}}
+{\footnotesize\ttfamily void Game\+::play\+AI (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{Player1,  }\item[{\mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{AI,  }\item[{int}]{difficulty }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+ships are placed for AI and player 1 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_game_board}{Game\+Board}}} & player 1 and AI and AI difficulty \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+function where single player game is played 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_a2843de23ac00416bf57ac96aa009d9da}\label{class_game_a2843de23ac00416bf57ac96aa009d9da}} 
+\index{Game@{Game}!playGame@{playGame}}
+\index{playGame@{playGame}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{playGame()}{playGame()}}
+{\footnotesize\ttfamily void Game\+::play\+Game (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{Player1,  }\item[{\mbox{\hyperlink{class_game_board}{Game\+Board}} \&}]{Player2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+ships are placed for both players 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{class_game_board}{Game\+Board}}} & player 1 and 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+function where two player game is played 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_a6c6361f2dc078c8fbcb4e5151c83d6d0}\label{class_game_a6c6361f2dc078c8fbcb4e5151c83d6d0}} 
+\index{Game@{Game}!restrictIntInput@{restrictIntInput}}
+\index{restrictIntInput@{restrictIntInput}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{restrictIntInput()}{restrictIntInput()}}
+{\footnotesize\ttfamily int Game\+::restrict\+Int\+Input (\begin{DoxyParamCaption}\item[{int}]{option }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em the} & option \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+points out invalid options 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/mkapa/\+E\+E\+C\+S448-\/\+Project1-\/\+F\+A19/Game.\+h\item 
+C\+:/\+Users/mkapa/\+E\+E\+C\+S448-\/\+Project1-\/\+F\+A19/Game.\+cpp\end{DoxyCompactItemize}

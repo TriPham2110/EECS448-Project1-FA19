@@ -8,10 +8,10 @@
 class StringColor {
     public:
         /*
-         * @ pre none
-         *	@ param none
-         *	@ post constructor
-         * @ return none
+         * @pre none
+         *	     @param none
+         *	     @post constructor
+         *       @return none
          */
         StringColor(){};
 
@@ -41,23 +41,29 @@ class StringColor {
         static std::string SUNK;
         static std::string BACKGROUND;
 
-        /*
-		 * @ pre none
-		 *	@ param theme name
-		 *	@ post changes the theme colors
-		 * @ return none
+        /**
+		 *@pre none
+		 *	    @param theme name
+		 *	    @post changes the theme colors
+		 *     @return none
 		 */
         static void changeTheme(std::string themeName);
-        /*
-         * @ pre none
-         *	@ param none
-         *	@ post resets console to original color
-         * @ return none
+        /**
+         * @pre none
+         *	     @param none
+         *	     @post resets console to original color
+         *      @return none
          */
         static void reset();
 
-    
+
     private:
+        /**
+         * @pre none
+         *	     @param a and b coordinates
+         *	     @post generates random integers between a and b
+         *      @return returns an integer
+         */
         static int RandInt(int a, int b);
 
         std::string theme = "default";

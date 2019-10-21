@@ -1,0 +1,277 @@
+\hypertarget{class_score}{}\doxysection{Score Class Reference}
+\label{class_score}\index{Score@{Score}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_score_a039c99843551e5e4b512ecee99e46617}{Score}} ()
+\item 
+void \mbox{\hyperlink{class_score_aa5f18699cdf1168827a65d5b50be3057}{load\+Info}} ()
+\item 
+void \mbox{\hyperlink{class_score_ad8a62716476d197ef84286142bbc329b}{print}} ()
+\item 
+void \mbox{\hyperlink{class_score_a421ef3b9b42425bac4404a0ecbf4561a}{sort}} ()
+\item 
+void \mbox{\hyperlink{class_score_af48165e19ac23270639cc6ff360b0fdd}{write}} ()
+\item 
+void \mbox{\hyperlink{class_score_a0782651ef21b531fa390c44b07b43253}{insert}} ()
+\item 
+bool \mbox{\hyperlink{class_score_afc50912d1d2e0f08f07c64cbb4681d1d}{player\+In\+Scoreboard}} (std\+::string name)
+\item 
+void \mbox{\hyperlink{class_score_a14ca22f75756732caa24710efe98bc0d}{add\+New\+Player}} (std\+::string name)
+\item 
+void \mbox{\hyperlink{class_score_a6365b9c14ca78cba5542b55c394fc401}{player\+Add\+Win}} (std\+::string name)
+\item 
+void \mbox{\hyperlink{class_score_a213e1cd1a38fb6c429458f6677bb3514}{player\+Add\+Loss}} (std\+::string name)
+\item 
+void \mbox{\hyperlink{class_score_aed6a99e13b9335d2e4df7b1a6bd08d85}{update\+File}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_score_af1850d4d8010c7e9112814e7030b0432}\label{class_score_af1850d4d8010c7e9112814e7030b0432}} 
+std\+::vector$<$ \mbox{\hyperlink{struct_player}{Player}} $>$ {\bfseries scoreboard}
+\item 
+\mbox{\Hypertarget{class_score_a5344ecc1bc167a6fd99aec0fe6d04a60}\label{class_score_a5344ecc1bc167a6fd99aec0fe6d04a60}} 
+string {\bfseries name}
+\item 
+\mbox{\Hypertarget{class_score_aadf836f7fab5dd6e1171b0bfda5567e2}\label{class_score_aadf836f7fab5dd6e1171b0bfda5567e2}} 
+string {\bfseries wins}
+\item 
+\mbox{\Hypertarget{class_score_ad115920593023a0a4c2c5c1e5a1490f4}\label{class_score_ad115920593023a0a4c2c5c1e5a1490f4}} 
+string {\bfseries losses}
+\item 
+\mbox{\Hypertarget{class_score_a5d6c3ce125d7af1b5de7903381e13851}\label{class_score_a5d6c3ce125d7af1b5de7903381e13851}} 
+int {\bfseries ten} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_score_a039c99843551e5e4b512ecee99e46617}\label{class_score_a039c99843551e5e4b512ecee99e46617}} 
+\index{Score@{Score}!Score@{Score}}
+\index{Score@{Score}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{Score()}{Score()}}
+{\footnotesize\ttfamily Score\+::\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+constructor 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_score_a14ca22f75756732caa24710efe98bc0d}\label{class_score_a14ca22f75756732caa24710efe98bc0d}} 
+\index{Score@{Score}!addNewPlayer@{addNewPlayer}}
+\index{addNewPlayer@{addNewPlayer}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{addNewPlayer()}{addNewPlayer()}}
+{\footnotesize\ttfamily void Score\+::add\+New\+Player (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+adds new player to the scoreboard 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_score_a0782651ef21b531fa390c44b07b43253}\label{class_score_a0782651ef21b531fa390c44b07b43253}} 
+\index{Score@{Score}!insert@{insert}}
+\index{insert@{insert}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily void Score\+::insert (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+inserts player into the Scoreboard.\+tri 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_score_aa5f18699cdf1168827a65d5b50be3057}\label{class_score_aa5f18699cdf1168827a65d5b50be3057}} 
+\index{Score@{Score}!loadInfo@{loadInfo}}
+\index{loadInfo@{loadInfo}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{loadInfo()}{loadInfo()}}
+{\footnotesize\ttfamily void Score\+::load\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+loading the info 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_score_a213e1cd1a38fb6c429458f6677bb3514}\label{class_score_a213e1cd1a38fb6c429458f6677bb3514}} 
+\index{Score@{Score}!playerAddLoss@{playerAddLoss}}
+\index{playerAddLoss@{playerAddLoss}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{playerAddLoss()}{playerAddLoss()}}
+{\footnotesize\ttfamily void Score\+::player\+Add\+Loss (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+player\textquotesingle{}s loss 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_score_a6365b9c14ca78cba5542b55c394fc401}\label{class_score_a6365b9c14ca78cba5542b55c394fc401}} 
+\index{Score@{Score}!playerAddWin@{playerAddWin}}
+\index{playerAddWin@{playerAddWin}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{playerAddWin()}{playerAddWin()}}
+{\footnotesize\ttfamily void Score\+::player\+Add\+Win (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+player\textquotesingle{}s win 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_score_afc50912d1d2e0f08f07c64cbb4681d1d}\label{class_score_afc50912d1d2e0f08f07c64cbb4681d1d}} 
+\index{Score@{Score}!playerInScoreboard@{playerInScoreboard}}
+\index{playerInScoreboard@{playerInScoreboard}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{playerInScoreboard()}{playerInScoreboard()}}
+{\footnotesize\ttfamily bool Score\+::player\+In\+Scoreboard (\begin{DoxyParamCaption}\item[{std\+::string}]{name }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+checks to see if the player is in scoreboard 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false whether the player is in scoreboard 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_score_ad8a62716476d197ef84286142bbc329b}\label{class_score_ad8a62716476d197ef84286142bbc329b}} 
+\index{Score@{Score}!print@{print}}
+\index{print@{print}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily void Score\+::print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+prints the scoreboard 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_score_a421ef3b9b42425bac4404a0ecbf4561a}\label{class_score_a421ef3b9b42425bac4404a0ecbf4561a}} 
+\index{Score@{Score}!sort@{sort}}
+\index{sort@{sort}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{sort()}{sort()}}
+{\footnotesize\ttfamily void Score\+::sort (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+sorts the players from best to worst 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_score_aed6a99e13b9335d2e4df7b1a6bd08d85}\label{class_score_aed6a99e13b9335d2e4df7b1a6bd08d85}} 
+\index{Score@{Score}!updateFile@{updateFile}}
+\index{updateFile@{updateFile}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{updateFile()}{updateFile()}}
+{\footnotesize\ttfamily void Score\+::update\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+updates Scoreboard.\+tri 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_score_af48165e19ac23270639cc6ff360b0fdd}\label{class_score_af48165e19ac23270639cc6ff360b0fdd}} 
+\index{Score@{Score}!write@{write}}
+\index{write@{write}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void Score\+::write (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPostcond}{Postcondition}
+writes into Scoreboard.\+tri 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/mkapa/\+E\+E\+C\+S448-\/\+Project1-\/\+F\+A19/Score.\+h\item 
+C\+:/\+Users/mkapa/\+E\+E\+C\+S448-\/\+Project1-\/\+F\+A19/Score.\+cpp\end{DoxyCompactItemize}
