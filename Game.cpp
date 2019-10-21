@@ -3,41 +3,41 @@
 #include "StringColor.h"
 
 Game::Game(){
-        
-    
-    
-    
+
+
+
+
         srand(time(NULL));
         int numShips = -1;
         int choice;
         std::string newGame = "";
-        
-        
-    
+
+
+
     do{
         newGame = "";
         std::cout << ("Welcome to Battleship!") << std::endl;
 
         StringColor::changeTheme("default");
-    
-    
+
+
         std::cout << "1. Player vs Player" <<std::endl;
         std::cout << "2. Player vs Computer" <<std::endl;
         std::cout << "3. Change Theme" <<std::endl;
         std::cout << "4. Scoreboard" <<std::endl;
         std::cout << "5. Exit" <<std::endl;
-    
+
         std::cin>>choice;
 		choice = restrictIntInput(choice);
-        
-        
+
+
 
         if (choice == 2){
 
               std::cout<<("Enter your name:")<<std::endl;
               std::cin>>name1;
               int difficulty = -1;
-            
+
               if(!s.playerInScoreboard(name1)){
                   s.addNewPlayer(name1);
               }
@@ -73,14 +73,14 @@ Game::Game(){
               std::cin>>name1;
               std::cout<<("Enter Player 2 name:")<<std::endl;
               std::cin>>name2;
-            
+
               if(!s.playerInScoreboard(name1)){
                   s.addNewPlayer(name1);
               }
               if(!s.playerInScoreboard(name2)){
                   s.addNewPlayer(name2);
               }
-            
+
               while(numShips > 5 || numShips < 1){
                   std::cout << ("How many ships would you like to have(1-5): ")<< std::endl;
                   std::cin >> numShips;
@@ -105,7 +105,7 @@ Game::Game(){
 
               playGame(Player1, Player2);
          }
-    
+
         else if(choice == 3){
             system("clear");
             std::cout << "Choose Theme" <<std::endl;
@@ -115,11 +115,11 @@ Game::Game(){
             std::cout << "4. Apurva's theme" <<std::endl;
             std::cout << "5. Jace's theme" <<std::endl;
             std::cout << "6. Max's theme" <<std::endl;
-            
+
             int theme;
             std::cin>>theme;
 		    theme = restrictIntInput(theme);
-            
+
             if(theme == 1){
                 StringColor::changeTheme("default");
             }
@@ -138,14 +138,14 @@ Game::Game(){
             else if(theme == 6){
                 StringColor::changeTheme("max");
             }
-            
+
             system("clear");
-            
+
         }
-    
+
         else if (choice == 4){
             system("clear");
-            
+
             try{
                 s.loadInfo();
                 s.sort();
@@ -156,36 +156,36 @@ Game::Game(){
             std::cout <<std::endl;
             std::cout << "Press enter to return to main menu" <<std::endl;
             getchar();
-            
-            
+
+
         }
-        
-        
+
+
         if(choice == 2 || choice == 1){
             while((newGame != "Y" && newGame != "y") && (newGame != "N" && newGame != "n")){
             std::cout << "\nNew Game? [Y/n]:";
             std::cin >> newGame;
             }
-            
+
             if(newGame == "n" || newGame == "N" ){
                 choice = 5;
             }
             else{
                 choice = 3;
             }
-            
-        }
-        
-        
 
-        
+        }
+
+
+
+
         system("clear");
-        
+
     }while(choice != 2 && choice != 1 && choice !=5);
-    
-    
-    
-    
+
+
+
+
 
 
 }
@@ -336,7 +336,6 @@ void Game::placeShipsAI(GameBoard& AI, int numShips){
 
 void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
 {
-    AIOpponent * AIPlayer = new AIOpponent(&Player1, &AI);
     system("clear");
     while(!Player1.gameOver() && !AI.gameOver()){
         int row, col;
@@ -412,13 +411,13 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
         if(AI.gameOver())
             break;
 
-        // player 2 turn
+        // AI's turn
         if(difficulty == 0)
-            AIPlayer->easyTurn();
+            easyTurn();
         else if(difficulty == 1)
-            AIPlayer->mediumTurn();
+            mediumTurn();
         else if(difficulty == 2)
-            AIPlayer->hardTurn();
+            hardTurn();
 
         if(Player1.gameOver())
             break;
@@ -429,7 +428,7 @@ void Game::playAI(GameBoard& Player1, GameBoard& AI, int difficulty)
     }
     else
         std::cout << "Congrats "<<name1<<", you won" << std::endl;
-    
+
     std::cout << "Your board :\n";
     Player1.printBoard();
     std::cout << "\nAI's board :\n";
@@ -584,7 +583,7 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
     if(Player2.gameOver()){
         std::cout << "Congrats "<<name1<<", you won" << std::endl;
     }
-    
+
     std::cout << name1 << "'s board :\n";
     Player1.printBoard();
     std::cout << name2 << "'s board :\n";
@@ -648,4 +647,108 @@ void Game::getCoordinateInput(int*& coordinates){
             }
         }
     }
+}
+
+void Game::easyTurn(){
+	do{
+		int xRandom = rand() % 8;
+		int yRandom = rand() % 8;
+		xRandomValue = xRandom;
+		yRandomValue = yRandom;
+	}while(AI.getOppBoard()[xRandomValue][yRandomValue] != 0);
+
+    std::string outcome = Player1.fire(xRandomValue, yRandomValue);
+    Player1.updateMyBoard(xRandomValue, yRandomValue, outcome);
+
+	AI.updateOppBoard(xRandomValue, yRandomValue, outcome);
+}
+
+void Game::mediumTurn(){
+	std::string tempTemp;
+	std::cout << "mediumFlag: " << mediumTurnFlag << std::endl;
+	if(mediumTurnFlag == 0){
+		do{
+			int xRandom = rand() % 8;
+			int yRandom = rand() % 8;
+			xRandomValue = xRandom;
+			yRandomValue = yRandom;
+		}while(AI.getOppBoard()[xRandomValue][yRandomValue] != 0);
+		std::string temp = Player1.fire(xRandomValue, yRandomValue);
+		tempTemp = temp;
+		AI.updateOppBoard(xRandomValue, yRandomValue, temp);
+        Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
+		if(temp == "Hit"){
+			mediumTurnFlag = 1;
+		}
+	}
+
+	else if(mediumTurnFlag != 0){
+		if(xRandomValue >= (0 + mediumTurnFlag) && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= 7 && AI.getOppBoard()[xRandomValue-mediumTurnFlag][yRandomValue] == 0){
+			std::string temp = Player1.fire(xRandomValue-mediumTurnFlag, yRandomValue);
+			tempTemp = temp;
+			AI.updateOppBoard(xRandomValue-mediumTurnFlag, yRandomValue, temp);
+            Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
+
+			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AI.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0) && !(xRandomValue >= 0 && xRandomValue <= (7- mediumTurnFlag) && yRandomValue >= 0 && yRandomValue <= 7 && AI.getOppBoard()[xRandomValue+mediumTurnFlag][yRandomValue] == 0) && !(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= (7 - mediumTurnFlag) && AI.getOppBoard()[xRandomValue][yRandomValue+mediumTurnFlag] == 0)){
+				mediumTurnFlag++;
+			}
+
+			if(temp == "Sunk"){
+				mediumTurnFlag = 0;
+			}
+		}
+		else if(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= 0 && yRandomValue <= (7 - mediumTurnFlag) && AI.getOppBoard()[xRandomValue][yRandomValue+mediumTurnFlag] == 0){
+			std::string temp = Player1.fire(xRandomValue, yRandomValue+mediumTurnFlag);
+			tempTemp = temp;
+			AI.updateOppBoard(xRandomValue, yRandomValue+mediumTurnFlag, temp);
+            Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
+
+			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AI.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0) && !(xRandomValue >= 0 && xRandomValue <= (7- mediumTurnFlag) && yRandomValue >= 0 && yRandomValue <= 7 && AI.getOppBoard()[xRandomValue+mediumTurnFlag][yRandomValue] == 0)){
+				mediumTurnFlag++;
+			}
+
+			if(temp == "Sunk"){
+				mediumTurnFlag = 0;
+			}
+		}
+		else if(xRandomValue >= 0 && xRandomValue <= (7- mediumTurnFlag) && yRandomValue >= 0 && yRandomValue <= 7 && AI.getOppBoard()[xRandomValue+mediumTurnFlag][yRandomValue] == 0){
+			std::string temp = Player1.fire(xRandomValue+mediumTurnFlag, yRandomValue);
+			tempTemp = temp;
+			AI.updateOppBoard(xRandomValue+mediumTurnFlag, yRandomValue, temp);
+            Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
+
+			if(!(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AI.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0)){
+				mediumTurnFlag++;
+			}
+
+			if(temp == "Sunk"){
+				mediumTurnFlag = 0;
+			}
+		}
+		else if(xRandomValue >= 0 && xRandomValue <= 7 && yRandomValue >= (0 + mediumTurnFlag) && yRandomValue <= 7 && AI.getOppBoard()[xRandomValue][yRandomValue-mediumTurnFlag] == 0){
+			std::string temp = Player1.fire(xRandomValue, yRandomValue-mediumTurnFlag);
+			tempTemp = temp;
+			AI.updateOppBoard(xRandomValue, yRandomValue-mediumTurnFlag, temp);
+            Player1.updateMyBoard(xRandomValue, yRandomValue, temp);
+
+			mediumTurnFlag++;
+
+			if(temp == "Sunk"){
+				mediumTurnFlag = 0;
+			}
+		}
+	}
+}
+
+void Game::hardTurn(){
+	for(int x = 0; x < 8; x++){
+		for(int y = 0; y < 8; y++){
+			if(Player1.getBoard()[x][y] == 1 && (AI.getOppBoard()[x][y] != 2 )){
+                std::string outcome = Player1.fire(x,y);
+                Player1.updateMyBoard(x,y,outcome);
+				AI.updateOppBoard(x, y, outcome);
+				return;
+			}
+		}
+	}
 }
