@@ -31,10 +31,10 @@ std::string StringColor::BACKGROUND = "\033[44m";
 
 void StringColor::changeTheme(std::string themeName){
     if(themeName == "default"){
-        BACKGROUND = "\033[44m";
+        BACKGROUND = "\033[40m";
         BORDER = "\033[1m\033[33m";
         TEXT = "\033[1m\033[33m\033[40m";
-        WATER = BACKGROUND + BOLDWHITE + "░▒░";
+        WATER = "\033[44m" + BOLDWHITE + "░▒░";
         SHIP = "\033[40m" + YELLOW + "═╩═";
         HIT = RED +" # ";
         MISS = CYAN + " Ω ";
@@ -53,26 +53,34 @@ void StringColor::changeTheme(std::string themeName){
         SUNK = BOLDYELLOW + " ≠ ";
     }
     else if(themeName == "tri"){
-		BACKGROUND = "\033[44m";
+		BACKGROUND = "\033[40m";
         BORDER = "\033[1m\033[33m";
         TEXT = "\033[1m\033[33m\033[40m";
-        WATER = BACKGROUND + GREEN + "▒░▒";
+        WATER = "\033[44m" + GREEN + "▒░▒";
         SHIP = "\033[40m" + BOLDWHITE + "◥۩◤";
         HIT = RED + " ๑ ";
         MISS = CYAN + MISS;
         SUNK = MAGENTA + " ✖ ";
     }
     else if(themeName == "apurva"){
-        BACKGROUND = "\033[1m\033[32m";
+        BACKGROUND = "\033[1m\033[42m";
         BORDER = "\033[1m\033[31m";
         TEXT = "\033[1m\033[36m";
         WATER = "\033[1m\033[32m" + BOLDBLACK + "░▒░";
-        SHIP = "\033[40m" + RED + "═╩═";
+        SHIP = "\033[40m" + RED + "◥۩◤";
         HIT = WHITE + " # ";
         MISS = BLUE + " Ω ";
         SUNK = CYAN + " ≠ ";
     }
     else if(themeName == "jace"){
+        BACKGROUND = "\033[1m\033[40m";
+        BORDER = "\033[1m\033[31m";
+        TEXT = "\033[1m\033[31m";
+        WATER = "\033[1m\033[32m" + BOLDBLACK + "░▒░";
+        SHIP = "\033[40m" + RED + "◥۩◤";
+        HIT = WHITE + " # ";
+        MISS = BLUE + " Ω ";
+        SUNK = CYAN + " ≠ ";
     }
     else if(themeName == "max"){
         BACKGROUND = "\033[" + std::to_string(RandInt(40, 7)) + "m";
