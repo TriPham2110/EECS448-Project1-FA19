@@ -14,7 +14,7 @@ class StringColor {
          * @ return none
          */
         StringColor(){};
-        
+
         static const std::string RESET;
         static const std::string BLACK;
         static const std::string RED;
@@ -40,15 +40,27 @@ class StringColor {
         static std::string MISS;
         static std::string SUNK;
         static std::string BACKGROUND;
-    
+
+        /*
+		 * @ pre none
+		 *	@ param theme name
+		 *	@ post changes the theme colors
+		 * @ return none
+		 */
         static void changeTheme(std::string themeName);
+        /*
+         * @ pre none
+         *	@ param none
+         *	@ post resets console to original color
+         * @ return none
+         */
         static void reset();
-        
+
     
     private:
-        
+
         std::string theme = "default";
-        
+
 
 };
 #endif
