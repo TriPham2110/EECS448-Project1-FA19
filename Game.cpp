@@ -142,32 +142,40 @@ Game::Game(){
 
             if(theme == 1){
                 StringColor::changeTheme("default");
+                std::cout << StringColor::BACKGROUND <<std::endl;
             }
             else if(theme == 2){
                 StringColor::changeTheme("meet");
-                std::cout << "testing working" <<std::endl;
-                std::cout << StringColor::WATER <<std::endl;
+                std::cout << StringColor::BACKGROUND <<std::endl;
+                
             }
             else if(theme == 3){
                 StringColor::changeTheme("tri");
+                std::cout << StringColor::BACKGROUND <<std::endl;
             }
             else if(theme == 4){
                 StringColor::changeTheme("apurva");
+                std::cout << StringColor::BACKGROUND <<std::endl;
             }
             else if(theme == 5){
                 StringColor::changeTheme("jace");
+                std::cout << StringColor::BACKGROUND <<std::endl;
             }
             else if(theme == 6){
                 StringColor::changeTheme("max");
+                std::cout << StringColor::BACKGROUND <<std::endl;
             }
             else if(theme == 7){
                 StringColor::changeTheme("lightMode");
+                std::cout << StringColor::BACKGROUND <<std::endl;
             }
             else if(theme == 8){
                 StringColor::changeTheme("darkMode");
+                std::cout << StringColor::BACKGROUND <<std::endl;
             }
             else if(theme == 9){
                 StringColor::changeTheme("chaos");
+                std::cout << StringColor::BACKGROUND <<std::endl;
             }
 
             system("clear");
