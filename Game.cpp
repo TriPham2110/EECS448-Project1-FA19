@@ -11,19 +11,19 @@ Game::Game(){
         int numShips = -1;
         int choice;
         std::string newGame = "";
-    
+
         s.loadInfo();
         StringColor::changeTheme("default");
 
 
     do{
         std::cout << StringColor::TEXT;
-        
-        
+
+
         Player1.resetBoard();
         Player2.resetBoard();
         AI.resetBoard();
-        
+
         numShips = -1;
         newGame = "";
         std::cout << ("Welcome to Battleship!") << std::endl;
@@ -37,23 +37,23 @@ Game::Game(){
         std::cout << "5. Exit" <<std::endl;
 
         std::cin>>choice;
-		choice = restrictIntInput(choice);
+		    choice = restrictIntInput(choice);
 
 
 
         if (choice == 2){
               std::cout <<std::endl;
               std::cout<<("Enter your name:")<<std::endl;
-              std::cin>>name1;
+              std::getline(std::cin, name1);
               int difficulty = -1;
 
               if(!s.playerInScoreboard(name1)){
-                  
+
                   s.addNewPlayer(name1);
                   s.loadInfo();
               }
 
-              while(difficulty > 3 || difficulty < 0){
+              while(difficulty > 2 || difficulty < 0){
                   std::cout <<std::endl;
                   std::cout << "Please select a difficulty" << std::endl;
                   std::cout << "0 - Easy" << std::endl;
@@ -83,11 +83,10 @@ Game::Game(){
         else if (choice == 1){
               std::cout <<std::endl;
               std::cout<<("Enter Player 1 name:")<<std::endl;
-              std::cin>>name1;
+              std::getline(std::cin, name1);
               std::cout <<std::endl;
               std::cout<<("Enter Player 2 name:")<<std::endl;
-              std::cin>>name2;
-              std::cout <<std::endl;
+              std::getline(std::cin, name2);
 
               if(!s.playerInScoreboard(name1)){
                   s.addNewPlayer(name1);
@@ -239,9 +238,9 @@ void Game::placeShips(GameBoard &player, int numShips, int pNum){
         system("clear");
 
 		player.printBoard();
-        
+
         tempName = "";
-        
+
         if(pNum == 1){
             tempName = name1;
         }
@@ -296,13 +295,12 @@ void Game::placeShips(GameBoard &player, int numShips, int pNum){
 			//is vertical or horizontal
 		}
 		player.addShip(tempShip);
-
 	}
     system("clear");
     player.printBoard();
     std::cout << tempName << "'s board\nPress enter to continue";
     getchar();
-    
+
     system("clear");
 }
 
@@ -485,12 +483,12 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
         int row, col;
         bool validInput = false;
         system("clear");
-        
+
         std::cout << name1 << "'s turn\nPress enter to start turn";
         getchar();
-        
+
         system("clear");
-        
+
 
         std::cout << ("")<< std::endl;;
         std::cout << name1 <<" please fire"<< std::endl;
@@ -558,10 +556,10 @@ void Game::playGame( GameBoard& Player1, GameBoard& Player2){
             break;
 
         system("clear");
-        
+
         std::cout << name2 << "'s turn\nPress enter to start turn";
         getchar();
-        
+
         system("clear");
 
         std::cout << ("")<< std::endl;

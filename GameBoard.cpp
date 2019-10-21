@@ -252,7 +252,11 @@ void GameBoard::resetBoard(){
 		oppBoard[i][j] = 0;
 		}
 	}
-    ships.clear();
+	while(!ships.empty()){
+		delete ships.back();
+		ships.back() = nullptr;
+		ships.pop_back();
+	}
 }
 
 GameBoard& GameBoard::operator=(const GameBoard &a)
